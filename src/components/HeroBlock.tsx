@@ -20,10 +20,13 @@ export const HeroBlock = () => {
               <img
                 src={heroImage}
                 alt="Retrato profissional de Pedro Sá em estúdio, blazer escuro com fundo neutro, braços cruzados e expressão confiante"
-                className="relative w-full h-auto drop-shadow-[0_20px_50px_rgba(203,163,92,0.3)] object-cover aspect-[3/4] transition-transform duration-700 hover:scale-105"
+                className="relative w-full h-auto object-cover transition-transform duration-700 hover:scale-105"
                 loading="eager"
                 decoding="async"
-                style={{ filter: 'drop-shadow(0 25px 60px rgba(0,0,0,0.6))' }}
+                style={{ 
+                  filter: 'drop-shadow(0 25px 60px rgba(0,0,0,0.6)) drop-shadow(0 10px 30px rgba(203,163,92,0.25))',
+                  clipPath: 'none'
+                }}
               />
               {/* Floating accent elements */}
               <div className="absolute -bottom-6 -left-6 w-24 h-24 bg-primary/20 rounded-full blur-2xl animate-pulse"></div>
@@ -42,28 +45,24 @@ export const HeroBlock = () => {
               </p>
             </div>
 
-            <p className="text-base md:text-lg font-inter text-muted-foreground leading-relaxed backdrop-blur-sm bg-background/30 p-6 rounded-2xl border border-border/50 shadow-elevation">
+            <p className="text-base md:text-lg font-inter text-muted-foreground leading-relaxed max-w-2xl">
               Mais do que comunicar, é preciso gerar conexão. Com planejamento estratégico e marketing 
               ajudo negócios, governos e pessoas a se posicionarem com autenticidade e impacto.
               <br /><br />
               Cada projeto é uma história contada com propósito e estratégia.
             </p>
 
-            {/* Authority Chips - floating */}
-            <div className="flex flex-wrap gap-3 pt-2">
-              <div className="px-4 py-2 text-sm font-inter bg-card/80 backdrop-blur-md border border-border rounded-full shadow-lg hover:shadow-gold hover:border-primary/50 transition-all">
-                Desde 2014
-              </div>
-              <div className="px-4 py-2 text-sm font-inter bg-card/80 backdrop-blur-md border border-border rounded-full shadow-lg hover:shadow-gold hover:border-primary/50 transition-all">
-                Comunicação pública e privada
-              </div>
-              <div className="px-4 py-2 text-sm font-inter bg-card/80 backdrop-blur-md border border-border rounded-full shadow-lg hover:shadow-gold hover:border-primary/50 transition-all">
-                Projetos no TO/AM e Brasil
-              </div>
+            {/* Authority Chips - floating text */}
+            <div className="flex flex-wrap gap-6 pt-2 text-sm font-inter text-muted-foreground/80">
+              <span className="relative hover:text-primary transition-colors">Desde 2014</span>
+              <span className="text-muted-foreground/40">•</span>
+              <span className="relative hover:text-primary transition-colors">Comunicação pública e privada</span>
+              <span className="text-muted-foreground/40">•</span>
+              <span className="relative hover:text-primary transition-colors">Projetos no TO/AM e Brasil</span>
             </div>
 
             {/* CTAs */}
-            <div className="flex flex-col sm:flex-row gap-4 pt-4">
+            <div className="flex flex-col sm:flex-row gap-4 pt-6">
               <div className="flex flex-col gap-2">
                 <Button 
                   size="lg"
@@ -78,7 +77,7 @@ export const HeroBlock = () => {
               <Button 
                 variant="outline" 
                 size="lg"
-                className="border-border hover:bg-card hover:border-primary transition-all font-poppins font-semibold backdrop-blur-sm"
+                className="border-border/60 hover:bg-card/50 hover:border-primary transition-all font-poppins font-semibold"
               >
                 Ver Bio
               </Button>
@@ -92,10 +91,10 @@ export const HeroBlock = () => {
               <img
                 src={heroImage}
                 alt="Retrato profissional de Pedro Sá em estúdio, blazer escuro com fundo neutro, braços cruzados e expressão confiante"
-                className="relative w-full h-auto rounded-2xl shadow-elevation object-cover aspect-[3/4]"
+                className="relative w-full h-auto object-cover aspect-[3/4]"
                 loading="eager"
                 decoding="async"
-                style={{ filter: 'drop-shadow(0 25px 60px rgba(0,0,0,0.6))' }}
+                style={{ filter: 'drop-shadow(0 25px 60px rgba(0,0,0,0.6)) drop-shadow(0 10px 30px rgba(203,163,92,0.25))' }}
               />
             </div>
           </div>

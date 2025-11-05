@@ -26,7 +26,7 @@ export const ValueBlock = () => {
                 decoding="async"
                 style={{ 
                   filter: 'drop-shadow(0 30px 70px rgba(0,0,0,0.7)) drop-shadow(0 10px 30px rgba(203,163,92,0.2))',
-                  clipPath: 'ellipse(90% 95% at 50% 50%)'
+                  clipPath: 'none'
                 }}
               />
               
@@ -42,51 +42,51 @@ export const ValueBlock = () => {
               Sua marca precisa de direção, não de adivinhação.
             </h2>
 
-            <p className="text-lg font-inter text-muted-foreground leading-relaxed backdrop-blur-sm bg-card/40 p-6 rounded-2xl border border-border/50 shadow-elevation">
+            <p className="text-lg font-inter text-muted-foreground leading-relaxed max-w-2xl">
               Desde 2014 planejo, crio e executo estratégias de comunicação que aumentam o valor 
               percebido da sua empresa e fortalecem a relação com seu público.
               <br /><br />
               Estratégia, criatividade e resultado — na mesma direção.
             </p>
 
-            {/* Value Bullets - floating cards */}
-            <div className="space-y-4 pt-4">
-              <div className="flex gap-4 items-start group backdrop-blur-md bg-card/60 p-4 rounded-xl border border-border/50 hover:border-primary/50 transition-all shadow-lg hover:shadow-gold hover:scale-[1.02] duration-300">
-                <div className="flex-shrink-0 w-12 h-12 rounded-lg bg-gradient-to-br from-primary/20 to-primary/5 border border-primary/30 flex items-center justify-center group-hover:scale-110 transition-transform shadow-lg">
-                  <Target className="w-6 h-6 text-primary" />
+            {/* Value Bullets - floating elements */}
+            <div className="space-y-6 pt-4">
+              <div className="flex gap-4 items-start group transition-all duration-300 hover:translate-x-2">
+                <div className="flex-shrink-0 w-12 h-12 flex items-center justify-center group-hover:scale-110 transition-transform">
+                  <Target className="w-7 h-7 text-primary drop-shadow-[0_0_8px_rgba(203,163,92,0.4)]" />
                 </div>
                 <div>
-                  <h3 className="font-poppins font-semibold text-foreground mb-1">Direção clara</h3>
+                  <h3 className="font-poppins font-semibold text-foreground mb-1 text-lg">Direção clara</h3>
                   <p className="text-sm text-muted-foreground font-inter">Diagnóstico + plano de ação</p>
                 </div>
               </div>
 
-              <div className="flex gap-4 items-start group backdrop-blur-md bg-card/60 p-4 rounded-xl border border-border/50 hover:border-primary/50 transition-all shadow-lg hover:shadow-gold hover:scale-[1.02] duration-300" style={{ transitionDelay: '50ms' }}>
-                <div className="flex-shrink-0 w-12 h-12 rounded-lg bg-gradient-to-br from-primary/20 to-primary/5 border border-primary/30 flex items-center justify-center group-hover:scale-110 transition-transform shadow-lg">
-                  <MessageSquare className="w-6 h-6 text-primary" />
+              <div className="flex gap-4 items-start group transition-all duration-300 hover:translate-x-2">
+                <div className="flex-shrink-0 w-12 h-12 flex items-center justify-center group-hover:scale-110 transition-transform">
+                  <MessageSquare className="w-7 h-7 text-primary drop-shadow-[0_0_8px_rgba(203,163,92,0.4)]" />
                 </div>
                 <div>
-                  <h3 className="font-poppins font-semibold text-foreground mb-1">Mensagem coerente</h3>
+                  <h3 className="font-poppins font-semibold text-foreground mb-1 text-lg">Mensagem coerente</h3>
                   <p className="text-sm text-muted-foreground font-inter">Posicionamento, narrativa, reputação</p>
                 </div>
               </div>
 
-              <div className="flex gap-4 items-start group backdrop-blur-md bg-card/60 p-4 rounded-xl border border-border/50 hover:border-primary/50 transition-all shadow-lg hover:shadow-gold hover:scale-[1.02] duration-300" style={{ transitionDelay: '100ms' }}>
-                <div className="flex-shrink-0 w-12 h-12 rounded-lg bg-gradient-to-br from-primary/20 to-primary/5 border border-primary/30 flex items-center justify-center group-hover:scale-110 transition-transform shadow-lg">
-                  <TrendingUp className="w-6 h-6 text-primary" />
+              <div className="flex gap-4 items-start group transition-all duration-300 hover:translate-x-2">
+                <div className="flex-shrink-0 w-12 h-12 flex items-center justify-center group-hover:scale-110 transition-transform">
+                  <TrendingUp className="w-7 h-7 text-primary drop-shadow-[0_0_8px_rgba(203,163,92,0.4)]" />
                 </div>
                 <div>
-                  <h3 className="font-poppins font-semibold text-foreground mb-1">Execução mensurável</h3>
+                  <h3 className="font-poppins font-semibold text-foreground mb-1 text-lg">Execução mensurável</h3>
                   <p className="text-sm text-muted-foreground font-inter">Metas, aprendizados, escala</p>
                 </div>
               </div>
             </div>
 
             {/* CTA */}
-            <div className="pt-4">
+            <div className="pt-6">
               <Button 
                 variant="outline"
-                className="border-primary text-primary hover:bg-primary hover:text-primary-foreground transition-all font-poppins font-semibold shadow-lg backdrop-blur-sm"
+                className="border-primary/60 text-primary hover:bg-primary hover:text-primary-foreground transition-all font-poppins font-semibold"
               >
                 Ver estudos de caso
               </Button>
@@ -103,10 +103,10 @@ export const ValueBlock = () => {
               <img
                 src={valueImage}
                 alt="Close do rosto de Pedro Sá olhando diretamente para a câmera, óculos modernos, fundo escuro minimalista transmitindo seriedade e profissionalismo"
-                className="relative w-full h-auto rounded-2xl shadow-elevation object-cover aspect-[3/4]"
+                className="relative w-full h-auto object-cover aspect-[3/4]"
                 loading="lazy"
                 decoding="async"
-                style={{ filter: 'drop-shadow(0 30px 70px rgba(0,0,0,0.7))' }}
+                style={{ filter: 'drop-shadow(0 30px 70px rgba(0,0,0,0.7)) drop-shadow(0 10px 30px rgba(203,163,92,0.2))' }}
               />
             </div>
           </div>

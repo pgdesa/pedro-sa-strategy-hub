@@ -27,7 +27,7 @@ export const CTABlock = () => {
                 decoding="async"
                 style={{ 
                   filter: 'drop-shadow(0 35px 80px rgba(0,0,0,0.8)) drop-shadow(0 15px 40px rgba(255,168,92,0.2))',
-                  clipPath: 'ellipse(92% 96% at 50% 50%)'
+                  clipPath: 'none'
                 }}
               />
               
@@ -46,55 +46,41 @@ export const CTABlock = () => {
               Quer conhecer mais sobre o meu trabalho?
             </h2>
 
-            <p className="text-base text-muted-foreground font-inter backdrop-blur-sm bg-card/30 p-4 rounded-xl border border-border/40">
+            <p className="text-base text-muted-foreground font-inter">
               Escolha um caminho e continue — a navegação é linear e direta.
             </p>
 
-            {/* CTA Buttons - floating cards */}
-            <div className="space-y-4 pt-4">
-              <Button 
-                size="lg"
-                variant="outline"
-                className="w-full sm:w-auto justify-start gap-4 h-auto py-4 px-6 border-border/60 hover:border-primary hover:bg-card/80 backdrop-blur-md transition-all group shadow-lg hover:shadow-gold hover:scale-[1.02]"
-              >
-                <div className="flex-shrink-0 w-10 h-10 rounded-lg bg-gradient-to-br from-primary/20 to-primary/5 border border-primary/30 flex items-center justify-center group-hover:scale-110 transition-transform shadow-md">
-                  <User className="w-5 h-5 text-primary" />
+            {/* CTA Buttons - floating */}
+            <div className="space-y-5 pt-6">
+              <div className="flex gap-4 items-center group cursor-pointer transition-all duration-300 hover:translate-x-3">
+                <div className="flex-shrink-0 w-12 h-12 flex items-center justify-center group-hover:scale-110 transition-transform">
+                  <User className="w-7 h-7 text-primary drop-shadow-[0_0_10px_rgba(203,163,92,0.5)]" />
                 </div>
                 <div className="text-left">
-                  <div className="font-poppins font-semibold text-foreground">Quem sou eu</div>
-                  <div className="text-xs text-muted-foreground font-inter">minha trajetória e visão</div>
+                  <div className="font-poppins font-semibold text-foreground text-lg">Quem sou eu</div>
+                  <div className="text-sm text-muted-foreground font-inter">minha trajetória e visão</div>
                 </div>
-              </Button>
+              </div>
 
-              <Button 
-                size="lg"
-                variant="outline"
-                className="w-full sm:w-auto justify-start gap-4 h-auto py-4 px-6 border-border/60 hover:border-primary hover:bg-card/80 backdrop-blur-md transition-all group shadow-lg hover:shadow-gold hover:scale-[1.02]"
-                style={{ transitionDelay: '50ms' }}
-              >
-                <div className="flex-shrink-0 w-10 h-10 rounded-lg bg-gradient-to-br from-primary/20 to-primary/5 border border-primary/30 flex items-center justify-center group-hover:scale-110 transition-transform shadow-md">
-                  <Briefcase className="w-5 h-5 text-primary" />
+              <div className="flex gap-4 items-center group cursor-pointer transition-all duration-300 hover:translate-x-3">
+                <div className="flex-shrink-0 w-12 h-12 flex items-center justify-center group-hover:scale-110 transition-transform">
+                  <Briefcase className="w-7 h-7 text-primary drop-shadow-[0_0_10px_rgba(203,163,92,0.5)]" />
                 </div>
                 <div className="text-left">
-                  <div className="font-poppins font-semibold text-foreground">Veja meus projetos</div>
-                  <div className="text-xs text-muted-foreground font-inter">portfólio visual</div>
+                  <div className="font-poppins font-semibold text-foreground text-lg">Veja meus projetos</div>
+                  <div className="text-sm text-muted-foreground font-inter">portfólio visual</div>
                 </div>
-              </Button>
+              </div>
 
-              <Button 
-                size="lg"
-                variant="outline"
-                className="w-full sm:w-auto justify-start gap-4 h-auto py-4 px-6 border-border/60 hover:border-primary hover:bg-card/80 backdrop-blur-md transition-all group shadow-lg hover:shadow-gold hover:scale-[1.02]"
-                style={{ transitionDelay: '100ms' }}
-              >
-                <div className="flex-shrink-0 w-10 h-10 rounded-lg bg-gradient-to-br from-primary/20 to-primary/5 border border-primary/30 flex items-center justify-center group-hover:scale-110 transition-transform shadow-md">
-                  <FileText className="w-5 h-5 text-primary" />
+              <div className="flex gap-4 items-center group cursor-pointer transition-all duration-300 hover:translate-x-3">
+                <div className="flex-shrink-0 w-12 h-12 flex items-center justify-center group-hover:scale-110 transition-transform">
+                  <FileText className="w-7 h-7 text-primary drop-shadow-[0_0_10px_rgba(203,163,92,0.5)]" />
                 </div>
                 <div className="text-left">
-                  <div className="font-poppins font-semibold text-foreground">Conheça meu trabalho</div>
-                  <div className="text-xs text-muted-foreground font-inter">resultados em ação</div>
+                  <div className="font-poppins font-semibold text-foreground text-lg">Conheça meu trabalho</div>
+                  <div className="text-sm text-muted-foreground font-inter">resultados em ação</div>
                 </div>
-              </Button>
+              </div>
             </div>
           </div>
 
@@ -105,10 +91,10 @@ export const CTABlock = () => {
               <img
                 src={ctaImage}
                 alt="Perfil lateral de Pedro Sá em estúdio, destacando rim-light nas bordas, blazer escuro e postura contemplativa profissional"
-                className="relative w-full h-auto rounded-2xl shadow-elevation object-cover aspect-[3/4]"
+                className="relative w-full h-auto object-cover aspect-[3/4]"
                 loading="lazy"
                 decoding="async"
-                style={{ filter: 'drop-shadow(0 35px 80px rgba(0,0,0,0.8))' }}
+                style={{ filter: 'drop-shadow(0 35px 80px rgba(0,0,0,0.8)) drop-shadow(0 15px 40px rgba(255,168,92,0.2))' }}
               />
             </div>
           </div>
