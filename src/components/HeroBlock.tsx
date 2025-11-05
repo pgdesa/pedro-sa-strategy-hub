@@ -4,38 +4,62 @@ import heroImage from "@/assets/FINALSITE1.jpg";
 
 export const HeroBlock = () => {
   return (
-    <section className="min-h-screen flex items-center justify-center bg-gradient-to-b from-background to-card px-6 pt-20">
-      <div className="container mx-auto max-w-7xl">
-        <div className="grid lg:grid-cols-5 gap-12 lg:gap-16 items-center">
-          {/* Text Content - 60% */}
-          <div className="lg:col-span-3 space-y-8 animate-fade-in">
+    <section className="relative min-h-screen flex items-center justify-center overflow-hidden px-6 pt-20">
+      {/* Background layers with depth */}
+      <div className="absolute inset-0 bg-gradient-to-br from-background via-card to-background"></div>
+      <div className="absolute inset-0 bg-gradient-radial from-primary/5 via-transparent to-transparent"></div>
+      
+      <div className="container mx-auto max-w-7xl relative z-10">
+        <div className="relative">
+          {/* Floating image with parallax - positioned absolutely for depth */}
+          <div className="absolute right-0 top-1/2 -translate-y-1/2 w-[45%] lg:w-[38%] animate-fade-in-delay parallax-subtle hidden lg:block">
+            <div className="relative">
+              {/* Glow effect behind image */}
+              <div className="absolute -inset-8 bg-gradient-to-br from-primary/30 via-accent/20 to-transparent rounded-full blur-3xl opacity-60"></div>
+              {/* Image with removed background effect */}
+              <img
+                src={heroImage}
+                alt="Retrato profissional de Pedro Sá em estúdio, blazer escuro com fundo neutro, braços cruzados e expressão confiante"
+                className="relative w-full h-auto drop-shadow-[0_20px_50px_rgba(203,163,92,0.3)] object-cover aspect-[3/4] transition-transform duration-700 hover:scale-105"
+                loading="eager"
+                decoding="async"
+                style={{ filter: 'drop-shadow(0 25px 60px rgba(0,0,0,0.6))' }}
+              />
+              {/* Floating accent elements */}
+              <div className="absolute -bottom-6 -left-6 w-24 h-24 bg-primary/20 rounded-full blur-2xl animate-pulse"></div>
+              <div className="absolute -top-6 -right-6 w-32 h-32 bg-accent/15 rounded-full blur-2xl animate-pulse" style={{ animationDelay: '1s' }}></div>
+            </div>
+          </div>
+
+          {/* Text Content - floating over scene */}
+          <div className="relative z-20 max-w-3xl space-y-8 animate-fade-in lg:pr-[42%]">
             <div className="space-y-4">
-              <h1 className="text-5xl md:text-6xl lg:text-7xl font-poppins font-bold text-foreground tracking-tight">
+              <h1 className="text-5xl md:text-6xl lg:text-7xl font-poppins font-bold text-foreground tracking-tight drop-shadow-[0_2px_10px_rgba(0,0,0,0.3)]">
                 PEDRO SÁ
               </h1>
-              <p className="text-xl md:text-2xl font-poppins font-semibold text-muted-foreground">
+              <p className="text-xl md:text-2xl font-poppins font-semibold text-muted-foreground drop-shadow-[0_2px_8px_rgba(0,0,0,0.2)]">
                 Estrategista em Comunicação, Marketing e Negócios.
               </p>
             </div>
 
-            <p className="text-base md:text-lg font-inter text-muted-foreground leading-relaxed max-w-2xl">
+            <p className="text-base md:text-lg font-inter text-muted-foreground leading-relaxed backdrop-blur-sm bg-background/30 p-6 rounded-2xl border border-border/50 shadow-elevation">
               Mais do que comunicar, é preciso gerar conexão. Com planejamento estratégico e marketing 
               ajudo negócios, governos e pessoas a se posicionarem com autenticidade e impacto.
               <br /><br />
               Cada projeto é uma história contada com propósito e estratégia.
             </p>
 
-            {/* Authority Chips */}
+            {/* Authority Chips - floating */}
             <div className="flex flex-wrap gap-3 pt-2">
-              <Badge variant="secondary" className="px-4 py-2 text-sm font-inter bg-card border border-border">
+              <div className="px-4 py-2 text-sm font-inter bg-card/80 backdrop-blur-md border border-border rounded-full shadow-lg hover:shadow-gold hover:border-primary/50 transition-all">
                 Desde 2014
-              </Badge>
-              <Badge variant="secondary" className="px-4 py-2 text-sm font-inter bg-card border border-border">
+              </div>
+              <div className="px-4 py-2 text-sm font-inter bg-card/80 backdrop-blur-md border border-border rounded-full shadow-lg hover:shadow-gold hover:border-primary/50 transition-all">
                 Comunicação pública e privada
-              </Badge>
-              <Badge variant="secondary" className="px-4 py-2 text-sm font-inter bg-card border border-border">
+              </div>
+              <div className="px-4 py-2 text-sm font-inter bg-card/80 backdrop-blur-md border border-border rounded-full shadow-lg hover:shadow-gold hover:border-primary/50 transition-all">
                 Projetos no TO/AM e Brasil
-              </Badge>
+              </div>
             </div>
 
             {/* CTAs */}
@@ -54,23 +78,24 @@ export const HeroBlock = () => {
               <Button 
                 variant="outline" 
                 size="lg"
-                className="border-border hover:bg-card hover:border-primary transition-all font-poppins font-semibold"
+                className="border-border hover:bg-card hover:border-primary transition-all font-poppins font-semibold backdrop-blur-sm"
               >
                 Ver Bio
               </Button>
             </div>
           </div>
 
-          {/* Image - 40% */}
-          <div className="lg:col-span-2 animate-fade-in-delay">
-            <div className="relative group">
-              <div className="absolute -inset-4 bg-gradient-to-r from-primary/20 to-accent/20 rounded-3xl blur-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+          {/* Mobile image - stacked below */}
+          <div className="lg:hidden mt-12 animate-fade-in-delay">
+            <div className="relative mx-auto max-w-sm">
+              <div className="absolute -inset-6 bg-gradient-to-br from-primary/30 via-accent/20 to-transparent rounded-full blur-3xl opacity-60"></div>
               <img
                 src={heroImage}
                 alt="Retrato profissional de Pedro Sá em estúdio, blazer escuro com fundo neutro, braços cruzados e expressão confiante"
                 className="relative w-full h-auto rounded-2xl shadow-elevation object-cover aspect-[3/4]"
                 loading="eager"
                 decoding="async"
+                style={{ filter: 'drop-shadow(0 25px 60px rgba(0,0,0,0.6))' }}
               />
             </div>
           </div>

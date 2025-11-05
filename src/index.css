@@ -52,6 +52,7 @@ All colors MUST be HSL.
     --gradient-primary: linear-gradient(135deg, hsl(220 30% 7%), hsl(220 28% 10%));
     --gradient-hero: linear-gradient(180deg, hsl(220 30% 7%) 0%, hsl(220 28% 10%) 100%);
     --gradient-glow: radial-gradient(ellipse at center, hsl(40 45% 59% / 0.15), transparent 70%);
+    --gradient-radial: radial-gradient(circle at center, var(--from), var(--to));
 
     /* Shadows */
     --shadow-gold: 0 10px 40px -12px hsl(40 45% 59% / 0.25);
@@ -141,13 +142,21 @@ All colors MUST be HSL.
   }
 
   .parallax-subtle {
-    transform: translateY(calc(var(--scroll-progress, 0) * -8%));
-    transition: transform 0.1s linear;
+    will-change: transform;
+    transition: transform 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
   }
 
   @media (prefers-reduced-motion: reduce) {
     .parallax-subtle {
-      transform: none;
+      transform: none !important;
     }
+  }
+
+  .bg-gradient-radial {
+    background: radial-gradient(circle at center, var(--tw-gradient-stops));
+  }
+  
+  .drop-shadow-glow {
+    filter: drop-shadow(0 0 20px currentColor);
   }
 }
