@@ -1,112 +1,93 @@
 import { Button } from "@/components/ui/button";
 import { Target, MessageSquare, TrendingUp } from "lucide-react";
-import valueImage from "@/assets/FINALSITE2.jpg";
+import valueImage from "@/assets/FINALSITE2.svg";
+
+const values = [
+  { icon: Target, title: "Direção clara", description: "Diagnóstico + plano de ação" },
+  { icon: MessageSquare, title: "Mensagem coerente", description: "Posicionamento, narrativa, reputação" },
+  { icon: TrendingUp, title: "Execução mensurável", description: "Metas, aprendizados, escala" },
+];
 
 export const ValueBlock = () => {
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden px-6 py-20">
-      {/* Background with depth */}
-      <div className="absolute inset-0 bg-gradient-to-bl from-secondary via-background to-card"></div>
-      <div className="absolute top-0 right-0 w-1/2 h-1/2 bg-accent/5 rounded-full blur-[120px]"></div>
+      {/* Background gradient shift */}
+      <div className="absolute inset-0 bg-gradient-to-br from-surface via-background to-surface-elevated pointer-events-none"></div>
       
-      <div className="container mx-auto max-w-7xl relative z-10">
+      <div className="container mx-auto max-w-7xl relative z-10 perspective-container">
         <div className="relative">
-          {/* Floating image on the left with depth */}
-          <div className="absolute left-0 top-1/2 -translate-y-1/2 w-[42%] lg:w-[35%] animate-fade-in parallax-subtle hidden lg:block">
+          {/* Floating image - desktop */}
+          <div className="absolute right-0 top-1/2 -translate-y-1/2 w-[42%] lg:w-[38%] hidden lg:block animate-fade-in">
             <div className="relative">
-              {/* Multi-layer glow */}
-              <div className="absolute -inset-12 bg-gradient-to-tr from-accent/25 via-primary/15 to-transparent rounded-full blur-3xl opacity-70"></div>
-              <div className="absolute -inset-6 bg-gradient-to-br from-primary/20 to-transparent rounded-full blur-2xl"></div>
+              {/* Rim light effect */}
+              <div className="absolute -inset-8 bg-gradient-to-br from-primary/15 via-transparent to-accent/10 rounded-full blur-3xl"></div>
+              <div className="absolute top-0 right-0 w-48 h-48 bg-primary/10 rounded-full blur-2xl"></div>
               
               <img
                 src={valueImage}
-                alt="Close do rosto de Pedro Sá olhando diretamente para a câmera, óculos modernos, fundo escuro minimalista transmitindo seriedade e profissionalismo"
-                className="relative w-full h-auto object-cover aspect-[3/4] transition-transform duration-700 hover:scale-105"
+                alt="Retrato close de Pedro Sá em estúdio, expressão focada e profissional"
+                className="relative w-full h-auto object-contain drop-shadow-premium float hover:scale-105 transition-transform duration-700"
                 loading="lazy"
                 decoding="async"
-                style={{ 
-                  filter: 'drop-shadow(0 30px 70px rgba(0,0,0,0.7)) drop-shadow(0 10px 30px rgba(203,163,92,0.2))',
-                  clipPath: 'none'
-                }}
               />
-              
-              {/* Floating accent orbs */}
-              <div className="absolute -top-8 left-1/4 w-20 h-20 bg-accent/20 rounded-full blur-xl animate-pulse" style={{ animationDuration: '3s' }}></div>
-              <div className="absolute -bottom-10 right-1/4 w-28 h-28 bg-primary/15 rounded-full blur-2xl animate-pulse" style={{ animationDuration: '4s', animationDelay: '1.5s' }}></div>
             </div>
           </div>
 
-          {/* Text Content - floating on the right */}
-          <div className="relative z-20 lg:pl-[40%] space-y-8 animate-fade-in">
-            <h2 className="text-4xl md:text-5xl font-poppins font-bold text-foreground leading-tight drop-shadow-[0_4px_12px_rgba(0,0,0,0.4)]">
+          {/* Text Content */}
+          <div className="relative z-20 max-w-2xl space-y-8 lg:pr-[42%] animate-fade-in">
+            <h2 className="text-4xl md:text-5xl lg:text-6xl font-poppins font-bold text-foreground tracking-tight text-glow">
               Sua marca precisa de direção, não de adivinhação.
             </h2>
 
-            <p className="text-lg font-inter text-muted-foreground leading-relaxed max-w-2xl">
-              Desde 2014 planejo, crio e executo estratégias de comunicação que aumentam o valor 
-              percebido da sua empresa e fortalecem a relação com seu público.
+            <p className="text-base md:text-lg font-inter text-foreground-secondary leading-relaxed">
+              Desde 2014 planejo, crio e executo estratégias de comunicação que aumentam o valor percebido da sua empresa e fortalecem a relação com seu público.
               <br /><br />
-              Estratégia, criatividade e resultado — na mesma direção.
+              <span className="text-foreground font-semibold">Estratégia, criatividade e resultado — na mesma direção.</span>
             </p>
 
-            {/* Value Bullets - floating elements */}
-            <div className="space-y-6 pt-4">
-              <div className="flex gap-4 items-start group transition-all duration-300 hover:translate-x-2">
-                <div className="flex-shrink-0 w-12 h-12 flex items-center justify-center group-hover:scale-110 transition-transform">
-                  <Target className="w-7 h-7 text-primary drop-shadow-[0_0_8px_rgba(203,163,92,0.4)]" />
-                </div>
-                <div>
-                  <h3 className="font-poppins font-semibold text-foreground mb-1 text-lg">Direção clara</h3>
-                  <p className="text-sm text-muted-foreground font-inter">Diagnóstico + plano de ação</p>
-                </div>
-              </div>
-
-              <div className="flex gap-4 items-start group transition-all duration-300 hover:translate-x-2">
-                <div className="flex-shrink-0 w-12 h-12 flex items-center justify-center group-hover:scale-110 transition-transform">
-                  <MessageSquare className="w-7 h-7 text-primary drop-shadow-[0_0_8px_rgba(203,163,92,0.4)]" />
-                </div>
-                <div>
-                  <h3 className="font-poppins font-semibold text-foreground mb-1 text-lg">Mensagem coerente</h3>
-                  <p className="text-sm text-muted-foreground font-inter">Posicionamento, narrativa, reputação</p>
-                </div>
-              </div>
-
-              <div className="flex gap-4 items-start group transition-all duration-300 hover:translate-x-2">
-                <div className="flex-shrink-0 w-12 h-12 flex items-center justify-center group-hover:scale-110 transition-transform">
-                  <TrendingUp className="w-7 h-7 text-primary drop-shadow-[0_0_8px_rgba(203,163,92,0.4)]" />
-                </div>
-                <div>
-                  <h3 className="font-poppins font-semibold text-foreground mb-1 text-lg">Execução mensurável</h3>
-                  <p className="text-sm text-muted-foreground font-inter">Metas, aprendizados, escala</p>
-                </div>
-              </div>
+            {/* Value bullets */}
+            <div className="space-y-4">
+              {values.map((value, index) => {
+                const Icon = value.icon;
+                return (
+                  <div key={index} className="flex items-start gap-4 group hover:translate-x-2 transition-transform duration-300">
+                    <div className="mt-1 p-2 rounded-lg glass">
+                      <Icon className="w-5 h-5 text-primary" />
+                    </div>
+                    <div>
+                      <h3 className="text-lg font-poppins font-semibold text-foreground mb-1">
+                        {value.title}
+                      </h3>
+                      <p className="text-sm text-foreground-secondary">
+                        {value.description}
+                      </p>
+                    </div>
+                  </div>
+                );
+              })}
             </div>
 
-            {/* CTA */}
-            <div className="pt-6">
+            <div>
               <Button 
                 variant="outline"
-                className="border-primary/60 text-primary hover:bg-primary hover:text-primary-foreground transition-all font-poppins font-semibold"
+                size="lg"
+                className="glass hover:scale-105 hover:border-primary transition-all font-poppins font-semibold"
               >
                 Ver estudos de caso
               </Button>
-              <p className="text-xs text-muted-foreground mt-3 font-inter">
-                Casos em comunicação pública, marketing digital e campanhas 360º.
-              </p>
             </div>
           </div>
 
           {/* Mobile image */}
           <div className="lg:hidden mt-12 animate-fade-in-delay">
             <div className="relative mx-auto max-w-sm">
-              <div className="absolute -inset-8 bg-gradient-to-tr from-accent/25 via-primary/15 to-transparent rounded-full blur-3xl opacity-70"></div>
+              <div className="absolute -inset-6 bg-gradient-to-br from-primary/15 via-transparent to-accent/10 rounded-full blur-3xl"></div>
               <img
                 src={valueImage}
-                alt="Close do rosto de Pedro Sá olhando diretamente para a câmera, óculos modernos, fundo escuro minimalista transmitindo seriedade e profissionalismo"
-                className="relative w-full h-auto object-cover aspect-[3/4]"
+                alt="Retrato close de Pedro Sá em estúdio, expressão focada e profissional"
+                className="relative w-full h-auto object-contain drop-shadow-premium aspect-[3/4]"
                 loading="lazy"
                 decoding="async"
-                style={{ filter: 'drop-shadow(0 30px 70px rgba(0,0,0,0.7)) drop-shadow(0 10px 30px rgba(203,163,92,0.2))' }}
               />
             </div>
           </div>

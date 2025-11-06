@@ -98,8 +98,18 @@ export default {
         "glow": "glow 3s ease-in-out infinite",
       },
       fontFamily: {
-        'poppins': ['Poppins', 'sans-serif'],
-        'inter': ['Inter', 'sans-serif'],
+        poppins: ['Poppins', '-apple-system', 'BlinkMacSystemFont', 'sans-serif'],
+        inter: ['Inter', '-apple-system', 'BlinkMacSystemFont', 'sans-serif'],
+      },
+      transitionTimingFunction: {
+        'elegant': 'cubic-bezier(0.22, 0.61, 0.36, 1)',
+        'smooth': 'cubic-bezier(0.25, 0.8, 0.25, 1)',
+      },
+      transitionDuration: {
+        'xs': '180ms',
+        'sm': '280ms',
+        'md': '420ms',
+        'lg': '600ms',
       },
     },
   },
