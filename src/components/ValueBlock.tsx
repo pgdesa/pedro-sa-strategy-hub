@@ -1,6 +1,6 @@
 import { Button } from "@/components/ui/button";
 import { Target, MessageSquare, TrendingUp } from "lucide-react";
-import valueImage from "@/assets/FINALSITE2.svg";
+import valueImage from "@/assets/FINALSITE2.jpg";
 
 const values = [
   { icon: Target, title: "Direção clara", description: "Diagnóstico + plano de ação" },
