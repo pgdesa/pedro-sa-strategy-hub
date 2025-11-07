@@ -1,5 +1,6 @@
 import { Button } from "@/components/ui/button";
 import { Target, MessageSquare, TrendingUp } from "lucide-react";
+import { useEffect, useRef, useState } from "react";
 import valueImage from "@/assets/FINALSITE2.png";
 
 const values = [
@@ -9,38 +10,60 @@ const values = [
 ];
 
 export const ValueBlock = () => {
+  const sectionRef = useRef<HTMLElement>(null);
+  const imageRef = useRef<HTMLImageElement>(null);
+  const [isVisible, setIsVisible] = useState(false);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        setIsVisible(entry.isIntersecting);
+      },
+      { threshold: 0.3 }
+    );
+
+    if (sectionRef.current) {
+      observer.observe(sectionRef.current);
+    }
+
+    return () => observer.disconnect();
+  }, []);
+
+  // Parallax effect
+  useEffect(() => {
+    if (!isVisible || !imageRef.current) return;
+
+    const handleScroll = () => {
+      if (!imageRef.current || !sectionRef.current) return;
+      const rect = sectionRef.current.getBoundingClientRect();
+      const scrollProgress = 1 - (rect.top + rect.height) / (window.innerHeight + rect.height);
+      const parallaxY = scrollProgress * 50;
+      imageRef.current.style.transform = `translateY(${parallaxY}px)`;
+    };
+
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, [isVisible]);
+
   return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden px-6 py-20">
+    <section 
+      ref={sectionRef}
+      className="relative min-h-screen flex items-center justify-center overflow-hidden px-6 py-20"
+      id="valor"
+    >
       {/* Background gradient shift */}
-      <div className="absolute inset-0 bg-gradient-to-br from-surface via-background to-surface-elevated pointer-events-none"></div>
+      <div className="absolute inset-0 bg-gradient-to-br from-surface via-background to-surface-elevated pointer-events-none" />
       
       <div className="container mx-auto max-w-7xl relative z-10">
-        <div className="relative perspective-container">
-          {/* Floating image - desktop */}
-          <div className="absolute right-0 top-1/2 -translate-y-1/2 w-[44%] lg:w-[38%] hidden lg:block animate-fade-in" style={{ transform: 'translateY(-50%) translateZ(100px)', transformStyle: 'preserve-3d' }}>
-            <div className="relative">
-              {/* Rim light effect with depth */}
-              <div className="absolute -inset-12 bg-gradient-to-br from-primary/20 via-transparent to-accent/15 rounded-full blur-3xl" style={{ transform: 'translateZ(-15px)' }}></div>
-              <div className="absolute top-0 right-0 w-56 h-56 bg-primary/15 rounded-full blur-3xl" style={{ transform: 'translateZ(-10px)' }}></div>
-              
-              <img
-                src={valueImage}
-                alt="Retrato close de Pedro Sá em estúdio, expressão focada e profissional"
-                className="relative w-full h-auto object-contain drop-shadow-glow float hover:scale-[1.02] transition-all duration-700 ease-smooth"
-                style={{ transform: 'translateZ(70px)', filter: 'drop-shadow(0 20px 40px rgba(203, 163, 92, 0.2))' }}
-                loading="lazy"
-                decoding="async"
-              />
-            </div>
-          </div>
-
-          {/* Text Content */}
-          <div className="relative z-30 max-w-2xl space-y-8 lg:pr-[44%] animate-fade-in" style={{ transform: 'translateZ(50px)', transformStyle: 'preserve-3d' }}>
-            <h2 className="text-4xl md:text-5xl lg:text-6xl font-poppins font-bold text-foreground tracking-tight text-glow">
+        <div className="grid grid-cols-12 gap-6 lg:gap-8 items-center">
+          
+          {/* TEXTO - coluna fixa */}
+          <div className="col-span-12 lg:col-span-5 xl:col-span-5 space-y-6 lg:space-y-8 animate-fade-in order-2 lg:order-1">
+            <h2 className="font-poppins font-bold text-foreground tracking-tight text-glow">
               Sua marca precisa de direção, não de adivinhação.
             </h2>
 
-            <p className="text-base md:text-lg font-inter text-foreground-secondary leading-relaxed">
+            <p className="text-foreground-secondary leading-relaxed">
               Desde 2014 planejo, crio e executo estratégias de comunicação que aumentam o valor percebido da sua empresa e fortalecem a relação com seu público.
               <br /><br />
               <span className="text-foreground font-semibold">Estratégia, criatividade e resultado — na mesma direção.</span>
@@ -52,7 +75,7 @@ export const ValueBlock = () => {
                 const Icon = value.icon;
                 return (
                   <div key={index} className="flex items-start gap-4 group hover:translate-x-2 transition-transform duration-300">
-                    <div className="mt-1 p-2 rounded-lg glass">
+                    <div className="mt-1 p-2 rounded-lg glass border border-glass-border/30">
                       <Icon className="w-5 h-5 text-primary" />
                     </div>
                     <div>
@@ -72,26 +95,35 @@ export const ValueBlock = () => {
               <Button 
                 variant="outline"
                 size="lg"
-                className="glass hover:scale-105 hover:border-primary transition-all font-poppins font-semibold"
+                className="glass hover:scale-105 hover:border-primary/40 transition-all font-poppins font-semibold"
               >
                 Ver estudos de caso
               </Button>
             </div>
           </div>
 
-          {/* Mobile image */}
-          <div className="lg:hidden mt-12 animate-fade-in-delay">
-            <div className="relative mx-auto max-w-sm">
-              <div className="absolute -inset-6 bg-gradient-to-br from-primary/15 via-transparent to-accent/10 rounded-full blur-3xl"></div>
+          {/* IMAGEM - coluna fixa */}
+          <div className="col-span-12 lg:col-span-7 xl:col-span-7 animate-fade-in-delay order-1 lg:order-2">
+            <div className="relative perspective-container">
+              {/* Rim light effect */}
+              <div className="absolute -inset-12 bg-gradient-to-br from-primary/15 via-transparent to-accent/10 rounded-full blur-3xl pointer-events-none" />
+              <div className="absolute top-0 right-0 w-56 h-56 bg-primary/10 rounded-full blur-3xl pointer-events-none" />
+              
               <img
+                ref={imageRef}
                 src={valueImage}
                 alt="Retrato close de Pedro Sá em estúdio, expressão focada e profissional"
-                className="relative w-full h-auto object-contain drop-shadow-premium aspect-[3/4]"
+                width={800}
+                height={1067}
+                className="relative w-full h-auto object-contain drop-shadow-glow transition-transform duration-700 ease-smooth hover:scale-[1.02]"
                 loading="lazy"
                 decoding="async"
+                srcSet={`${valueImage} 1x, ${valueImage} 2x`}
+                sizes="(max-width: 1024px) 100vw, 58vw"
               />
             </div>
           </div>
+
         </div>
       </div>
     </section>

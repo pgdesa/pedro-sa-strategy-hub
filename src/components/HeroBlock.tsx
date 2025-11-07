@@ -1,38 +1,60 @@
 import { Button } from "@/components/ui/button";
+import { useEffect, useRef, useState } from "react";
 import heroImage from "@/assets/FINALSITE1.png";
 
 export const HeroBlock = () => {
+  const sectionRef = useRef<HTMLElement>(null);
+  const imageRef = useRef<HTMLImageElement>(null);
+  const [isVisible, setIsVisible] = useState(false);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        setIsVisible(entry.isIntersecting);
+      },
+      { threshold: 0.3 }
+    );
+
+    if (sectionRef.current) {
+      observer.observe(sectionRef.current);
+    }
+
+    return () => observer.disconnect();
+  }, []);
+
+  // Parallax effect on scroll
+  useEffect(() => {
+    if (!isVisible || !imageRef.current) return;
+
+    const handleScroll = () => {
+      if (!imageRef.current || !sectionRef.current) return;
+      const rect = sectionRef.current.getBoundingClientRect();
+      const scrollProgress = 1 - (rect.top + rect.height) / (window.innerHeight + rect.height);
+      const parallaxY = scrollProgress * 40;
+      imageRef.current.style.transform = `translateY(${parallaxY}px)`;
+    };
+
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, [isVisible]);
+
   return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden px-6 pt-20">
+    <section 
+      ref={sectionRef}
+      className="relative min-h-screen flex items-center justify-center overflow-hidden px-6 pt-24 pb-12"
+      id="hero"
+    >
       {/* Background glow */}
-      <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-transparent to-transparent pointer-events-none"></div>
+      <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-transparent to-transparent pointer-events-none" />
       
       <div className="container mx-auto max-w-7xl relative z-10">
-        <div className="relative perspective-container">
-          {/* Floating image - desktop */}
-          <div className="absolute right-0 top-1/2 -translate-y-1/2 w-[48%] lg:w-[42%] hidden lg:block animate-fade-in" style={{ transform: 'translateY(-50%) translateZ(120px)', transformStyle: 'preserve-3d' }}>
-            <div className="relative">
-              {/* Glow orbs with depth */}
-              <div className="absolute -inset-16 bg-gradient-to-br from-primary/25 via-accent/15 to-transparent rounded-full blur-3xl opacity-60" style={{ transform: 'translateZ(-20px)' }}></div>
-              <div className="absolute -bottom-12 -left-12 w-40 h-40 bg-primary/20 rounded-full blur-3xl animate-pulse" style={{ transform: 'translateZ(-10px)' }}></div>
-              <div className="absolute -top-12 -right-12 w-48 h-48 bg-accent/15 rounded-full blur-3xl animate-pulse" style={{ animationDelay: '1s', transform: 'translateZ(-10px)' }}></div>
-              
-              <img
-                src={heroImage}
-                alt="Retrato profissional de Pedro Sá em estúdio, blazer escuro com fundo neutro, braços cruzados e expressão confiante"
-                className="relative w-full h-auto object-contain drop-shadow-premium float hover:scale-[1.02] transition-all duration-700 ease-smooth"
-                style={{ transform: 'translateZ(80px)', filter: 'drop-shadow(0 25px 50px rgba(203, 163, 92, 0.25))' }}
-                loading="eager"
-                fetchPriority="high"
-                decoding="async"
-              />
-            </div>
-          </div>
-
-          {/* Text Content */}
-          <div className="relative z-30 max-w-2xl space-y-8 lg:pr-[48%] animate-fade-in" style={{ transform: 'translateZ(60px)', transformStyle: 'preserve-3d' }}>
+        {/* Grid layout: 12 columns */}
+        <div className="grid grid-cols-12 gap-6 lg:gap-8 items-center">
+          
+          {/* TEXTO - coluna fixa 5/12 desktop, 7/12 tablet, 12/12 mobile */}
+          <div className="col-span-12 lg:col-span-5 xl:col-span-5 space-y-6 lg:space-y-8 animate-fade-in order-2 lg:order-1">
             <div className="space-y-4">
-              <h1 className="text-5xl md:text-6xl lg:text-7xl font-poppins font-bold text-foreground tracking-tight text-glow">
+              <h1 className="font-poppins font-bold text-foreground tracking-tight text-glow">
                 PEDRO SÁ
               </h1>
               <p className="text-xl md:text-2xl font-poppins font-semibold text-foreground-secondary">
@@ -40,15 +62,15 @@ export const HeroBlock = () => {
               </p>
             </div>
 
-            <p className="text-base md:text-lg font-inter text-foreground-secondary leading-relaxed max-w-2xl">
+            <p className="text-foreground-secondary leading-relaxed max-w-xl">
               Mais do que comunicar, é preciso gerar conexão. Com planejamento estratégico e marketing 
               ajudo negócios, governos e pessoas a se posicionarem com autenticidade e impacto.
               <br /><br />
               Cada projeto é uma história contada com propósito e estratégia.
             </p>
 
-            {/* Authority Chips */}
-            <div className="flex flex-wrap gap-6 pt-2 text-sm font-inter text-foreground-muted">
+            {/* Chips de autoridade */}
+            <div className="flex flex-wrap gap-4 lg:gap-6 pt-2 text-sm font-inter text-foreground-muted">
               <span className="relative hover:text-primary transition-colors cursor-default float">
                 Desde 2014
               </span>
@@ -63,12 +85,11 @@ export const HeroBlock = () => {
             </div>
 
             {/* CTAs */}
-            <div className="flex flex-col sm:flex-row gap-4 pt-6">
+            <div className="flex flex-col sm:flex-row gap-4 pt-4">
               <div className="flex flex-col gap-2">
                 <Button 
                   size="lg"
-                  className="bg-primary text-primary-foreground hover:bg-primary/90 hover:scale-105 transition-all font-poppins font-semibold"
-                  style={{ boxShadow: 'var(--shadow-glow)' }}
+                  className="bg-primary text-primary-foreground hover:bg-primary/90 hover:scale-105 transition-all font-poppins font-semibold shadow-gold"
                 >
                   Agendar diagnóstico
                 </Button>
@@ -79,27 +100,37 @@ export const HeroBlock = () => {
               <Button 
                 variant="outline" 
                 size="lg"
-                className="glass hover:scale-105 transition-all font-poppins font-semibold"
+                className="glass hover:scale-105 hover:border-primary/40 transition-all font-poppins font-semibold"
               >
                 Ver Bio
               </Button>
             </div>
           </div>
 
-          {/* Mobile image */}
-          <div className="lg:hidden mt-12 animate-fade-in-delay">
-            <div className="relative mx-auto max-w-sm">
-              <div className="absolute -inset-8 bg-gradient-to-br from-primary/20 via-accent/10 to-transparent rounded-full blur-3xl opacity-50"></div>
+          {/* IMAGEM - coluna fixa 7/12 desktop, 5/12 tablet, 12/12 mobile */}
+          <div className="col-span-12 lg:col-span-7 xl:col-span-7 animate-fade-in-delay order-1 lg:order-2">
+            <div className="relative perspective-container">
+              {/* Glow orbs */}
+              <div className="absolute -inset-16 bg-gradient-to-br from-primary/20 via-accent/10 to-transparent rounded-full blur-3xl opacity-60 pointer-events-none" />
+              <div className="absolute -bottom-12 -left-12 w-40 h-40 bg-primary/15 rounded-full blur-3xl animate-pulse pointer-events-none" />
+              <div className="absolute -top-12 -right-12 w-48 h-48 bg-accent/10 rounded-full blur-3xl animate-pulse pointer-events-none" style={{ animationDelay: '1s' }} />
+              
               <img
+                ref={imageRef}
                 src={heroImage}
                 alt="Retrato profissional de Pedro Sá em estúdio, blazer escuro com fundo neutro, braços cruzados e expressão confiante"
-                className="relative w-full h-auto object-contain drop-shadow-premium aspect-[3/4]"
+                width={800}
+                height={1067}
+                className="relative w-full h-auto object-contain drop-shadow-premium transition-transform duration-700 ease-smooth hover:scale-[1.02]"
                 loading="eager"
                 fetchPriority="high"
                 decoding="async"
+                srcSet={`${heroImage} 1x, ${heroImage} 2x`}
+                sizes="(max-width: 1024px) 100vw, 58vw"
               />
             </div>
           </div>
+
         </div>
       </div>
     </section>
