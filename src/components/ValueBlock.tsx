@@ -1,6 +1,6 @@
 import { Button } from "@/components/ui/button";
 import { Target, MessageSquare, TrendingUp } from "lucide-react";
-import valueImage from "@/assets/FINALSITE2.jpg";
+import valueImage from "@/assets/FINALSITE2.png";
 
 const values = [
   { icon: Target, title: "Direção clara", description: "Diagnóstico + plano de ação" },
@@ -14,19 +14,20 @@ export const ValueBlock = () => {
       {/* Background gradient shift */}
       <div className="absolute inset-0 bg-gradient-to-br from-surface via-background to-surface-elevated pointer-events-none"></div>
       
-      <div className="container mx-auto max-w-7xl relative z-10 perspective-container">
-        <div className="relative">
+      <div className="container mx-auto max-w-7xl relative z-10">
+        <div className="relative perspective-container">
           {/* Floating image - desktop */}
-          <div className="absolute right-0 top-1/2 -translate-y-1/2 w-[42%] lg:w-[38%] hidden lg:block animate-fade-in">
+          <div className="absolute right-0 top-1/2 -translate-y-1/2 w-[44%] lg:w-[38%] hidden lg:block animate-fade-in" style={{ transform: 'translateY(-50%) translateZ(100px)', transformStyle: 'preserve-3d' }}>
             <div className="relative">
-              {/* Rim light effect */}
-              <div className="absolute -inset-8 bg-gradient-to-br from-primary/15 via-transparent to-accent/10 rounded-full blur-3xl"></div>
-              <div className="absolute top-0 right-0 w-48 h-48 bg-primary/10 rounded-full blur-2xl"></div>
+              {/* Rim light effect with depth */}
+              <div className="absolute -inset-12 bg-gradient-to-br from-primary/20 via-transparent to-accent/15 rounded-full blur-3xl" style={{ transform: 'translateZ(-15px)' }}></div>
+              <div className="absolute top-0 right-0 w-56 h-56 bg-primary/15 rounded-full blur-3xl" style={{ transform: 'translateZ(-10px)' }}></div>
               
               <img
                 src={valueImage}
                 alt="Retrato close de Pedro Sá em estúdio, expressão focada e profissional"
-                className="relative w-full h-auto object-contain drop-shadow-premium float hover:scale-105 transition-transform duration-700"
+                className="relative w-full h-auto object-contain drop-shadow-glow float hover:scale-[1.02] transition-all duration-700 ease-smooth"
+                style={{ transform: 'translateZ(70px)', filter: 'drop-shadow(0 20px 40px rgba(203, 163, 92, 0.2))' }}
                 loading="lazy"
                 decoding="async"
               />
@@ -34,7 +35,7 @@ export const ValueBlock = () => {
           </div>
 
           {/* Text Content */}
-          <div className="relative z-20 max-w-2xl space-y-8 lg:pr-[42%] animate-fade-in">
+          <div className="relative z-30 max-w-2xl space-y-8 lg:pr-[44%] animate-fade-in" style={{ transform: 'translateZ(50px)', transformStyle: 'preserve-3d' }}>
             <h2 className="text-4xl md:text-5xl lg:text-6xl font-poppins font-bold text-foreground tracking-tight text-glow">
               Sua marca precisa de direção, não de adivinhação.
             </h2>

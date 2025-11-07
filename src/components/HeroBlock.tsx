@@ -1,5 +1,5 @@
 import { Button } from "@/components/ui/button";
-import heroImage from "@/assets/FINALSITE1.jpg";
+import heroImage from "@/assets/FINALSITE1.png";
 
 export const HeroBlock = () => {
   return (
@@ -7,20 +7,21 @@ export const HeroBlock = () => {
       {/* Background glow */}
       <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-transparent to-transparent pointer-events-none"></div>
       
-      <div className="container mx-auto max-w-7xl relative z-10 perspective-container">
-        <div className="relative">
+      <div className="container mx-auto max-w-7xl relative z-10">
+        <div className="relative perspective-container">
           {/* Floating image - desktop */}
-          <div className="absolute right-0 top-1/2 -translate-y-1/2 w-[45%] lg:w-[40%] hidden lg:block animate-fade-in">
+          <div className="absolute right-0 top-1/2 -translate-y-1/2 w-[48%] lg:w-[42%] hidden lg:block animate-fade-in" style={{ transform: 'translateY(-50%) translateZ(120px)', transformStyle: 'preserve-3d' }}>
             <div className="relative">
-              {/* Glow orbs */}
-              <div className="absolute -inset-12 bg-gradient-to-br from-primary/20 via-accent/10 to-transparent rounded-full blur-3xl opacity-50"></div>
-              <div className="absolute -bottom-8 -left-8 w-32 h-32 bg-primary/15 rounded-full blur-2xl animate-pulse"></div>
-              <div className="absolute -top-8 -right-8 w-40 h-40 bg-accent/10 rounded-full blur-2xl animate-pulse" style={{ animationDelay: '1s' }}></div>
+              {/* Glow orbs with depth */}
+              <div className="absolute -inset-16 bg-gradient-to-br from-primary/25 via-accent/15 to-transparent rounded-full blur-3xl opacity-60" style={{ transform: 'translateZ(-20px)' }}></div>
+              <div className="absolute -bottom-12 -left-12 w-40 h-40 bg-primary/20 rounded-full blur-3xl animate-pulse" style={{ transform: 'translateZ(-10px)' }}></div>
+              <div className="absolute -top-12 -right-12 w-48 h-48 bg-accent/15 rounded-full blur-3xl animate-pulse" style={{ animationDelay: '1s', transform: 'translateZ(-10px)' }}></div>
               
               <img
                 src={heroImage}
                 alt="Retrato profissional de Pedro Sá em estúdio, blazer escuro com fundo neutro, braços cruzados e expressão confiante"
-                className="relative w-full h-auto object-contain drop-shadow-premium float hover:scale-105 transition-transform duration-700"
+                className="relative w-full h-auto object-contain drop-shadow-premium float hover:scale-[1.02] transition-all duration-700 ease-smooth"
+                style={{ transform: 'translateZ(80px)', filter: 'drop-shadow(0 25px 50px rgba(203, 163, 92, 0.25))' }}
                 loading="eager"
                 fetchPriority="high"
                 decoding="async"
@@ -29,7 +30,7 @@ export const HeroBlock = () => {
           </div>
 
           {/* Text Content */}
-          <div className="relative z-20 max-w-3xl space-y-8 lg:pr-[45%] animate-fade-in">
+          <div className="relative z-30 max-w-2xl space-y-8 lg:pr-[48%] animate-fade-in" style={{ transform: 'translateZ(60px)', transformStyle: 'preserve-3d' }}>
             <div className="space-y-4">
               <h1 className="text-5xl md:text-6xl lg:text-7xl font-poppins font-bold text-foreground tracking-tight text-glow">
                 PEDRO SÁ
