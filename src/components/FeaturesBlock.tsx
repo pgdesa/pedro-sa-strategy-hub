@@ -113,14 +113,14 @@ export const FeaturesBlock = () => {
           <div className="col-span-12 space-y-12 lg:space-y-16">
             
             {/* Título centralizado */}
-            <div className="text-center animate-fade-in">
+            <div data-text className="text-center animate-fade-in">
               <h2 className="font-poppins font-bold text-foreground text-glow">
                 Onde eu ajudo mais rápido
               </h2>
             </div>
 
             {/* Desktop Grid - 3 cards */}
-            <div className="hidden md:grid md:grid-cols-3 gap-6 lg:gap-8 animate-fade-in-delay">
+            <div data-photo className="hidden md:grid md:grid-cols-3 gap-6 lg:gap-8 animate-fade-in-delay">
               {features.map((feature, index) => (
                 <Card 
                   key={index} 

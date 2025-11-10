@@ -52,7 +52,7 @@ export const HeroBlock = () => {
         <div className="grid grid-cols-12 gap-6 lg:gap-8 items-center">
           
           {/* TEXTO - coluna fixa 5/12 desktop, 7/12 tablet, 12/12 mobile */}
-          <div className="col-span-12 lg:col-span-5 xl:col-span-5 space-y-6 lg:space-y-8 animate-fade-in order-2 lg:order-1">
+          <div data-text className="col-span-12 lg:col-span-5 xl:col-span-5 space-y-6 lg:space-y-8 animate-fade-in order-2 lg:order-1">
             <div className="space-y-4">
               <h1 className="font-poppins font-bold text-foreground tracking-tight text-glow">
                 PEDRO SÁ
@@ -108,7 +108,7 @@ export const HeroBlock = () => {
           </div>
 
           {/* IMAGEM - coluna fixa 7/12 desktop, 5/12 tablet, 12/12 mobile */}
-          <div className="col-span-12 lg:col-span-7 xl:col-span-7 animate-fade-in-delay order-1 lg:order-2">
+          <div data-photo className="col-span-12 lg:col-span-7 xl:col-span-7 animate-fade-in-delay order-1 lg:order-2">
             <div className="relative perspective-container">
               {/* Glow orbs */}
               <div className="absolute -inset-16 bg-gradient-to-br from-primary/20 via-accent/10 to-transparent rounded-full blur-3xl opacity-60 pointer-events-none" />

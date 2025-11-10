@@ -98,7 +98,9 @@ All colors MUST be HSL.
   body {
     @apply bg-background text-foreground font-inter;
     font-feature-settings: "rlig" 1, "calt" 1;
-    background: var(--gradient-bg);
+    /* Piano Black: fundo base com gradiente + sheen discreto */
+    background: linear-gradient(135deg, #000000 0%, #07090D 50%, #000000 100%);
+    background-attachment: fixed;
     position: relative;
     overflow-x: hidden;
   }
@@ -148,13 +150,10 @@ All colors MUST be HSL.
     scroll-behavior: smooth;
   }
   
-  main {
-    scroll-snap-type: y proximity;
-  }
-  
-  section {
-    scroll-snap-align: start;
-    scroll-snap-stop: normal;
+  /* Focus styles (Piano Black accent) */
+  *:focus-visible {
+    outline: 2px solid hsl(var(--primary));
+    outline-offset: 2px;
   }
   
   @media (prefers-reduced-motion: reduce) {
@@ -166,10 +165,6 @@ All colors MUST be HSL.
       animation-duration: 0.01ms !important;
       animation-iteration-count: 1 !important;
       transition-duration: 0.01ms !important;
-    }
-    
-    main {
-      scroll-snap-type: none;
     }
   }
 }

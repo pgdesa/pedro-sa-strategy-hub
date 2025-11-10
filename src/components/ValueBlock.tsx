@@ -58,7 +58,7 @@ export const ValueBlock = () => {
         <div className="grid grid-cols-12 gap-6 lg:gap-8 items-center">
           
           {/* TEXTO - coluna fixa */}
-          <div className="col-span-12 lg:col-span-5 xl:col-span-5 space-y-6 lg:space-y-8 animate-fade-in order-2 lg:order-1">
+          <div data-text className="col-span-12 lg:col-span-5 xl:col-span-5 space-y-6 lg:space-y-8 animate-fade-in order-2 lg:order-1">
             <h2 className="font-poppins font-bold text-foreground tracking-tight text-glow">
               Sua marca precisa de direção, não de adivinhação.
             </h2>
@@ -103,7 +103,7 @@ export const ValueBlock = () => {
           </div>
 
           {/* IMAGEM - coluna fixa */}
-          <div className="col-span-12 lg:col-span-7 xl:col-span-7 animate-fade-in-delay order-1 lg:order-2">
+          <div data-photo className="col-span-12 lg:col-span-7 xl:col-span-7 animate-fade-in-delay order-1 lg:order-2">
             <div className="relative perspective-container">
               {/* Rim light effect */}
               <div className="absolute -inset-12 bg-gradient-to-br from-primary/15 via-transparent to-accent/10 rounded-full blur-3xl pointer-events-none" />

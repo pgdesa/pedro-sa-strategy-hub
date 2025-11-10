@@ -3,6 +3,7 @@ import { HeroBlock } from "@/components/HeroBlock";
 import { ValueBlock } from "@/components/ValueBlock";
 import { FeaturesBlock } from "@/components/FeaturesBlock";
 import { CTABlock } from "@/components/CTABlock";
+import { StackedCrossfade } from "@/components/StackedCrossfade";
 import { useEffect } from "react";
 
 const Index = () => {
@@ -33,12 +34,14 @@ const Index = () => {
   return (
     <div className="min-h-screen">
       <Navbar />
-      <main>
-        <HeroBlock />
-        <ValueBlock />
-        <FeaturesBlock />
-        <CTABlock />
-      </main>
+      <StackedCrossfade 
+        sections={[
+          <HeroBlock />,
+          <ValueBlock />,
+          <FeaturesBlock />,
+          <CTABlock />
+        ]} 
+      />
     </div>
   );
 };

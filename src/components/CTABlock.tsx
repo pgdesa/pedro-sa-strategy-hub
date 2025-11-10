@@ -53,7 +53,7 @@ export const CTABlock = () => {
         <div className="grid grid-cols-12 gap-6 lg:gap-8 items-center">
           
           {/* TEXTO - coluna fixa */}
-          <div className="col-span-12 lg:col-span-5 xl:col-span-5 space-y-8 lg:space-y-10 animate-fade-in order-2 lg:order-1">
+          <div data-text className="col-span-12 lg:col-span-5 xl:col-span-5 space-y-8 lg:space-y-10 animate-fade-in order-2 lg:order-1">
             <h2 className="font-poppins font-bold text-foreground leading-tight text-glow">
               Quer conhecer mais sobre o meu trabalho?
             </h2>
@@ -100,7 +100,7 @@ export const CTABlock = () => {
           </div>
 
           {/* IMAGEM - coluna fixa */}
-          <div className="col-span-12 lg:col-span-7 xl:col-span-7 animate-fade-in-delay order-1 lg:order-2">
+          <div data-photo className="col-span-12 lg:col-span-7 xl:col-span-7 animate-fade-in-delay order-1 lg:order-2">
             <div className="relative perspective-container">
               {/* Layered glow effects */}
               <div className="absolute -inset-12 bg-gradient-to-tl from-primary/25 via-accent/15 to-transparent rounded-full blur-3xl opacity-70 pointer-events-none" />
