@@ -49,7 +49,7 @@ export const StackedCrossfade = ({ sections }: StackedCrossfadeProps) => {
     <div 
       ref={wrapperRef}
       className="relative"
-      style={{ height: `${sectionCount * 100}vh` }}
+      style={{ height: `${sectionCount * 200}vh` }}
     >
       <div className="sticky top-0 h-screen w-full overflow-hidden">
         {sections.map((section, index) => {
