@@ -49,7 +49,7 @@ export const StackedCrossfade = ({ sections }: StackedCrossfadeProps) => {
     <div 
       ref={wrapperRef}
       className="relative"
-      style={{ height: `${sectionCount * 200}vh` }}
+      style={{ height: `${sectionCount * 250}vh` }}
     >
       <div className="sticky top-0 h-screen w-full overflow-hidden">
         {sections.map((section, index) => {
@@ -57,20 +57,22 @@ export const StackedCrossfade = ({ sections }: StackedCrossfadeProps) => {
           const isNext = index === currentSectionIndex + 1;
           
           let opacity = 0;
-          let blur = 8;
-          let translateY = 20;
-          let scale = 1.02;
+          let blur = 2;
+          let translateY = 0;
+          let scale = 1;
           
           if (isActive) {
-            opacity = 1 - transitionProgress;
-            blur = transitionProgress * 8;
-            translateY = transitionProgress * 20;
-            scale = 1 + (transitionProgress * 0.02);
+            // Transição mais suave: mantém opacidade alta por mais tempo
+            opacity = Math.max(0.3, 1 - (transitionProgress * 1.3));
+            blur = transitionProgress * 2;
+            translateY = 0;
+            scale = 1;
           } else if (isNext) {
-            opacity = transitionProgress;
-            blur = (1 - transitionProgress) * 8;
-            translateY = (1 - transitionProgress) * -20;
-            scale = 1.02 - (transitionProgress * 0.02);
+            // Entrada gradual e suave
+            opacity = Math.min(1, transitionProgress * 1.3);
+            blur = (1 - transitionProgress) * 2;
+            translateY = 0;
+            scale = 1;
           }
 
           // Reduced motion: faster fades only
