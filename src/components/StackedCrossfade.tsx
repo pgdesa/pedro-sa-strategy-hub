@@ -62,25 +62,15 @@ export const StackedCrossfade = ({ sections }: StackedCrossfadeProps) => {
           let scale = 1;
           
           if (isActive) {
-            // Transição rápida: bloco some completamente antes do próximo aparecer
-            if (transitionProgress < 0.3) {
-              opacity = 1;
-              blur = 0;
-            } else {
-              opacity = 0;
-              blur = 0;
-            }
+            // Fade out suave do bloco atual
+            opacity = Math.max(0, 1 - (transitionProgress * 1.5));
+            blur = transitionProgress * 3;
             translateY = 0;
             scale = 1;
           } else if (isNext) {
-            // Próximo bloco só aparece depois que o anterior sumiu
-            if (transitionProgress > 0.7) {
-              opacity = 1;
-              blur = 0;
-            } else {
-              opacity = 0;
-              blur = 0;
-            }
+            // Fade in suave do próximo bloco começando cedo
+            opacity = Math.min(1, transitionProgress * 1.5);
+            blur = (1 - transitionProgress) * 3;
             translateY = 0;
             scale = 1;
           }
