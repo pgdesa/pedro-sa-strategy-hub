@@ -116,6 +116,9 @@ export const ValueBlock = () => {
                 width={800}
                 height={1067}
                 className="relative w-full h-auto object-contain drop-shadow-glow transition-transform duration-700 ease-smooth hover:scale-[1.02]"
+                style={{
+                  filter: 'drop-shadow(0 20px 40px rgba(0,0,0,0.6)) drop-shadow(0 0 30px hsl(var(--primary) / 0.25))'
+                }}
                 loading="lazy"
                 decoding="async"
                 srcSet={`${valueImage} 1x, ${valueImage} 2x`}

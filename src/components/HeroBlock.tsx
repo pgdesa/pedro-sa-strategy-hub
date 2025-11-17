@@ -122,6 +122,9 @@ export const HeroBlock = () => {
                 width={800}
                 height={1067}
                 className="relative w-full h-auto object-contain drop-shadow-premium transition-transform duration-700 ease-smooth hover:scale-[1.02]"
+                style={{
+                  filter: 'drop-shadow(0 25px 50px rgba(0,0,0,0.5)) drop-shadow(0 0 40px hsl(var(--primary) / 0.3))'
+                }}
                 loading="eager"
                 fetchPriority="high"
                 decoding="async"
