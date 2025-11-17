@@ -41,7 +41,7 @@ export const CTABlock = () => {
   return (
     <section 
       ref={sectionRef}
-      className="relative min-h-screen flex items-center justify-center overflow-hidden px-6 py-20"
+      className="relative min-h-screen flex items-center justify-center overflow-visible px-4 sm:px-6 lg:px-8 py-16 sm:py-20"
       id="cta"
     >
       {/* Multi-layer background */}
@@ -49,16 +49,16 @@ export const CTABlock = () => {
       <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-background/95" />
       <div className="absolute bottom-0 left-0 w-2/3 h-2/3 bg-primary/6 rounded-full blur-[150px]" />
       
-      <div className="container mx-auto max-w-7xl relative z-10">
-        <div className="grid grid-cols-12 gap-6 lg:gap-8 items-center">
+      <div className="container mx-auto max-w-7xl relative z-10 w-full">
+        <div className="grid grid-cols-12 gap-8 lg:gap-12 items-center">
           
           {/* TEXTO - coluna fixa */}
-          <div data-text className="col-span-12 lg:col-span-5 xl:col-span-5 space-y-8 lg:space-y-10 animate-fade-in order-2 lg:order-1">
-            <h2 className="font-poppins font-bold text-foreground leading-tight text-glow">
+          <div data-text className="col-span-12 lg:col-span-5 xl:col-span-5 space-y-6 sm:space-y-8 lg:space-y-10 animate-fade-in order-2 lg:order-1">
+            <h2 className="font-poppins font-bold text-foreground leading-tight text-glow text-3xl sm:text-4xl lg:text-5xl xl:text-6xl">
               Quer conhecer mais sobre o meu trabalho?
             </h2>
 
-            <p className="text-foreground-secondary font-inter leading-relaxed">
+            <p className="text-sm sm:text-base text-foreground-secondary font-inter leading-relaxed">
               Escolha um caminho e continue — a navegação é linear e direta.
             </p>
 

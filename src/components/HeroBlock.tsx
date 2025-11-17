@@ -41,28 +41,28 @@ export const HeroBlock = () => {
   return (
     <section 
       ref={sectionRef}
-      className="relative min-h-screen flex items-center justify-center overflow-hidden px-6 pt-24 pb-12"
+      className="relative min-h-screen flex items-center justify-center overflow-visible px-4 sm:px-6 lg:px-8 pt-28 sm:pt-32 pb-16 sm:pb-20"
       id="hero"
     >
       {/* Background glow */}
       <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-transparent to-transparent pointer-events-none" />
       
-      <div className="container mx-auto max-w-7xl relative z-10">
+      <div className="container mx-auto max-w-7xl relative z-10 w-full">
         {/* Grid layout: 12 columns */}
-        <div className="grid grid-cols-12 gap-6 lg:gap-8 items-center">
+        <div className="grid grid-cols-12 gap-8 lg:gap-12 items-center">
           
           {/* TEXTO - coluna fixa 5/12 desktop, 7/12 tablet, 12/12 mobile */}
           <div data-text className="col-span-12 lg:col-span-5 xl:col-span-5 space-y-6 lg:space-y-8 animate-fade-in order-2 lg:order-1">
             <div className="space-y-4">
-              <h1 className="font-poppins font-bold text-foreground tracking-tight text-glow">
+              <h1 className="font-poppins font-bold text-foreground tracking-tight text-glow text-4xl sm:text-5xl lg:text-6xl xl:text-7xl">
                 PEDRO SÁ
               </h1>
-              <p className="text-xl md:text-2xl font-poppins font-semibold text-foreground-secondary">
+              <p className="text-lg sm:text-xl md:text-2xl font-poppins font-semibold text-foreground-secondary">
                 Estrategista em Comunicação, Marketing e Negócios.
               </p>
             </div>
 
-            <p className="text-foreground-secondary leading-relaxed max-w-xl">
+            <p className="text-sm sm:text-base text-foreground-secondary leading-relaxed max-w-xl">
               Mais do que comunicar, é preciso gerar conexão. Com planejamento estratégico e marketing 
               ajudo negócios, governos e pessoas a se posicionarem com autenticidade e impacto.
               <br /><br />
@@ -70,22 +70,22 @@ export const HeroBlock = () => {
             </p>
 
             {/* Chips de autoridade */}
-            <div className="flex flex-wrap gap-4 lg:gap-6 pt-2 text-sm font-inter text-foreground-muted">
-              <span className="relative hover:text-primary transition-colors cursor-default float">
+            <div className="flex flex-wrap gap-3 lg:gap-5 pt-2 text-xs sm:text-sm font-inter text-foreground-muted">
+              <span className="relative hover:text-primary transition-colors cursor-default float whitespace-nowrap">
                 Desde 2014
               </span>
-              <span className="text-foreground-muted/40">•</span>
-              <span className="relative hover:text-primary transition-colors cursor-default float" style={{ animationDelay: '0.5s' }}>
+              <span className="text-foreground-muted/40 hidden sm:inline">•</span>
+              <span className="relative hover:text-primary transition-colors cursor-default float whitespace-nowrap" style={{ animationDelay: '0.5s' }}>
                 Comunicação pública e privada
               </span>
-              <span className="text-foreground-muted/40">•</span>
-              <span className="relative hover:text-primary transition-colors cursor-default float" style={{ animationDelay: '1s' }}>
+              <span className="text-foreground-muted/40 hidden sm:inline">•</span>
+              <span className="relative hover:text-primary transition-colors cursor-default float whitespace-nowrap" style={{ animationDelay: '1s' }}>
                 Projetos no TO/AM e Brasil
               </span>
             </div>
 
             {/* CTAs */}
-            <div className="flex flex-col sm:flex-row gap-4 pt-4">
+            <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 pt-4">
               <div className="flex flex-col gap-2">
                 <Button 
                   size="lg"
