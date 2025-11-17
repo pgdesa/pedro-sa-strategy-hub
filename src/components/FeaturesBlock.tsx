@@ -81,7 +81,7 @@ export const FeaturesBlock = () => {
   return (
     <section 
       ref={sectionRef}
-      className="relative min-h-screen flex items-center justify-center overflow-hidden px-6 py-20"
+      className="relative min-h-screen flex items-center justify-center overflow-visible px-4 sm:px-6 lg:px-8 py-16 sm:py-20"
       id="features"
     >
       {/* Background gradient */}

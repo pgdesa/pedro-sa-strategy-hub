@@ -48,22 +48,22 @@ export const ValueBlock = () => {
   return (
     <section 
       ref={sectionRef}
-      className="relative min-h-screen flex items-center justify-center overflow-hidden px-6 py-20"
+      className="relative min-h-screen flex items-center justify-center overflow-visible px-4 sm:px-6 lg:px-8 py-16 sm:py-20"
       id="valor"
     >
       {/* Background gradient shift */}
       <div className="absolute inset-0 bg-gradient-to-br from-surface via-background to-surface-elevated pointer-events-none" />
       
-      <div className="container mx-auto max-w-7xl relative z-10">
-        <div className="grid grid-cols-12 gap-6 lg:gap-8 items-center">
+      <div className="container mx-auto max-w-7xl relative z-10 w-full">
+        <div className="grid grid-cols-12 gap-8 lg:gap-12 items-center">
           
           {/* TEXTO - coluna fixa */}
           <div data-text className="col-span-12 lg:col-span-5 xl:col-span-5 space-y-6 lg:space-y-8 animate-fade-in order-2 lg:order-1">
-            <h2 className="font-poppins font-bold text-foreground tracking-tight text-glow">
+            <h2 className="font-poppins font-bold text-foreground tracking-tight text-glow text-3xl sm:text-4xl lg:text-5xl xl:text-6xl">
               Sua marca precisa de direção, não de adivinhação.
             </h2>
 
-            <p className="text-foreground-secondary leading-relaxed">
+            <p className="text-sm sm:text-base text-foreground-secondary leading-relaxed">
               Desde 2014 planejo, crio e executo estratégias de comunicação que aumentam o valor percebido da sua empresa e fortalecem a relação com seu público.
               <br /><br />
               <span className="text-foreground font-semibold">Estratégia, criatividade e resultado — na mesma direção.</span>
