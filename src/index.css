@@ -8,48 +8,48 @@ All colors MUST be HSL.
 
 @layer base {
   :root {
-    /* Piano Black Design System */
-    --background: 0 0% 0%;
-    --foreground: 0 0% 95%;
-    --foreground-secondary: 0 0% 61%;
-    --foreground-muted: 0 0% 48%;
+    /* Hightech Dark Design System */
+    --background: 220 30% 4%;
+    --foreground: 0 0% 96%;
+    --foreground-secondary: 0 0% 70%;
+    --foreground-muted: 0 0% 50%;
     
-    --card: 220 20% 5%;
-    --card-foreground: 0 0% 95%;
+    --card: 220 25% 7%;
+    --card-foreground: 0 0% 96%;
     
-    --popover: 220 20% 5%;
-    --popover-foreground: 0 0% 95%;
+    --popover: 220 30% 5%;
+    --popover-foreground: 0 0% 96%;
     
-    --primary: 38 42% 63%;
-    --primary-foreground: 0 0% 10%;
+    --primary: 195 100% 50%;
+    --primary-foreground: 220 30% 4%;
     
-    --secondary: 220 15% 8%;
-    --secondary-foreground: 0 0% 95%;
+    --secondary: 220 20% 12%;
+    --secondary-foreground: 0 0% 96%;
     
-    --muted: 220 15% 8%;
-    --muted-foreground: 0 0% 52%;
+    --muted: 220 20% 10%;
+    --muted-foreground: 0 0% 70%;
     
-    --accent: 30 70% 65%;
-    --accent-foreground: 0 0% 10%;
+    --accent: 175 80% 45%;
+    --accent-foreground: 220 30% 4%;
     
-    --destructive: 0 62.8% 30.6%;
-    --destructive-foreground: 0 0% 95%;
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 98%;
     
-    --border: 220 20% 12%;
-    --input: 220 20% 12%;
-    --ring: 38 42% 63%;
+    --border: 220 40% 18%;
+    --input: 220 40% 18%;
+    --ring: 195 100% 50%;
     --radius: 0.75rem;
     
-    --chart-1: 220 70% 50%;
-    --chart-2: 160 60% 45%;
-    --chart-3: 30 80% 55%;
-    --chart-4: 280 65% 60%;
-    --chart-5: 340 75% 55%;
+    --chart-1: 195 100% 50%;
+    --chart-2: 175 80% 45%;
+    --chart-3: 155 70% 50%;
+    --chart-4: 200 90% 55%;
+    --chart-5: 210 85% 60%;
     
     /* Surface system */
-    --surface: 220 18% 5%;
-    --surface-elevated: 220 18% 7%;
-    --glass-border: 220 25% 15%;
+    --surface: 220 25% 6%;
+    --surface-elevated: 220 25% 8%;
+    --glass-border: 195 100% 50%;
     
     /* Spacing system */
     --space-xxs: 0.25rem;
@@ -61,17 +61,19 @@ All colors MUST be HSL.
     --space-2xl: 3rem;
     --space-3xl: 4rem;
     
-    /* Gradients */
-    --gradient-bg: linear-gradient(165deg, hsl(0, 0%, 0%) 0%, hsl(220, 20%, 6%) 100%);
-    --gradient-surface: linear-gradient(135deg, hsl(220, 18%, 5%) 0%, hsl(220, 18%, 7%) 100%);
-    --gradient-primary: linear-gradient(135deg, hsl(38, 42%, 63%), hsl(30, 70%, 65%));
-    --gradient-glow: radial-gradient(ellipse at center, hsl(38 42% 63% / 0.25) 0%, transparent 70%);
+    /* Gradients - Hightech */
+    --gradient-bg: linear-gradient(165deg, hsl(220, 30%, 4%) 0%, hsl(220, 35%, 2%) 100%);
+    --gradient-surface: linear-gradient(135deg, hsl(220, 25%, 7%) 0%, hsl(220, 30%, 4%) 100%);
+    --gradient-primary: linear-gradient(135deg, hsl(195, 100%, 50%), hsl(175, 80%, 45%));
+    --gradient-glow: radial-gradient(ellipse at center, hsl(195 100% 50% / 0.15) 0%, transparent 70%);
+    --gradient-tech: linear-gradient(90deg, hsl(195, 100%, 50%, 0.1) 0%, transparent 50%, hsl(175, 80%, 45%, 0.1) 100%);
     
-    /* Shadows */
-    --shadow-premium: 0 25px 50px -12px hsl(0 0% 0% / 0.9), 0 0 40px hsl(38 42% 63% / 0.2);
-    --shadow-premium-lg: 0 35px 80px -15px hsl(0 0% 0% / 0.95), 0 0 60px hsl(38 42% 63% / 0.25);
-    --shadow-glow: 0 0 30px hsl(38 42% 63% / 0.4), 0 0 10px hsl(38 42% 63% / 0.2);
-    --shadow-gold: 0 4px 20px hsl(38 42% 63% / 0.3);
+    /* Shadows - Hightech Glow */
+    --shadow-premium: 0 25px 50px -12px hsl(220 30% 4% / 0.9), 0 0 40px hsl(195 100% 50% / 0.25);
+    --shadow-premium-lg: 0 35px 80px -15px hsl(220 30% 4% / 0.95), 0 0 60px hsl(195 100% 50% / 0.3);
+    --shadow-glow: 0 0 60px hsl(195 100% 50% / 0.4), 0 0 30px hsl(175 80% 45% / 0.2);
+    --shadow-gold: 0 4px 20px hsl(195 100% 50% / 0.35);
+    --shadow-tech: 0 0 20px hsl(195 100% 50% / 0.15), inset 0 0 20px hsl(195 100% 50% / 0.05);
     
     /* Animation easing */
     --ease-smooth: cubic-bezier(0.4, 0, 0.2, 1);
@@ -79,14 +81,14 @@ All colors MUST be HSL.
     --ease-dissolve: cubic-bezier(0.76, 0, 0.24, 1);
     
     /* Sidebar specific styles */
-    --sidebar-background: 220 20% 4%;
-    --sidebar-foreground: 0 0% 95%;
-    --sidebar-primary: 38 42% 63%;
-    --sidebar-primary-foreground: 0 0% 10%;
-    --sidebar-accent: 220 18% 7%;
-    --sidebar-accent-foreground: 0 0% 95%;
-    --sidebar-border: 220 25% 15%;
-    --sidebar-ring: 38 42% 63%;
+    --sidebar-background: 220 30% 3%;
+    --sidebar-foreground: 0 0% 96%;
+    --sidebar-primary: 195 100% 50%;
+    --sidebar-primary-foreground: 220 30% 4%;
+    --sidebar-accent: 220 25% 7%;
+    --sidebar-accent-foreground: 0 0% 96%;
+    --sidebar-border: 220 40% 18%;
+    --sidebar-ring: 195 100% 50%;
   }
 }
 
@@ -98,21 +100,42 @@ All colors MUST be HSL.
   body {
     @apply bg-background text-foreground font-inter;
     font-feature-settings: "rlig" 1, "calt" 1;
-    /* Piano Black: fundo base com gradiente + sheen discreto */
-    background: linear-gradient(135deg, #000000 0%, #07090D 50%, #000000 100%);
+    background: linear-gradient(180deg, hsl(220, 30%, 4%) 0%, hsl(220, 35%, 2%) 100%);
     background-attachment: fixed;
     position: relative;
     overflow-x: hidden;
   }
   
-  /* Noise overlay */
+  /* Tech Grid Background */
   body::before {
-    content: "";
+    content: '';
     position: fixed;
-    inset: 0;
-    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 400 400' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='4' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.015'/%3E%3C/svg%3E");
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: 
+      linear-gradient(90deg, hsl(195, 100%, 50%, 0.03) 1px, transparent 1px),
+      linear-gradient(180deg, hsl(195, 100%, 50%, 0.03) 1px, transparent 1px),
+      radial-gradient(circle at 20% 30%, hsl(195, 100%, 50%, 0.08) 0%, transparent 40%),
+      radial-gradient(circle at 80% 70%, hsl(175, 80%, 45%, 0.06) 0%, transparent 40%);
+    background-size: 80px 80px, 80px 80px, 100% 100%, 100% 100%;
     pointer-events: none;
-    z-index: 9999;
+    z-index: 0;
+  }
+  
+  /* Subtle Noise Texture */
+  body::after {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 400 400' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.015'/%3E%3C/svg%3E");
+    opacity: 0.5;
+    pointer-events: none;
+    z-index: 1;
     mix-blend-mode: overlay;
   }
   
@@ -174,12 +197,20 @@ All colors MUST be HSL.
     text-wrap: balance;
   }
   
-  /* Glass morphism effect */
+  /* Glass morphism effect - Hightech */
   .glass {
-    background: linear-gradient(135deg, hsl(var(--surface) / 0.08), hsl(var(--surface-elevated) / 0.12));
-    backdrop-filter: blur(8px);
-    -webkit-backdrop-filter: blur(8px);
-    border: 1px solid hsl(var(--glass-border) / 0.3);
+    background: linear-gradient(
+      135deg,
+      hsl(var(--card) / 0.5) 0%,
+      hsl(var(--card) / 0.3) 100%
+    );
+    backdrop-filter: blur(16px) saturate(200%);
+    -webkit-backdrop-filter: blur(16px) saturate(200%);
+    border: 1px solid hsl(195 100% 50% / 0.2);
+    box-shadow: 
+      0 8px 32px 0 rgba(0, 0, 0, 0.5),
+      inset 0 1px 0 0 hsl(195 100% 50% / 0.1),
+      0 0 20px hsl(195 100% 50% / 0.08);
   }
   
   /* 3D perspective */

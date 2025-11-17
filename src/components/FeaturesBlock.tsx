@@ -92,13 +92,15 @@ export const FeaturesBlock = () => {
         <img
           ref={imageRef}
           src={featuresImage}
+          srcSet={`${featuresImage} 1x, ${featuresImage} 2x`}
           alt=""
           width={600}
           height={800}
           className="w-1/2 max-w-md h-auto object-contain opacity-[0.06]"
           style={{ 
             maskImage: 'radial-gradient(ellipse at center, black 0%, transparent 65%)',
-            WebkitMaskImage: 'radial-gradient(ellipse at center, black 0%, transparent 65%)'
+            WebkitMaskImage: 'radial-gradient(ellipse at center, black 0%, transparent 65%)',
+            filter: 'drop-shadow(0 0 20px hsl(var(--primary) / 0.15))'
           }}
           aria-hidden="true"
           loading="lazy"
