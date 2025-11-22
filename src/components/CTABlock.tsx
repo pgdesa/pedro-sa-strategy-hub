@@ -50,10 +50,10 @@ export const CTABlock = () => {
       <div className="absolute bottom-0 left-0 w-2/3 h-2/3 bg-primary/6 rounded-full blur-[150px]" />
       
       <div className="container mx-auto max-w-7xl relative z-10 w-full">
-        <div className="grid grid-cols-12 gap-8 lg:gap-12 items-center">
+        <div className="grid grid-cols-12 gap-6 lg:gap-8 items-center">
           
-          {/* TEXTO - coluna fixa */}
-          <div data-text className="col-span-12 lg:col-span-5 xl:col-span-5 space-y-4 sm:space-y-6 lg:space-y-8 animate-fade-in order-2 lg:order-1">
+          {/* TEXTO - coluna reduzida */}
+          <div data-text className="col-span-12 lg:col-span-4 xl:col-span-4 space-y-4 sm:space-y-5 lg:space-y-6 animate-fade-in order-2 lg:order-1">
             <h2 className="font-poppins font-bold text-foreground leading-tight text-glow text-2xl sm:text-3xl lg:text-4xl xl:text-5xl">
               Quer conhecer mais sobre o meu trabalho?
             </h2>
@@ -99,8 +99,8 @@ export const CTABlock = () => {
             </div>
           </div>
 
-          {/* IMAGEM - coluna fixa */}
-          <div data-photo className="col-span-12 lg:col-span-7 xl:col-span-7 animate-fade-in-delay order-1 lg:order-2">
+          {/* IMAGEM - coluna expandida */}
+          <div data-photo className="col-span-12 lg:col-span-8 xl:col-span-8 animate-fade-in-delay order-1 lg:order-2">
             <div className="relative perspective-container">
               {/* Layered glow effects */}
               <div className="absolute -inset-12 bg-gradient-to-tl from-primary/25 via-accent/15 to-transparent rounded-full blur-3xl opacity-70 pointer-events-none" />
@@ -112,11 +112,11 @@ export const CTABlock = () => {
                  alt="Perfil lateral de Pedro Sá em estúdio, destacando rim-light nas bordas, blazer escuro e postura contemplativa profissional"
                  width={800}
                  height={1067}
-                 className="relative max-h-[85vh] w-auto mx-auto object-contain transition-all duration-700 ease-smooth hover:scale-[1.02] drop-shadow-premium-lg"
+                 className="relative max-h-[95vh] w-full h-auto object-contain transition-all duration-700 ease-smooth hover:scale-[1.02] drop-shadow-premium-lg"
                  loading="lazy"
                  decoding="async"
                  srcSet={`${ctaImage} 1x, ${ctaImage} 2x`}
-                 sizes="(max-width: 1024px) 100vw, 58vw"
+                 sizes="(max-width: 1024px) 100vw, 66vw"
                />
               
               {/* Rim light accent simulation */}

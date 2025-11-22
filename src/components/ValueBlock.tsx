@@ -55,10 +55,10 @@ export const ValueBlock = () => {
       <div className="absolute inset-0 bg-gradient-to-br from-surface via-background to-surface-elevated pointer-events-none" />
       
       <div className="container mx-auto max-w-7xl relative z-10 w-full">
-        <div className="grid grid-cols-12 gap-8 lg:gap-12 items-center">
+        <div className="grid grid-cols-12 gap-6 lg:gap-8 items-center">
           
-          {/* TEXTO - coluna fixa */}
-          <div data-text className="col-span-12 lg:col-span-5 xl:col-span-5 space-y-4 lg:space-y-6 animate-fade-in order-2 lg:order-1">
+          {/* TEXTO - coluna reduzida */}
+          <div data-text className="col-span-12 lg:col-span-4 xl:col-span-4 space-y-4 lg:space-y-5 animate-fade-in order-2 lg:order-1">
             <h2 className="font-poppins font-bold text-foreground tracking-tight text-glow text-2xl sm:text-3xl lg:text-4xl xl:text-5xl leading-tight">
               Sua marca precisa de direção, não de adivinhação.
             </h2>
@@ -102,8 +102,8 @@ export const ValueBlock = () => {
             </div>
           </div>
 
-          {/* IMAGEM - coluna fixa */}
-          <div data-photo className="col-span-12 lg:col-span-7 xl:col-span-7 animate-fade-in-delay order-1 lg:order-2">
+          {/* IMAGEM - coluna expandida */}
+          <div data-photo className="col-span-12 lg:col-span-8 xl:col-span-8 animate-fade-in-delay order-1 lg:order-2">
             <div className="relative perspective-container">
               {/* Rim light effect */}
               <div className="absolute -inset-12 bg-gradient-to-br from-primary/15 via-transparent to-accent/10 rounded-full blur-3xl pointer-events-none" />
@@ -115,14 +115,14 @@ export const ValueBlock = () => {
                 alt="Retrato close de Pedro Sá em estúdio, expressão focada e profissional"
                 width={800}
                 height={1067}
-                className="relative max-h-[85vh] w-auto mx-auto object-contain drop-shadow-glow transition-transform duration-700 ease-smooth hover:scale-[1.02]"
+                className="relative max-h-[95vh] w-full h-auto object-contain drop-shadow-glow transition-transform duration-700 ease-smooth hover:scale-[1.02]"
                 style={{
                   filter: 'drop-shadow(0 20px 40px rgba(0,0,0,0.6)) drop-shadow(0 0 30px hsl(var(--primary) / 0.25))'
                 }}
                 loading="lazy"
                 decoding="async"
                 srcSet={`${valueImage} 1x, ${valueImage} 2x`}
-                sizes="(max-width: 1024px) 100vw, 58vw"
+                sizes="(max-width: 1024px) 100vw, 66vw"
               />
             </div>
           </div>

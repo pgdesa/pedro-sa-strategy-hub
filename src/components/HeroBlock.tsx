@@ -49,10 +49,10 @@ export const HeroBlock = () => {
       
       <div className="container mx-auto max-w-7xl relative z-10 w-full">
         {/* Grid layout: 12 columns */}
-        <div className="grid grid-cols-12 gap-8 lg:gap-12 items-center">
+        <div className="grid grid-cols-12 gap-6 lg:gap-8 items-center">
           
-          {/* TEXTO - coluna fixa 5/12 desktop, 7/12 tablet, 12/12 mobile */}
-          <div data-text className="col-span-12 lg:col-span-5 xl:col-span-5 space-y-4 lg:space-y-6 animate-fade-in order-2 lg:order-1">
+          {/* TEXTO - coluna reduzida para dar mais espaço à foto */}
+          <div data-text className="col-span-12 lg:col-span-4 xl:col-span-4 space-y-4 lg:space-y-5 animate-fade-in order-2 lg:order-1">
             <div className="space-y-3">
               <h1 className="font-poppins font-bold text-foreground tracking-tight text-glow text-3xl sm:text-4xl lg:text-5xl xl:text-6xl leading-tight">
                 PEDRO SÁ
@@ -107,8 +107,8 @@ export const HeroBlock = () => {
             </div>
           </div>
 
-          {/* IMAGEM - coluna fixa 7/12 desktop, 5/12 tablet, 12/12 mobile */}
-          <div data-photo className="col-span-12 lg:col-span-7 xl:col-span-7 animate-fade-in-delay order-1 lg:order-2">
+          {/* IMAGEM - coluna expandida para maior destaque */}
+          <div data-photo className="col-span-12 lg:col-span-8 xl:col-span-8 animate-fade-in-delay order-1 lg:order-2">
             <div className="relative perspective-container">
               {/* Glow orbs */}
               <div className="absolute -inset-16 bg-gradient-to-br from-primary/20 via-accent/10 to-transparent rounded-full blur-3xl opacity-60 pointer-events-none" />
@@ -121,7 +121,7 @@ export const HeroBlock = () => {
                 alt="Retrato profissional de Pedro Sá em estúdio, blazer escuro com fundo neutro, braços cruzados e expressão confiante"
                 width={800}
                 height={1067}
-                className="relative max-h-[85vh] w-auto mx-auto object-contain drop-shadow-premium transition-transform duration-700 ease-smooth hover:scale-[1.02]"
+                className="relative max-h-[95vh] w-full h-auto object-contain drop-shadow-premium transition-transform duration-700 ease-smooth hover:scale-[1.02]"
                 style={{
                   filter: 'drop-shadow(0 25px 50px rgba(0,0,0,0.5)) drop-shadow(0 0 40px hsl(var(--primary) / 0.3))'
                 }}
@@ -129,7 +129,7 @@ export const HeroBlock = () => {
                 fetchPriority="high"
                 decoding="async"
                 srcSet={`${heroImage} 1x, ${heroImage} 2x`}
-                sizes="(max-width: 1024px) 100vw, 58vw"
+                sizes="(max-width: 1024px) 100vw, 66vw"
               />
             </div>
           </div>
