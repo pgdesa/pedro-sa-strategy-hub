@@ -51,7 +51,7 @@ export const StackedCrossfade = ({ sections }: StackedCrossfadeProps) => {
       className="relative"
       style={{ height: `${sectionCount * 250}vh` }}
     >
-      <div className="sticky top-0 h-screen w-full overflow-hidden">
+      <div className="sticky top-0 h-screen w-full overflow-x-hidden overflow-y-auto">
         {sections.map((section, index) => {
           const isActive = index === currentSectionIndex;
           const isNext = index === currentSectionIndex + 1;
