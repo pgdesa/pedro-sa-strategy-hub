@@ -41,7 +41,7 @@ export const HeroBlock = () => {
   return (
     <section 
       ref={sectionRef}
-      className="relative min-h-screen flex items-center justify-center overflow-visible px-4 sm:px-6 lg:px-8 pt-28 sm:pt-32 pb-16 sm:pb-20"
+      className="relative h-screen flex items-center justify-center overflow-hidden px-4 sm:px-6 lg:px-8"
       id="hero"
     >
       {/* Background glow */}
@@ -52,12 +52,12 @@ export const HeroBlock = () => {
         <div className="grid grid-cols-12 gap-8 lg:gap-12 items-center">
           
           {/* TEXTO - coluna fixa 5/12 desktop, 7/12 tablet, 12/12 mobile */}
-          <div data-text className="col-span-12 lg:col-span-5 xl:col-span-5 space-y-6 lg:space-y-8 animate-fade-in order-2 lg:order-1">
-            <div className="space-y-4">
-              <h1 className="font-poppins font-bold text-foreground tracking-tight text-glow text-4xl sm:text-5xl lg:text-6xl xl:text-7xl">
+          <div data-text className="col-span-12 lg:col-span-5 xl:col-span-5 space-y-4 lg:space-y-6 animate-fade-in order-2 lg:order-1">
+            <div className="space-y-3">
+              <h1 className="font-poppins font-bold text-foreground tracking-tight text-glow text-3xl sm:text-4xl lg:text-5xl xl:text-6xl leading-tight">
                 PEDRO SÁ
               </h1>
-              <p className="text-lg sm:text-xl md:text-2xl font-poppins font-semibold text-foreground-secondary">
+              <p className="text-base sm:text-lg lg:text-xl font-poppins font-semibold text-foreground-secondary">
                 Estrategista em Comunicação, Marketing e Negócios.
               </p>
             </div>
@@ -121,7 +121,7 @@ export const HeroBlock = () => {
                 alt="Retrato profissional de Pedro Sá em estúdio, blazer escuro com fundo neutro, braços cruzados e expressão confiante"
                 width={800}
                 height={1067}
-                className="relative w-full h-auto object-contain drop-shadow-premium transition-transform duration-700 ease-smooth hover:scale-[1.02]"
+                className="relative max-h-[85vh] w-auto mx-auto object-contain drop-shadow-premium transition-transform duration-700 ease-smooth hover:scale-[1.02]"
                 style={{
                   filter: 'drop-shadow(0 25px 50px rgba(0,0,0,0.5)) drop-shadow(0 0 40px hsl(var(--primary) / 0.3))'
                 }}
