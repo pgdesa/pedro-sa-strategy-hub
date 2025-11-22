@@ -107,17 +107,17 @@ export const CTABlock = () => {
               <div className="absolute -inset-8 bg-gradient-to-br from-accent/20 to-primary/15 rounded-full blur-2xl opacity-60 pointer-events-none" />
               
               <img
-                ref={imageRef}
-                src={ctaImage}
-                alt="Perfil lateral de Pedro Sá em estúdio, destacando rim-light nas bordas, blazer escuro e postura contemplativa profissional"
-                width={800}
-                height={1067}
-                className="relative w-full h-auto object-cover aspect-[3/4] transition-all duration-700 ease-smooth hover:scale-[1.02] drop-shadow-premium-lg"
-                loading="lazy"
-                decoding="async"
-                srcSet={`${ctaImage} 1x, ${ctaImage} 2x`}
-                sizes="(max-width: 1024px) 100vw, 58vw"
-              />
+                 ref={imageRef}
+                 src={ctaImage}
+                 alt="Perfil lateral de Pedro Sá em estúdio, destacando rim-light nas bordas, blazer escuro e postura contemplativa profissional"
+                 width={800}
+                 height={1067}
+                 className="relative max-h-[80vh] w-auto mx-auto object-contain transition-all duration-700 ease-smooth hover:scale-[1.02] drop-shadow-premium-lg"
+                 loading="lazy"
+                 decoding="async"
+                 srcSet={`${ctaImage} 1x, ${ctaImage} 2x`}
+                 sizes="(max-width: 1024px) 100vw, 58vw"
+               />
               
               {/* Rim light accent simulation */}
               <div className="absolute top-0 right-0 w-1/3 h-full bg-gradient-to-l from-accent/30 to-transparent opacity-50 rounded-r-full blur-xl pointer-events-none" />
