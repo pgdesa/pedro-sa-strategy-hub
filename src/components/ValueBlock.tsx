@@ -48,7 +48,7 @@ export const ValueBlock = () => {
   return (
     <section 
       ref={sectionRef}
-      className="relative min-h-screen flex items-center justify-center overflow-visible px-4 sm:px-6 lg:px-8 py-16 sm:py-20"
+      className="relative h-screen flex items-center justify-center overflow-hidden px-4 sm:px-6 lg:px-8"
       id="valor"
     >
       {/* Background gradient shift */}
@@ -58,8 +58,8 @@ export const ValueBlock = () => {
         <div className="grid grid-cols-12 gap-8 lg:gap-12 items-center">
           
           {/* TEXTO - coluna fixa */}
-          <div data-text className="col-span-12 lg:col-span-5 xl:col-span-5 space-y-6 lg:space-y-8 animate-fade-in order-2 lg:order-1">
-            <h2 className="font-poppins font-bold text-foreground tracking-tight text-glow text-3xl sm:text-4xl lg:text-5xl xl:text-6xl">
+          <div data-text className="col-span-12 lg:col-span-5 xl:col-span-5 space-y-4 lg:space-y-6 animate-fade-in order-2 lg:order-1">
+            <h2 className="font-poppins font-bold text-foreground tracking-tight text-glow text-2xl sm:text-3xl lg:text-4xl xl:text-5xl leading-tight">
               Sua marca precisa de direção, não de adivinhação.
             </h2>
 
@@ -115,7 +115,7 @@ export const ValueBlock = () => {
                 alt="Retrato close de Pedro Sá em estúdio, expressão focada e profissional"
                 width={800}
                 height={1067}
-                className="relative w-full h-auto object-contain drop-shadow-glow transition-transform duration-700 ease-smooth hover:scale-[1.02]"
+                className="relative max-h-[85vh] w-auto mx-auto object-contain drop-shadow-glow transition-transform duration-700 ease-smooth hover:scale-[1.02]"
                 style={{
                   filter: 'drop-shadow(0 20px 40px rgba(0,0,0,0.6)) drop-shadow(0 0 30px hsl(var(--primary) / 0.25))'
                 }}
