@@ -116,7 +116,7 @@ export const FeaturesBlock = () => {
             
             {/* Título centralizado */}
             <div data-text className="text-center animate-fade-in">
-              <h2 className="font-poppins font-bold text-foreground text-glow">
+              <h2 className="font-poppins font-bold text-foreground text-glow text-2xl sm:text-3xl lg:text-4xl leading-tight">
                 Onde eu ajudo mais rápido
               </h2>
             </div>

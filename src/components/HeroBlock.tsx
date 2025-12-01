@@ -54,15 +54,15 @@ export const HeroBlock = () => {
           {/* TEXTO - coluna reduzida para dar mais espaço à foto */}
           <div data-text className="col-span-12 lg:col-span-4 xl:col-span-4 space-y-4 lg:space-y-5 animate-fade-in order-2 lg:order-1">
             <div className="space-y-3">
-              <h1 className="font-poppins font-bold text-foreground tracking-tight text-glow text-3xl sm:text-4xl lg:text-5xl xl:text-6xl leading-tight">
+              <h1 className="font-poppins font-bold text-foreground tracking-tight text-glow text-3xl sm:text-4xl lg:text-4xl xl:text-5xl leading-tight">
                 PEDRO SÁ
               </h1>
-              <p className="text-base sm:text-lg lg:text-xl font-poppins font-semibold text-foreground-secondary">
+              <p className="text-base sm:text-lg lg:text-lg font-poppins font-semibold text-foreground-secondary">
                 Estrategista em Comunicação, Marketing e Negócios.
               </p>
             </div>
 
-            <p className="text-sm sm:text-base text-foreground-secondary leading-relaxed max-w-xl">
+            <p className="text-sm sm:text-base lg:text-base text-foreground-secondary leading-relaxed">
               Mais do que comunicar, é preciso gerar conexão. Com planejamento estratégico e marketing 
               ajudo negócios, governos e pessoas a se posicionarem com autenticidade e impacto.
               <br /><br />

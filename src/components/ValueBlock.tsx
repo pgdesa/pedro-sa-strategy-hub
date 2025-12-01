@@ -59,11 +59,11 @@ export const ValueBlock = () => {
           
           {/* TEXTO - coluna reduzida */}
           <div data-text className="col-span-12 lg:col-span-4 xl:col-span-4 space-y-4 lg:space-y-5 animate-fade-in order-2 lg:order-1">
-            <h2 className="font-poppins font-bold text-foreground tracking-tight text-glow text-2xl sm:text-3xl lg:text-4xl xl:text-5xl leading-tight">
+            <h2 className="font-poppins font-bold text-foreground tracking-tight text-glow text-2xl sm:text-3xl lg:text-3xl xl:text-4xl leading-tight">
               Sua marca precisa de direção, não de adivinhação.
             </h2>
 
-            <p className="text-sm sm:text-base text-foreground-secondary leading-relaxed">
+            <p className="text-sm sm:text-base lg:text-base text-foreground-secondary leading-relaxed">
               Desde 2014 planejo, crio e executo estratégias de comunicação que aumentam o valor percebido da sua empresa e fortalecem a relação com seu público.
               <br /><br />
               <span className="text-foreground font-semibold">Estratégia, criatividade e resultado — na mesma direção.</span>
