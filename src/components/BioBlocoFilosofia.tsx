@@ -15,7 +15,7 @@ export const BioBlocoFilosofia = ({ className = "" }: BioBlocoFilosofiaProps) =>
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 min-h-screen flex items-center py-20">
         <div className="grid grid-cols-12 gap-8 lg:gap-12 w-full items-center">
           {/* Texto */}
-          <div className="col-span-12 lg:col-span-5 space-y-6 z-10 flex flex-col justify-center">
+          <div className="col-span-12 lg:col-span-6 space-y-6 z-10 flex flex-col justify-center">
             <h2 className="text-3xl sm:text-4xl lg:text-5xl xl:text-6xl font-poppins font-bold text-stone-50 leading-[1.15]">
               Filosofia de Trabalho
             </h2>
@@ -41,7 +41,7 @@ export const BioBlocoFilosofia = ({ className = "" }: BioBlocoFilosofiaProps) =>
           </div>
 
           {/* Foto */}
-          <div className="col-span-12 lg:col-span-7 flex items-center justify-center py-8 lg:py-0">
+          <div className="col-span-12 lg:col-span-6 flex items-center justify-center py-8 lg:py-0">
             <div className="relative w-full flex items-center justify-center">
               <img 
                 src={pedroBio3}
