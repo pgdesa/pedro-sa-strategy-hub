@@ -8,6 +8,19 @@ export const StackedCrossfade = ({ sections }: StackedCrossfadeProps) => {
   const wrapperRef = useRef<HTMLDivElement>(null);
   const [scrollProgress, setScrollProgress] = useState(0);
   const [prefersReducedMotion, setPrefersReducedMotion] = useState(false);
+  const [isSmallViewport, setIsSmallViewport] = useState(false);
+
+  // Detect mobile / tablet to desativar o efeito "fixo" em telas menores
+  useEffect(() => {
+    const updateViewport = () => {
+      // Mantém o efeito completo apenas em telas grandes (desktop)
+      setIsSmallViewport(window.innerWidth < 1024);
+    };
+
+    updateViewport();
+    window.addEventListener("resize", updateViewport);
+    return () => window.removeEventListener("resize", updateViewport);
+  }, []);
 
   useEffect(() => {
     const mediaQuery = window.matchMedia("(prefers-reduced-motion: reduce)");
@@ -19,6 +32,8 @@ export const StackedCrossfade = ({ sections }: StackedCrossfadeProps) => {
   }, []);
 
   useEffect(() => {
+    if (isSmallViewport) return; // Em mobile/tablet não usamos o scroll progress especial
+
     const handleScroll = () => {
       if (!wrapperRef.current) return;
 
@@ -37,9 +52,22 @@ export const StackedCrossfade = ({ sections }: StackedCrossfadeProps) => {
     window.addEventListener("scroll", handleScroll, { passive: true });
     handleScroll();
     return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
+  }, [isSmallViewport]);
 
-  // Calculate which section is active and transition progress
+  // Em mobile / tablet: renderiza os blocos em sequência normal, sem sticky nem overflow-hidden
+  if (isSmallViewport) {
+    return (
+      <div className="flex flex-col w-full">
+        {sections.map((section, index) => (
+          <div key={index} className="w-full">
+            {section}
+          </div>
+        ))}
+      </div>
+    );
+  }
+
+  // Desktop: mantém o comportamento atual de "stacked crossfade"
   const sectionCount = sections.length;
   const sectionProgress = scrollProgress * (sectionCount - 1);
   const currentSectionIndex = Math.floor(sectionProgress);
@@ -88,7 +116,7 @@ export const StackedCrossfade = ({ sections }: StackedCrossfadeProps) => {
               className="absolute inset-0"
               style={{
                 opacity,
-                filter: `blur(${blur}px)`,
+                filter: `blur(${blur}px)` ,
                 transform: `translateY(${translateY}px) scale(${scale})`,
                 transition: prefersReducedMotion 
                   ? "opacity 0.2s ease-out" 
