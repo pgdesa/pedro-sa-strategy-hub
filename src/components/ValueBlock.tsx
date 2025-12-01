@@ -48,7 +48,7 @@ export const ValueBlock = () => {
   return (
     <section 
       ref={sectionRef}
-      className="relative min-h-screen flex items-center justify-center overflow-hidden px-4 sm:px-6 lg:px-8 py-20"
+      className="relative min-h-screen flex items-start lg:items-center justify-center overflow-hidden px-4 sm:px-6 lg:px-8 py-16 lg:py-20"
       id="valor"
     >
       {/* Background gradient shift */}
