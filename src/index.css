@@ -290,4 +290,20 @@ All colors MUST be HSL.
     -ms-overflow-style: none;
     scrollbar-width: none;
   }
+
+  /* Title animation to navbar */
+  @keyframes titleToNavbar {
+    0% {
+      transform: translate(0, 0) scale(1);
+      opacity: 1;
+    }
+    100% {
+      transform: translate(calc(-50vw + 120px), calc(-50vh + 40px)) scale(0.45);
+      opacity: 0;
+    }
+  }
+
+  .title-moving-to-navbar {
+    animation: titleToNavbar 0.7s var(--ease-smooth) forwards;
+  }
 }

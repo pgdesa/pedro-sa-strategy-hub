@@ -15,7 +15,7 @@ export const BioBlocoTrajetoria = ({ className = "" }: BioBlocoTrajetoriaProps) 
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 min-h-screen flex items-center py-20">
         <div className="grid grid-cols-12 gap-8 lg:gap-12 w-full items-center">
           {/* Foto */}
-          <div className="col-span-12 lg:col-span-8 flex items-center justify-center py-8 lg:py-0 order-2 lg:order-1">
+          <div className="col-span-12 lg:col-span-7 flex items-center justify-center py-8 lg:py-0 order-2 lg:order-1">
             <div className="relative w-full flex items-center justify-center">
               <img 
                 src={pedroBio2}
@@ -29,13 +29,13 @@ export const BioBlocoTrajetoria = ({ className = "" }: BioBlocoTrajetoriaProps) 
           </div>
 
           {/* Texto */}
-          <div className="col-span-12 lg:col-span-4 space-y-6 z-10 order-1 lg:order-2 flex flex-col justify-center">
-            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-poppins font-bold text-stone-900 leading-[1.15]">
+          <div className="col-span-12 lg:col-span-5 space-y-6 z-10 order-1 lg:order-2 flex flex-col justify-center">
+            <h2 className="text-3xl sm:text-4xl lg:text-5xl xl:text-6xl font-poppins font-bold text-stone-900 leading-[1.15]">
               Trajetória Profissional
             </h2>
             
             <div className="space-y-4">
-              <p className="text-base lg:text-lg text-stone-700 leading-relaxed">
+              <p className="text-base lg:text-lg xl:text-xl text-stone-700 leading-relaxed">
                 "Ao longo da minha carreira, atuei em comunicação pública, campanhas políticas e estratégias empresariais, sempre unindo visão criativa e gestão eficiente.
               </p>
               <p className="text-base lg:text-lg text-stone-700 leading-relaxed">

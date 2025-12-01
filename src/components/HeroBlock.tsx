@@ -5,7 +5,9 @@ import heroImage from "@/assets/FINALSITE1.png";
 export const HeroBlock = () => {
   const sectionRef = useRef<HTMLElement>(null);
   const imageRef = useRef<HTMLImageElement>(null);
+  const titleRef = useRef<HTMLHeadingElement>(null);
   const [isVisible, setIsVisible] = useState(false);
+  const [titleAnimating, setTitleAnimating] = useState(false);
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -22,21 +24,30 @@ export const HeroBlock = () => {
     return () => observer.disconnect();
   }, []);
 
-  // Parallax effect on scroll
+  // Title animation and parallax on scroll
   useEffect(() => {
-    if (!isVisible || !imageRef.current) return;
-
     const handleScroll = () => {
-      if (!imageRef.current || !sectionRef.current) return;
-      const rect = sectionRef.current.getBoundingClientRect();
-      const scrollProgress = 1 - (rect.top + rect.height) / (window.innerHeight + rect.height);
-      const parallaxY = scrollProgress * 40;
-      imageRef.current.style.transform = `translateY(${parallaxY}px)`;
+      const scrollY = window.scrollY;
+      
+      // Title animation trigger
+      if (scrollY > 100 && !titleAnimating) {
+        setTitleAnimating(true);
+      } else if (scrollY <= 100 && titleAnimating) {
+        setTitleAnimating(false);
+      }
+
+      // Image parallax
+      if (imageRef.current && sectionRef.current && isVisible) {
+        const rect = sectionRef.current.getBoundingClientRect();
+        const scrollProgress = 1 - (rect.top + rect.height) / (window.innerHeight + rect.height);
+        const parallaxY = scrollProgress * 40;
+        imageRef.current.style.transform = `translateY(${parallaxY}px)`;
+      }
     };
 
     window.addEventListener("scroll", handleScroll, { passive: true });
     return () => window.removeEventListener("scroll", handleScroll);
-  }, [isVisible]);
+  }, [isVisible, titleAnimating]);
 
   return (
     <section 
@@ -52,17 +63,23 @@ export const HeroBlock = () => {
         <div className="grid grid-cols-12 gap-6 lg:gap-8 items-center">
           
           {/* TEXTO - coluna reduzida para dar mais espaço à foto */}
-          <div data-text className="col-span-12 lg:col-span-4 xl:col-span-4 space-y-4 lg:space-y-6 animate-fade-in order-2 lg:order-1 flex flex-col justify-center">
+          <div data-text className="col-span-12 lg:col-span-5 xl:col-span-5 space-y-4 lg:space-y-6 animate-fade-in order-2 lg:order-1 flex flex-col justify-center">
             <div className="space-y-4">
-              <h1 className="font-poppins font-bold text-foreground tracking-tight text-glow text-4xl sm:text-5xl lg:text-5xl xl:text-6xl leading-tight">
+              <h1 
+                ref={titleRef}
+                id="hero-title"
+                className={`font-poppins font-bold text-foreground tracking-tight text-glow text-4xl sm:text-5xl lg:text-5xl xl:text-6xl leading-tight transition-all duration-700 ${
+                  titleAnimating ? 'title-moving-to-navbar' : ''
+                }`}
+              >
                 PEDRO SÁ
               </h1>
-              <p className="text-base sm:text-lg lg:text-lg font-poppins font-semibold text-foreground-secondary">
+              <p className="text-base sm:text-lg lg:text-lg xl:text-xl font-poppins font-semibold text-foreground-secondary">
                 Estrategista em Comunicação, Marketing e Negócios.
               </p>
             </div>
 
-            <p className="text-sm sm:text-base lg:text-base text-foreground-secondary leading-relaxed">
+            <p className="text-sm sm:text-base lg:text-base xl:text-lg text-foreground-secondary leading-relaxed">
               Mais do que comunicar, é preciso gerar conexão. Com planejamento estratégico e marketing 
               ajudo negócios, governos e pessoas a se posicionarem com autenticidade e impacto.
               <br /><br />
@@ -108,7 +125,7 @@ export const HeroBlock = () => {
           </div>
 
           {/* IMAGEM - coluna expandida para maior destaque */}
-          <div data-photo className="col-span-12 lg:col-span-8 xl:col-span-8 animate-fade-in-delay order-1 lg:order-2 flex items-center justify-center">
+          <div data-photo className="col-span-12 lg:col-span-7 xl:col-span-7 animate-fade-in-delay order-1 lg:order-2 flex items-center justify-center">
             <div className="relative perspective-container w-full">
               {/* Glow orbs */}
               <div className="absolute -inset-16 bg-gradient-to-br from-primary/20 via-accent/10 to-transparent rounded-full blur-3xl opacity-60 pointer-events-none" />
