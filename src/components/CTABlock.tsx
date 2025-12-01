@@ -41,7 +41,7 @@ export const CTABlock = () => {
   return (
     <section 
       ref={sectionRef}
-      className="relative h-screen flex items-center justify-center overflow-hidden px-4 sm:px-6 lg:px-8"
+      className="relative min-h-screen flex items-center justify-center overflow-hidden px-4 sm:px-6 lg:px-8 py-20"
       id="cta"
     >
       {/* Multi-layer background */}
@@ -53,7 +53,7 @@ export const CTABlock = () => {
         <div className="grid grid-cols-12 gap-6 lg:gap-8 items-center">
           
           {/* TEXTO - coluna reduzida */}
-          <div data-text className="col-span-12 lg:col-span-4 xl:col-span-4 space-y-4 sm:space-y-5 lg:space-y-6 animate-fade-in order-2 lg:order-1">
+          <div data-text className="col-span-12 lg:col-span-4 xl:col-span-4 space-y-4 sm:space-y-5 lg:space-y-6 animate-fade-in order-2 lg:order-1 flex flex-col justify-center">
             <h2 className="font-poppins font-bold text-foreground leading-tight text-glow text-2xl sm:text-3xl lg:text-3xl xl:text-4xl">
               Quer conhecer mais sobre o meu trabalho?
             </h2>
@@ -100,8 +100,8 @@ export const CTABlock = () => {
           </div>
 
           {/* IMAGEM - coluna expandida */}
-          <div data-photo className="col-span-12 lg:col-span-8 xl:col-span-8 animate-fade-in-delay order-1 lg:order-2">
-            <div className="relative perspective-container">
+          <div data-photo className="col-span-12 lg:col-span-8 xl:col-span-8 animate-fade-in-delay order-1 lg:order-2 flex items-center justify-center">
+            <div className="relative perspective-container w-full">
               {/* Layered glow effects */}
               <div className="absolute -inset-12 bg-gradient-to-tl from-primary/25 via-accent/15 to-transparent rounded-full blur-3xl opacity-70 pointer-events-none" />
               <div className="absolute -inset-8 bg-gradient-to-br from-accent/20 to-primary/15 rounded-full blur-2xl opacity-60 pointer-events-none" />
@@ -112,7 +112,7 @@ export const CTABlock = () => {
                  alt="Perfil lateral de Pedro Sá em estúdio, destacando rim-light nas bordas, blazer escuro e postura contemplativa profissional"
                  width={800}
                  height={1067}
-                 className="relative max-h-[95vh] w-full h-auto object-contain transition-all duration-700 ease-smooth hover:scale-[1.02] drop-shadow-premium-lg"
+                 className="relative max-h-[85vh] w-full h-auto object-contain transition-all duration-700 ease-smooth hover:scale-[1.02] drop-shadow-premium-lg"
                  loading="lazy"
                  decoding="async"
                  srcSet={`${ctaImage} 1x, ${ctaImage} 2x`}

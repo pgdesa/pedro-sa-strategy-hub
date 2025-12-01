@@ -30,13 +30,13 @@ const timelineItems = [
 export const BioBlocoTimeline = ({ className = "" }: BioBlocoTimelineProps) => {
   return (
     <section 
-      className={`h-screen w-full overflow-hidden relative ${className}`}
+      className={`min-h-screen w-full overflow-hidden relative ${className}`}
       style={{
         background: 'linear-gradient(135deg, hsl(45, 25%, 94%) 0%, hsl(40, 20%, 90%) 100%)'
       }}
     >
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8 h-full">
-        <div className="flex flex-col justify-center h-full max-w-6xl mx-auto space-y-6 lg:space-y-8 py-8">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8 min-h-screen flex items-center py-20">
+        <div className="flex flex-col justify-center w-full max-w-6xl mx-auto space-y-6 lg:space-y-8">
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-poppins font-bold text-stone-900 leading-[1.15] text-center">
             Linha do Tempo
           </h2>

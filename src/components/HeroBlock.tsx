@@ -41,7 +41,7 @@ export const HeroBlock = () => {
   return (
     <section 
       ref={sectionRef}
-      className="relative h-screen flex items-center justify-center overflow-hidden px-4 sm:px-6 lg:px-8"
+      className="relative min-h-screen flex items-center justify-center overflow-hidden px-4 sm:px-6 lg:px-8 py-20"
       id="hero"
     >
       {/* Background glow */}
@@ -52,9 +52,9 @@ export const HeroBlock = () => {
         <div className="grid grid-cols-12 gap-6 lg:gap-8 items-center">
           
           {/* TEXTO - coluna reduzida para dar mais espaço à foto */}
-          <div data-text className="col-span-12 lg:col-span-4 xl:col-span-4 space-y-4 lg:space-y-5 animate-fade-in order-2 lg:order-1">
-            <div className="space-y-3">
-              <h1 className="font-poppins font-bold text-foreground tracking-tight text-glow text-3xl sm:text-4xl lg:text-4xl xl:text-5xl leading-tight">
+          <div data-text className="col-span-12 lg:col-span-4 xl:col-span-4 space-y-4 lg:space-y-6 animate-fade-in order-2 lg:order-1 flex flex-col justify-center">
+            <div className="space-y-4">
+              <h1 className="font-poppins font-bold text-foreground tracking-tight text-glow text-4xl sm:text-5xl lg:text-5xl xl:text-6xl leading-tight">
                 PEDRO SÁ
               </h1>
               <p className="text-base sm:text-lg lg:text-lg font-poppins font-semibold text-foreground-secondary">
@@ -108,8 +108,8 @@ export const HeroBlock = () => {
           </div>
 
           {/* IMAGEM - coluna expandida para maior destaque */}
-          <div data-photo className="col-span-12 lg:col-span-8 xl:col-span-8 animate-fade-in-delay order-1 lg:order-2">
-            <div className="relative perspective-container">
+          <div data-photo className="col-span-12 lg:col-span-8 xl:col-span-8 animate-fade-in-delay order-1 lg:order-2 flex items-center justify-center">
+            <div className="relative perspective-container w-full">
               {/* Glow orbs */}
               <div className="absolute -inset-16 bg-gradient-to-br from-primary/20 via-accent/10 to-transparent rounded-full blur-3xl opacity-60 pointer-events-none" />
               <div className="absolute -bottom-12 -left-12 w-40 h-40 bg-primary/15 rounded-full blur-3xl animate-pulse pointer-events-none" />
@@ -121,7 +121,7 @@ export const HeroBlock = () => {
                 alt="Retrato profissional de Pedro Sá em estúdio, blazer escuro com fundo neutro, braços cruzados e expressão confiante"
                 width={800}
                 height={1067}
-                className="relative max-h-[95vh] w-full h-auto object-contain drop-shadow-premium transition-transform duration-700 ease-smooth hover:scale-[1.02]"
+                className="relative max-h-[85vh] w-full h-auto object-contain drop-shadow-premium transition-transform duration-700 ease-smooth hover:scale-[1.02]"
                 style={{
                   filter: 'drop-shadow(0 25px 50px rgba(0,0,0,0.5)) drop-shadow(0 0 40px hsl(var(--primary) / 0.3))'
                 }}

@@ -48,7 +48,7 @@ export const ValueBlock = () => {
   return (
     <section 
       ref={sectionRef}
-      className="relative h-screen flex items-center justify-center overflow-hidden px-4 sm:px-6 lg:px-8"
+      className="relative min-h-screen flex items-center justify-center overflow-hidden px-4 sm:px-6 lg:px-8 py-20"
       id="valor"
     >
       {/* Background gradient shift */}
@@ -58,7 +58,7 @@ export const ValueBlock = () => {
         <div className="grid grid-cols-12 gap-6 lg:gap-8 items-center">
           
           {/* TEXTO - coluna reduzida */}
-          <div data-text className="col-span-12 lg:col-span-4 xl:col-span-4 space-y-4 lg:space-y-5 animate-fade-in order-2 lg:order-1">
+          <div data-text className="col-span-12 lg:col-span-4 xl:col-span-4 space-y-4 lg:space-y-6 animate-fade-in order-2 lg:order-1 flex flex-col justify-center">
             <h2 className="font-poppins font-bold text-foreground tracking-tight text-glow text-2xl sm:text-3xl lg:text-3xl xl:text-4xl leading-tight">
               Sua marca precisa de direção, não de adivinhação.
             </h2>
@@ -103,8 +103,8 @@ export const ValueBlock = () => {
           </div>
 
           {/* IMAGEM - coluna expandida */}
-          <div data-photo className="col-span-12 lg:col-span-8 xl:col-span-8 animate-fade-in-delay order-1 lg:order-2">
-            <div className="relative perspective-container">
+          <div data-photo className="col-span-12 lg:col-span-8 xl:col-span-8 animate-fade-in-delay order-1 lg:order-2 flex items-center justify-center">
+            <div className="relative perspective-container w-full">
               {/* Rim light effect */}
               <div className="absolute -inset-12 bg-gradient-to-br from-primary/15 via-transparent to-accent/10 rounded-full blur-3xl pointer-events-none" />
               <div className="absolute top-0 right-0 w-56 h-56 bg-primary/10 rounded-full blur-3xl pointer-events-none" />
@@ -115,7 +115,7 @@ export const ValueBlock = () => {
                 alt="Retrato close de Pedro Sá em estúdio, expressão focada e profissional"
                 width={800}
                 height={1067}
-                className="relative max-h-[95vh] w-full h-auto object-contain drop-shadow-glow transition-transform duration-700 ease-smooth hover:scale-[1.02]"
+                className="relative max-h-[85vh] w-full h-auto object-contain drop-shadow-glow transition-transform duration-700 ease-smooth hover:scale-[1.02]"
                 style={{
                   filter: 'drop-shadow(0 20px 40px rgba(0,0,0,0.6)) drop-shadow(0 0 30px hsl(var(--primary) / 0.25))'
                 }}

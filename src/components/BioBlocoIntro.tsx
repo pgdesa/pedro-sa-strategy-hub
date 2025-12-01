@@ -7,16 +7,16 @@ interface BioBlocoIntroProps {
 export const BioBlocoIntro = ({ className = "" }: BioBlocoIntroProps) => {
   return (
     <section 
-      className={`h-screen w-full overflow-hidden relative ${className}`}
+      className={`min-h-screen w-full overflow-hidden relative ${className}`}
       style={{
         background: 'linear-gradient(135deg, hsl(30, 35%, 92%) 0%, hsl(25, 30%, 88%) 100%)'
       }}
     >
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8 h-full">
-        <div className="grid grid-cols-12 gap-8 lg:gap-12 h-full items-center">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8 min-h-screen flex items-center py-20">
+        <div className="grid grid-cols-12 gap-8 lg:gap-12 w-full items-center">
           {/* Texto */}
-          <div className="col-span-12 lg:col-span-4 space-y-6 z-10">
-            <div className="space-y-3">
+          <div className="col-span-12 lg:col-span-4 space-y-6 z-10 flex flex-col justify-center">
+            <div className="space-y-4">
               <p className="text-lg lg:text-xl text-stone-600 font-inter font-light">
                 Por trás da estratégia,
               </p>
@@ -36,12 +36,12 @@ export const BioBlocoIntro = ({ className = "" }: BioBlocoIntroProps) => {
           </div>
 
           {/* Foto */}
-          <div className="col-span-12 lg:col-span-8 flex items-center justify-center h-full py-8 lg:py-0">
-            <div className="relative w-full h-full max-h-[90vh] flex items-center justify-center">
+          <div className="col-span-12 lg:col-span-8 flex items-center justify-center py-8 lg:py-0">
+            <div className="relative w-full flex items-center justify-center">
               <img 
                 src={pedroBio1}
                 alt="Pedro Gabriel - Especialista em comunicação e marketing"
-                className="w-full h-full max-h-[90vh] object-contain"
+                className="w-full h-auto max-h-[85vh] object-contain"
                 style={{
                   filter: 'drop-shadow(0 15px 40px rgba(0, 0, 0, 0.2))'
                 }}
