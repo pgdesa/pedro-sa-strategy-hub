@@ -53,7 +53,7 @@ export const CTABlock = () => {
         <div className="grid grid-cols-12 gap-6 lg:gap-8 items-center">
           
           {/* TEXTO - coluna reduzida */}
-          <div data-text className="col-span-12 lg:col-span-6 xl:col-span-6 space-y-4 sm:space-y-5 lg:space-y-6 animate-fade-in order-2 lg:order-1 flex flex-col justify-center">
+          <div data-text className="col-span-12 lg:col-span-6 xl:col-span-6 space-y-4 sm:space-y-5 lg:space-y-6 animate-fade-in order-2 lg:order-1 flex flex-col justify-center px-4 lg:px-6 xl:px-8">
             <h2 className="font-poppins font-bold text-foreground leading-tight text-glow text-2xl sm:text-3xl lg:text-4xl xl:text-5xl">
               Quer conhecer mais sobre o meu trabalho?
             </h2>
