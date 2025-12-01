@@ -29,7 +29,7 @@ export const BioBlocoTrajetoria = ({ className = "" }: BioBlocoTrajetoriaProps) 
           </div>
 
           {/* Texto */}
-          <div className="col-span-12 lg:col-span-6 space-y-6 z-10 order-1 lg:order-2 flex flex-col justify-center">
+          <div className="col-span-12 lg:col-span-6 space-y-6 z-10 order-1 lg:order-2 flex flex-col justify-center px-4 lg:px-6 xl:px-8">
             <h2 className="text-3xl sm:text-4xl lg:text-5xl xl:text-6xl font-poppins font-bold text-stone-900 leading-[1.15]">
               Trajetória Profissional
             </h2>
