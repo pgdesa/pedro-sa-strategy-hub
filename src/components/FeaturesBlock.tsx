@@ -115,7 +115,7 @@ export const FeaturesBlock = () => {
           <div className="col-span-12 space-y-12 lg:space-y-16">
             
             {/* Título centralizado */}
-            <div data-text className="text-center animate-fade-in px-4 lg:px-6">
+            <div data-text className="text-center animate-fade-in">
               <h2 className="font-poppins font-bold text-foreground text-glow text-2xl sm:text-3xl lg:text-4xl leading-tight">
                 Onde eu ajudo mais rápido
               </h2>

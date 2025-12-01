@@ -48,7 +48,7 @@ export const ValueBlock = () => {
   return (
     <section 
       ref={sectionRef}
-      className="relative min-h-screen flex items-start lg:items-center justify-center overflow-hidden px-4 sm:px-6 lg:px-8 py-16 lg:py-20"
+      className="relative min-h-screen flex items-start lg:items-center justify-center overflow-hidden px-4 sm:px-6 lg:px-8 py-12 lg:py-16"
       id="valor"
     >
       {/* Background gradient shift */}
@@ -58,7 +58,7 @@ export const ValueBlock = () => {
         <div className="grid grid-cols-12 gap-6 lg:gap-8 items-center">
           
           {/* TEXTO - coluna reduzida */}
-          <div data-text className="col-span-12 lg:col-span-6 xl:col-span-6 space-y-4 lg:space-y-6 animate-fade-in order-2 lg:order-1 flex flex-col justify-center px-4 lg:px-6 xl:px-8">
+          <div data-text className="col-span-12 lg:col-span-6 xl:col-span-6 space-y-4 lg:space-y-5 animate-fade-in order-2 lg:order-1 flex flex-col justify-center">
             <h2 className="font-poppins font-bold text-foreground tracking-tight text-glow text-2xl sm:text-3xl lg:text-4xl xl:text-5xl leading-tight">
               Sua marca precisa de direção, não de adivinhação.
             </h2>
