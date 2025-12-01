@@ -36,7 +36,7 @@ export const BioBlocoIntro = ({ className = "" }: BioBlocoIntroProps) => {
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 min-h-screen flex items-center py-20">
         <div className="grid grid-cols-12 gap-8 lg:gap-12 w-full items-center">
           {/* Texto */}
-          <div className="col-span-12 lg:col-span-6 space-y-6 z-10 flex flex-col justify-center px-4 lg:px-6 xl:px-8">
+          <div className="col-span-12 lg:col-span-6 space-y-4 sm:space-y-5 lg:space-y-6 z-10 flex flex-col justify-center px-4 sm:px-6 md:px-8 lg:px-0">
             <div className="space-y-4">
               <p className="text-lg lg:text-xl xl:text-2xl text-stone-600 font-inter font-light">
                 Por trás da estratégia,
@@ -63,7 +63,7 @@ export const BioBlocoIntro = ({ className = "" }: BioBlocoIntroProps) => {
           </div>
 
           {/* Foto */}
-          <div className="col-span-12 lg:col-span-6 flex items-center justify-center py-8 lg:py-0">
+          <div className="col-span-12 lg:col-span-6 flex items-center justify-center py-8 lg:py-0 px-4 sm:px-6 md:px-8 lg:px-0">
             <div className="relative w-full flex items-center justify-center">
               <img 
                 src={pedroBio1}
