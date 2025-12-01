@@ -35,23 +35,23 @@ export const BioBlocoTimeline = ({ className = "" }: BioBlocoTimelineProps) => {
         background: 'linear-gradient(135deg, hsl(45, 25%, 94%) 0%, hsl(40, 20%, 90%) 100%)'
       }}
     >
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8 h-full py-12 lg:py-16">
-        <div className="flex flex-col justify-center h-full max-w-6xl mx-auto space-y-8 lg:space-y-10">
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl xl:text-6xl font-poppins font-bold text-stone-900 leading-[1.1] text-center">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8 h-full">
+        <div className="flex flex-col justify-center h-full max-w-6xl mx-auto space-y-6 lg:space-y-8 py-8">
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-poppins font-bold text-stone-900 leading-[1.15] text-center">
             Linha do Tempo
           </h2>
           
           {/* Timeline */}
-          <div className="relative flex-1 overflow-y-auto px-2">
+          <div className="relative">
             {/* Linha central */}
             <div className="absolute left-1/2 transform -translate-x-1/2 w-0.5 h-full bg-stone-300 hidden lg:block"></div>
             
             {/* Items */}
-            <div className="space-y-6 lg:space-y-10 py-4">
+            <div className="space-y-8">
               {timelineItems.map((item, index) => (
                 <div 
                   key={index}
-                  className="relative flex flex-col lg:flex-row lg:items-center gap-3 lg:gap-8"
+                  className="relative flex flex-col lg:flex-row lg:items-center gap-4 lg:gap-8"
                   style={{
                     animation: `fade-in 0.6s ease-out ${index * 0.15}s both`
                   }}
@@ -68,10 +68,10 @@ export const BioBlocoTimeline = ({ className = "" }: BioBlocoTimelineProps) => {
 
                   {/* Conteúdo (lado direito no desktop) */}
                   <div className="lg:w-1/2 lg:pl-10">
-                    <h3 className="text-xl sm:text-2xl lg:text-3xl font-poppins font-semibold text-stone-900 mb-2">
+                    <h3 className="text-lg sm:text-xl lg:text-2xl font-poppins font-semibold text-stone-900 mb-1">
                       {item.title}
                     </h3>
-                    <p className="text-base sm:text-lg lg:text-xl text-stone-600 leading-relaxed">
+                    <p className="text-base lg:text-lg text-stone-600 leading-relaxed">
                       {item.description}
                     </p>
                   </div>
@@ -81,21 +81,21 @@ export const BioBlocoTimeline = ({ className = "" }: BioBlocoTimelineProps) => {
           </div>
 
           {/* CTA */}
-          <div className="text-center space-y-5 pt-4">
-            <p className="text-lg sm:text-xl lg:text-2xl text-stone-700 font-medium">
+          <div className="text-center space-y-4 pt-4">
+            <p className="text-lg lg:text-xl text-stone-700 font-medium">
               "Veja como essa trajetória se traduz em resultados."
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Button 
                 size="lg"
-                className="bg-stone-800 hover:bg-stone-700 text-stone-50 font-semibold px-8 py-5 text-base sm:text-lg"
+                className="bg-stone-800 hover:bg-stone-700 text-stone-50 font-semibold px-8 py-5 text-base lg:text-lg"
               >
                 Ir para Portfólio Visual
               </Button>
               <Button 
                 size="lg"
                 variant="outline"
-                className="border-2 border-stone-700 text-stone-800 hover:bg-stone-100 font-semibold px-8 py-5 text-base sm:text-lg"
+                className="border-2 border-stone-700 text-stone-800 hover:bg-stone-100 font-semibold px-8 py-5 text-base lg:text-lg"
               >
                 Estudos de Caso
               </Button>

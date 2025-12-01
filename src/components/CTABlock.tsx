@@ -54,11 +54,11 @@ export const CTABlock = () => {
           
           {/* TEXTO - coluna reduzida */}
           <div data-text className="col-span-12 lg:col-span-4 xl:col-span-4 space-y-4 sm:space-y-5 lg:space-y-6 animate-fade-in order-2 lg:order-1">
-            <h2 className="font-poppins font-bold text-foreground leading-tight text-glow text-2xl sm:text-3xl lg:text-4xl xl:text-5xl">
+            <h2 className="font-poppins font-bold text-foreground leading-tight text-glow text-2xl sm:text-3xl lg:text-3xl xl:text-4xl">
               Quer conhecer mais sobre o meu trabalho?
             </h2>
 
-            <p className="text-sm sm:text-base text-foreground-secondary font-inter leading-relaxed">
+            <p className="text-sm sm:text-base lg:text-base text-foreground-secondary font-inter leading-relaxed">
               Escolha um caminho e continue — a navegação é linear e direta.
             </p>
 
