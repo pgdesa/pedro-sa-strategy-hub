@@ -63,7 +63,7 @@ export const HeroBlock = () => {
         <div className="grid grid-cols-12 gap-6 lg:gap-8 items-center">
           
           {/* TEXTO - coluna reduzida para dar mais espaço à foto */}
-          <div data-text className="col-span-12 lg:col-span-5 xl:col-span-5 space-y-4 lg:space-y-6 animate-fade-in order-2 lg:order-1 flex flex-col justify-center">
+          <div data-text className="col-span-12 lg:col-span-6 xl:col-span-6 space-y-4 lg:space-y-6 animate-fade-in order-2 lg:order-1 flex flex-col justify-center">
             <div className="space-y-4">
               <h1 
                 ref={titleRef}
@@ -125,7 +125,7 @@ export const HeroBlock = () => {
           </div>
 
           {/* IMAGEM - coluna expandida para maior destaque */}
-          <div data-photo className="col-span-12 lg:col-span-7 xl:col-span-7 animate-fade-in-delay order-1 lg:order-2 flex items-center justify-center">
+          <div data-photo className="col-span-12 lg:col-span-6 xl:col-span-6 animate-fade-in-delay order-1 lg:order-2 flex items-center justify-center">
             <div className="relative perspective-container w-full">
               {/* Glow orbs */}
               <div className="absolute -inset-16 bg-gradient-to-br from-primary/20 via-accent/10 to-transparent rounded-full blur-3xl opacity-60 pointer-events-none" />

@@ -58,7 +58,7 @@ export const ValueBlock = () => {
         <div className="grid grid-cols-12 gap-6 lg:gap-8 items-center">
           
           {/* TEXTO - coluna reduzida */}
-          <div data-text className="col-span-12 lg:col-span-5 xl:col-span-5 space-y-4 lg:space-y-6 animate-fade-in order-2 lg:order-1 flex flex-col justify-center">
+          <div data-text className="col-span-12 lg:col-span-6 xl:col-span-6 space-y-4 lg:space-y-6 animate-fade-in order-2 lg:order-1 flex flex-col justify-center">
             <h2 className="font-poppins font-bold text-foreground tracking-tight text-glow text-2xl sm:text-3xl lg:text-4xl xl:text-5xl leading-tight">
               Sua marca precisa de direção, não de adivinhação.
             </h2>
@@ -103,7 +103,7 @@ export const ValueBlock = () => {
           </div>
 
           {/* IMAGEM - coluna expandida */}
-          <div data-photo className="col-span-12 lg:col-span-7 xl:col-span-7 animate-fade-in-delay order-1 lg:order-2 flex items-center justify-center">
+          <div data-photo className="col-span-12 lg:col-span-6 xl:col-span-6 animate-fade-in-delay order-1 lg:order-2 flex items-center justify-center">
             <div className="relative perspective-container w-full">
               {/* Rim light effect */}
               <div className="absolute -inset-12 bg-gradient-to-br from-primary/15 via-transparent to-accent/10 rounded-full blur-3xl pointer-events-none" />
