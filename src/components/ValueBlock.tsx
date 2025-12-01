@@ -58,12 +58,12 @@ export const ValueBlock = () => {
         <div className="grid grid-cols-12 gap-6 lg:gap-8 items-center">
           
           {/* TEXTO - coluna reduzida */}
-          <div data-text className="col-span-12 lg:col-span-4 xl:col-span-4 space-y-4 lg:space-y-6 animate-fade-in order-2 lg:order-1 flex flex-col justify-center">
-            <h2 className="font-poppins font-bold text-foreground tracking-tight text-glow text-2xl sm:text-3xl lg:text-3xl xl:text-4xl leading-tight">
+          <div data-text className="col-span-12 lg:col-span-5 xl:col-span-5 space-y-4 lg:space-y-6 animate-fade-in order-2 lg:order-1 flex flex-col justify-center">
+            <h2 className="font-poppins font-bold text-foreground tracking-tight text-glow text-2xl sm:text-3xl lg:text-4xl xl:text-5xl leading-tight">
               Sua marca precisa de direção, não de adivinhação.
             </h2>
 
-            <p className="text-sm sm:text-base lg:text-base text-foreground-secondary leading-relaxed">
+            <p className="text-sm sm:text-base lg:text-base xl:text-lg text-foreground-secondary leading-relaxed">
               Desde 2014 planejo, crio e executo estratégias de comunicação que aumentam o valor percebido da sua empresa e fortalecem a relação com seu público.
               <br /><br />
               <span className="text-foreground font-semibold">Estratégia, criatividade e resultado — na mesma direção.</span>
@@ -103,7 +103,7 @@ export const ValueBlock = () => {
           </div>
 
           {/* IMAGEM - coluna expandida */}
-          <div data-photo className="col-span-12 lg:col-span-8 xl:col-span-8 animate-fade-in-delay order-1 lg:order-2 flex items-center justify-center">
+          <div data-photo className="col-span-12 lg:col-span-7 xl:col-span-7 animate-fade-in-delay order-1 lg:order-2 flex items-center justify-center">
             <div className="relative perspective-container w-full">
               {/* Rim light effect */}
               <div className="absolute -inset-12 bg-gradient-to-br from-primary/15 via-transparent to-accent/10 rounded-full blur-3xl pointer-events-none" />

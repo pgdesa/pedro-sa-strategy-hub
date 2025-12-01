@@ -4,6 +4,7 @@ import { BioBlocoTrajetoria } from "@/components/BioBlocoTrajetoria";
 import { BioBlocoFilosofia } from "@/components/BioBlocoFilosofia";
 import { BioBlocoTimeline } from "@/components/BioBlocoTimeline";
 import { Navbar } from "@/components/Navbar";
+import { useEffect } from "react";
 
 const Bio = () => {
   const sections = [
@@ -12,6 +13,11 @@ const Bio = () => {
     <BioBlocoFilosofia key="filosofia" />,
     <BioBlocoTimeline key="timeline" />
   ];
+
+  // Scroll to top when component mounts
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
 
   return (
     <div className="min-h-screen">
