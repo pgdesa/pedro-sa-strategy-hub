@@ -52,13 +52,18 @@ export const FeaturesBlock = () => {
     if (!container) return;
 
     const handleScroll = () => {
+      const cards = container.children;
+      if (!cards.length) return;
+      
+      const firstCard = cards[0] as HTMLElement;
+      const cardWidth = firstCard.offsetWidth;
+      const gap = 24; // gap-6 = 1.5rem = 24px
       const scrollLeft = container.scrollLeft;
-      const cardWidth = container.offsetWidth;
-      const newIndex = Math.round(scrollLeft / cardWidth);
-      setCurrentIndex(newIndex);
+      const newIndex = Math.round(scrollLeft / (cardWidth + gap));
+      setCurrentIndex(Math.min(newIndex, features.length - 1));
     };
 
-    container.addEventListener("scroll", handleScroll);
+    container.addEventListener("scroll", handleScroll, { passive: true });
     return () => container.removeEventListener("scroll", handleScroll);
   }, []);
 
@@ -156,12 +161,13 @@ export const FeaturesBlock = () => {
             <div className="md:hidden">
               <div 
                 ref={scrollRef}
-                className="flex overflow-x-auto snap-x snap-mandatory gap-6 pb-8 scrollbar-hide"
+                className="flex overflow-x-auto snap-x snap-mandatory gap-6 pb-8 scrollbar-hide px-4 -mx-4"
+                style={{ WebkitOverflowScrolling: 'touch' }}
               >
                 {features.map((feature, index) => (
                   <Card 
                     key={index} 
-                    className="flex-shrink-0 w-[85vw] snap-center glass border-glass-border"
+                    className="flex-shrink-0 w-[80vw] max-w-[320px] snap-center glass border-glass-border"
                   >
                     <CardContent className="p-6 space-y-4">
                       <div className="w-14 h-14 rounded-xl bg-surface/50 border border-glass-border/40 flex items-center justify-center">
@@ -190,8 +196,15 @@ export const FeaturesBlock = () => {
                   <button
                     key={index}
                     onClick={() => {
-                      scrollRef.current?.scrollTo({
-                        left: index * scrollRef.current.offsetWidth,
+                      const container = scrollRef.current;
+                      if (!container) return;
+                      const cards = container.children;
+                      if (!cards.length) return;
+                      const firstCard = cards[0] as HTMLElement;
+                      const cardWidth = firstCard.offsetWidth;
+                      const gap = 24;
+                      container.scrollTo({
+                        left: index * (cardWidth + gap),
                         behavior: 'smooth'
                       });
                     }}
