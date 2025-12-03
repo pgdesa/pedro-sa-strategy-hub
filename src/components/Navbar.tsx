@@ -37,7 +37,7 @@ export const Navbar = () => {
         <Link 
           to="/"
           onClick={scrollToTop}
-          className={`font-poppins font-bold text-foreground hover:text-primary cursor-pointer transition-all duration-300 ${
+          className={`font-poppins font-bold text-stone-900 hover:text-primary cursor-pointer transition-all duration-300 ${
             showLogo 
               ? "opacity-100 translate-y-0" 
               : "opacity-0 -translate-y-2 pointer-events-none"
@@ -53,25 +53,25 @@ export const Navbar = () => {
         <div className="hidden md:flex items-center gap-8">
           <NavLink
             to="/bio"
-            className="text-sm font-inter font-medium text-muted-foreground hover:text-foreground transition-colors"
+            className="text-sm font-inter font-medium text-stone-900 hover:text-primary transition-colors"
           >
             Bio
           </NavLink>
           <NavLink
             to="/projetos"
-            className="text-sm font-inter font-medium text-muted-foreground hover:text-foreground transition-colors"
+            className="text-sm font-inter font-medium text-stone-900 hover:text-primary transition-colors"
           >
             Projetos
           </NavLink>
           <NavLink
             to="/casos"
-            className="text-sm font-inter font-medium text-muted-foreground hover:text-foreground transition-colors"
+            className="text-sm font-inter font-medium text-stone-900 hover:text-primary transition-colors"
           >
             Casos
           </NavLink>
           <NavLink
             to="/contato"
-            className="text-sm font-inter font-medium text-muted-foreground hover:text-foreground transition-colors"
+            className="text-sm font-inter font-medium text-stone-900 hover:text-primary transition-colors"
           >
             Contato
           </NavLink>
