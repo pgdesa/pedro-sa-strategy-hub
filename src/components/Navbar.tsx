@@ -75,7 +75,9 @@ export const Navbar = () => {
           </NavLink>
           <NavLink
             to="/trabalhos"
-            className={`text-sm font-inter font-medium ${navTextColor} ${navHoverColor} transition-colors`}
+            className={`text-sm font-inter font-medium ${
+              location.pathname.startsWith("/trabalhos") ? "text-primary" : navTextColor
+            } ${navHoverColor} transition-colors`}
           >
             Trabalhos
           </NavLink>
