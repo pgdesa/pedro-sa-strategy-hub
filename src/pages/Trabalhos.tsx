@@ -236,16 +236,16 @@ const TrabalhosLanding = () => {
             </p>
           </header>
 
-          <div className="grid lg:grid-cols-2 gap-12">
+          <div className="flex flex-col lg:grid lg:grid-cols-2 gap-8 lg:gap-12">
             {/* Search Column - First on mobile, second on desktop */}
-            <div className="order-first lg:order-last">
-              <h2 className="text-sm font-medium text-muted-foreground uppercase tracking-wider mb-6">
+            <div className="order-1 lg:order-2">
+              <h2 className="text-sm font-medium text-muted-foreground uppercase tracking-wider mb-4 lg:mb-6">
                 Busca rápida
               </h2>
               <SearchInput
                 value={searchTerm}
                 onChange={setSearchTerm}
-                className="mb-6"
+                className="mb-4 lg:mb-6"
               />
 
               {searchTerm && (
@@ -264,8 +264,8 @@ const TrabalhosLanding = () => {
             </div>
 
             {/* Categories Column - Second on mobile, first on desktop */}
-            <div className="order-last lg:order-first">
-              <h2 className="text-sm font-medium text-muted-foreground uppercase tracking-wider mb-6">
+            <div className="order-2 lg:order-1">
+              <h2 className="text-sm font-medium text-muted-foreground uppercase tracking-wider mb-4 lg:mb-6">
                 Categorias
               </h2>
               <div className="space-y-3">
