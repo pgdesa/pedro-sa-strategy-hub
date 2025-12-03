@@ -63,38 +63,38 @@ export const CTABlock = () => {
             </p>
 
             {/* CTA Links - glass cards - compact */}
-            <div className="space-y-3 pt-3">
-              <a href="/bio" className="flex gap-4 items-center group cursor-pointer transition-all duration-500 ease-smooth hover:translate-x-3 glass p-4 rounded-xl border border-glass-border hover:border-primary/40 hover:bg-surface/40">
-                <div className="flex-shrink-0 w-11 h-11 flex items-center justify-center rounded-lg bg-surface/50 border border-glass-border group-hover:border-primary/50 group-hover:bg-primary/10 group-hover:scale-110 transition-all duration-300">
-                  <User className="w-5 h-5 text-primary drop-shadow-glow" />
+            <div className="space-y-2 pt-2">
+              <a href="/bio" className="flex gap-3 items-center group cursor-pointer transition-all duration-500 ease-smooth hover:translate-x-2 glass p-3 rounded-lg border border-glass-border hover:border-primary/40 hover:bg-surface/40">
+                <div className="flex-shrink-0 w-9 h-9 flex items-center justify-center rounded-md bg-surface/50 border border-glass-border group-hover:border-primary/50 group-hover:bg-primary/10 group-hover:scale-110 transition-all duration-300">
+                  <User className="w-4 h-4 text-primary drop-shadow-glow" />
                 </div>
                 <div className="text-left flex-1">
-                  <div className="font-poppins font-semibold text-foreground text-base group-hover:text-primary transition-colors">Quem sou eu</div>
+                  <div className="font-poppins font-semibold text-foreground text-sm group-hover:text-primary transition-colors">Quem sou eu</div>
                   <div className="text-xs text-foreground-secondary font-inter">minha trajetória e visão</div>
                 </div>
-                <span className="text-primary opacity-0 group-hover:opacity-100 transition-opacity">→</span>
+                <span className="text-primary text-sm opacity-0 group-hover:opacity-100 transition-opacity">→</span>
               </a>
 
-              <a href="/projetos" className="flex gap-4 items-center group cursor-pointer transition-all duration-500 ease-smooth hover:translate-x-3 glass p-4 rounded-xl border border-glass-border hover:border-primary/40 hover:bg-surface/40">
-                <div className="flex-shrink-0 w-11 h-11 flex items-center justify-center rounded-lg bg-surface/50 border border-glass-border group-hover:border-primary/50 group-hover:bg-primary/10 group-hover:scale-110 transition-all duration-300">
-                  <Briefcase className="w-5 h-5 text-primary drop-shadow-glow" />
+              <a href="/projetos" className="flex gap-3 items-center group cursor-pointer transition-all duration-500 ease-smooth hover:translate-x-2 glass p-3 rounded-lg border border-glass-border hover:border-primary/40 hover:bg-surface/40">
+                <div className="flex-shrink-0 w-9 h-9 flex items-center justify-center rounded-md bg-surface/50 border border-glass-border group-hover:border-primary/50 group-hover:bg-primary/10 group-hover:scale-110 transition-all duration-300">
+                  <Briefcase className="w-4 h-4 text-primary drop-shadow-glow" />
                 </div>
                 <div className="text-left flex-1">
-                  <div className="font-poppins font-semibold text-foreground text-base group-hover:text-primary transition-colors">Veja meus projetos</div>
+                  <div className="font-poppins font-semibold text-foreground text-sm group-hover:text-primary transition-colors">Veja meus projetos</div>
                   <div className="text-xs text-foreground-secondary font-inter">portfólio visual</div>
                 </div>
-                <span className="text-primary opacity-0 group-hover:opacity-100 transition-opacity">→</span>
+                <span className="text-primary text-sm opacity-0 group-hover:opacity-100 transition-opacity">→</span>
               </a>
 
-              <a href="/casos" className="flex gap-4 items-center group cursor-pointer transition-all duration-500 ease-smooth hover:translate-x-3 glass p-4 rounded-xl border border-glass-border hover:border-primary/40 hover:bg-surface/40">
-                <div className="flex-shrink-0 w-11 h-11 flex items-center justify-center rounded-lg bg-surface/50 border border-glass-border group-hover:border-primary/50 group-hover:bg-primary/10 group-hover:scale-110 transition-all duration-300">
-                  <FileText className="w-5 h-5 text-primary drop-shadow-glow" />
+              <a href="/casos" className="flex gap-3 items-center group cursor-pointer transition-all duration-500 ease-smooth hover:translate-x-2 glass p-3 rounded-lg border border-glass-border hover:border-primary/40 hover:bg-surface/40">
+                <div className="flex-shrink-0 w-9 h-9 flex items-center justify-center rounded-md bg-surface/50 border border-glass-border group-hover:border-primary/50 group-hover:bg-primary/10 group-hover:scale-110 transition-all duration-300">
+                  <FileText className="w-4 h-4 text-primary drop-shadow-glow" />
                 </div>
                 <div className="text-left flex-1">
-                  <div className="font-poppins font-semibold text-foreground text-base group-hover:text-primary transition-colors">Conheça meu trabalho</div>
+                  <div className="font-poppins font-semibold text-foreground text-sm group-hover:text-primary transition-colors">Conheça meu trabalho</div>
                   <div className="text-xs text-foreground-secondary font-inter">resultados em ação</div>
                 </div>
-                <span className="text-primary opacity-0 group-hover:opacity-100 transition-opacity">→</span>
+                <span className="text-primary text-sm opacity-0 group-hover:opacity-100 transition-opacity">→</span>
               </a>
             </div>
           </div>
