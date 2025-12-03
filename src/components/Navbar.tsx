@@ -2,6 +2,12 @@ import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { NavLink } from "@/components/NavLink";
 import { Link, useLocation } from "react-router-dom";
+import { Menu } from "lucide-react";
+import {
+  Sheet,
+  SheetContent,
+  SheetTrigger,
+} from "@/components/ui/sheet";
 
 export const Navbar = () => {
   const [scrolled, setScrolled] = useState(false);
@@ -86,8 +92,8 @@ export const Navbar = () => {
           </Button>
         </div>
 
-        {/* Mobile CTA */}
-        <div className="md:hidden">
+        {/* Mobile Menu */}
+        <div className="md:hidden flex items-center gap-3">
           <Button 
             variant="default" 
             size="sm"
@@ -95,6 +101,39 @@ export const Navbar = () => {
           >
             Agendar
           </Button>
+          
+          <Sheet>
+            <SheetTrigger asChild>
+              <button 
+                className={`p-2 ${navTextColor} ${navHoverColor} transition-colors`}
+                aria-label="Abrir menu"
+              >
+                <Menu size={24} />
+              </button>
+            </SheetTrigger>
+            <SheetContent side="right" className="w-[280px] bg-background/95 backdrop-blur-xl border-border/50">
+              <nav className="flex flex-col gap-6 mt-8">
+                <NavLink
+                  to="/bio"
+                  className="text-lg font-inter font-medium text-foreground hover:text-primary transition-colors"
+                >
+                  Bio
+                </NavLink>
+                <NavLink
+                  to="/trabalhos"
+                  className="text-lg font-inter font-medium text-foreground hover:text-primary transition-colors"
+                >
+                  Trabalhos
+                </NavLink>
+                <NavLink
+                  to="/contato"
+                  className="text-lg font-inter font-medium text-foreground hover:text-primary transition-colors"
+                >
+                  Contato
+                </NavLink>
+              </nav>
+            </SheetContent>
+          </Sheet>
         </div>
       </div>
     </nav>
