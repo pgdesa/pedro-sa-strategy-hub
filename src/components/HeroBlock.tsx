@@ -148,13 +148,13 @@ export const HeroBlock = () => {
                 />
               </div>
               
-              {/* Mobile title overlay - appears at bottom of image */}
+              {/* Mobile title overlay - appears at top left beside face */}
               <div 
-                className={`lg:hidden absolute bottom-8 left-0 right-0 text-center transition-all duration-500 ${
-                  showTitleShifted ? 'opacity-0 translate-y-4' : 'opacity-100 translate-y-0'
+                className={`lg:hidden absolute top-16 left-4 transition-all duration-500 ${
+                  showTitleShifted ? 'opacity-0 -translate-y-4' : 'opacity-100 translate-y-0'
                 }`}
               >
-                <h1 className="font-poppins font-bold text-foreground text-3xl sm:text-4xl tracking-tight text-glow">
+                <h1 className="font-poppins font-bold text-foreground text-xl sm:text-2xl tracking-tight text-glow">
                   PEDRO SÁ
                 </h1>
               </div>
