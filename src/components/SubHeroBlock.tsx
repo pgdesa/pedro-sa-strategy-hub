@@ -24,6 +24,7 @@ export const SubHeroBlock = () => {
   const sectionRef = useRef<HTMLElement>(null);
   const imageRef = useRef<HTMLImageElement>(null);
   const [isVisible, setIsVisible] = useState(false);
+  const [showMobileTitle, setShowMobileTitle] = useState(true);
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -38,6 +39,18 @@ export const SubHeroBlock = () => {
     }
 
     return () => observer.disconnect();
+  }, []);
+
+  // Track scroll for mobile title fade
+  useEffect(() => {
+    const handleScroll = () => {
+      const scrollY = window.scrollY;
+      // Hide mobile title after scrolling past first section
+      setShowMobileTitle(scrollY < window.innerHeight * 0.5);
+    };
+
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
   // Parallax effect
@@ -102,7 +115,7 @@ export const SubHeroBlock = () => {
           </div>
 
           {/* IMAGEM - coluna expandida */}
-          <div data-photo className="col-span-12 lg:col-span-6 xl:col-span-6 animate-fade-in-delay order-1 lg:order-2 flex items-center justify-center">
+          <div data-photo className="col-span-12 lg:col-span-6 xl:col-span-6 animate-fade-in-delay order-1 lg:order-2 flex items-center justify-center relative">
             <div className="relative perspective-container w-full">
               {/* Rim light effect */}
               <div className="absolute -inset-12 bg-gradient-to-br from-primary/15 via-transparent to-accent/10 rounded-full blur-3xl pointer-events-none" />
@@ -123,6 +136,17 @@ export const SubHeroBlock = () => {
                 srcSet={`${valueImage} 1x, ${valueImage} 2x`}
                 sizes="(max-width: 1024px) 100vw, 66vw"
               />
+            </div>
+            
+            {/* Mobile subtitle overlay - appears at bottom of image */}
+            <div 
+              className={`lg:hidden absolute bottom-8 left-0 right-0 text-center transition-all duration-500 ${
+                showMobileTitle ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'
+              }`}
+            >
+              <p className="font-poppins font-semibold text-foreground text-lg sm:text-xl tracking-wide">
+                Estratégia e Comunicação
+              </p>
             </div>
           </div>
 
