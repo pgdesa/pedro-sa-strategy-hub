@@ -237,34 +237,8 @@ const TrabalhosLanding = () => {
           </header>
 
           <div className="grid lg:grid-cols-2 gap-12">
-            {/* Categories Column */}
-            <div>
-              <h2 className="text-sm font-medium text-muted-foreground uppercase tracking-wider mb-6">
-                Categorias
-              </h2>
-              <div className="space-y-3">
-                {categories.map((cat) => (
-                  <Link
-                    key={cat.slug}
-                    to={`/trabalhos/${cat.slug}`}
-                    className="group flex items-center justify-between p-5 rounded-xl bg-card/30 border border-border/30 hover:border-primary/30 hover:bg-card/50 transition-all duration-200 hover:scale-[1.01]"
-                  >
-                    <div>
-                      <h3 className="text-lg font-semibold text-foreground group-hover:text-primary transition-colors">
-                        {cat.name}
-                      </h3>
-                      <p className="text-sm text-muted-foreground mt-1">
-                        {cat.description}
-                      </p>
-                    </div>
-                    <ArrowRight className="h-5 w-5 text-muted-foreground group-hover:text-primary group-hover:translate-x-1 transition-all" />
-                  </Link>
-                ))}
-              </div>
-            </div>
-
-            {/* Search Column */}
-            <div>
+            {/* Search Column - First on mobile, second on desktop */}
+            <div className="order-first lg:order-last">
               <h2 className="text-sm font-medium text-muted-foreground uppercase tracking-wider mb-6">
                 Busca rápida
               </h2>
@@ -287,6 +261,32 @@ const TrabalhosLanding = () => {
                   )}
                 </div>
               )}
+            </div>
+
+            {/* Categories Column - Second on mobile, first on desktop */}
+            <div className="order-last lg:order-first">
+              <h2 className="text-sm font-medium text-muted-foreground uppercase tracking-wider mb-6">
+                Categorias
+              </h2>
+              <div className="space-y-3">
+                {categories.map((cat) => (
+                  <Link
+                    key={cat.slug}
+                    to={`/trabalhos/${cat.slug}`}
+                    className="group flex items-center justify-between p-5 rounded-xl bg-card/30 border border-border/30 hover:border-primary/30 hover:bg-card/50 transition-all duration-200 hover:scale-[1.01]"
+                  >
+                    <div>
+                      <h3 className="text-lg font-semibold text-foreground group-hover:text-primary transition-colors">
+                        {cat.name}
+                      </h3>
+                      <p className="text-sm text-muted-foreground mt-1">
+                        {cat.description}
+                      </p>
+                    </div>
+                    <ArrowRight className="h-5 w-5 text-muted-foreground group-hover:text-primary group-hover:translate-x-1 transition-all" />
+                  </Link>
+                ))}
+              </div>
             </div>
           </div>
         </div>
