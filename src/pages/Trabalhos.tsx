@@ -333,25 +333,25 @@ const TrabalhosLanding = () => {
 
           {/* Quadro 2: Categories (bottom-left, spans both columns) */}
           <div className="col-span-2 row-start-2 flex flex-col">
-            <h2 className="text-sm font-medium text-muted-foreground uppercase tracking-wider mb-4">
+            <h2 className="text-xs font-medium text-muted-foreground uppercase tracking-wider mb-2">
               Categorias
             </h2>
-            <div className="grid grid-cols-2 gap-4 flex-1">
+            <div className="grid grid-cols-2 gap-3 flex-1">
               {categories.map((cat) => (
                 <Link
                   key={cat.slug}
                   to={`/trabalhos/${cat.slug}`}
-                  className="group flex items-center justify-between p-4 rounded-xl bg-card/30 border border-border/30 hover:border-primary/30 hover:bg-card/50 transition-all duration-200 hover:scale-[1.01]"
+                  className="group flex items-center justify-between p-3 rounded-lg bg-card/30 border border-border/30 hover:border-primary/30 hover:bg-card/50 transition-all duration-200 hover:scale-[1.01]"
                 >
                   <div className="flex-1 min-w-0">
-                    <h3 className="text-lg font-semibold text-foreground group-hover:text-primary transition-colors">
+                    <h3 className="text-base font-semibold text-foreground group-hover:text-primary transition-colors">
                       {cat.name}
                     </h3>
-                    <p className="text-sm text-muted-foreground mt-1 line-clamp-2">
+                    <p className="text-xs text-muted-foreground mt-0.5 line-clamp-2">
                       {cat.description}
                     </p>
                   </div>
-                  <ArrowRight className="h-5 w-5 text-muted-foreground group-hover:text-primary group-hover:translate-x-1 transition-all flex-shrink-0 ml-3" />
+                  <ArrowRight className="h-4 w-4 text-muted-foreground group-hover:text-primary group-hover:translate-x-1 transition-all flex-shrink-0 ml-2" />
                 </Link>
               ))}
             </div>
