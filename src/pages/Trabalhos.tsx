@@ -307,7 +307,7 @@ const TrabalhosLanding = () => {
           </div>
 
           {/* Quadro 3: Search (top-right) */}
-          <div className="col-start-2 row-start-1 flex flex-col justify-start overflow-y-auto max-h-full">
+          <div className="col-start-2 row-start-1 flex flex-col justify-start overflow-y-auto max-h-full pt-6">
             <h2 className="text-xs font-medium text-muted-foreground uppercase tracking-wider mb-2">
               Busca rápida
             </h2>
