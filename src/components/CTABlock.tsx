@@ -52,49 +52,49 @@ export const CTABlock = () => {
       <div className="container mx-auto max-w-7xl relative z-10 w-full">
         <div className="grid grid-cols-12 gap-6 lg:gap-8 items-center">
           
-          {/* TEXTO - coluna reduzida */}
-          <div data-text className="col-span-12 lg:col-span-6 xl:col-span-6 space-y-3 sm:space-y-4 lg:space-y-5 animate-fade-in order-2 lg:order-1 flex flex-col justify-center px-4 sm:px-6 md:px-8 lg:px-0">
-            <h2 className="font-poppins font-bold text-foreground leading-tight text-glow text-2xl sm:text-3xl lg:text-4xl xl:text-5xl">
+          {/* TEXTO - coluna compacta */}
+          <div data-text className="col-span-12 lg:col-span-6 xl:col-span-6 space-y-2 lg:space-y-3 animate-fade-in order-2 lg:order-1 flex flex-col justify-center px-4 sm:px-6 md:px-8 lg:px-0">
+            <h2 className="font-poppins font-bold text-foreground leading-tight text-glow text-xl sm:text-2xl lg:text-2xl xl:text-3xl">
               Escolha por onde começar — trajetória, projetos ou resultados em ação.
             </h2>
 
-            <p className="text-sm sm:text-base lg:text-base xl:text-lg text-foreground-secondary font-inter leading-relaxed">
+            <p className="text-xs sm:text-sm lg:text-sm text-foreground-secondary font-inter leading-relaxed">
               A navegação é linear e direta.
             </p>
 
-            {/* CTA Links - glass cards - compact */}
-            <div className="space-y-2 pt-2">
-              <a href="/bio" className="flex gap-3 items-center group cursor-pointer transition-all duration-500 ease-smooth hover:translate-x-2 glass p-3 rounded-lg border border-glass-border hover:border-primary/40 hover:bg-surface/40">
-                <div className="flex-shrink-0 w-9 h-9 flex items-center justify-center rounded-md bg-surface/50 border border-glass-border group-hover:border-primary/50 group-hover:bg-primary/10 group-hover:scale-110 transition-all duration-300">
-                  <User className="w-4 h-4 text-primary drop-shadow-glow" />
+            {/* CTA Links - glass cards - ultra compact */}
+            <div className="space-y-1.5 pt-1">
+              <a href="/bio" className="flex gap-2.5 items-center group cursor-pointer transition-all duration-500 ease-smooth hover:translate-x-1.5 glass p-2.5 rounded-md border border-glass-border hover:border-primary/40 hover:bg-surface/40">
+                <div className="flex-shrink-0 w-8 h-8 flex items-center justify-center rounded bg-surface/50 border border-glass-border group-hover:border-primary/50 group-hover:bg-primary/10 group-hover:scale-105 transition-all duration-300">
+                  <User className="w-3.5 h-3.5 text-primary drop-shadow-glow" />
                 </div>
                 <div className="text-left flex-1">
-                  <div className="font-poppins font-semibold text-foreground text-sm group-hover:text-primary transition-colors">Quem sou eu</div>
-                  <div className="text-xs text-foreground-secondary font-inter">minha trajetória e visão</div>
+                  <div className="font-poppins font-semibold text-foreground text-xs group-hover:text-primary transition-colors">Quem sou eu</div>
+                  <div className="text-[10px] text-foreground-secondary font-inter leading-tight">minha trajetória e visão</div>
                 </div>
-                <span className="text-primary text-sm opacity-0 group-hover:opacity-100 transition-opacity">→</span>
+                <span className="text-primary text-xs opacity-0 group-hover:opacity-100 transition-opacity">→</span>
               </a>
 
-              <a href="/projetos" className="flex gap-3 items-center group cursor-pointer transition-all duration-500 ease-smooth hover:translate-x-2 glass p-3 rounded-lg border border-glass-border hover:border-primary/40 hover:bg-surface/40">
-                <div className="flex-shrink-0 w-9 h-9 flex items-center justify-center rounded-md bg-surface/50 border border-glass-border group-hover:border-primary/50 group-hover:bg-primary/10 group-hover:scale-110 transition-all duration-300">
-                  <Briefcase className="w-4 h-4 text-primary drop-shadow-glow" />
+              <a href="/projetos" className="flex gap-2.5 items-center group cursor-pointer transition-all duration-500 ease-smooth hover:translate-x-1.5 glass p-2.5 rounded-md border border-glass-border hover:border-primary/40 hover:bg-surface/40">
+                <div className="flex-shrink-0 w-8 h-8 flex items-center justify-center rounded bg-surface/50 border border-glass-border group-hover:border-primary/50 group-hover:bg-primary/10 group-hover:scale-105 transition-all duration-300">
+                  <Briefcase className="w-3.5 h-3.5 text-primary drop-shadow-glow" />
                 </div>
                 <div className="text-left flex-1">
-                  <div className="font-poppins font-semibold text-foreground text-sm group-hover:text-primary transition-colors">Veja meus projetos</div>
-                  <div className="text-xs text-foreground-secondary font-inter">portfólio visual</div>
+                  <div className="font-poppins font-semibold text-foreground text-xs group-hover:text-primary transition-colors">Veja meus projetos</div>
+                  <div className="text-[10px] text-foreground-secondary font-inter leading-tight">portfólio visual</div>
                 </div>
-                <span className="text-primary text-sm opacity-0 group-hover:opacity-100 transition-opacity">→</span>
+                <span className="text-primary text-xs opacity-0 group-hover:opacity-100 transition-opacity">→</span>
               </a>
 
-              <a href="/casos" className="flex gap-3 items-center group cursor-pointer transition-all duration-500 ease-smooth hover:translate-x-2 glass p-3 rounded-lg border border-glass-border hover:border-primary/40 hover:bg-surface/40">
-                <div className="flex-shrink-0 w-9 h-9 flex items-center justify-center rounded-md bg-surface/50 border border-glass-border group-hover:border-primary/50 group-hover:bg-primary/10 group-hover:scale-110 transition-all duration-300">
-                  <FileText className="w-4 h-4 text-primary drop-shadow-glow" />
+              <a href="/casos" className="flex gap-2.5 items-center group cursor-pointer transition-all duration-500 ease-smooth hover:translate-x-1.5 glass p-2.5 rounded-md border border-glass-border hover:border-primary/40 hover:bg-surface/40">
+                <div className="flex-shrink-0 w-8 h-8 flex items-center justify-center rounded bg-surface/50 border border-glass-border group-hover:border-primary/50 group-hover:bg-primary/10 group-hover:scale-105 transition-all duration-300">
+                  <FileText className="w-3.5 h-3.5 text-primary drop-shadow-glow" />
                 </div>
                 <div className="text-left flex-1">
-                  <div className="font-poppins font-semibold text-foreground text-sm group-hover:text-primary transition-colors">Conheça meu trabalho</div>
-                  <div className="text-xs text-foreground-secondary font-inter">resultados em ação</div>
+                  <div className="font-poppins font-semibold text-foreground text-xs group-hover:text-primary transition-colors">Conheça meu trabalho</div>
+                  <div className="text-[10px] text-foreground-secondary font-inter leading-tight">resultados em ação</div>
                 </div>
-                <span className="text-primary text-sm opacity-0 group-hover:opacity-100 transition-opacity">→</span>
+                <span className="text-primary text-xs opacity-0 group-hover:opacity-100 transition-opacity">→</span>
               </a>
             </div>
           </div>
