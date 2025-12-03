@@ -1,6 +1,6 @@
 import { Navbar } from "@/components/Navbar";
 import { HeroBlock } from "@/components/HeroBlock";
-import { ValueBlock } from "@/components/ValueBlock";
+import { SubHeroBlock } from "@/components/SubHeroBlock";
 import { FeaturesBlock } from "@/components/FeaturesBlock";
 import { CTABlock } from "@/components/CTABlock";
 import { StackedCrossfade } from "@/components/StackedCrossfade";
@@ -42,7 +42,7 @@ const Index = () => {
       <StackedCrossfade 
         sections={[
           <HeroBlock />,
-          <ValueBlock />,
+          <SubHeroBlock />,
           <FeaturesBlock />,
           <CTABlock />
         ]} 

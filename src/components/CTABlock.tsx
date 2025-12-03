@@ -55,16 +55,16 @@ export const CTABlock = () => {
           {/* TEXTO - coluna reduzida */}
           <div data-text className="col-span-12 lg:col-span-6 xl:col-span-6 space-y-3 sm:space-y-4 lg:space-y-5 animate-fade-in order-2 lg:order-1 flex flex-col justify-center px-4 sm:px-6 md:px-8 lg:px-0">
             <h2 className="font-poppins font-bold text-foreground leading-tight text-glow text-2xl sm:text-3xl lg:text-4xl xl:text-5xl">
-              Quer conhecer mais sobre o meu trabalho?
+              Escolha por onde começar — trajetória, projetos ou resultados em ação.
             </h2>
 
             <p className="text-sm sm:text-base lg:text-base xl:text-lg text-foreground-secondary font-inter leading-relaxed">
-              Escolha um caminho e continue — a navegação é linear e direta.
+              A navegação é linear e direta.
             </p>
 
             {/* CTA Links - glass cards */}
             <div className="space-y-4 pt-4">
-              <a href="#bio" className="flex gap-5 items-center group cursor-pointer transition-all duration-500 ease-smooth hover:translate-x-3 glass p-5 rounded-xl border border-glass-border hover:border-primary/40 hover:bg-surface/40">
+              <a href="/bio" className="flex gap-5 items-center group cursor-pointer transition-all duration-500 ease-smooth hover:translate-x-3 glass p-5 rounded-xl border border-glass-border hover:border-primary/40 hover:bg-surface/40">
                 <div className="flex-shrink-0 w-14 h-14 flex items-center justify-center rounded-lg bg-surface/50 border border-glass-border group-hover:border-primary/50 group-hover:bg-primary/10 group-hover:scale-110 transition-all duration-300">
                   <User className="w-7 h-7 text-primary drop-shadow-glow" />
                 </div>
@@ -75,7 +75,7 @@ export const CTABlock = () => {
                 <span className="text-primary opacity-0 group-hover:opacity-100 transition-opacity">→</span>
               </a>
 
-              <a href="#projetos" className="flex gap-5 items-center group cursor-pointer transition-all duration-500 ease-smooth hover:translate-x-3 glass p-5 rounded-xl border border-glass-border hover:border-primary/40 hover:bg-surface/40">
+              <a href="/projetos" className="flex gap-5 items-center group cursor-pointer transition-all duration-500 ease-smooth hover:translate-x-3 glass p-5 rounded-xl border border-glass-border hover:border-primary/40 hover:bg-surface/40">
                 <div className="flex-shrink-0 w-14 h-14 flex items-center justify-center rounded-lg bg-surface/50 border border-glass-border group-hover:border-primary/50 group-hover:bg-primary/10 group-hover:scale-110 transition-all duration-300">
                   <Briefcase className="w-7 h-7 text-primary drop-shadow-glow" />
                 </div>
@@ -86,7 +86,7 @@ export const CTABlock = () => {
                 <span className="text-primary opacity-0 group-hover:opacity-100 transition-opacity">→</span>
               </a>
 
-              <a href="#trabalho" className="flex gap-5 items-center group cursor-pointer transition-all duration-500 ease-smooth hover:translate-x-3 glass p-5 rounded-xl border border-glass-border hover:border-primary/40 hover:bg-surface/40">
+              <a href="/casos" className="flex gap-5 items-center group cursor-pointer transition-all duration-500 ease-smooth hover:translate-x-3 glass p-5 rounded-xl border border-glass-border hover:border-primary/40 hover:bg-surface/40">
                 <div className="flex-shrink-0 w-14 h-14 flex items-center justify-center rounded-lg bg-surface/50 border border-glass-border group-hover:border-primary/50 group-hover:bg-primary/10 group-hover:scale-110 transition-all duration-300">
                   <FileText className="w-7 h-7 text-primary drop-shadow-glow" />
                 </div>
