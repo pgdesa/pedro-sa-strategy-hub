@@ -7,6 +7,8 @@ import {
   Sheet,
   SheetContent,
   SheetTrigger,
+  SheetTitle,
+  SheetDescription,
 } from "@/components/ui/sheet";
 
 export const Navbar = () => {
@@ -94,14 +96,6 @@ export const Navbar = () => {
 
         {/* Mobile Menu */}
         <div className="md:hidden flex items-center gap-3">
-          <Button 
-            variant="default" 
-            size="sm"
-            className="bg-primary text-primary-foreground hover:bg-primary/90"
-          >
-            Agendar
-          </Button>
-          
           <Sheet>
             <SheetTrigger asChild>
               <button 
@@ -112,6 +106,8 @@ export const Navbar = () => {
               </button>
             </SheetTrigger>
             <SheetContent side="right" className="w-[280px] bg-background/95 backdrop-blur-xl border-border/50">
+              <SheetTitle className="sr-only">Menu de navegação</SheetTitle>
+              <SheetDescription className="sr-only">Links para páginas do site</SheetDescription>
               <nav className="flex flex-col gap-6 mt-8">
                 <NavLink
                   to="/bio"
@@ -134,6 +130,14 @@ export const Navbar = () => {
               </nav>
             </SheetContent>
           </Sheet>
+          
+          <Button 
+            variant="default" 
+            size="sm"
+            className="bg-primary text-primary-foreground hover:bg-primary/90"
+          >
+            Agendar
+          </Button>
         </div>
       </div>
     </nav>
