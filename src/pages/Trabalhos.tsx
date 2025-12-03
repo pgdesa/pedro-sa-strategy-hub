@@ -391,10 +391,12 @@ const CategoryView = ({ categorySlug }: CategoryViewProps) => {
   }
 
   return (
-    <div className="h-screen bg-background flex flex-col overflow-hidden">
+    <div className="min-h-screen bg-background">
       <Navbar />
-      <main className="flex-1 pt-20 pb-4 px-6 overflow-hidden">
-        <div className="max-w-6xl mx-auto h-full flex flex-col">
+      
+      {/* Mobile/Tablet Layout - Normal scroll */}
+      <main className="lg:hidden pt-24 pb-16 px-4">
+        <div className="max-w-2xl mx-auto">
           <Breadcrumb
             items={[
               { label: "Home", href: "/" },
@@ -403,7 +405,73 @@ const CategoryView = ({ categorySlug }: CategoryViewProps) => {
             ]}
           />
 
-          <div className="grid lg:grid-cols-[240px_1fr] gap-8 flex-1 overflow-hidden">
+          <header className="mb-6">
+            <h1 className="font-poppins text-2xl font-bold text-foreground mb-2">
+              {category.name}
+            </h1>
+            <p className="text-sm text-muted-foreground">
+              {category.description}
+            </p>
+          </header>
+
+          {/* Search */}
+          <div className="mb-6">
+            <SearchInput
+              value={searchTerm}
+              onChange={setSearchTerm}
+              placeholder="Buscar nesta categoria"
+            />
+          </div>
+
+          {/* Categories Navigation */}
+          <div className="mb-6">
+            <h2 className="text-xs font-medium text-muted-foreground uppercase tracking-wider mb-3">
+              Categorias
+            </h2>
+            <div className="flex flex-wrap gap-2">
+              {categories.map((cat) => (
+                <Link
+                  key={cat.slug}
+                  to={`/trabalhos/${cat.slug}`}
+                  className={`px-3 py-1.5 rounded-full text-sm transition-colors ${
+                    categorySlug === cat.slug
+                      ? "bg-primary/20 text-primary border border-primary/30"
+                      : "bg-card/50 text-muted-foreground hover:text-foreground border border-border/30"
+                  }`}
+                >
+                  {cat.name}
+                </Link>
+              ))}
+            </div>
+          </div>
+
+          {/* Work List */}
+          <div className="space-y-3">
+            {filteredWorks.length > 0 ? (
+              filteredWorks.map((work) => (
+                <WorkCard key={work.id} work={work} />
+              ))
+            ) : (
+              <p className="text-muted-foreground text-center py-8 text-sm">
+                Nenhum trabalho encontrado para esta busca.
+              </p>
+            )}
+          </div>
+        </div>
+      </main>
+
+      {/* Desktop Layout - Full viewport, no page scroll */}
+      <main className="hidden lg:flex flex-col h-screen pt-16 pb-4 px-6 overflow-hidden">
+        <div className="max-w-6xl mx-auto w-full flex-1 flex flex-col overflow-hidden">
+          <Breadcrumb
+            items={[
+              { label: "Home", href: "/" },
+              { label: "Trabalhos", href: "/trabalhos" },
+              { label: category.name },
+            ]}
+          />
+
+          <div className="grid grid-cols-[240px_1fr] gap-8 flex-1 overflow-hidden">
             {/* Sidebar */}
             <CategorySidebar
               activeCategory={categorySlug}
@@ -465,8 +533,10 @@ const WorkDetail = ({ categorySlug, workSlug }: WorkDetailProps) => {
   return (
     <div className="min-h-screen bg-background">
       <Navbar />
-      <main className="pt-28 pb-20 px-6">
-        <div className="max-w-6xl mx-auto">
+      
+      {/* Mobile/Tablet Layout - Normal scroll */}
+      <main className="lg:hidden pt-24 pb-16 px-4">
+        <div className="max-w-2xl mx-auto">
           <Breadcrumb
             items={[
               { label: "Home", href: "/" },
@@ -476,30 +546,67 @@ const WorkDetail = ({ categorySlug, workSlug }: WorkDetailProps) => {
             ]}
           />
 
-          <div className="grid lg:grid-cols-[280px_1fr] gap-12">
-            {/* Sidebar */}
-            <div className="hidden lg:block">
-              <CategorySidebar
-                activeCategory={categorySlug}
-                searchValue={searchTerm}
-                onSearchChange={setSearchTerm}
-              />
+          <header className="mb-4">
+            <h1 className="font-poppins text-xl font-bold text-foreground mb-2">
+              {work.title}
+            </h1>
+            <div className="flex flex-wrap gap-1.5">
+              <Badge variant="outline" className="text-xs bg-primary/10 text-primary border-primary/30">
+                {category.name}
+              </Badge>
+              {work.subcategories.map((sub) => (
+                <Badge key={sub} variant="secondary" className="text-xs">
+                  {sub}
+                </Badge>
+              ))}
             </div>
+          </header>
+
+          {work.gallery && work.gallery.length > 0 && (
+            <div className="mb-6">
+              <ImageCarousel images={work.gallery} title={work.title} />
+            </div>
+          )}
+
+          <FichaTecnica work={work} category={category} />
+        </div>
+      </main>
+
+      {/* Desktop Layout - Full viewport, no page scroll */}
+      <main className="hidden lg:flex flex-col h-screen pt-16 pb-4 px-6 overflow-hidden">
+        <div className="max-w-7xl mx-auto w-full flex-1 flex flex-col overflow-hidden">
+          <Breadcrumb
+            items={[
+              { label: "Home", href: "/" },
+              { label: "Trabalhos", href: "/trabalhos" },
+              { label: category.name, href: `/trabalhos/${categorySlug}` },
+              { label: work.title },
+            ]}
+          />
+
+          <div className="grid grid-cols-[200px_1fr] gap-6 flex-1 overflow-hidden">
+            {/* Sidebar */}
+            <CategorySidebar
+              activeCategory={categorySlug}
+              searchValue={searchTerm}
+              onSearchChange={setSearchTerm}
+              compact
+            />
 
             {/* Main Content */}
-            <div className="grid lg:grid-cols-[1fr_320px] gap-8">
+            <div className="grid grid-cols-[1fr_280px] gap-6 overflow-hidden">
               {/* Left: Title + Carousel */}
-              <div>
-                <header className="mb-6">
-                  <h1 className="font-poppins text-2xl md:text-3xl font-bold text-foreground mb-2">
+              <div className="flex flex-col overflow-hidden">
+                <header className="mb-3 flex-shrink-0">
+                  <h1 className="font-poppins text-xl font-bold text-foreground mb-1">
                     {work.title}
                   </h1>
-                  <div className="flex flex-wrap gap-2">
-                    <Badge variant="outline" className="bg-primary/10 text-primary border-primary/30">
+                  <div className="flex flex-wrap gap-1.5">
+                    <Badge variant="outline" className="text-xs bg-primary/10 text-primary border-primary/30">
                       {category.name}
                     </Badge>
                     {work.subcategories.map((sub) => (
-                      <Badge key={sub} variant="secondary">
+                      <Badge key={sub} variant="secondary" className="text-xs">
                         {sub}
                       </Badge>
                     ))}
@@ -507,18 +614,15 @@ const WorkDetail = ({ categorySlug, workSlug }: WorkDetailProps) => {
                 </header>
 
                 {work.gallery && work.gallery.length > 0 && (
-                  <ImageCarousel images={work.gallery} title={work.title} />
+                  <div className="flex-1 min-h-0">
+                    <ImageCarousel images={work.gallery} title={work.title} />
+                  </div>
                 )}
-
-                {/* Mobile: Ficha técnica below carousel */}
-                <div className="lg:hidden mt-8">
-                  <FichaTecnica work={work} category={category} />
-                </div>
               </div>
 
-              {/* Right: Ficha Técnica (Desktop only) */}
-              <div className="hidden lg:block">
-                <FichaTecnica work={work} category={category} />
+              {/* Right: Ficha Técnica */}
+              <div className="overflow-y-auto">
+                <FichaTecnicaCompact work={work} category={category} />
               </div>
             </div>
           </div>
@@ -601,6 +705,67 @@ const FichaTecnica = ({ work, category }: FichaTecnicaProps) => (
     <Button className="w-full mt-4" asChild>
       <Link to="/contato">
         Quero algo assim no meu projeto
+      </Link>
+    </Button>
+  </div>
+);
+
+// Compact version for desktop single-screen layout
+const FichaTecnicaCompact = ({ work, category }: FichaTecnicaProps) => (
+  <div className="p-4 rounded-lg bg-card/30 border border-border/30 space-y-3 text-xs">
+    <h2 className="text-xs font-medium text-muted-foreground uppercase tracking-wider">
+      Ficha Técnica
+    </h2>
+
+    <div className="space-y-2">
+      {work.client && (
+        <div>
+          <span className="text-muted-foreground">Cliente</span>
+          <p className="text-foreground font-medium">{work.client}</p>
+        </div>
+      )}
+      {work.agency && (
+        <div>
+          <span className="text-muted-foreground">Agência</span>
+          <p className="text-foreground font-medium">{work.agency}</p>
+        </div>
+      )}
+      {work.year && (
+        <div>
+          <span className="text-muted-foreground">Ano</span>
+          <p className="text-foreground font-medium">{work.year}</p>
+        </div>
+      )}
+      {work.location && (
+        <div>
+          <span className="text-muted-foreground">Local</span>
+          <p className="text-foreground font-medium">{work.location}</p>
+        </div>
+      )}
+      <div>
+        <span className="text-muted-foreground">Tags</span>
+        <div className="flex flex-wrap gap-1 mt-1">
+          {work.tags.slice(0, 4).map((tag) => (
+            <Badge key={tag} variant="outline" className="text-[10px] px-1.5 py-0">
+              {tag}
+            </Badge>
+          ))}
+        </div>
+      </div>
+    </div>
+
+    <div className="pt-2 border-t border-border/30">
+      <h3 className="text-xs font-medium text-muted-foreground uppercase tracking-wider mb-2">
+        Sobre
+      </h3>
+      <p className="text-xs text-foreground/90 leading-relaxed line-clamp-6">
+        {work.description}
+      </p>
+    </div>
+
+    <Button className="w-full" size="sm" asChild>
+      <Link to="/contato">
+        Quero algo assim
       </Link>
     </Button>
   </div>
