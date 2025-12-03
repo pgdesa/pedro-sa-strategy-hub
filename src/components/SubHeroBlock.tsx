@@ -79,19 +79,19 @@ export const SubHeroBlock = () => {
             </p>
 
             {/* Três pilares */}
-            <div className="space-y-4 pt-2">
+            <div className="space-y-2 pt-1">
               {pillars.map((pillar, index) => {
                 const Icon = pillar.icon;
                 return (
-                  <div key={index} className="flex items-start gap-4 group hover:translate-x-2 transition-transform duration-300">
-                    <div className="mt-1 p-2 rounded-lg glass border border-glass-border/30">
-                      <Icon className="w-5 h-5 text-primary" />
+                  <div key={index} className="flex items-start gap-3 group hover:translate-x-1 transition-transform duration-300">
+                    <div className="mt-0.5 p-1.5 rounded-md glass border border-glass-border/30">
+                      <Icon className="w-4 h-4 text-primary" />
                     </div>
                     <div>
-                      <h3 className="text-lg font-poppins font-semibold text-foreground mb-1">
+                      <h3 className="text-base font-poppins font-semibold text-foreground mb-0.5">
                         {pillar.title}
                       </h3>
-                      <p className="text-sm text-foreground-secondary">
+                      <p className="text-xs text-foreground-secondary">
                         {pillar.description}
                       </p>
                     </div>
