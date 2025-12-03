@@ -24,7 +24,7 @@ interface BreadcrumbProps {
 }
 
 const Breadcrumb = ({ items }: BreadcrumbProps) => (
-  <nav className="flex items-center gap-2 text-sm text-muted-foreground mb-8">
+  <nav className="flex items-center gap-2 text-sm text-muted-foreground mb-4">
     {items.map((item, index) => (
       <span key={index} className="flex items-center gap-2">
         {index > 0 && <span className="text-border">/</span>}
@@ -293,28 +293,28 @@ const TrabalhosLanding = () => {
       </main>
 
       {/* Desktop Layout - Full viewport, no scroll */}
-      <main className="hidden lg:flex flex-col flex-1 pt-20 px-8 pb-6 h-[calc(100vh-0px)] overflow-hidden">
-        <div className="max-w-7xl mx-auto w-full flex-1 grid grid-cols-2 grid-rows-[auto_1fr] gap-x-12 gap-y-6">
+      <main className="hidden lg:flex flex-col flex-1 pt-16 px-8 pb-4 h-[calc(100vh-0px)] overflow-hidden">
+        <div className="max-w-7xl mx-auto w-full flex-1 grid grid-cols-2 grid-rows-[auto_1fr] gap-x-12 gap-y-4">
           {/* Quadro 1: Header (top-left) */}
           <div className="col-start-1 row-start-1">
             <Breadcrumb items={[{ label: "Home", href: "/" }, { label: "Trabalhos" }]} />
-            <h1 className="font-poppins text-5xl font-bold text-foreground mb-3">
+            <h1 className="font-poppins text-4xl font-bold text-foreground mb-1">
               Trabalhos
             </h1>
-            <p className="text-lg text-muted-foreground">
+            <p className="text-base text-muted-foreground">
               Projetos organizados por categorias para você encontrar o que mais se aproxima do seu desafio.
             </p>
           </div>
 
           {/* Quadro 3: Search (top-right) */}
           <div className="col-start-2 row-start-1 flex flex-col justify-start overflow-y-auto max-h-full">
-            <h2 className="text-sm font-medium text-muted-foreground uppercase tracking-wider mb-3">
+            <h2 className="text-xs font-medium text-muted-foreground uppercase tracking-wider mb-2">
               Busca rápida
             </h2>
             <SearchInput
               value={searchTerm}
               onChange={setSearchTerm}
-              className="mb-3"
+              className="mb-2"
             />
             {searchTerm && (
               <div className="space-y-2 overflow-y-auto flex-1">
