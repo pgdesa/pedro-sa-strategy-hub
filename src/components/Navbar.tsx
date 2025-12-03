@@ -25,14 +25,12 @@ export const Navbar = () => {
   // Show logo always on non-home pages, or when scrolled on home page
   const showLogo = !isHomePage || scrolled;
 
-  // Dynamic text color for Bio page: black when not scrolled, white when scrolled
-  const navTextColor = isBioPage 
-    ? (scrolled ? "text-white" : "text-stone-900")
-    : "text-stone-900";
+  // Dynamic text color: white when scrolled (dark navbar), otherwise dark on Bio, light on Home
+  const navTextColor = scrolled 
+    ? "text-white" 
+    : (isBioPage ? "text-stone-900" : "text-foreground");
 
-  const navHoverColor = isBioPage
-    ? (scrolled ? "hover:text-primary" : "hover:text-primary")
-    : "hover:text-primary";
+  const navHoverColor = "hover:text-primary";
 
   return (
     <nav
