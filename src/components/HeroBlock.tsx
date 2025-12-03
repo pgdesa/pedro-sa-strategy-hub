@@ -1,13 +1,13 @@
 import { Button } from "@/components/ui/button";
 import { useEffect, useRef, useState } from "react";
+import { Link } from "react-router-dom";
 import heroImage from "@/assets/FINALSITE1.png";
 
 export const HeroBlock = () => {
   const sectionRef = useRef<HTMLElement>(null);
   const imageRef = useRef<HTMLImageElement>(null);
-  const titleRef = useRef<HTMLHeadingElement>(null);
   const [isVisible, setIsVisible] = useState(false);
-  const [showFixedTitle, setShowFixedTitle] = useState(false);
+  const [showHomeButton, setShowHomeButton] = useState(false);
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -24,16 +24,16 @@ export const HeroBlock = () => {
     return () => observer.disconnect();
   }, []);
 
-  // Title animation: when scroll > threshold, show fixed title in navbar position
+  // Scroll handler for title animation and Home button visibility
   useEffect(() => {
     const handleScroll = () => {
       const scrollY = window.scrollY;
-      const threshold = 100;
+      const triggerPoint = 90;
       
-      if (scrollY > threshold && !showFixedTitle) {
-        setShowFixedTitle(true);
-      } else if (scrollY <= threshold && showFixedTitle) {
-        setShowFixedTitle(false);
+      if (scrollY > triggerPoint) {
+        setShowHomeButton(true);
+      } else {
+        setShowHomeButton(false);
       }
 
       // Image parallax
@@ -47,7 +47,7 @@ export const HeroBlock = () => {
 
     window.addEventListener("scroll", handleScroll, { passive: true });
     return () => window.removeEventListener("scroll", handleScroll);
-  }, [isVisible, showFixedTitle]);
+  }, [isVisible]);
 
   const scrollToTop = () => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
@@ -55,13 +55,14 @@ export const HeroBlock = () => {
 
   return (
     <>
-      {/* Fixed "Pedro Sá" title that appears on scroll - acts as Home button */}
+      {/* Fixed Home Button - "Pedro Sá" */}
       <button
+        id="home-button"
         onClick={scrollToTop}
-        className={`fixed top-4 left-6 z-[60] font-poppins font-bold text-foreground hover:text-primary transition-all duration-300 ease-out cursor-pointer ${
-          showFixedTitle 
-            ? "opacity-100 translate-y-0" 
-            : "opacity-0 -translate-y-4 pointer-events-none"
+        className={`fixed top-5 left-5 z-[9999] font-poppins font-bold text-foreground hover:text-primary cursor-pointer transition-opacity duration-350 ease-out ${
+          showHomeButton 
+            ? "opacity-100 pointer-events-auto" 
+            : "opacity-0 pointer-events-none"
         }`}
         style={{
           fontSize: 'clamp(14px, 2vw, 24px)',
@@ -86,15 +87,17 @@ export const HeroBlock = () => {
             {/* TEXTO - coluna reduzida para dar mais espaço à foto */}
             <div data-text className="col-span-12 lg:col-span-6 xl:col-span-6 space-y-3 sm:space-y-4 lg:space-y-6 animate-fade-in order-2 lg:order-1 flex flex-col justify-center px-4 sm:px-6 md:px-8 lg:px-0">
               <div className="space-y-4">
-                <h1 
-                  ref={titleRef}
-                  id="hero-title"
-                  className={`font-poppins font-bold text-foreground tracking-tight text-glow text-4xl sm:text-5xl lg:text-5xl xl:text-6xl leading-tight transition-all duration-300 ${
-                    showFixedTitle ? 'opacity-0' : 'opacity-100'
-                  }`}
-                >
-                  PEDRO SÁ
-                </h1>
+                {/* Hero Title with animation */}
+                <div id="hero-title-wrapper">
+                  <h1 
+                    id="hero-title"
+                    className={`font-poppins font-bold text-foreground tracking-tight text-glow text-4xl sm:text-5xl lg:text-5xl xl:text-6xl leading-tight hero-title-animated ${
+                      showHomeButton ? 'shifted' : ''
+                    }`}
+                  >
+                    PEDRO SÁ
+                  </h1>
+                </div>
                 <p className="text-base sm:text-lg lg:text-lg xl:text-xl font-poppins font-semibold text-foreground-secondary">
                   Estratégia de comunicação, marketing e negócios para dar direção clara à sua marca.
                 </p>
@@ -132,13 +135,15 @@ export const HeroBlock = () => {
                     Retorno em até 24h úteis.
                   </span>
                 </div>
-                <Button 
-                  variant="outline" 
-                  size="lg"
-                  className="glass hover:scale-105 hover:border-primary/40 transition-all font-poppins font-semibold"
-                >
-                  Ver Bio
-                </Button>
+                <Link to="/bio">
+                  <Button 
+                    variant="outline" 
+                    size="lg"
+                    className="glass hover:scale-105 hover:border-primary/40 transition-all font-poppins font-semibold w-full sm:w-auto"
+                  >
+                    Ver Bio
+                  </Button>
+                </Link>
               </div>
             </div>
 
