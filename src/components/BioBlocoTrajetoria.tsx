@@ -15,12 +15,12 @@ export const BioBlocoTrajetoria = ({ className = "" }: BioBlocoTrajetoriaProps) 
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 min-h-screen flex items-center py-20">
         <div className="grid grid-cols-12 gap-8 lg:gap-12 w-full items-center">
           {/* Foto */}
-          <div className="col-span-12 lg:col-span-6 flex items-center justify-center py-8 lg:py-0 order-2 lg:order-1 px-4 sm:px-6 md:px-8 lg:px-0">
+          <div className="col-span-12 lg:col-span-6 flex items-center justify-center py-8 lg:py-0 order-2 lg:order-1 px-4 sm:px-6 md:px-8 lg:px-0 lg:pt-16">
             <div className="relative w-full flex items-center justify-center">
               <img 
                 src={pedroBio2}
                 alt="Pedro Gabriel - Profissional de comunicação estratégica"
-                className="w-full h-auto max-h-[85vh] object-contain"
+                className="w-full h-auto max-h-[75vh] object-contain"
                 style={{
                   filter: 'drop-shadow(0 15px 40px rgba(0, 0, 0, 0.15))'
                 }}
