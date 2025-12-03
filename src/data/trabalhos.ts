@@ -1,0 +1,285 @@
+// ==========================================
+// MODELO DE DADOS DOS TRABALHOS
+// ==========================================
+// Para adicionar novos trabalhos, copie um objeto existente e edite os campos.
+// Cada trabalho deve ter um slug único dentro da sua categoria.
+
+export type WorkCategory = 
+  | "atendimento-publicitario" 
+  | "comunicacao-estrategica" 
+  | "gestao-de-projetos" 
+  | "marketing-digital";
+
+export interface Work {
+  id: string;
+  slug: string;
+  title: string;
+  client?: string;
+  agency?: string;
+  year?: string;
+  location?: string;
+  summary: string;
+  description: string;
+  category: WorkCategory;
+  subcategories: string[];
+  tags: string[];
+  coverImage?: string;
+  gallery?: string[];
+}
+
+export interface CategoryInfo {
+  slug: WorkCategory;
+  name: string;
+  description: string;
+}
+
+// ==========================================
+// CATEGORIAS
+// ==========================================
+export const categories: CategoryInfo[] = [
+  {
+    slug: "atendimento-publicitario",
+    name: "Atendimento Publicitário",
+    description: "Gestão de contas e relacionamento com clientes em campanhas publicitárias de grande impacto."
+  },
+  {
+    slug: "comunicacao-estrategica",
+    name: "Comunicação Estratégica",
+    description: "Posicionamento de marca, identidade visual e estratégias de comunicação integrada."
+  },
+  {
+    slug: "gestao-de-projetos",
+    name: "Gestão de Projetos",
+    description: "Coordenação e execução de projetos complexos com múltiplas equipes e stakeholders."
+  },
+  {
+    slug: "marketing-digital",
+    name: "Marketing Digital",
+    description: "Estratégias digitais, redes sociais, tráfego pago e presença online."
+  }
+];
+
+// ==========================================
+// TRABALHOS
+// ==========================================
+// Adicione novos trabalhos abaixo, seguindo o formato dos exemplos.
+
+export const trabalhos: Work[] = [
+  // ----------------------------------------
+  // ATENDIMENTO PUBLICITÁRIO
+  // ----------------------------------------
+  {
+    id: "ap-001",
+    slug: "campanha-institucional-banco-xyz",
+    title: "Campanha Institucional Banco XYZ",
+    client: "Banco XYZ",
+    agency: "Agência Criativa",
+    year: "2023",
+    location: "São Paulo, SP",
+    summary: "Gestão completa da conta para campanha institucional de reposicionamento de marca com alcance nacional.",
+    description: "Liderança do atendimento em projeto de grande escala envolvendo múltiplas entregas: filme publicitário, peças digitais, OOH e ativações em pontos de venda. Coordenação entre cliente, equipe criativa e produtoras, garantindo alinhamento estratégico e cumprimento de prazos rigorosos. O projeto resultou em aumento de 23% no reconhecimento de marca segundo pesquisa pós-campanha.",
+    category: "atendimento-publicitario",
+    subcategories: ["Campanha Institucional", "Rebranding"],
+    tags: ["banco", "institucional", "TV", "digital", "OOH"],
+    coverImage: "/placeholder.svg",
+    gallery: ["/placeholder.svg", "/placeholder.svg", "/placeholder.svg"]
+  },
+  {
+    id: "ap-002",
+    slug: "lancamento-produto-tech-alpha",
+    title: "Lançamento Produto Tech Alpha",
+    client: "Tech Alpha",
+    agency: "Agência Digital Plus",
+    year: "2022",
+    location: "Rio de Janeiro, RJ",
+    summary: "Atendimento dedicado para lançamento de produto tecnológico com estratégia 360°.",
+    description: "Condução do relacionamento com cliente durante todo o ciclo de lançamento de novo produto no mercado brasileiro. Gestão de timeline com mais de 50 entregas, desde conceituação criativa até execução de evento de lançamento. Interface direta com C-level do cliente e coordenação de 4 fornecedores especializados.",
+    category: "atendimento-publicitario",
+    subcategories: ["Lançamento de Produto", "Tecnologia"],
+    tags: ["tecnologia", "lançamento", "evento", "360"],
+    coverImage: "/placeholder.svg",
+    gallery: ["/placeholder.svg", "/placeholder.svg"]
+  },
+
+  // ----------------------------------------
+  // COMUNICAÇÃO ESTRATÉGICA
+  // ----------------------------------------
+  {
+    id: "ce-001",
+    slug: "identidade-visual-startup-fintech",
+    title: "Identidade Visual Startup Fintech",
+    client: "FinPay",
+    year: "2023",
+    location: "São Paulo, SP",
+    summary: "Desenvolvimento completo de identidade visual para fintech em fase de crescimento acelerado.",
+    description: "Projeto de branding completo incluindo naming refinement, sistema de identidade visual, tom de voz e guidelines de aplicação. A nova identidade posicionou a marca como inovadora e confiável, contribuindo para rodada de investimento série A bem-sucedida. Entregáveis incluíram manual de marca, templates e sistema de design para produto digital.",
+    category: "comunicacao-estrategica",
+    subcategories: ["Identidade Visual"],
+    tags: ["branding", "fintech", "startup", "identidade visual", "design system"],
+    coverImage: "/placeholder.svg",
+    gallery: ["/placeholder.svg", "/placeholder.svg", "/placeholder.svg"]
+  },
+  {
+    id: "ce-002",
+    slug: "posicionamento-politico-campanha-2022",
+    title: "Posicionamento Político - Campanha 2022",
+    client: "Candidato Municipal",
+    year: "2022",
+    location: "Interior de São Paulo",
+    summary: "Estratégia de comunicação e posicionamento para campanha eleitoral municipal.",
+    description: "Desenvolvimento de plataforma de comunicação para candidatura a cargo executivo municipal. Trabalho incluiu pesquisa de percepção, definição de pilares de mensagem, identidade visual de campanha e estratégia de conteúdo para redes sociais. Campanha atingiu 78% de reconhecimento do eleitorado-alvo.",
+    category: "comunicacao-estrategica",
+    subcategories: ["Posicionamento Político"],
+    tags: ["política", "eleições", "comunicação", "estratégia"],
+    coverImage: "/placeholder.svg",
+    gallery: ["/placeholder.svg", "/placeholder.svg"]
+  },
+  {
+    id: "ce-003",
+    slug: "lancamento-marca-cosmeticos",
+    title: "Lançamento Marca de Cosméticos",
+    client: "Beleza Natura",
+    year: "2023",
+    location: "São Paulo, SP",
+    summary: "Estratégia de lançamento para nova linha de cosméticos sustentáveis no mercado brasileiro.",
+    description: "Planejamento estratégico completo para entrada no mercado de uma nova marca de cosméticos com posicionamento sustentável. Definição de público-alvo, proposta de valor, arquitetura de mensagens e plano de go-to-market. O lançamento superou em 40% as metas de vendas do primeiro trimestre.",
+    category: "comunicacao-estrategica",
+    subcategories: ["Lançamento", "Produtos"],
+    tags: ["cosméticos", "sustentabilidade", "lançamento", "marca"],
+    coverImage: "/placeholder.svg",
+    gallery: ["/placeholder.svg", "/placeholder.svg", "/placeholder.svg"]
+  },
+
+  // ----------------------------------------
+  // GESTÃO DE PROJETOS
+  // ----------------------------------------
+  {
+    id: "gp-001",
+    slug: "implementacao-crm-enterprise",
+    title: "Implementação CRM Enterprise",
+    client: "Grupo Industrial ABC",
+    year: "2023",
+    location: "São Paulo, SP",
+    summary: "Gestão de projeto de implementação de CRM para grupo industrial com 5 unidades de negócio.",
+    description: "Liderança de projeto de transformação digital envolvendo implementação de Salesforce para 500+ usuários em 5 unidades de negócio. Coordenação de equipe de 12 pessoas entre consultores, desenvolvedores e analistas de negócio. Metodologia ágil com sprints quinzenais e entregas incrementais ao longo de 8 meses.",
+    category: "gestao-de-projetos",
+    subcategories: ["Transformação Digital", "CRM"],
+    tags: ["CRM", "Salesforce", "enterprise", "digital"],
+    coverImage: "/placeholder.svg",
+    gallery: ["/placeholder.svg", "/placeholder.svg"]
+  },
+  {
+    id: "gp-002",
+    slug: "evento-corporativo-anual",
+    title: "Evento Corporativo Anual",
+    client: "Multinacional Varejo",
+    agency: "Produtora Eventos",
+    year: "2022",
+    location: "São Paulo, SP",
+    summary: "Gestão completa de convenção anual de vendas para 2.000 participantes.",
+    description: "Coordenação de projeto de evento corporativo de grande escala, desde briefing inicial até execução e pós-evento. Gestão de orçamento de R$ 3M, coordenação de 15 fornecedores e timeline de 6 meses de planejamento. Evento híbrido com transmissão ao vivo para equipes remotas em 12 estados.",
+    category: "gestao-de-projetos",
+    subcategories: ["Eventos", "Convenção"],
+    tags: ["evento", "convenção", "vendas", "híbrido"],
+    coverImage: "/placeholder.svg",
+    gallery: ["/placeholder.svg", "/placeholder.svg", "/placeholder.svg"]
+  },
+
+  // ----------------------------------------
+  // MARKETING DIGITAL
+  // ----------------------------------------
+  {
+    id: "md-001",
+    slug: "posicionamento-digital-ecommerce",
+    title: "Posicionamento Digital E-commerce",
+    client: "Loja Virtual Fashion",
+    year: "2023",
+    location: "Brasil",
+    summary: "Estratégia de posicionamento digital completa para e-commerce de moda com foco em crescimento orgânico.",
+    description: "Desenvolvimento de estratégia digital integrada incluindo SEO, conteúdo e presença em redes sociais. Criação de calendário editorial, otimização de mais de 500 páginas de produto e implementação de blog com estratégia de conteúdo. Resultado: crescimento de 180% em tráfego orgânico em 6 meses.",
+    category: "marketing-digital",
+    subcategories: ["Posicionamento Digital"],
+    tags: ["SEO", "e-commerce", "moda", "conteúdo", "orgânico"],
+    coverImage: "/placeholder.svg",
+    gallery: ["/placeholder.svg", "/placeholder.svg"]
+  },
+  {
+    id: "md-002",
+    slug: "gestao-redes-sociais-restaurante",
+    title: "Gestão Redes Sociais - Restaurante",
+    client: "Restaurante Gourmet SP",
+    year: "2023",
+    location: "São Paulo, SP",
+    summary: "Gestão completa de redes sociais para restaurante fine dining com foco em Instagram e TikTok.",
+    description: "Estratégia de conteúdo e gestão de comunidade para restaurante de alta gastronomia. Produção de conteúdo visual, gestão de influenciadores e campanhas de engajamento. Crescimento de 15K para 85K seguidores no Instagram em 12 meses, com taxa de engajamento média de 4.2%.",
+    category: "marketing-digital",
+    subcategories: ["Redes Sociais"],
+    tags: ["Instagram", "TikTok", "gastronomia", "influenciadores", "conteúdo"],
+    coverImage: "/placeholder.svg",
+    gallery: ["/placeholder.svg", "/placeholder.svg", "/placeholder.svg"]
+  },
+  {
+    id: "md-003",
+    slug: "campanha-trafego-pago-saas",
+    title: "Campanha Tráfego Pago SaaS",
+    client: "Software B2B",
+    year: "2022",
+    location: "Brasil",
+    summary: "Estratégia de aquisição via tráfego pago para software B2B com foco em geração de leads qualificados.",
+    description: "Planejamento e execução de campanhas de performance em Google Ads e LinkedIn Ads para software B2B. Estruturação de funil de conversão, criação de landing pages otimizadas e implementação de tracking avançado. Redução de 45% no CAC e aumento de 3x no volume de MQLs em 4 meses.",
+    category: "marketing-digital",
+    subcategories: ["Tráfego Pago"],
+    tags: ["Google Ads", "LinkedIn", "B2B", "SaaS", "performance", "leads"],
+    coverImage: "/placeholder.svg",
+    gallery: ["/placeholder.svg", "/placeholder.svg"]
+  }
+];
+
+// ==========================================
+// FUNÇÕES UTILITÁRIAS
+// ==========================================
+
+/**
+ * Filtra trabalhos por termo de busca
+ * Busca em: title, client, agency, tags, subcategories
+ */
+export function filterWorks(works: Work[], searchTerm: string): Work[] {
+  if (!searchTerm.trim()) return works;
+  
+  const normalizedTerm = searchTerm.toLowerCase().trim();
+  
+  return works.filter(work => {
+    const searchableFields = [
+      work.title,
+      work.client || "",
+      work.agency || "",
+      ...work.tags,
+      ...work.subcategories
+    ].map(field => field.toLowerCase());
+    
+    return searchableFields.some(field => field.includes(normalizedTerm));
+  });
+}
+
+/**
+ * Retorna trabalhos de uma categoria específica
+ */
+export function getWorksByCategory(category: WorkCategory): Work[] {
+  return trabalhos.filter(work => work.category === category);
+}
+
+/**
+ * Retorna um trabalho específico pelo slug
+ */
+export function getWorkBySlug(categorySlug: WorkCategory, workSlug: string): Work | undefined {
+  return trabalhos.find(
+    work => work.category === categorySlug && work.slug === workSlug
+  );
+}
+
+/**
+ * Retorna informações de uma categoria pelo slug
+ */
+export function getCategoryBySlug(slug: string): CategoryInfo | undefined {
+  return categories.find(cat => cat.slug === slug);
+}
