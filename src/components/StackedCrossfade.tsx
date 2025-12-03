@@ -10,10 +10,8 @@ export const StackedCrossfade = ({ sections }: StackedCrossfadeProps) => {
   const [prefersReducedMotion, setPrefersReducedMotion] = useState(false);
   const [isSmallViewport, setIsSmallViewport] = useState(false);
 
-  // Detect mobile / tablet to desativar o efeito "fixo" em telas menores
   useEffect(() => {
     const updateViewport = () => {
-      // Mantém o efeito completo apenas em telas grandes (desktop)
       setIsSmallViewport(window.innerWidth < 1024);
     };
 
@@ -53,7 +51,7 @@ export const StackedCrossfade = ({ sections }: StackedCrossfadeProps) => {
     return () => window.removeEventListener("scroll", handleScroll);
   }, [isSmallViewport]);
 
-  // Em mobile / tablet: renderiza os blocos em sequência normal
+  // Mobile/tablet: sequência normal sem efeito
   if (isSmallViewport) {
     return (
       <div className="flex flex-col w-full">
@@ -66,7 +64,7 @@ export const StackedCrossfade = ({ sections }: StackedCrossfadeProps) => {
     );
   }
 
-  // Desktop: stacked crossfade com altura suficiente para scroll
+  // Desktop: stacked crossfade
   const sectionCount = sections.length;
   const sectionProgress = scrollProgress * (sectionCount - 1);
   const currentSectionIndex = Math.floor(sectionProgress);
@@ -76,22 +74,22 @@ export const StackedCrossfade = ({ sections }: StackedCrossfadeProps) => {
     <div 
       ref={wrapperRef}
       className="relative"
-      style={{ height: `${sectionCount * 150}vh` }}
+      style={{ height: `${sectionCount * 100}vh` }}
     >
-      <div className="sticky top-0 w-full min-h-screen">
+      <div className="sticky top-0 h-screen w-full overflow-hidden">
         {sections.map((section, index) => {
           const isActive = index === currentSectionIndex;
           const isNext = index === currentSectionIndex + 1;
           
           let opacity = 0;
-          let blur = 2;
+          let blur = 0;
           
           if (isActive) {
-            opacity = Math.max(0, 1 - (transitionProgress * 1.5));
-            blur = transitionProgress * 3;
+            opacity = Math.max(0, 1 - (transitionProgress * 1.2));
+            blur = transitionProgress * 2;
           } else if (isNext) {
-            opacity = Math.min(1, transitionProgress * 1.5);
-            blur = (1 - transitionProgress) * 3;
+            opacity = Math.min(1, transitionProgress * 1.2);
+            blur = (1 - transitionProgress) * 2;
           }
 
           if (prefersReducedMotion) {
@@ -101,19 +99,15 @@ export const StackedCrossfade = ({ sections }: StackedCrossfadeProps) => {
           return (
             <div
               key={index}
-              className="absolute top-0 left-0 right-0 bottom-0"
+              className="absolute inset-0 flex items-center justify-center"
               style={{
                 opacity,
-                filter: `blur(${blur}px)`,
-                transition: prefersReducedMotion 
-                  ? "opacity 0.2s ease-out" 
-                  : "none",
+                filter: blur > 0 ? `blur(${blur}px)` : 'none',
+                transition: prefersReducedMotion ? "opacity 0.2s ease-out" : "none",
                 pointerEvents: isActive || isNext ? "auto" : "none",
               }}
             >
-              <div className="w-full h-full overflow-auto">
-                {section}
-              </div>
+              {section}
             </div>
           );
         })}
