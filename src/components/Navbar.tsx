@@ -1,16 +1,18 @@
 import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { NavLink } from "@/components/NavLink";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 
 export const Navbar = () => {
   const [scrolled, setScrolled] = useState(false);
+  const location = useLocation();
+  const isHomePage = location.pathname === "/";
 
   useEffect(() => {
     const handleScroll = () => {
       setScrolled(window.scrollY > 90);
     };
-    window.addEventListener("scroll", handleScroll);
+    window.addEventListener("scroll", handleScroll, { passive: true });
     handleScroll(); // Check initial state
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
@@ -18,6 +20,9 @@ export const Navbar = () => {
   const scrollToTop = () => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
+
+  // Show logo always on non-home pages, or when scrolled on home page
+  const showLogo = !isHomePage || scrolled;
 
   return (
     <nav
@@ -33,7 +38,7 @@ export const Navbar = () => {
           to="/"
           onClick={scrollToTop}
           className={`font-poppins font-bold text-foreground hover:text-primary cursor-pointer transition-all duration-300 ${
-            scrolled 
+            showLogo 
               ? "opacity-100 translate-y-0" 
               : "opacity-0 -translate-y-2 pointer-events-none"
           }`}
