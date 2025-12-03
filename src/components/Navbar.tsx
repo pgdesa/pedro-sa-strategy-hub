@@ -1,29 +1,48 @@
 import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { NavLink } from "@/components/NavLink";
+import { Link } from "react-router-dom";
 
 export const Navbar = () => {
   const [scrolled, setScrolled] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
-      setScrolled(window.scrollY > 50);
+      setScrolled(window.scrollY > 90);
     };
     window.addEventListener("scroll", handleScroll);
+    handleScroll(); // Check initial state
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
+  const scrollToTop = () => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
+
   return (
     <nav
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+      className={`fixed top-0 left-0 right-0 z-[9999] transition-all duration-300 ${
         scrolled
           ? "h-16 bg-background/80 backdrop-blur-xl border-b border-border/50 shadow-lg"
           : "h-20 bg-transparent"
       }`}
     >
       <div className="container mx-auto px-6 h-full flex items-center justify-between">
-        {/* Logo area - now managed by HeroBlock's fixed title animation */}
-        <div className="w-32" />
+        {/* Logo - PEDRO SÁ */}
+        <Link 
+          to="/"
+          onClick={scrollToTop}
+          className={`font-poppins font-bold text-foreground hover:text-primary cursor-pointer transition-all duration-300 ${
+            scrolled 
+              ? "opacity-100 translate-y-0" 
+              : "opacity-0 -translate-y-2 pointer-events-none"
+          }`}
+          style={{
+            fontSize: 'clamp(14px, 2vw, 20px)',
+          }}
+        >
+          PEDRO SÁ
+        </Link>
 
         {/* Navigation Links */}
         <div className="hidden md:flex items-center gap-8">
