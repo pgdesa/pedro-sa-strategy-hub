@@ -80,29 +80,29 @@ const Contato = () => {
               </div>
 
               {/* Contact List */}
-              <div className="flex flex-col gap-2">
+              <div className="flex flex-col gap-1.5">
                 {contactItems.map((item) => (
                   <a
                     key={item.title}
                     href={item.href}
                     target={item.external ? "_blank" : undefined}
                     rel={item.external ? "noopener noreferrer" : undefined}
-                    className="group flex items-center gap-3 p-3 lg:p-3 rounded-lg border border-border/50 bg-card/30 backdrop-blur-sm hover:bg-card/60 hover:border-primary/50 hover:shadow-lg hover:shadow-primary/5 transition-all duration-300"
+                    className="group flex items-center gap-2.5 p-2 lg:p-2.5 rounded-md border border-border/50 bg-card/30 backdrop-blur-sm hover:bg-card/60 hover:border-primary/50 hover:shadow-lg hover:shadow-primary/5 transition-all duration-300"
                   >
                     {/* Icon */}
-                    <div className="flex-shrink-0 w-10 h-10 lg:w-10 lg:h-10 rounded-full bg-primary/10 flex items-center justify-center group-hover:bg-primary/20 transition-colors">
+                    <div className="flex-shrink-0 w-8 h-8 rounded-full bg-primary/10 flex items-center justify-center group-hover:bg-primary/20 transition-colors">
                       <item.icon 
-                        className="w-4 h-4 lg:w-5 lg:h-5 text-primary" 
+                        className="w-4 h-4 text-primary" 
                         aria-hidden="true"
                       />
                     </div>
 
                     {/* Text */}
                     <div className="flex flex-col">
-                      <span className="font-poppins font-semibold text-foreground text-sm lg:text-sm group-hover:text-primary transition-colors">
+                      <span className="font-poppins font-semibold text-foreground text-xs group-hover:text-primary transition-colors">
                         {item.title}
                       </span>
-                      <span className="font-inter text-muted-foreground text-xs lg:text-xs group-hover:text-foreground/80 transition-colors">
+                      <span className="font-inter text-muted-foreground text-[11px] group-hover:text-foreground/80 transition-colors">
                         {item.subtitle}
                       </span>
                     </div>
@@ -110,7 +110,7 @@ const Contato = () => {
                     {/* Arrow indicator */}
                     <div className="ml-auto opacity-0 group-hover:opacity-100 transition-opacity">
                       <svg 
-                        className="w-4 h-4 text-primary" 
+                        className="w-3.5 h-3.5 text-primary" 
                         fill="none" 
                         stroke="currentColor" 
                         viewBox="0 0 24 24"
