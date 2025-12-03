@@ -16,6 +16,7 @@ export const Navbar = () => {
   const location = useLocation();
   const isHomePage = location.pathname === "/";
   const isBioPage = location.pathname === "/bio";
+  const isContatoPage = location.pathname === "/contato";
 
   useEffect(() => {
     const handleScroll = () => {
@@ -83,7 +84,9 @@ export const Navbar = () => {
           </NavLink>
           <NavLink
             to="/contato"
-            className={`text-sm font-inter font-medium ${navTextColor} ${navHoverColor} transition-colors`}
+            className={`text-sm font-inter font-medium ${
+              isContatoPage ? "text-primary" : navTextColor
+            } ${navHoverColor} transition-colors`}
           >
             Contato
           </NavLink>
