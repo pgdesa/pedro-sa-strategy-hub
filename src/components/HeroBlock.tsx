@@ -150,7 +150,7 @@ export const HeroBlock = () => {
               
               {/* Mobile title overlay - appears at top left beside face */}
               <div 
-                className={`lg:hidden absolute top-16 left-4 transition-all duration-500 ${
+                className={`lg:hidden absolute top-16 left-0 transition-all duration-500 ${
                   showTitleShifted ? 'opacity-0 -translate-y-4' : 'opacity-100 translate-y-0'
                 }`}
               >
