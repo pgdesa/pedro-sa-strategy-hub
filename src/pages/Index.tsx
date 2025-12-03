@@ -4,7 +4,7 @@ import { SubHeroBlock } from "@/components/SubHeroBlock";
 import { FeaturesBlock } from "@/components/FeaturesBlock";
 import { CTABlock } from "@/components/CTABlock";
 import { StackedCrossfade } from "@/components/StackedCrossfade";
-import { useEffect } from "react";
+import { useEffect, useMemo } from "react";
 
 const Index = () => {
   // Scroll to top when component mounts
@@ -34,17 +34,18 @@ const Index = () => {
     };
   }, []);
 
+  // Memoize sections to prevent unnecessary re-renders
+  const sections = useMemo(() => [
+    <HeroBlock key="hero" />,
+    <SubHeroBlock key="subhero" />,
+    <FeaturesBlock key="features" />,
+    <CTABlock key="cta" />
+  ], []);
+
   return (
     <div className="min-h-screen">
       <Navbar />
-      <StackedCrossfade 
-        sections={[
-          <HeroBlock />,
-          <SubHeroBlock />,
-          <FeaturesBlock />,
-          <CTABlock />
-        ]} 
-      />
+      <StackedCrossfade sections={sections} />
     </div>
   );
 };
