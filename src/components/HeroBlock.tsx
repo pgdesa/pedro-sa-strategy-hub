@@ -7,7 +7,7 @@ export const HeroBlock = () => {
   const sectionRef = useRef<HTMLElement>(null);
   const imageRef = useRef<HTMLImageElement>(null);
   const [isVisible, setIsVisible] = useState(false);
-  const [showHomeButton, setShowHomeButton] = useState(false);
+  const [showTitleShifted, setShowTitleShifted] = useState(false);
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -24,17 +24,12 @@ export const HeroBlock = () => {
     return () => observer.disconnect();
   }, []);
 
-  // Scroll handler for title animation and Home button visibility
+  // Scroll handler for title animation
   useEffect(() => {
     const handleScroll = () => {
       const scrollY = window.scrollY;
       const triggerPoint = 90;
-      
-      if (scrollY > triggerPoint) {
-        setShowHomeButton(true);
-      } else {
-        setShowHomeButton(false);
-      }
+      setShowTitleShifted(scrollY > triggerPoint);
 
       // Image parallax
       if (imageRef.current && sectionRef.current && isVisible) {
@@ -49,28 +44,8 @@ export const HeroBlock = () => {
     return () => window.removeEventListener("scroll", handleScroll);
   }, [isVisible]);
 
-  const scrollToTop = () => {
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-  };
-
   return (
     <>
-      {/* Fixed Home Button - "Pedro Sá" */}
-      <button
-        id="home-button"
-        onClick={scrollToTop}
-        className={`fixed top-5 left-5 z-[9999] font-poppins font-bold text-foreground hover:text-primary cursor-pointer transition-opacity duration-350 ease-out ${
-          showHomeButton 
-            ? "opacity-100 pointer-events-auto" 
-            : "opacity-0 pointer-events-none"
-        }`}
-        style={{
-          fontSize: 'clamp(14px, 2vw, 24px)',
-        }}
-        aria-label="Voltar ao início"
-      >
-        PEDRO SÁ
-      </button>
 
       <section 
         ref={sectionRef}
@@ -92,7 +67,7 @@ export const HeroBlock = () => {
                   <h1 
                     id="hero-title"
                     className={`font-poppins font-bold text-foreground tracking-tight text-glow text-4xl sm:text-5xl lg:text-5xl xl:text-6xl leading-tight hero-title-animated ${
-                      showHomeButton ? 'shifted' : ''
+                      showTitleShifted ? 'shifted' : ''
                     }`}
                   >
                     PEDRO SÁ

@@ -77,57 +77,49 @@ export const StackedCrossfade = ({ sections }: StackedCrossfadeProps) => {
     <div 
       ref={wrapperRef}
       className="relative"
-      style={{ height: `${sectionCount * 250}vh` }}
+      style={{ height: `${sectionCount * 200}vh` }}
     >
-      <div className="sticky top-0 h-screen w-full overflow-hidden">
+      <div className="sticky top-0 w-full" style={{ minHeight: '100vh' }}>
         {sections.map((section, index) => {
           const isActive = index === currentSectionIndex;
           const isNext = index === currentSectionIndex + 1;
+          const isLast = index === sectionCount - 1;
           
           let opacity = 0;
           let blur = 2;
-          let translateY = 0;
-          let scale = 1;
           
           if (isActive) {
             // Fade out suave do bloco atual
             opacity = Math.max(0, 1 - (transitionProgress * 1.5));
             blur = transitionProgress * 3;
-            translateY = 0;
-            scale = 1;
           } else if (isNext) {
             // Fade in suave do próximo bloco começando cedo
             opacity = Math.min(1, transitionProgress * 1.5);
             blur = (1 - transitionProgress) * 3;
-            translateY = 0;
-            scale = 1;
           }
 
           // Reduced motion: faster fades only
           if (prefersReducedMotion) {
             blur = 0;
-            translateY = 0;
-            scale = 1;
           }
 
           return (
             <div
               key={index}
-              className="absolute inset-0"
+              className="absolute top-0 left-0 right-0"
               style={{
                 opacity,
-                filter: `blur(${blur}px)` ,
-                transform: `translateY(${translateY}px) scale(${scale})`,
+                filter: `blur(${blur}px)`,
                 transition: prefersReducedMotion 
                   ? "opacity 0.2s ease-out" 
                   : "none",
                 pointerEvents: isActive || isNext ? "auto" : "none",
+                minHeight: '100vh',
               }}
             >
               <div
-                className="h-full w-full"
+                className="w-full"
                 style={{
-                  // Apply additional animations to text and photo elements
                   ["--text-letter-spacing" as string]: isActive 
                     ? `${transitionProgress * 0.06}em` 
                     : isNext 
