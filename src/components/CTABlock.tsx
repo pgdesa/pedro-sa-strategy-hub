@@ -59,7 +59,7 @@ export const CTABlock = () => {
             </h2>
 
             <p className="text-xs sm:text-sm lg:text-sm text-foreground-secondary font-inter leading-relaxed">
-              A navegação é linear e direta.
+              Quer conhecer mais do meu trabalho?
             </p>
 
             {/* CTA Links - glass cards - ultra compact */}
