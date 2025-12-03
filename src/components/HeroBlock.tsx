@@ -157,6 +157,9 @@ export const HeroBlock = () => {
                 <h1 className="font-poppins font-bold text-foreground text-xl sm:text-2xl tracking-tight text-glow">
                   PEDRO SÁ
                 </h1>
+                <p className="font-poppins font-medium text-foreground-secondary text-xs sm:text-sm tracking-wide mt-1">
+                  Estratégia e comunicação
+                </p>
               </div>
             </div>
 
