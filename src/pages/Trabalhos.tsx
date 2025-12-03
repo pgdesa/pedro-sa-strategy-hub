@@ -118,27 +118,27 @@ interface WorkCardProps {
 const WorkCard = ({ work, showCategory }: WorkCardProps) => (
   <Link
     to={`/trabalhos/${work.category}/${work.slug}`}
-    className="group block p-5 rounded-xl bg-card/30 border border-border/30 hover:border-primary/30 hover:bg-card/50 transition-all duration-200 hover:scale-[1.01]"
+    className="group block p-3 rounded-lg bg-card/30 border border-border/30 hover:border-primary/30 hover:bg-card/50 transition-all duration-200"
   >
-    <h3 className="text-lg font-semibold text-foreground group-hover:text-primary transition-colors mb-2">
+    <h3 className="text-sm font-semibold text-foreground group-hover:text-primary transition-colors mb-1">
       {work.title}
     </h3>
-    <p className="text-sm text-muted-foreground mb-3 line-clamp-2">
+    <p className="text-xs text-muted-foreground mb-2 line-clamp-1">
       {work.summary}
     </p>
-    <div className="flex flex-wrap gap-2">
+    <div className="flex flex-wrap gap-1">
       {showCategory && (
-        <Badge variant="outline" className="text-xs bg-primary/10 text-primary border-primary/30">
+        <Badge variant="outline" className="text-[10px] bg-primary/10 text-primary border-primary/30 px-1.5 py-0">
           {getCategoryBySlug(work.category)?.name}
         </Badge>
       )}
       {work.subcategories.slice(0, 2).map((sub) => (
-        <Badge key={sub} variant="secondary" className="text-xs">
+        <Badge key={sub} variant="secondary" className="text-[10px] px-1.5 py-0">
           {sub}
         </Badge>
       ))}
       {work.client && (
-        <Badge variant="outline" className="text-xs">
+        <Badge variant="outline" className="text-[10px] px-1.5 py-0">
           {work.client}
         </Badge>
       )}
@@ -391,10 +391,10 @@ const CategoryView = ({ categorySlug }: CategoryViewProps) => {
   }
 
   return (
-    <div className="min-h-screen bg-background">
+    <div className="h-screen bg-background flex flex-col overflow-hidden">
       <Navbar />
-      <main className="pt-28 pb-20 px-6">
-        <div className="max-w-6xl mx-auto">
+      <main className="flex-1 pt-20 pb-4 px-6 overflow-hidden">
+        <div className="max-w-6xl mx-auto h-full flex flex-col">
           <Breadcrumb
             items={[
               { label: "Home", href: "/" },
@@ -403,7 +403,7 @@ const CategoryView = ({ categorySlug }: CategoryViewProps) => {
             ]}
           />
 
-          <div className="grid lg:grid-cols-[280px_1fr] gap-12">
+          <div className="grid lg:grid-cols-[240px_1fr] gap-8 flex-1 overflow-hidden">
             {/* Sidebar */}
             <CategorySidebar
               activeCategory={categorySlug}
@@ -412,23 +412,23 @@ const CategoryView = ({ categorySlug }: CategoryViewProps) => {
             />
 
             {/* Main Content */}
-            <div>
-              <header className="mb-4">
-                <h1 className="font-poppins text-2xl md:text-3xl font-bold text-foreground mb-1">
+            <div className="flex flex-col overflow-hidden">
+              <header className="mb-3 flex-shrink-0">
+                <h1 className="font-poppins text-xl font-bold text-foreground mb-1">
                   {category.name}
                 </h1>
-                <p className="text-sm text-muted-foreground">
+                <p className="text-xs text-muted-foreground">
                   {category.description}
                 </p>
               </header>
 
-              <div className="space-y-4">
+              <div className="space-y-2 overflow-y-auto flex-1 pr-2">
                 {filteredWorks.length > 0 ? (
                   filteredWorks.map((work) => (
                     <WorkCard key={work.id} work={work} />
                   ))
                 ) : (
-                  <p className="text-muted-foreground text-center py-12">
+                  <p className="text-muted-foreground text-center py-8 text-sm">
                     Nenhum trabalho encontrado para esta busca.
                   </p>
                 )}
