@@ -66,16 +66,10 @@ export const Navbar = () => {
             Bio
           </NavLink>
           <NavLink
-            to="/projetos"
+            to="/trabalhos"
             className={`text-sm font-inter font-medium ${navTextColor} ${navHoverColor} transition-colors`}
           >
-            Projetos
-          </NavLink>
-          <NavLink
-            to="/casos"
-            className={`text-sm font-inter font-medium ${navTextColor} ${navHoverColor} transition-colors`}
-          >
-            Casos
+            Trabalhos
           </NavLink>
           <NavLink
             to="/contato"
