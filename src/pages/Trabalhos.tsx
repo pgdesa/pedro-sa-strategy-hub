@@ -413,11 +413,11 @@ const CategoryView = ({ categorySlug }: CategoryViewProps) => {
 
             {/* Main Content */}
             <div>
-              <header className="mb-8">
-                <h1 className="font-poppins text-3xl md:text-4xl font-bold text-foreground mb-3">
+              <header className="mb-4">
+                <h1 className="font-poppins text-2xl md:text-3xl font-bold text-foreground mb-1">
                   {category.name}
                 </h1>
-                <p className="text-muted-foreground">
+                <p className="text-sm text-muted-foreground">
                   {category.description}
                 </p>
               </header>
