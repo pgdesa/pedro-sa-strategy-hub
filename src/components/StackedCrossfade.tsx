@@ -1,17 +1,18 @@
-import { useEffect, useRef, useState, useMemo, useCallback, memo } from "react";
+import { useEffect, useRef, useState, useMemo, useCallback } from "react";
+import React from "react";
 
 interface StackedCrossfadeProps {
   sections: React.ReactNode[];
 }
 
-export const StackedCrossfade = memo(({ sections }: StackedCrossfadeProps) => {
+const StackedCrossfadeComponent = ({ sections }: StackedCrossfadeProps) => {
   const wrapperRef = useRef<HTMLDivElement>(null);
   const [scrollProgress, setScrollProgress] = useState(0);
   const [prefersReducedMotion, setPrefersReducedMotion] = useState(false);
   const [isSmallViewport, setIsSmallViewport] = useState(false);
   const rafRef = useRef<number | null>(null);
 
-  // Viewport detection with debounce
+  // Viewport detection
   useEffect(() => {
     const updateViewport = () => {
       setIsSmallViewport(window.innerWidth < 1024);
@@ -69,7 +70,7 @@ export const StackedCrossfade = memo(({ sections }: StackedCrossfadeProps) => {
     };
   }, [isSmallViewport, handleScroll]);
 
-  // Memoized section count and progress calculations
+  // Memoized calculations
   const sectionCount = sections.length;
   
   const { currentSectionIndex, transitionProgress } = useMemo(() => {
@@ -80,7 +81,6 @@ export const StackedCrossfade = memo(({ sections }: StackedCrossfadeProps) => {
     };
   }, [scrollProgress, sectionCount]);
 
-  // Memoized wrapper height
   const wrapperHeight = useMemo(() => `${sectionCount * 100}vh`, [sectionCount]);
 
   // Mobile/tablet: sequência normal sem efeito
@@ -96,7 +96,7 @@ export const StackedCrossfade = memo(({ sections }: StackedCrossfadeProps) => {
     );
   }
 
-  // Desktop: stacked crossfade otimizado
+  // Desktop: stacked crossfade
   return (
     <div 
       ref={wrapperRef}
@@ -123,7 +123,7 @@ export const StackedCrossfade = memo(({ sections }: StackedCrossfadeProps) => {
             blur = 0;
           }
 
-          // Otimização: não renderiza seções completamente invisíveis
+          // Skip invisible sections
           if (opacity === 0 && !isActive && !isNext) {
             return null;
           }
@@ -146,6 +146,6 @@ export const StackedCrossfade = memo(({ sections }: StackedCrossfadeProps) => {
       </div>
     </div>
   );
-});
+};
 
-StackedCrossfade.displayName = "StackedCrossfade";
+export const StackedCrossfade = React.memo(StackedCrossfadeComponent);
