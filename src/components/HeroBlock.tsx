@@ -63,7 +63,7 @@ export const HeroBlock = () => {
             <div data-text className="col-span-12 lg:col-span-6 xl:col-span-6 space-y-3 sm:space-y-4 lg:space-y-6 animate-fade-in order-2 lg:order-1 flex flex-col justify-center px-4 sm:px-6 md:px-8 lg:px-0">
               <div className="space-y-4">
                 {/* Hero Title with animation */}
-                <div id="hero-title-wrapper">
+                <div id="hero-title-wrapper" className="hidden lg:block">
                   <h1 
                     id="hero-title"
                     className={`font-poppins font-bold text-foreground tracking-tight text-glow text-4xl sm:text-5xl lg:text-5xl xl:text-6xl leading-tight hero-title-animated ${
