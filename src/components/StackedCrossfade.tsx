@@ -1,25 +1,28 @@
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState, useMemo, useCallback, memo } from "react";
 
 interface StackedCrossfadeProps {
   sections: React.ReactNode[];
 }
 
-export const StackedCrossfade = ({ sections }: StackedCrossfadeProps) => {
+export const StackedCrossfade = memo(({ sections }: StackedCrossfadeProps) => {
   const wrapperRef = useRef<HTMLDivElement>(null);
   const [scrollProgress, setScrollProgress] = useState(0);
   const [prefersReducedMotion, setPrefersReducedMotion] = useState(false);
   const [isSmallViewport, setIsSmallViewport] = useState(false);
+  const rafRef = useRef<number | null>(null);
 
+  // Viewport detection with debounce
   useEffect(() => {
     const updateViewport = () => {
       setIsSmallViewport(window.innerWidth < 1024);
     };
 
     updateViewport();
-    window.addEventListener("resize", updateViewport);
+    window.addEventListener("resize", updateViewport, { passive: true });
     return () => window.removeEventListener("resize", updateViewport);
   }, []);
 
+  // Reduced motion preference
   useEffect(() => {
     const mediaQuery = window.matchMedia("(prefers-reduced-motion: reduce)");
     setPrefersReducedMotion(mediaQuery.matches);
@@ -29,12 +32,17 @@ export const StackedCrossfade = ({ sections }: StackedCrossfadeProps) => {
     return () => mediaQuery.removeEventListener("change", handler);
   }, []);
 
-  useEffect(() => {
-    if (isSmallViewport) return;
+  // Optimized scroll handler with RAF
+  const handleScroll = useCallback(() => {
+    if (!wrapperRef.current) return;
 
-    const handleScroll = () => {
+    if (rafRef.current) {
+      cancelAnimationFrame(rafRef.current);
+    }
+
+    rafRef.current = requestAnimationFrame(() => {
       if (!wrapperRef.current) return;
-
+      
       const rect = wrapperRef.current.getBoundingClientRect();
       const wrapperHeight = rect.height;
       const viewportHeight = window.innerHeight;
@@ -44,12 +52,36 @@ export const StackedCrossfade = ({ sections }: StackedCrossfadeProps) => {
       const progress = Math.max(0, Math.min(1, scrollStart / scrollRange));
       
       setScrollProgress(progress);
-    };
+    });
+  }, []);
+
+  useEffect(() => {
+    if (isSmallViewport) return;
 
     window.addEventListener("scroll", handleScroll, { passive: true });
     handleScroll();
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, [isSmallViewport]);
+    
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+      if (rafRef.current) {
+        cancelAnimationFrame(rafRef.current);
+      }
+    };
+  }, [isSmallViewport, handleScroll]);
+
+  // Memoized section count and progress calculations
+  const sectionCount = sections.length;
+  
+  const { currentSectionIndex, transitionProgress } = useMemo(() => {
+    const sectionProgress = scrollProgress * (sectionCount - 1);
+    return {
+      currentSectionIndex: Math.floor(sectionProgress),
+      transitionProgress: sectionProgress - Math.floor(sectionProgress)
+    };
+  }, [scrollProgress, sectionCount]);
+
+  // Memoized wrapper height
+  const wrapperHeight = useMemo(() => `${sectionCount * 100}vh`, [sectionCount]);
 
   // Mobile/tablet: sequência normal sem efeito
   if (isSmallViewport) {
@@ -64,17 +96,12 @@ export const StackedCrossfade = ({ sections }: StackedCrossfadeProps) => {
     );
   }
 
-  // Desktop: stacked crossfade
-  const sectionCount = sections.length;
-  const sectionProgress = scrollProgress * (sectionCount - 1);
-  const currentSectionIndex = Math.floor(sectionProgress);
-  const transitionProgress = sectionProgress - currentSectionIndex;
-
+  // Desktop: stacked crossfade otimizado
   return (
     <div 
       ref={wrapperRef}
       className="relative"
-      style={{ height: `${sectionCount * 100}vh` }}
+      style={{ height: wrapperHeight }}
     >
       <div className="sticky top-0 h-screen w-full overflow-hidden">
         {sections.map((section, index) => {
@@ -96,10 +123,15 @@ export const StackedCrossfade = ({ sections }: StackedCrossfadeProps) => {
             blur = 0;
           }
 
+          // Otimização: não renderiza seções completamente invisíveis
+          if (opacity === 0 && !isActive && !isNext) {
+            return null;
+          }
+
           return (
             <div
               key={index}
-              className="absolute inset-0 flex items-center justify-center"
+              className="absolute inset-0 flex items-center justify-center will-change-[opacity,filter]"
               style={{
                 opacity,
                 filter: blur > 0 ? `blur(${blur}px)` : 'none',
@@ -114,4 +146,6 @@ export const StackedCrossfade = ({ sections }: StackedCrossfadeProps) => {
       </div>
     </div>
   );
-};
+});
+
+StackedCrossfade.displayName = "StackedCrossfade";
