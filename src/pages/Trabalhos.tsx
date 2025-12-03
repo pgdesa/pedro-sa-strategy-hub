@@ -221,33 +221,33 @@ const TrabalhosLanding = () => {
   );
 
   return (
-    <div className="min-h-screen bg-background">
+    <div className="min-h-screen bg-background flex flex-col">
       <Navbar />
-      <main className="pt-28 pb-20 px-6">
+      {/* Mobile/Tablet Layout */}
+      <main className="lg:hidden pt-28 pb-20 px-6 flex-1">
         <div className="max-w-6xl mx-auto">
           <Breadcrumb items={[{ label: "Home", href: "/" }, { label: "Trabalhos" }]} />
 
-          <header className="mb-12">
-            <h1 className="font-poppins text-4xl md:text-5xl font-bold text-foreground mb-4">
+          <header className="mb-8">
+            <h1 className="font-poppins text-4xl font-bold text-foreground mb-4">
               Trabalhos
             </h1>
-            <p className="text-lg text-muted-foreground max-w-2xl">
+            <p className="text-lg text-muted-foreground">
               Projetos organizados por categorias para você encontrar o que mais se aproxima do seu desafio.
             </p>
           </header>
 
-          <div className="flex flex-col lg:grid lg:grid-cols-2 gap-8 lg:gap-12">
-            {/* Search Column - First on mobile, second on desktop */}
-            <div className="order-1 lg:order-2">
-              <h2 className="text-sm font-medium text-muted-foreground uppercase tracking-wider mb-4 lg:mb-6">
+          <div className="space-y-8">
+            {/* Search First on Mobile */}
+            <div>
+              <h2 className="text-sm font-medium text-muted-foreground uppercase tracking-wider mb-4">
                 Busca rápida
               </h2>
               <SearchInput
                 value={searchTerm}
                 onChange={setSearchTerm}
-                className="mb-4 lg:mb-6"
+                className="mb-4"
               />
-
               {searchTerm && (
                 <div className="space-y-3">
                   {searchResults.length > 0 ? (
@@ -263,9 +263,9 @@ const TrabalhosLanding = () => {
               )}
             </div>
 
-            {/* Categories Column - Second on mobile, first on desktop */}
-            <div className="order-2 lg:order-1">
-              <h2 className="text-sm font-medium text-muted-foreground uppercase tracking-wider mb-4 lg:mb-6">
+            {/* Categories */}
+            <div>
+              <h2 className="text-sm font-medium text-muted-foreground uppercase tracking-wider mb-4">
                 Categorias
               </h2>
               <div className="space-y-3">
@@ -273,7 +273,7 @@ const TrabalhosLanding = () => {
                   <Link
                     key={cat.slug}
                     to={`/trabalhos/${cat.slug}`}
-                    className="group flex items-center justify-between p-5 rounded-xl bg-card/30 border border-border/30 hover:border-primary/30 hover:bg-card/50 transition-all duration-200 hover:scale-[1.01]"
+                    className="group flex items-center justify-between p-5 rounded-xl bg-card/30 border border-border/30 hover:border-primary/30 hover:bg-card/50 transition-all duration-200"
                   >
                     <div>
                       <h3 className="text-lg font-semibold text-foreground group-hover:text-primary transition-colors">
@@ -288,6 +288,76 @@ const TrabalhosLanding = () => {
                 ))}
               </div>
             </div>
+          </div>
+        </div>
+      </main>
+
+      {/* Desktop Layout - Full viewport, no scroll */}
+      <main className="hidden lg:flex flex-col flex-1 pt-20 px-8 pb-6 h-[calc(100vh-0px)] overflow-hidden">
+        <div className="max-w-7xl mx-auto w-full flex-1 grid grid-cols-2 grid-rows-[auto_1fr] gap-x-12 gap-y-6">
+          {/* Quadro 1: Header (top-left) */}
+          <div className="col-start-1 row-start-1">
+            <Breadcrumb items={[{ label: "Home", href: "/" }, { label: "Trabalhos" }]} />
+            <h1 className="font-poppins text-5xl font-bold text-foreground mb-3">
+              Trabalhos
+            </h1>
+            <p className="text-lg text-muted-foreground">
+              Projetos organizados por categorias para você encontrar o que mais se aproxima do seu desafio.
+            </p>
+          </div>
+
+          {/* Quadro 3: Search (top-right) */}
+          <div className="col-start-2 row-start-1 flex flex-col justify-end">
+            <h2 className="text-sm font-medium text-muted-foreground uppercase tracking-wider mb-3">
+              Busca rápida
+            </h2>
+            <SearchInput
+              value={searchTerm}
+              onChange={setSearchTerm}
+            />
+          </div>
+
+          {/* Quadro 2: Categories (bottom-left) */}
+          <div className="col-start-1 row-start-2 flex flex-col">
+            <h2 className="text-sm font-medium text-muted-foreground uppercase tracking-wider mb-4">
+              Categorias
+            </h2>
+            <div className="flex-1 flex flex-col justify-between gap-3">
+              {categories.map((cat) => (
+                <Link
+                  key={cat.slug}
+                  to={`/trabalhos/${cat.slug}`}
+                  className="group flex items-center justify-between p-4 rounded-xl bg-card/30 border border-border/30 hover:border-primary/30 hover:bg-card/50 transition-all duration-200 hover:scale-[1.01]"
+                >
+                  <div>
+                    <h3 className="text-lg font-semibold text-foreground group-hover:text-primary transition-colors">
+                      {cat.name}
+                    </h3>
+                    <p className="text-sm text-muted-foreground mt-1">
+                      {cat.description}
+                    </p>
+                  </div>
+                  <ArrowRight className="h-5 w-5 text-muted-foreground group-hover:text-primary group-hover:translate-x-1 transition-all flex-shrink-0" />
+                </Link>
+              ))}
+            </div>
+          </div>
+
+          {/* Search Results (bottom-right) - only shows when searching */}
+          <div className="col-start-2 row-start-2 overflow-y-auto">
+            {searchTerm && (
+              <div className="space-y-3">
+                {searchResults.length > 0 ? (
+                  searchResults.map((work) => (
+                    <WorkCard key={work.id} work={work} showCategory />
+                  ))
+                ) : (
+                  <p className="text-muted-foreground text-center py-8">
+                    Nenhum trabalho encontrado para esta busca.
+                  </p>
+                )}
+              </div>
+            )}
           </div>
         </div>
       </main>
