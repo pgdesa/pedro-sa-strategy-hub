@@ -7,6 +7,7 @@ export const Navbar = () => {
   const [scrolled, setScrolled] = useState(false);
   const location = useLocation();
   const isHomePage = location.pathname === "/";
+  const isBioPage = location.pathname === "/bio";
 
   useEffect(() => {
     const handleScroll = () => {
@@ -24,6 +25,15 @@ export const Navbar = () => {
   // Show logo always on non-home pages, or when scrolled on home page
   const showLogo = !isHomePage || scrolled;
 
+  // Dynamic text color for Bio page: black when not scrolled, white when scrolled
+  const navTextColor = isBioPage 
+    ? (scrolled ? "text-white" : "text-stone-900")
+    : "text-stone-900";
+
+  const navHoverColor = isBioPage
+    ? (scrolled ? "hover:text-primary" : "hover:text-primary")
+    : "hover:text-primary";
+
   return (
     <nav
       className={`fixed top-0 left-0 right-0 z-[9999] transition-all duration-300 ${
@@ -37,7 +47,7 @@ export const Navbar = () => {
         <Link 
           to="/"
           onClick={scrollToTop}
-          className={`font-poppins font-bold text-stone-900 hover:text-primary cursor-pointer transition-all duration-300 ${
+          className={`font-poppins font-bold ${navTextColor} ${navHoverColor} cursor-pointer transition-all duration-300 ${
             showLogo 
               ? "opacity-100 translate-y-0" 
               : "opacity-0 -translate-y-2 pointer-events-none"
@@ -53,25 +63,25 @@ export const Navbar = () => {
         <div className="hidden md:flex items-center gap-8">
           <NavLink
             to="/bio"
-            className="text-sm font-inter font-medium text-stone-900 hover:text-primary transition-colors"
+            className={`text-sm font-inter font-medium ${navTextColor} ${navHoverColor} transition-colors`}
           >
             Bio
           </NavLink>
           <NavLink
             to="/projetos"
-            className="text-sm font-inter font-medium text-stone-900 hover:text-primary transition-colors"
+            className={`text-sm font-inter font-medium ${navTextColor} ${navHoverColor} transition-colors`}
           >
             Projetos
           </NavLink>
           <NavLink
             to="/casos"
-            className="text-sm font-inter font-medium text-stone-900 hover:text-primary transition-colors"
+            className={`text-sm font-inter font-medium ${navTextColor} ${navHoverColor} transition-colors`}
           >
             Casos
           </NavLink>
           <NavLink
             to="/contato"
-            className="text-sm font-inter font-medium text-stone-900 hover:text-primary transition-colors"
+            className={`text-sm font-inter font-medium ${navTextColor} ${navHoverColor} transition-colors`}
           >
             Contato
           </NavLink>

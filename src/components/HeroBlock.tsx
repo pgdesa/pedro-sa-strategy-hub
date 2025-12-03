@@ -123,7 +123,7 @@ export const HeroBlock = () => {
             </div>
 
             {/* IMAGEM - coluna expandida para maior destaque */}
-            <div data-photo className="col-span-12 lg:col-span-6 xl:col-span-6 animate-fade-in-delay order-1 lg:order-2 flex items-center justify-center px-4 sm:px-6 md:px-8 lg:px-0">
+            <div data-photo className="col-span-12 lg:col-span-6 xl:col-span-6 animate-fade-in-delay order-1 lg:order-2 flex items-center justify-center px-4 sm:px-6 md:px-8 lg:px-0 relative">
               <div className="relative perspective-container w-full">
                 {/* Glow orbs */}
                 <div className="absolute -inset-16 bg-gradient-to-br from-primary/20 via-accent/10 to-transparent rounded-full blur-3xl opacity-60 pointer-events-none" />
@@ -146,6 +146,17 @@ export const HeroBlock = () => {
                   srcSet={`${heroImage} 1x, ${heroImage} 2x`}
                   sizes="(max-width: 1024px) 100vw, 66vw"
                 />
+              </div>
+              
+              {/* Mobile title overlay - appears at bottom of image */}
+              <div 
+                className={`lg:hidden absolute bottom-8 left-0 right-0 text-center transition-all duration-500 ${
+                  showTitleShifted ? 'opacity-0 translate-y-4' : 'opacity-100 translate-y-0'
+                }`}
+              >
+                <h1 className="font-poppins font-bold text-foreground text-3xl sm:text-4xl tracking-tight text-glow">
+                  PEDRO SÁ
+                </h1>
               </div>
             </div>
 
