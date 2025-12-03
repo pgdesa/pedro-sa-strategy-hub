@@ -55,12 +55,12 @@ const Contato = () => {
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-12 items-center lg:h-[calc(100vh-5rem)]">
             
             {/* Coluna Esquerda - Foto */}
-            <div className="lg:col-span-5 flex justify-center lg:justify-end">
-              <div className="relative">
+            <div className="lg:col-span-5 flex items-center justify-center">
+              <div className="relative w-full h-full flex items-center justify-center">
                 <img
                   src={pedroContato}
                   alt="Pedro Gabriel de Sá - Estrategista em Comunicação"
-                  className="w-full max-w-xs lg:max-w-sm h-auto max-h-[70vh] object-contain rounded-lg shadow-2xl"
+                  className="w-full max-w-md lg:max-w-lg h-auto max-h-[80vh] object-contain"
                 />
                 {/* Subtle glow effect behind image */}
                 <div className="absolute inset-0 -z-10 bg-primary/10 blur-3xl rounded-full scale-75" />
