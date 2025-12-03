@@ -61,9 +61,12 @@ const Contato = () => {
                   src={pedroContato}
                   alt="Pedro Gabriel de Sá - Estrategista em Comunicação"
                   className="w-full max-w-xl lg:max-w-2xl h-auto max-h-[85vh] object-contain"
+                  loading="eager"
+                  decoding="async"
+                  fetchPriority="high"
                 />
                 {/* Subtle glow effect behind image */}
-                <div className="absolute inset-0 -z-10 bg-primary/10 blur-3xl rounded-full scale-75" />
+                <div className="absolute inset-0 -z-10 bg-primary/10 blur-3xl rounded-full scale-75 will-change-transform" />
               </div>
             </div>
 
