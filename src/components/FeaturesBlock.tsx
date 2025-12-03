@@ -7,19 +7,19 @@ const features = [
   {
     icon: Target,
     title: "Planejamento Estratégico",
-    description: "Direção clara para negócios, marcas e campanhas.",
+    description: "Para marcas que sabem onde querem chegar, mas ainda não têm o caminho desenhado.",
     link: "#planejamento"
   },
   {
     icon: Megaphone,
     title: "Comunicação Pública e Política",
-    description: "Gestão de imagem, discurso e credibilidade institucional.",
+    description: "Para mandatos, instituições e campanhas que precisam comunicar com consistência e credibilidade.",
     link: "#comunicacao"
   },
   {
     icon: BarChart3,
     title: "Marketing Digital e Offline",
-    description: "Integração entre o impacto do real e o poder do digital.",
+    description: "Para integrar ponto físico, campanhas e presença digital sem ruído.",
     link: "#marketing"
   }
 ];

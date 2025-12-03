@@ -22,15 +22,8 @@ export const Navbar = () => {
       }`}
     >
       <div className="container mx-auto px-6 h-full flex items-center justify-between">
-        {/* Logo - Hidden initially, appears on scroll */}
-        <NavLink 
-          to="/" 
-          className={`text-xl md:text-2xl font-poppins font-bold tracking-wide text-foreground hover:text-primary transition-all duration-500 ${
-            scrolled ? "opacity-100 translate-y-0" : "opacity-0 -translate-y-4 pointer-events-none"
-          }`}
-        >
-          PEDRO SÁ
-        </NavLink>
+        {/* Logo area - now managed by HeroBlock's fixed title animation */}
+        <div className="w-32" />
 
         {/* Navigation Links */}
         <div className="hidden md:flex items-center gap-8">
