@@ -190,11 +190,11 @@ O resultado foi uma campanha de grande visibilidade regional, com experiência i
   {
     id: "gerenciamento-cliente-super-nova-era-2021",
     slug: "gerenciamento-cliente-atacadista-super-nova-era-2021",
-    title: "Gerenciamento de cliente e campanhas de ofertas – Supermercado Nova Era",
+    title: "Gerenciamento de cliente – Supermercado Nova Era",
     client: "Supermercado Nova Era",
     agency: "Digital Comunicação",
     year: "2021",
-    location: "Porto Velho, RO",
+    location: "Manaus, AM",
     summary: "Atendimento publicitário e gestão de projetos do Supermercado Nova Era, coordenando campanhas de ofertas para varejo e atacado. Organização de fluxo diário de produtos, criação de encartes impressos, cards para redes sociais e peças específicas por canal, garantindo antecedência na divulgação e consistência de marca.",
     description: `Em 2021, assumi o atendimento publicitário e a gestão de projetos de comunicação do Supermercado Nova Era, atacadista e varejista com forte presença em Porto Velho (RO). O principal desafio era coordenar um fluxo intenso de ofertas: cerca de 30 produtos por campanha, enviados nas primeiras horas do dia ou no fim do expediente anterior e frequentemente ajustados ao longo do processo.
 
