@@ -124,38 +124,6 @@ export const trabalhos: Work[] = [
   // ATENDIMENTO PUBLICITÁRIO
   // ----------------------------------------
   {
-    id: "ap-001",
-    slug: "campanha-institucional-banco-xyz",
-    title: "Campanha Institucional Banco XYZ",
-    client: "Banco XYZ",
-    agency: "Agência Criativa",
-    year: "2023",
-    location: "São Paulo, SP",
-    summary: "Gestão completa da conta para campanha institucional de reposicionamento de marca com alcance nacional.",
-    description: "Liderança do atendimento em projeto de grande escala envolvendo múltiplas entregas: filme publicitário, peças digitais, OOH e ativações em pontos de venda. Coordenação entre cliente, equipe criativa e produtoras, garantindo alinhamento estratégico e cumprimento de prazos rigorosos. O projeto resultou em aumento de 23% no reconhecimento de marca segundo pesquisa pós-campanha.",
-    category: "atendimento-publicitario",
-    subcategories: ["Campanha Institucional", "Rebranding"],
-    tags: ["banco", "institucional", "TV", "digital", "OOH"],
-    coverImage: "/placeholder.svg",
-    gallery: ["/placeholder.svg", "/placeholder.svg", "/placeholder.svg"]
-  },
-  {
-    id: "ap-002",
-    slug: "lancamento-produto-tech-alpha",
-    title: "Lançamento Produto Tech Alpha",
-    client: "Tech Alpha",
-    agency: "Agência Digital Plus",
-    year: "2022",
-    location: "Rio de Janeiro, RJ",
-    summary: "Atendimento dedicado para lançamento de produto tecnológico com estratégia 360°.",
-    description: "Condução do relacionamento com cliente durante todo o ciclo de lançamento de novo produto no mercado brasileiro. Gestão de timeline com mais de 50 entregas, desde conceituação criativa até execução de evento de lançamento. Interface direta com C-level do cliente e coordenação de 4 fornecedores especializados.",
-    category: "atendimento-publicitario",
-    subcategories: ["Lançamento de Produto", "Tecnologia"],
-    tags: ["tecnologia", "lançamento", "evento", "360"],
-    coverImage: "/placeholder.svg",
-    gallery: ["/placeholder.svg", "/placeholder.svg"]
-  },
-  {
     id: "carreata-natal-coca-cola-2014",
     slug: "carreata-natal-coca-cola-2014-manaus",
     title: "Carreata de Natal Coca-Cola 2014 – Manaus (AM)",
@@ -172,7 +140,6 @@ Em menos de dois meses, organizei 7 dias de carreata por 7 rotas diferentes, ali
 
 O resultado foi uma campanha de grande visibilidade regional, com experiência imersiva de Natal, presença marcante da marca nas ruas e público engajado em cada parada — um marco no início da minha trajetória como publicitário e gestor de projetos de comunicação.`,
     category: "atendimento-publicitario",
-    // Também aparece em Gestão de Projetos
     additionalCategories: ["gestao-de-projetos"],
     subcategories: ["Evento de Marca", "Ativação de Natal", "Caravana Iluminada"],
     tags: [
@@ -186,18 +153,16 @@ O resultado foi uma campanha de grande visibilidade regional, com experiência i
       "Natal",
       "Manaus"
     ],
-    // Imagem de capa: selfie com caminhão iluminado ao fundo
     coverImage: carreataCocover,
-    // Galeria: fotos da equipe, personagens, mascotes e peças oficiais
     gallery: [
-      carreata1,  // Foto grupo completo com mascotes
-      carreata2,  // Foto grupo frente ao caminhão Coca-Cola
-      carreata3,  // Selfie equipe no caminhão
-      carreata4,  // Selfie com Papai Noel no caminhão
-      carreata5,  // Selfie com equipe bastidores
-      carreata6,  // Foto com urso Coca-Cola
-      carreata7,  // Arte oficial Caravana Iluminada
-      carreata8   // Arte oficial com roteiro Manaus
+      carreata1,
+      carreata2,
+      carreata3,
+      carreata4,
+      carreata5,
+      carreata6,
+      carreata7,
+      carreata8
     ]
   },
   {
@@ -237,54 +202,22 @@ Com padronização visual, organização de pauta e definição clara de priorid
       "encarte",
       "ofertas"
     ],
-    // Imagem de capa: encarte completo "Domingo Bom de Preço"
     coverImage: novaEraCover,
-    // Galeria: encartes, cards de ofertas e campanhas especiais
     gallery: [
-      novaEra1,  // Card "Esquenta de Ofertas" - leite, açúcar, feijão
-      novaEra2,  // Card "Esquenta de Ofertas" - requeijão, maionese
-      novaEra3,  // Card "Esquenta de Ofertas" - carnes
-      novaEra4,  // Stories "Festival Higiene & Beleza"
-      novaEra5,  // Stories "Eletro Insano" - ventilador
-      novaEra6,  // Encarte "Ofertas Tamanho Família" - higiene e limpeza
-      novaEra7,  // Stories "Eletro Insano" - forno
-      novaEra8   // Encarte completo "Ofertas Tamanho Família"
+      novaEra1,
+      novaEra2,
+      novaEra3,
+      novaEra4,
+      novaEra5,
+      novaEra6,
+      novaEra7,
+      novaEra8
     ]
   },
 
   // ----------------------------------------
   // COMUNICAÇÃO ESTRATÉGICA
   // ----------------------------------------
-  {
-    id: "ce-001",
-    slug: "identidade-visual-startup-fintech",
-    title: "Identidade Visual Startup Fintech",
-    client: "FinPay",
-    year: "2023",
-    location: "São Paulo, SP",
-    summary: "Desenvolvimento completo de identidade visual para fintech em fase de crescimento acelerado.",
-    description: "Projeto de branding completo incluindo naming refinement, sistema de identidade visual, tom de voz e guidelines de aplicação. A nova identidade posicionou a marca como inovadora e confiável, contribuindo para rodada de investimento série A bem-sucedida. Entregáveis incluíram manual de marca, templates e sistema de design para produto digital.",
-    category: "comunicacao-estrategica",
-    subcategories: ["Identidade Visual"],
-    tags: ["branding", "fintech", "startup", "identidade visual", "design system"],
-    coverImage: "/placeholder.svg",
-    gallery: ["/placeholder.svg", "/placeholder.svg", "/placeholder.svg"]
-  },
-  {
-    id: "ce-002",
-    slug: "posicionamento-politico-campanha-2022",
-    title: "Posicionamento Político - Campanha 2022",
-    client: "Candidato Municipal",
-    year: "2022",
-    location: "Interior de São Paulo",
-    summary: "Estratégia de comunicação e posicionamento para campanha eleitoral municipal.",
-    description: "Desenvolvimento de plataforma de comunicação para candidatura a cargo executivo municipal. Trabalho incluiu pesquisa de percepção, definição de pilares de mensagem, identidade visual de campanha e estratégia de conteúdo para redes sociais. Campanha atingiu 78% de reconhecimento do eleitorado-alvo.",
-    category: "comunicacao-estrategica",
-    subcategories: ["Posicionamento Político"],
-    tags: ["política", "eleições", "comunicação", "estratégia"],
-    coverImage: "/placeholder.svg",
-    gallery: ["/placeholder.svg", "/placeholder.svg"]
-  },
   {
     id: "posicionamento-dr-grangeiro-2022",
     slug: "posicionamento-lancamento-politico-dr-grangeiro-2022",
@@ -320,71 +253,23 @@ Mesmo sem a eleição, a campanha gerou alto engajamento digital, aumentou o con
       "deputado estadual",
       "Manaus"
     ],
-    // Imagem de capa: card com candidato "Serviço e Cuidado"
     coverImage: grangeiroCover,
-    // Galeria: artes de campanha, cards para redes sociais, mockups de palco
     gallery: [
-      grangeiro1,  // Arte "O Amazonas quer o amigo do coração"
-      grangeiro2,  // Card amarelo "Paz no coração" com número 70.000
-      grangeiro3,  // Card azul "Amigo" com memoji
-      grangeiro4,  // Card amarelo "O amigo do seu coração" com memoji
-      grangeiro5,  // Card azul "Visita Câmara dos Deputados"
-      grangeiro6,  // Mockup bandeirinhas de campanha
-      grangeiro7,  // Mockup grade de posts Instagram
-      grangeiro8,  // Card vermelho "Firmeza - Mandato de amor pelo povo"
-      grangeiro9   // Mockup palco de eventos com identidade visual
+      grangeiro1,
+      grangeiro2,
+      grangeiro3,
+      grangeiro4,
+      grangeiro5,
+      grangeiro6,
+      grangeiro7,
+      grangeiro8,
+      grangeiro9
     ]
-  },
-  {
-    id: "ce-003",
-    slug: "lancamento-marca-cosmeticos",
-    title: "Lançamento Marca de Cosméticos",
-    client: "Beleza Natura",
-    year: "2023",
-    location: "São Paulo, SP",
-    summary: "Estratégia de lançamento para nova linha de cosméticos sustentáveis no mercado brasileiro.",
-    description: "Planejamento estratégico completo para entrada no mercado de uma nova marca de cosméticos com posicionamento sustentável. Definição de público-alvo, proposta de valor, arquitetura de mensagens e plano de go-to-market. O lançamento superou em 40% as metas de vendas do primeiro trimestre.",
-    category: "comunicacao-estrategica",
-    subcategories: ["Lançamento", "Produtos"],
-    tags: ["cosméticos", "sustentabilidade", "lançamento", "marca"],
-    coverImage: "/placeholder.svg",
-    gallery: ["/placeholder.svg", "/placeholder.svg", "/placeholder.svg"]
   },
 
   // ----------------------------------------
   // GESTÃO DE PROJETOS
   // ----------------------------------------
-  {
-    id: "gp-001",
-    slug: "implementacao-crm-enterprise",
-    title: "Implementação CRM Enterprise",
-    client: "Grupo Industrial ABC",
-    year: "2023",
-    location: "São Paulo, SP",
-    summary: "Gestão de projeto de implementação de CRM para grupo industrial com 5 unidades de negócio.",
-    description: "Liderança de projeto de transformação digital envolvendo implementação de Salesforce para 500+ usuários em 5 unidades de negócio. Coordenação de equipe de 12 pessoas entre consultores, desenvolvedores e analistas de negócio. Metodologia ágil com sprints quinzenais e entregas incrementais ao longo de 8 meses.",
-    category: "gestao-de-projetos",
-    subcategories: ["Transformação Digital", "CRM"],
-    tags: ["CRM", "Salesforce", "enterprise", "digital"],
-    coverImage: "/placeholder.svg",
-    gallery: ["/placeholder.svg", "/placeholder.svg"]
-  },
-  {
-    id: "gp-002",
-    slug: "evento-corporativo-anual",
-    title: "Evento Corporativo Anual",
-    client: "Multinacional Varejo",
-    agency: "Produtora Eventos",
-    year: "2022",
-    location: "São Paulo, SP",
-    summary: "Gestão completa de convenção anual de vendas para 2.000 participantes.",
-    description: "Coordenação de projeto de evento corporativo de grande escala, desde briefing inicial até execução e pós-evento. Gestão de orçamento de R$ 3M, coordenação de 15 fornecedores e timeline de 6 meses de planejamento. Evento híbrido com transmissão ao vivo para equipes remotas em 12 estados.",
-    category: "gestao-de-projetos",
-    subcategories: ["Eventos", "Convenção"],
-    tags: ["evento", "convenção", "vendas", "híbrido"],
-    coverImage: "/placeholder.svg",
-    gallery: ["/placeholder.svg", "/placeholder.svg", "/placeholder.svg"]
-  },
   {
     id: "ativacao-heineken-final-champions-2016",
     slug: "ativacao-marca-heineken-final-champions-2016-manaus",
@@ -417,67 +302,18 @@ O resultado foi uma experiência imersiva que uniu paixão pelo futebol, exclusi
       "cinema",
       "Manaus"
     ],
-    // Imagem de capa: sala de cinema lotada com iluminação verde Heineken
     coverImage: heinekenCover,
-    // Galeria: fotos do evento, ambientação, promotores e público
     gallery: [
-      heineken1,  // Entrada ambientada com redes de gol e iluminação verde
-      heineken2,  // Promotoras Heineken na entrada temática
-      heineken3,  // Grupo de amigos com camisetas Heineken
-      heineken4,  // Transmissão na tela - Final Milano 2016
-      heineken5,  // Grupo de convidados com garrafas Heineken
-      heineken6,  // Promotora com garrafa ao lado do freezer
-      heineken7,  // Trio brindando com garrafas Heineken
-      heineken8,  // Promotora em destaque com garrafa
-      heineken9   // Ativação de entretenimento - mini campo
+      heineken1,
+      heineken2,
+      heineken3,
+      heineken4,
+      heineken5,
+      heineken6,
+      heineken7,
+      heineken8,
+      heineken9
     ]
-  },
-
-  // ----------------------------------------
-  {
-    id: "md-001",
-    slug: "posicionamento-digital-ecommerce",
-    title: "Posicionamento Digital E-commerce",
-    client: "Loja Virtual Fashion",
-    year: "2023",
-    location: "Brasil",
-    summary: "Estratégia de posicionamento digital completa para e-commerce de moda com foco em crescimento orgânico.",
-    description: "Desenvolvimento de estratégia digital integrada incluindo SEO, conteúdo e presença em redes sociais. Criação de calendário editorial, otimização de mais de 500 páginas de produto e implementação de blog com estratégia de conteúdo. Resultado: crescimento de 180% em tráfego orgânico em 6 meses.",
-    category: "marketing-digital",
-    subcategories: ["Posicionamento Digital"],
-    tags: ["SEO", "e-commerce", "moda", "conteúdo", "orgânico"],
-    coverImage: "/placeholder.svg",
-    gallery: ["/placeholder.svg", "/placeholder.svg"]
-  },
-  {
-    id: "md-002",
-    slug: "gestao-redes-sociais-restaurante",
-    title: "Gestão Redes Sociais - Restaurante",
-    client: "Restaurante Gourmet SP",
-    year: "2023",
-    location: "São Paulo, SP",
-    summary: "Gestão completa de redes sociais para restaurante fine dining com foco em Instagram e TikTok.",
-    description: "Estratégia de conteúdo e gestão de comunidade para restaurante de alta gastronomia. Produção de conteúdo visual, gestão de influenciadores e campanhas de engajamento. Crescimento de 15K para 85K seguidores no Instagram em 12 meses, com taxa de engajamento média de 4.2%.",
-    category: "marketing-digital",
-    subcategories: ["Redes Sociais"],
-    tags: ["Instagram", "TikTok", "gastronomia", "influenciadores", "conteúdo"],
-    coverImage: "/placeholder.svg",
-    gallery: ["/placeholder.svg", "/placeholder.svg", "/placeholder.svg"]
-  },
-  {
-    id: "md-003",
-    slug: "campanha-trafego-pago-saas",
-    title: "Campanha Tráfego Pago SaaS",
-    client: "Software B2B",
-    year: "2022",
-    location: "Brasil",
-    summary: "Estratégia de aquisição via tráfego pago para software B2B com foco em geração de leads qualificados.",
-    description: "Planejamento e execução de campanhas de performance em Google Ads e LinkedIn Ads para software B2B. Estruturação de funil de conversão, criação de landing pages otimizadas e implementação de tracking avançado. Redução de 45% no CAC e aumento de 3x no volume de MQLs em 4 meses.",
-    category: "marketing-digital",
-    subcategories: ["Tráfego Pago"],
-    tags: ["Google Ads", "LinkedIn", "B2B", "SaaS", "performance", "leads"],
-    coverImage: "/placeholder.svg",
-    gallery: ["/placeholder.svg", "/placeholder.svg"]
   }
 ];
 
