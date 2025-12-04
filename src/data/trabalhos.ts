@@ -57,6 +57,19 @@ import heineken7 from '@/assets/heineken-7.jpg';
 import heineken8 from '@/assets/heineken-8.jpg';
 import heineken9 from '@/assets/heineken-9.jpg';
 
+// LogicPro 9 Anos - Campanha Comemorativa 2022
+// Para trocar as imagens, substitua os arquivos na pasta src/assets mantendo os nomes
+import logicproCover from '@/assets/logicpro-cover.png';
+import logicpro1 from '@/assets/logicpro-1.png';
+import logicpro2 from '@/assets/logicpro-2.png';
+import logicpro3 from '@/assets/logicpro-3.png';
+import logicpro4 from '@/assets/logicpro-4.png';
+import logicpro5 from '@/assets/logicpro-5.png';
+import logicpro6 from '@/assets/logicpro-6.png';
+import logicpro7 from '@/assets/logicpro-7.png';
+import logicpro8 from '@/assets/logicpro-8.png';
+import logicpro9 from '@/assets/logicpro-9.png';
+
 export type WorkCategory =
   | "atendimento-publicitario" 
   | "comunicacao-estrategica" 
@@ -218,6 +231,53 @@ Com padronização visual, organização de pauta e definição clara de priorid
   // ----------------------------------------
   // COMUNICAÇÃO ESTRATÉGICA
   // ----------------------------------------
+  {
+    id: "campanha-9-anos-logicpro-2022",
+    slug: "campanha-9-anos-logicpro-identidade-comemorativa-2022",
+    title: "Campanha de 9 anos LogicPro – identidade comemorativa (2022)",
+    client: "LogicPro",
+    agency: "Digital Comunicação",
+    year: "2022",
+    location: "Brasil",
+    summary: "Criação de identidade comemorativa para os 9 anos da LogicPro, com conceito visual em neon verde e desdobramentos em campanha digital, camisetas e ativação da sede, reforçando o posicionamento da marca em tecnologia e inovação.",
+    description: `Para celebrar os 9 anos da LogicPro, o desafio foi transformar a história da empresa em uma campanha comemorativa alinhada ao seu posicionamento em tecnologia e inovação. A partir do conceito 'Há 9 anos fazendo sua empresa ir além', desenvolvi uma identidade visual própria para a data, com tipografia em neon verde, atmosfera high-tech e foco em resultados.
+
+A marca comemorativa ganhou vida em diferentes formatos: artes para redes sociais, banners digitais, peças de mídia online e camisetas personalizadas, além de elementos gráficos para ativar a sede da empresa no dia da celebração. Toda a linguagem visual foi desenhada para comunicar proximidade com o público da LogicPro — gestores e equipes que usam tecnologia para impulsionar negócios — e reforçar a mensagem de parceria, crescimento e futuro.
+
+O resultado foi uma campanha integrada que fortaleceu o orgulho interno, aumentou a percepção de marca entre clientes e parceiros e posicionou os 9 anos como um marco de continuidade: a LogicPro pronta para levar as empresas ainda mais longe.`,
+    category: "comunicacao-estrategica",
+    subcategories: [
+      "Branding",
+      "Campanha Comemorativa",
+      "Endomarketing",
+      "Marketing Digital"
+    ],
+    tags: [
+      "identidade visual",
+      "campanha institucional",
+      "campanha comemorativa",
+      "branding",
+      "endomarketing",
+      "marketing digital",
+      "tecnologia",
+      "aniversário de empresa",
+      "ativação de marca",
+      "LogicPro",
+      "9 anos"
+    ],
+    coverImage: logicproCover,
+    gallery: [
+      logicpro1,
+      logicpro2,
+      logicpro3,
+      logicpro4,
+      logicpro5,
+      logicpro6,
+      logicpro7,
+      logicpro8,
+      logicpro9
+    ]
+  },
   {
     id: "posicionamento-dr-grangeiro-2022",
     slug: "posicionamento-lancamento-politico-dr-grangeiro-2022",
