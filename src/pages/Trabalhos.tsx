@@ -1,5 +1,6 @@
-import { useState, useMemo } from "react";
+import { useState, useMemo, useEffect } from "react";
 import { useParams, Link } from "react-router-dom";
+import { Helmet } from "react-helmet-async";
 import { Navbar } from "@/components/Navbar";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
@@ -156,12 +157,15 @@ interface ImageCarouselProps {
 
 const ImageCarousel = ({ images, title }: ImageCarouselProps) => {
   const [currentIndex, setCurrentIndex] = useState(0);
+  const [isLoading, setIsLoading] = useState(true);
 
   const goToPrevious = () => {
+    setIsLoading(true);
     setCurrentIndex((prev) => (prev === 0 ? images.length - 1 : prev - 1));
   };
 
   const goToNext = () => {
+    setIsLoading(true);
     setCurrentIndex((prev) => (prev === images.length - 1 ? 0 : prev + 1));
   };
 
@@ -170,10 +174,18 @@ const ImageCarousel = ({ images, title }: ImageCarouselProps) => {
   return (
     <div className="relative rounded-xl overflow-hidden bg-card/30 border border-border/30">
       <div className="aspect-video relative bg-black/20">
+        {isLoading && (
+          <div className="absolute inset-0 flex items-center justify-center bg-card/50">
+            <div className="w-8 h-8 border-2 border-primary border-t-transparent rounded-full animate-spin" />
+          </div>
+        )}
         <img
           src={images[currentIndex]}
           alt={`${title} - Imagem ${currentIndex + 1}`}
-          className="w-full h-full object-contain transition-opacity duration-300"
+          className={`w-full h-full object-contain transition-opacity duration-300 ${isLoading ? 'opacity-0' : 'opacity-100'}`}
+          onLoad={() => setIsLoading(false)}
+          loading={currentIndex === 0 ? "eager" : "lazy"}
+          decoding="async"
         />
       </div>
       {images.length > 1 && (
@@ -220,9 +232,19 @@ const TrabalhosLanding = () => {
     [searchTerm]
   );
 
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
   return (
-    <div className="min-h-screen bg-background flex flex-col">
-      <Navbar />
+    <>
+      <Helmet>
+        <title>Trabalhos – Pedro Sá | Portfólio de Comunicação e Marketing</title>
+        <meta name="description" content="Conheça os projetos de comunicação, marketing e estratégia de Pedro Sá. Cases de atendimento publicitário, comunicação estratégica, gestão de projetos e marketing digital." />
+        <link rel="canonical" href="/trabalhos" />
+      </Helmet>
+      <div className="min-h-screen bg-background flex flex-col">
+        <Navbar />
       {/* Mobile/Tablet Layout */}
       <main className="lg:hidden pt-28 pb-20 px-6 flex-1">
         <div className="max-w-6xl mx-auto">
@@ -359,7 +381,8 @@ const TrabalhosLanding = () => {
 
         </div>
       </main>
-    </div>
+      </div>
+    </>
   );
 };
 
