@@ -36,6 +36,8 @@ export interface Work {
   summary: string;
   description: string;
   category: WorkCategory;
+  // Categorias adicionais onde o trabalho também deve aparecer
+  additionalCategories?: WorkCategory[];
   subcategories: string[];
   tags: string[];
   coverImage?: string;
@@ -132,6 +134,8 @@ Em menos de dois meses, organizei 7 dias de carreata por 7 rotas diferentes, ali
 
 O resultado foi uma campanha de grande visibilidade regional, com experiência imersiva de Natal, presença marcante da marca nas ruas e público engajado em cada parada — um marco no início da minha trajetória como publicitário e gestor de projetos de comunicação.`,
     category: "atendimento-publicitario",
+    // Também aparece em Gestão de Projetos
+    additionalCategories: ["gestao-de-projetos"],
     subcategories: ["Evento de Marca", "Ativação de Natal", "Caravana Iluminada"],
     tags: [
       "gestão de projetos",
@@ -321,17 +325,24 @@ export function filterWorks(works: Work[], searchTerm: string): Work[] {
 
 /**
  * Retorna trabalhos de uma categoria específica
+ * Inclui trabalhos que têm a categoria como principal ou adicional
  */
 export function getWorksByCategory(category: WorkCategory): Work[] {
-  return trabalhos.filter(work => work.category === category);
+  return trabalhos.filter(work => 
+    work.category === category || 
+    (work.additionalCategories && work.additionalCategories.includes(category))
+  );
 }
 
 /**
  * Retorna um trabalho específico pelo slug
+ * Busca em categoria principal e categorias adicionais
  */
 export function getWorkBySlug(categorySlug: WorkCategory, workSlug: string): Work | undefined {
   return trabalhos.find(
-    work => work.category === categorySlug && work.slug === workSlug
+    work => work.slug === workSlug && 
+    (work.category === categorySlug || 
+     (work.additionalCategories && work.additionalCategories.includes(categorySlug)))
   );
 }
 
