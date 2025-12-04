@@ -1,4 +1,5 @@
 import { useEffect } from "react";
+import { Helmet } from "react-helmet-async";
 import { Navbar } from "@/components/Navbar";
 import { Mail, Linkedin, Instagram, Facebook, MessageCircle } from "lucide-react";
 import pedroContato from "@/assets/pedro-contato.png";
@@ -47,8 +48,14 @@ const Contato = () => {
   }, []);
 
   return (
-    <div className="min-h-screen bg-background">
-      <Navbar />
+    <>
+      <Helmet>
+        <title>Contato – Pedro Sá | Fale Sobre Seu Projeto</title>
+        <meta name="description" content="Entre em contato com Pedro Sá para falar sobre seu projeto de comunicação, marketing ou estratégia de negócios. Atendimento por e-mail, LinkedIn, Instagram, Facebook ou WhatsApp." />
+        <link rel="canonical" href="/contato" />
+      </Helmet>
+      <div className="min-h-screen bg-background">
+        <Navbar />
       
       <main className="min-h-screen lg:h-screen pt-20 pb-8 lg:pb-0 px-6 lg:px-12 lg:overflow-hidden">
         <div className="container mx-auto h-full">
@@ -129,7 +136,8 @@ const Contato = () => {
           </div>
         </div>
       </main>
-    </div>
+      </div>
+    </>
   );
 };
 
