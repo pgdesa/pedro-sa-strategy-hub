@@ -91,6 +91,13 @@ import negociosLocais3 from '@/assets/negocios-locais-3.jpg';
 import negociosLocais4 from '@/assets/negocios-locais-4.png';
 import negociosLocais5 from '@/assets/negocios-locais-5.jpg';
 
+// Barollo - Desenvolvimento de Sacola para Vinhos 2018
+// Para trocar as imagens, substitua os arquivos na pasta src/assets mantendo os nomes
+import barolloCover from '@/assets/barollo-cover.jpg';
+import barollo1 from '@/assets/barollo-1.png';
+import barollo2 from '@/assets/barollo-2.png';
+import barollo3 from '@/assets/barollo-3.jpg';
+
 export type WorkCategory =
   | "atendimento-publicitario" 
   | "comunicacao-estrategica" 
@@ -484,6 +491,43 @@ Esse conjunto de trabalhos consolida a experiência de Pedro Sá em branding par
       negociosLocais2,
       negociosLocais3,
       negociosLocais5
+    ]
+  },
+  {
+    id: "barollo-desenvolvimento-sacola-vinhos-2018",
+    slug: "barollo-desenvolvimento-sacola-vinhos",
+    title: "Barollo – Desenvolvimento de Sacola para Vinhos",
+    client: "Restaurante Barollo",
+    agency: "Vanguarda Comunicação",
+    year: "2018",
+    location: "Manaus, AM",
+    summary: "Desenvolvimento de produto e design de embalagem para o Restaurante Barollo: criação de sacola para vinhos personalizada, gestão de fornecedores e branding aplicado à experiência do cliente.",
+    description: `Para o restaurante Barollo, referência em vinhos e gastronomia em Manaus, desenvolvi um projeto completo de desenvolvimento de produto e design de embalagem para a nova carta de vinhos da casa. O desafio era transformar uma necessidade prática – o cliente não poder sair com a garrafa na mão – em um ponto de contato elegante com a marca.
+
+A partir do posicionamento sofisticado do Barollo, criei o conceito visual da sacola para vinho personalizada, alinhado à identidade do restaurante e ao universo enológico: cores sóbrias, ilustrações de garrafas e taças e acabamento pensado para transmitir requinte e cuidado.
+
+Além da criação gráfica, atuei na gestão do projeto: desenvolvimento da faca técnica para impressão, especificação de materiais, definição de tiragens viáveis e negociação com a gráfica, garantindo custo competitivo sem perder qualidade. O resultado foi um produto funcional, memorável e coerente com a experiência premium do Barollo, fortalecendo o branding e agregando valor percebido a cada garrafa vendida.`,
+    category: "atendimento-publicitario",
+    additionalCategories: ["gestao-de-projetos"],
+    subcategories: [
+      "Desenvolvimento de Produto",
+      "Design de Embalagem",
+      "Branding"
+    ],
+    tags: [
+      "Desenvolvimento de Produto",
+      "Design de Embalagem",
+      "Atendimento Publicitário",
+      "Gestão de Projetos",
+      "Branding",
+      "Varejo & Gastronomia",
+      "Barollo Vinhos"
+    ],
+    coverImage: barolloCover,
+    gallery: [
+      barollo1,
+      barollo2,
+      barollo3
     ]
   }
 ];
