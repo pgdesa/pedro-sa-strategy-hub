@@ -483,7 +483,6 @@ Esse conjunto de trabalhos consolida a experiência de Pedro Sá em branding par
       negociosLocais1,
       negociosLocais2,
       negociosLocais3,
-      negociosLocais4,
       negociosLocais5
     ]
   }
