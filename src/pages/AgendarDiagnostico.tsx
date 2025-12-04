@@ -6,7 +6,7 @@ import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
 import { Label } from '@/components/ui/label';
 import { useToast } from '@/hooks/use-toast';
-import pedroContato from '@/assets/pedro-contato.png';
+import pedroAgendar from '@/assets/pedro-agendar.jpg';
 
 const AgendarDiagnostico = () => {
   const { toast } = useToast();
@@ -124,7 +124,7 @@ const AgendarDiagnostico = () => {
                 {/* Foto */}
                 <div className="relative mb-6 lg:mb-8">
                   <img
-                    src={pedroContato}
+                    src={pedroAgendar}
                     alt="Pedro Gabriel de Sá - Estrategista em Comunicação"
                     className="w-full max-w-xs lg:max-w-sm h-auto max-h-[40vh] lg:max-h-[50vh] object-contain"
                     loading="eager"
@@ -152,14 +152,14 @@ const AgendarDiagnostico = () => {
 
               {/* Coluna Direita - Formulário */}
               <div className="lg:w-[55%]">
-                <div className="bg-card/40 border border-border/30 rounded-xl p-6 lg:p-8 shadow-lg">
+                <div className="bg-card/40 border border-border/30 rounded-xl p-5 lg:p-6 shadow-lg">
                   {!isSubmitted ? (
                     <>
                       <h2 className="text-lg lg:text-xl font-poppins font-semibold text-foreground mb-6">
                         Deixe seus contatos e fale sobre o seu projeto
                       </h2>
 
-                      <form onSubmit={handleSubmit} className="space-y-5">
+                      <form onSubmit={handleSubmit} className="space-y-4">
                         {/* Nome */}
                         <div className="space-y-2">
                           <Label htmlFor="nome" className="text-sm font-medium text-foreground/90">
