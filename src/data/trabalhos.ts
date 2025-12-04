@@ -19,6 +19,19 @@ import carreata6 from '@/assets/carreata-coca-cola-6.jpg';
 import carreata7 from '@/assets/carreata-coca-cola-7.jpg';
 import carreata8 from '@/assets/carreata-coca-cola-8.jpg';
 
+// Dr. Marcus Grangeiro - Campanha Política 2022
+// Para trocar as imagens, substitua os arquivos na pasta src/assets mantendo os nomes
+import grangeiroCover from '@/assets/grangeiro-cover.png';
+import grangeiro1 from '@/assets/grangeiro-1.png';
+import grangeiro2 from '@/assets/grangeiro-2.png';
+import grangeiro3 from '@/assets/grangeiro-3.png';
+import grangeiro4 from '@/assets/grangeiro-4.png';
+import grangeiro5 from '@/assets/grangeiro-5.png';
+import grangeiro6 from '@/assets/grangeiro-6.png';
+import grangeiro7 from '@/assets/grangeiro-7.png';
+import grangeiro8 from '@/assets/grangeiro-8.png';
+import grangeiro9 from '@/assets/grangeiro-9.png';
+
 export type WorkCategory =
   | "atendimento-publicitario" 
   | "comunicacao-estrategica" 
@@ -195,6 +208,56 @@ O resultado foi uma campanha de grande visibilidade regional, com experiência i
     tags: ["política", "eleições", "comunicação", "estratégia"],
     coverImage: "/placeholder.svg",
     gallery: ["/placeholder.svg", "/placeholder.svg"]
+  },
+  {
+    id: "posicionamento-dr-grangeiro-2022",
+    slug: "posicionamento-lancamento-politico-dr-grangeiro-2022",
+    title: "Posicionamento e lançamento político – Dr. Marcus Grangeiro (2022)",
+    client: "Dr. Marcus Grangeiro – pré-candidato a deputado estadual",
+    agency: "Digital Comunicação",
+    year: "2022",
+    location: "Manaus, AM",
+    summary: "Posicionamento e lançamento político do cardiologista Dr. Marcus Grangeiro como pré-candidato a deputado estadual. Rebranding completo, narrativa 'Seu amigo do coração' e campanha integrada on e offline para humanizar o político e conectar cuidado em saúde com serviço público.",
+    description: `Em 2022, nas eleições estaduais do Amazonas, o desafio foi tirar o cardiologista Dr. Marcus Grangeiro do consultório e apresentá-lo ao eleitor como 'o amigo do coração'.
+
+A partir dessa ideia-força, conduzimos um rebranding completo: construção da persona política, definição do território de marca, slogan, paleta de cores, ícones de coração e linguagem visual jovem, leve e otimista.
+
+Reescrevemos o discurso de campanha, alinhando fala, presença em eventos e posicionamento nas redes sociais para conectar duas frentes: a autoridade médica e o cuidado humano com as pessoas. Toda a comunicação — peças digitais, materiais de palco, conteúdo para Instagram e materiais impressos — foi pensada para gerar identificação emocional e facilitar o reconhecimento do número do candidato.
+
+Mesmo sem a eleição, a campanha gerou alto engajamento digital, aumentou o conhecimento de nome na base eleitoral e criou um alicerce consistente para futuras candidaturas.`,
+    category: "comunicacao-estrategica",
+    subcategories: ["Posicionamento Político", "Lançamento", "Rebranding"],
+    tags: [
+      "política",
+      "lançamento de campanha",
+      "rebranding",
+      "comunicação estratégica",
+      "posicionamento",
+      "branding político",
+      "redes sociais",
+      "narrativa de campanha",
+      "identidade visual",
+      "Grangeiro",
+      "70.000",
+      "amigo do coração",
+      "cardiologista",
+      "deputado estadual",
+      "Manaus"
+    ],
+    // Imagem de capa: card com candidato "Serviço e Cuidado"
+    coverImage: grangeiroCover,
+    // Galeria: artes de campanha, cards para redes sociais, mockups de palco
+    gallery: [
+      grangeiro1,  // Arte "O Amazonas quer o amigo do coração"
+      grangeiro2,  // Card amarelo "Paz no coração" com número 70.000
+      grangeiro3,  // Card azul "Amigo" com memoji
+      grangeiro4,  // Card amarelo "O amigo do seu coração" com memoji
+      grangeiro5,  // Card azul "Visita Câmara dos Deputados"
+      grangeiro6,  // Mockup bandeirinhas de campanha
+      grangeiro7,  // Mockup grade de posts Instagram
+      grangeiro8,  // Card vermelho "Firmeza - Mandato de amor pelo povo"
+      grangeiro9   // Mockup palco de eventos com identidade visual
+    ]
   },
   {
     id: "ce-003",
