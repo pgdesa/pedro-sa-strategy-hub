@@ -169,11 +169,11 @@ const ImageCarousel = ({ images, title }: ImageCarouselProps) => {
 
   return (
     <div className="relative rounded-xl overflow-hidden bg-card/30 border border-border/30">
-      <div className="aspect-video relative">
+      <div className="aspect-video relative bg-black/20">
         <img
           src={images[currentIndex]}
           alt={`${title} - Imagem ${currentIndex + 1}`}
-          className="w-full h-full object-cover transition-opacity duration-300"
+          className="w-full h-full object-contain transition-opacity duration-300"
         />
       </div>
       {images.length > 1 && (
@@ -621,7 +621,7 @@ const WorkDetail = ({ categorySlug, workSlug }: WorkDetailProps) => {
               </div>
 
               {/* Right: Ficha Técnica */}
-              <div className="overflow-y-auto">
+              <div className="overflow-y-auto pr-2">
                 <FichaTecnicaCompact work={work} category={category} />
               </div>
             </div>
@@ -758,7 +758,7 @@ const FichaTecnicaCompact = ({ work, category }: FichaTecnicaProps) => (
       <h3 className="text-xs font-medium text-muted-foreground uppercase tracking-wider mb-2">
         Sobre
       </h3>
-      <p className="text-xs text-foreground/90 leading-relaxed line-clamp-6">
+      <p className="text-xs text-foreground/90 leading-relaxed whitespace-pre-line">
         {work.description}
       </p>
     </div>
