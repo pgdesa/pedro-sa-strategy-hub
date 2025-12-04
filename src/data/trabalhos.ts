@@ -82,6 +82,15 @@ import rdEngenharia6 from '@/assets/rd-engenharia-6.jpg';
 import rdEngenharia7 from '@/assets/rd-engenharia-7.jpg';
 import rdEngenharia8 from '@/assets/rd-engenharia-8.jpg';
 
+// Identidade Visual para Negócios Locais 2015
+// Para trocar as imagens, substitua os arquivos na pasta src/assets mantendo os nomes
+import negociosLocaisCover from '@/assets/negocios-locais-cover.jpg';
+import negociosLocais1 from '@/assets/negocios-locais-1.png';
+import negociosLocais2 from '@/assets/negocios-locais-2.png';
+import negociosLocais3 from '@/assets/negocios-locais-3.jpg';
+import negociosLocais4 from '@/assets/negocios-locais-4.png';
+import negociosLocais5 from '@/assets/negocios-locais-5.jpg';
+
 export type WorkCategory =
   | "atendimento-publicitario" 
   | "comunicacao-estrategica" 
@@ -432,6 +441,50 @@ O resultado foi o fortalecimento da marca RD Engenharia no mercado local e o inc
       rdEngenharia6,
       rdEngenharia7,
       rdEngenharia8
+    ]
+  },
+  {
+    id: "identidade-visual-negocios-locais-2015",
+    slug: "identidade-visual-negocios-locais-2015",
+    title: "Identidade Visual para Negócios Locais (2015)",
+    client: "Negócios Locais (diversos)",
+    agency: "Freelancer",
+    year: "2015",
+    location: "Brasil",
+    summary: "Branding e comunicação estratégica para negócios locais – atuação como freelancer. Criação de identidades visuais, logotipos, aplicações em papelaria, materiais promocionais e peças digitais que fortalecem o posicionamento de marca.",
+    description: `Desde 2015, atuei como freelancer na criação de identidades visuais para negócios locais, desenvolvendo logotipos, aplicações em papelaria, materiais promocionais e peças digitais que fortalecem o posicionamento de marca e a percepção de valor.
+
+O foco sempre foi traduzir a essência de cada negócio em uma linguagem visual profissional e memorável, alinhando cor, tipografia e simbologia ao público-alvo e ao segmento de atuação. A partir de um processo de diagnóstico e comunicação estratégica, cada projeto foi pensado para aumentar reconhecimento de marca, gerar confiança e apoiar a presença dos clientes em diferentes pontos de contato – fachadas, cartões de visita, redes sociais e campanhas pontuais.
+
+Esse conjunto de trabalhos consolida a experiência de Pedro Sá em branding para pequenos e médios negócios, unindo criação, direção de arte e gestão de projetos para entregar identidades consistentes, escaláveis e prontas para crescer com a empresa.`,
+    category: "comunicacao-estrategica",
+    additionalCategories: ["gestao-de-projetos"],
+    subcategories: [
+      "Identidade Visual",
+      "Branding",
+      "Comunicação Estratégica",
+      "Design Gráfico"
+    ],
+    tags: [
+      "identidade visual",
+      "branding",
+      "comunicação estratégica",
+      "gestão de projetos",
+      "design gráfico",
+      "negócios locais",
+      "logotipo",
+      "papelaria",
+      "freelancer",
+      "On Detailer",
+      "Vieiralves Lava Jato"
+    ],
+    coverImage: negociosLocaisCover,
+    gallery: [
+      negociosLocais1,
+      negociosLocais2,
+      negociosLocais3,
+      negociosLocais4,
+      negociosLocais5
     ]
   }
 ];
