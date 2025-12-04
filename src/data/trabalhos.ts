@@ -32,6 +32,18 @@ import grangeiro7 from '@/assets/grangeiro-7.png';
 import grangeiro8 from '@/assets/grangeiro-8.png';
 import grangeiro9 from '@/assets/grangeiro-9.png';
 
+// Supermercado Nova Era - Campanhas de Ofertas 2021
+// Para trocar as imagens, substitua os arquivos na pasta src/assets mantendo os nomes
+import novaEraCover from '@/assets/nova-era-cover.jpg';
+import novaEra1 from '@/assets/nova-era-1.png';
+import novaEra2 from '@/assets/nova-era-2.png';
+import novaEra3 from '@/assets/nova-era-3.png';
+import novaEra4 from '@/assets/nova-era-4.png';
+import novaEra5 from '@/assets/nova-era-5.png';
+import novaEra6 from '@/assets/nova-era-6.png';
+import novaEra7 from '@/assets/nova-era-7.png';
+import novaEra8 from '@/assets/nova-era-8.png';
+
 export type WorkCategory =
   | "atendimento-publicitario" 
   | "comunicacao-estrategica" 
@@ -173,6 +185,57 @@ O resultado foi uma campanha de grande visibilidade regional, com experiência i
       carreata6,  // Foto com urso Coca-Cola
       carreata7,  // Arte oficial Caravana Iluminada
       carreata8   // Arte oficial com roteiro Manaus
+    ]
+  },
+  {
+    id: "gerenciamento-cliente-super-nova-era-2021",
+    slug: "gerenciamento-cliente-atacadista-super-nova-era-2021",
+    title: "Gerenciamento de cliente e campanhas de ofertas – Supermercado Nova Era",
+    client: "Supermercado Nova Era",
+    agency: "Digital Comunicação",
+    year: "2021",
+    location: "Porto Velho, RO",
+    summary: "Atendimento publicitário e gestão de projetos do Supermercado Nova Era, coordenando campanhas de ofertas para varejo e atacado. Organização de fluxo diário de produtos, criação de encartes impressos, cards para redes sociais e peças específicas por canal, garantindo antecedência na divulgação e consistência de marca.",
+    description: `Em 2021, assumi o atendimento publicitário e a gestão de projetos de comunicação do Supermercado Nova Era, atacadista e varejista com forte presença em Porto Velho (RO). O principal desafio era coordenar um fluxo intenso de ofertas: cerca de 30 produtos por campanha, enviados nas primeiras horas do dia ou no fim do expediente anterior e frequentemente ajustados ao longo do processo.
+
+Estruturei um fluxo ágil para transformar essas informações em campanhas multicanal: encartes impressos para distribuição nas lojas, cards para redes sociais, artes específicas para disparo por e-mail e peças temáticas alinhadas a datas sazonais e ações especiais (como 'Esquenta de Ofertas', 'Festival Higiene & Beleza', 'Ofertas Tamanho Família' e campanhas de eletro).
+
+Com padronização visual, organização de pauta e definição clara de prioridades comerciais, garantimos que cada oferta fosse divulgada com antecedência suficiente para atrair o público certo no dia da promoção. O resultado foi uma comunicação promocional mais clara, redução de retrabalho interno e campanhas 'pra ontem' entregues com qualidade e previsibilidade.`,
+    category: "atendimento-publicitario",
+    subcategories: [
+      "Gestão de Cliente",
+      "Varejo Alimentar",
+      "Campanhas de Ofertas",
+      "Marketing Promocional"
+    ],
+    tags: [
+      "atendimento publicitário",
+      "gestão de projetos",
+      "gestão de cliente",
+      "varejo",
+      "supermercado",
+      "atacado",
+      "encartes de ofertas",
+      "promoções",
+      "calendário promocional",
+      "redes sociais",
+      "mídia impressa",
+      "Nova Era",
+      "encarte",
+      "ofertas"
+    ],
+    // Imagem de capa: encarte completo "Domingo Bom de Preço"
+    coverImage: novaEraCover,
+    // Galeria: encartes, cards de ofertas e campanhas especiais
+    gallery: [
+      novaEra1,  // Card "Esquenta de Ofertas" - leite, açúcar, feijão
+      novaEra2,  // Card "Esquenta de Ofertas" - requeijão, maionese
+      novaEra3,  // Card "Esquenta de Ofertas" - carnes
+      novaEra4,  // Stories "Festival Higiene & Beleza"
+      novaEra5,  // Stories "Eletro Insano" - ventilador
+      novaEra6,  // Encarte "Ofertas Tamanho Família" - higiene e limpeza
+      novaEra7,  // Stories "Eletro Insano" - forno
+      novaEra8   // Encarte completo "Ofertas Tamanho Família"
     ]
   },
 
