@@ -44,6 +44,19 @@ import novaEra6 from '@/assets/nova-era-6.png';
 import novaEra7 from '@/assets/nova-era-7.png';
 import novaEra8 from '@/assets/nova-era-8.png';
 
+// Heineken Champions League 2016
+// Para trocar as imagens, substitua os arquivos na pasta src/assets mantendo os nomes
+import heinekenCover from '@/assets/heineken-cover.jpg';
+import heineken1 from '@/assets/heineken-1.jpg';
+import heineken2 from '@/assets/heineken-2.jpg';
+import heineken3 from '@/assets/heineken-3.jpg';
+import heineken4 from '@/assets/heineken-4.jpg';
+import heineken5 from '@/assets/heineken-5.jpg';
+import heineken6 from '@/assets/heineken-6.jpg';
+import heineken7 from '@/assets/heineken-7.jpg';
+import heineken8 from '@/assets/heineken-8.jpg';
+import heineken9 from '@/assets/heineken-9.jpg';
+
 export type WorkCategory =
   | "atendimento-publicitario" 
   | "comunicacao-estrategica" 
@@ -372,9 +385,54 @@ Mesmo sem a eleição, a campanha gerou alto engajamento digital, aumentou o con
     coverImage: "/placeholder.svg",
     gallery: ["/placeholder.svg", "/placeholder.svg", "/placeholder.svg"]
   },
+  {
+    id: "ativacao-heineken-final-champions-2016",
+    slug: "ativacao-marca-heineken-final-champions-2016-manaus",
+    title: "Ativação de marca Heineken em final da Champions League (2016)",
+    client: "Grupo Simões (Heineken)",
+    agency: "Varanda Comunicação",
+    year: "2016",
+    location: "Manaus, AM",
+    summary: "Ativação de marca Heineken em evento privado para clientes do Grupo Simões, com transmissão da final da UEFA Champions League em sala de cinema personalizada. Gestão completa do projeto, ambientação temática, equipe de promotores e ações de entretenimento alinhadas às diretrizes globais da marca.",
+    description: `Em 2016, o desafio foi transformar a final da UEFA Champions League em uma experiência de marca exclusiva para os principais clientes do Grupo Simões, distribuidor Heineken em Manaus. A proposta era sair do formato tradicional de bar e levar o jogo para uma sala de cinema inteira dedicada à marca.
 
-  // ----------------------------------------
-  // MARKETING DIGITAL
+Atuei na gestão do projeto e na coordenação de toda a ativação: ambientação completa da sala com iluminação cênica em verde Heineken, aplicação de materiais de ponto de contato, operação de serviço de produto e formação de equipe de promotores. Também estruturamos ações de entretenimento no pré-jogo, intervalo e pós-partida, sempre respeitando as diretrizes de consumo responsável da marca.
+
+O resultado foi uma experiência imersiva que uniu paixão pelo futebol, exclusividade e relacionamento com o trade. A Heineken reforçou sua associação com a Champions League e se posicionou como a cerveja dos grandes momentos de celebração entre amigos.`,
+    category: "gestao-de-projetos",
+    subcategories: [
+      "Ativação de Marca",
+      "Evento Privado",
+      "Patrocínio Esportivo"
+    ],
+    tags: [
+      "gestão de projetos",
+      "ativação de marca",
+      "brand experience",
+      "Heineken",
+      "UEFA Champions League",
+      "evento exclusivo",
+      "relacionamento com clientes",
+      "experiência de marca",
+      "cinema",
+      "Manaus"
+    ],
+    // Imagem de capa: sala de cinema lotada com iluminação verde Heineken
+    coverImage: heinekenCover,
+    // Galeria: fotos do evento, ambientação, promotores e público
+    gallery: [
+      heineken1,  // Entrada ambientada com redes de gol e iluminação verde
+      heineken2,  // Promotoras Heineken na entrada temática
+      heineken3,  // Grupo de amigos com camisetas Heineken
+      heineken4,  // Transmissão na tela - Final Milano 2016
+      heineken5,  // Grupo de convidados com garrafas Heineken
+      heineken6,  // Promotora com garrafa ao lado do freezer
+      heineken7,  // Trio brindando com garrafas Heineken
+      heineken8,  // Promotora em destaque com garrafa
+      heineken9   // Ativação de entretenimento - mini campo
+    ]
+  },
+
   // ----------------------------------------
   {
     id: "md-001",
