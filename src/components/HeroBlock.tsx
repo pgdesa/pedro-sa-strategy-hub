@@ -103,8 +103,9 @@ export const HeroBlock = () => {
                   <Button 
                     size="lg"
                     className="bg-primary text-primary-foreground hover:bg-primary/90 hover:scale-105 transition-all font-poppins font-semibold shadow-gold"
+                    asChild
                   >
-                    Agendar diagnóstico
+                    <Link to="/agendar-diagnostico">Agendar diagnóstico</Link>
                   </Button>
                   <span className="text-xs text-foreground-muted font-inter pl-1">
                     Retorno em até 24h úteis.
