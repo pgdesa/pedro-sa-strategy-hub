@@ -525,6 +525,7 @@ Além da criação gráfica, atuei na gestão do projeto: desenvolvimento da fac
     ],
     coverImage: barolloCover,
     gallery: [
+      barolloCover,
       barollo1,
       barollo2,
       barollo3
