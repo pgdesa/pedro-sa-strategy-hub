@@ -4,7 +4,22 @@
 // Para adicionar novos trabalhos, copie um objeto existente e edite os campos.
 // Cada trabalho deve ter um slug único dentro da sua categoria.
 
-export type WorkCategory = 
+// ==========================================
+// IMPORTS DAS IMAGENS
+// ==========================================
+// Carreata de Natal Coca-Cola 2014
+// Para trocar as imagens, substitua os arquivos na pasta src/assets mantendo os nomes
+import carreataCocover from '@/assets/carreata-coca-cola-cover.jpg';
+import carreata1 from '@/assets/carreata-coca-cola-1.jpg';
+import carreata2 from '@/assets/carreata-coca-cola-2.jpg';
+import carreata3 from '@/assets/carreata-coca-cola-3.jpg';
+import carreata4 from '@/assets/carreata-coca-cola-4.jpg';
+import carreata5 from '@/assets/carreata-coca-cola-5.jpg';
+import carreata6 from '@/assets/carreata-coca-cola-6.jpg';
+import carreata7 from '@/assets/carreata-coca-cola-7.jpg';
+import carreata8 from '@/assets/carreata-coca-cola-8.jpg';
+
+export type WorkCategory =
   | "atendimento-publicitario" 
   | "comunicacao-estrategica" 
   | "gestao-de-projetos" 
@@ -99,6 +114,49 @@ export const trabalhos: Work[] = [
     tags: ["tecnologia", "lançamento", "evento", "360"],
     coverImage: "/placeholder.svg",
     gallery: ["/placeholder.svg", "/placeholder.svg"]
+  },
+  {
+    id: "carreata-natal-coca-cola-2014",
+    slug: "carreata-natal-coca-cola-2014-manaus",
+    title: "Carreata de Natal Coca-Cola 2014 – Manaus (AM)",
+    client: "Grupo Simões (Coca-Cola)",
+    agency: "Varanda Comunicação",
+    year: "2014",
+    location: "Manaus, AM",
+    summary: "Planejamento e coordenação completa da Carreata de Natal Coca-Cola 2014 em Manaus. Gestão de elenco, operação, rotas e parceiros para 7 dias de ação em 7 circuitos diferentes, garantindo segurança, experiência de marca e alinhamento com todas as normas da Coca-Cola.",
+    description: `A Carreata de Natal Coca-Cola é um dos projetos de brand experience mais tradicionais da marca. Em 2014, em Manaus, assumi a gestão de todo o projeto para o Grupo Simões (Coca-Cola) e Varanda Comunicação.
+
+Meu papel foi estruturar e conduzir o planejamento de ponta a ponta: orçamento, contratação e coordenação de 15 personagens, 4 motoristas e 10 profissionais de apoio; definição de figurinos, caracterização dos caminhões e adequação do roteiro às normas rígidas de segurança e comportamento da marca.
+
+Em menos de dois meses, organizei 7 dias de carreata por 7 rotas diferentes, alinhando logística com órgãos públicos de segurança e trânsito, além de shoppings, empresas privadas e espaços abertos que receberam o projeto.
+
+O resultado foi uma campanha de grande visibilidade regional, com experiência imersiva de Natal, presença marcante da marca nas ruas e público engajado em cada parada — um marco no início da minha trajetória como publicitário e gestor de projetos de comunicação.`,
+    category: "atendimento-publicitario",
+    subcategories: ["Evento de Marca", "Ativação de Natal", "Caravana Iluminada"],
+    tags: [
+      "gestão de projetos",
+      "atendimento publicitário",
+      "comunicação estratégica",
+      "planejamento de campanha",
+      "eventos de marca",
+      "experiência de marca",
+      "Coca-Cola",
+      "Natal",
+      "Manaus"
+    ],
+    // Imagem de capa: selfie com caminhão iluminado ao fundo
+    coverImage: carreataCocover,
+    // Galeria: fotos da equipe, personagens, mascotes e peças oficiais
+    gallery: [
+      carreata1,  // Foto grupo completo com mascotes
+      carreata2,  // Foto grupo frente ao caminhão Coca-Cola
+      carreata3,  // Selfie equipe no caminhão
+      carreata4,  // Selfie com Papai Noel no caminhão
+      carreata5,  // Selfie com equipe bastidores
+      carreata6,  // Foto com urso Coca-Cola
+      carreata7,  // Arte oficial Caravana Iluminada
+      carreata8   // Arte oficial com roteiro Manaus
+    ]
   },
 
   // ----------------------------------------
