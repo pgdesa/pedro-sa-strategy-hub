@@ -98,6 +98,19 @@ import barollo1 from '@/assets/barollo-1.png';
 import barollo2 from '@/assets/barollo-2.png';
 import barollo3 from '@/assets/barollo-3.jpg';
 
+// L'Acqua Residenza - Posicionamento Digital de Lançamento 2018
+// Para trocar as imagens, substitua os arquivos na pasta src/assets mantendo os nomes
+import lacquaCover from '@/assets/lacqua-cover.jpg';
+import lacqua1 from '@/assets/lacqua-1.jpg';
+import lacqua2 from '@/assets/lacqua-2.jpg';
+import lacqua3 from '@/assets/lacqua-3.jpg';
+import lacqua4 from '@/assets/lacqua-4.jpg';
+import lacqua5 from '@/assets/lacqua-5.jpg';
+import lacqua6 from '@/assets/lacqua-6.jpg';
+import lacqua7 from '@/assets/lacqua-7.jpg';
+import lacqua8 from '@/assets/lacqua-8.jpg';
+import lacqua9 from '@/assets/lacqua-9.jpg';
+
 export type WorkCategory =
   | "atendimento-publicitario" 
   | "comunicacao-estrategica" 
@@ -529,6 +542,64 @@ Além da criação gráfica, atuei na gestão do projeto: desenvolvimento da fac
       barollo1,
       barollo2,
       barollo3
+    ]
+  },
+
+  // ----------------------------------------
+  // MARKETING DIGITAL
+  // ----------------------------------------
+  {
+    id: "lacqua-residenza-posicionamento-digital-2018",
+    slug: "lacqua-residenza-posicionamento-digital-lancamento-2018",
+    title: "Posicionamento Digital de Lançamento Residencial – L'Acqua Residenza (2018)",
+    client: "L'Acqua Residenza",
+    agency: "Vanguarda Comunicação",
+    year: "2018",
+    location: "Manaus, AM",
+    summary: "Estratégia digital completa para lançamento do condomínio-clube L'Acqua Residenza: desenvolvimento de landing page, gestão de redes sociais, SAC digital e captação de leads qualificados para equipe de vendas.",
+    description: `Para o lançamento do condomínio-clube L'Acqua Residenza, atuei na estratégia completa de marketing digital imobiliário: desenvolvimento da landing page de apresentação do empreendimento, estruturação do funil de captação de leads e gestão das principais redes sociais da marca.
+
+Criei conteúdos semanais focados em qualidade de vida, lazer e contato com a natureza, alinhados ao posicionamento premium do produto, ao mesmo tempo em que mantínhamos uma campanha comercial agressiva e altamente atrativa.
+
+Também fui responsável pelo SAC digital em horário comercial, otimizando atendimento, filtrando oportunidades e alimentando o time de vendas com leads mais qualificados. O resultado foi um fluxo constante de contatos e uma taxa de conversão elevada, comprovando a força de uma presença digital estratégica para lançamentos residenciais.
+
+**Entregas principais:**
+• Desenvolvimento de landing page
+• Gestão de 3 redes sociais
+• Planejamento e produção de conteúdo
+• Gestão de SAC digital
+• Captação e qualificação de leads`,
+    category: "marketing-digital",
+    subcategories: [
+      "Estratégia Digital",
+      "Lançamento Imobiliário",
+      "Gestão de Redes Sociais",
+      "Landing Page",
+      "SAC Digital"
+    ],
+    tags: [
+      "Marketing Digital",
+      "Lançamento Imobiliário",
+      "Posicionamento Digital",
+      "Gestão de Redes Sociais",
+      "Landing Page",
+      "Captação de Leads",
+      "Funil de Vendas",
+      "Condomínio-Club",
+      "L'Acqua Residenza"
+    ],
+    coverImage: lacquaCover,
+    gallery: [
+      lacquaCover,
+      lacqua1,
+      lacqua2,
+      lacqua3,
+      lacqua4,
+      lacqua5,
+      lacqua6,
+      lacqua7,
+      lacqua8,
+      lacqua9
     ]
   }
 ];
