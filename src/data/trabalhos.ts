@@ -70,6 +70,18 @@ import logicpro7 from '@/assets/logicpro-7.png';
 import logicpro8 from '@/assets/logicpro-8.png';
 import logicpro9 from '@/assets/logicpro-9.png';
 
+// RD Engenharia - Lançamentos Imobiliários 2018
+// Para trocar as imagens, substitua os arquivos na pasta src/assets mantendo os nomes
+import rdEngenhariaCover from '@/assets/rd-engenharia-cover.jpg';
+import rdEngenharia1 from '@/assets/rd-engenharia-1.jpg';
+import rdEngenharia2 from '@/assets/rd-engenharia-2.jpg';
+import rdEngenharia3 from '@/assets/rd-engenharia-3.jpg';
+import rdEngenharia4 from '@/assets/rd-engenharia-4.jpg';
+import rdEngenharia5 from '@/assets/rd-engenharia-5.jpg';
+import rdEngenharia6 from '@/assets/rd-engenharia-6.jpg';
+import rdEngenharia7 from '@/assets/rd-engenharia-7.jpg';
+import rdEngenharia8 from '@/assets/rd-engenharia-8.jpg';
+
 export type WorkCategory =
   | "atendimento-publicitario" 
   | "comunicacao-estrategica" 
@@ -373,6 +385,53 @@ O resultado foi uma experiência imersiva que uniu paixão pelo futebol, exclusi
       heineken7,
       heineken8,
       heineken9
+    ]
+  },
+  {
+    id: "lancamentos-imobiliarios-rd-engenharia-2018",
+    slug: "lancamentos-imobiliarios-rd-engenharia-2018-manaus",
+    title: "Lançamentos Imobiliários RD Engenharia (2018)",
+    client: "RD Engenharia",
+    agency: "Vanguarda Comunicação",
+    year: "2018",
+    location: "Manaus, AM",
+    summary: "Planejamento e execução de lançamentos imobiliários da RD Engenharia em Manaus, coordenando campanhas completas para empreendimentos como Leve Castanheiras, Predilleto Residencial e Viver Tarumã. Mídia impressa, anúncios digitais, eventos presenciais e ações de ponto de venda.",
+    description: `Ao longo de 2018 atuei na Vanguarda Comunicação no planejamento e execução de diversos lançamentos imobiliários da RD Engenharia em Manaus. Fui responsável por coordenar campanhas completas para empreendimentos como Leve Castanheiras, Predilleto Residencial e Viver Tarumã, unindo mídia impressa, anúncios digitais e ações em ponto de venda.
+
+Estruturei desde eventos presenciais – cafés da manhã, inaugurações de showroom e mega operações de vendas – até campanhas sazonais com foco em geração e nutrição de leads por meio de landing pages, CRMs e remarketing.
+
+O resultado foi o fortalecimento da marca RD Engenharia no mercado local e o incremento consistente no volume de visitas, propostas e vendas dos empreendimentos.`,
+    category: "gestao-de-projetos",
+    subcategories: [
+      "Lançamento Imobiliário",
+      "Gestão de Campanha",
+      "Marketing Digital",
+      "Eventos de Vendas"
+    ],
+    tags: [
+      "lançamento imobiliário",
+      "gestão de projetos",
+      "marketing digital",
+      "RD Engenharia",
+      "Leve Castanheiras",
+      "Predilleto Residencial",
+      "Viver Tarumã",
+      "Black Friday",
+      "mega operação de vendas",
+      "construtora",
+      "imóveis",
+      "Manaus"
+    ],
+    coverImage: rdEngenhariaCover,
+    gallery: [
+      rdEngenharia1,
+      rdEngenharia2,
+      rdEngenharia3,
+      rdEngenharia4,
+      rdEngenharia5,
+      rdEngenharia6,
+      rdEngenharia7,
+      rdEngenharia8
     ]
   }
 ];
