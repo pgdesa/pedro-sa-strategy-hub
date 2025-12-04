@@ -94,8 +94,9 @@ export const Navbar = () => {
             variant="default" 
             size="sm"
             className="bg-primary text-primary-foreground hover:bg-primary/90 hover:scale-105 transition-all shadow-gold"
+            asChild
           >
-            Agendar diagnóstico
+            <Link to="/agendar-diagnostico">Agendar diagnóstico</Link>
           </Button>
         </div>
 
@@ -140,8 +141,9 @@ export const Navbar = () => {
             variant="default" 
             size="sm"
             className="bg-primary text-primary-foreground hover:bg-primary/90"
+            asChild
           >
-            Agendar
+            <Link to="/agendar-diagnostico">Agendar</Link>
           </Button>
         </div>
       </div>

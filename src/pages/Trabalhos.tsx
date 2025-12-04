@@ -703,7 +703,7 @@ const FichaTecnica = ({ work, category }: FichaTecnicaProps) => (
     </div>
 
     <Button className="w-full mt-4" asChild>
-      <Link to="/contato">
+      <Link to="/agendar-diagnostico">
         Quero algo assim no meu projeto
       </Link>
     </Button>
@@ -764,7 +764,7 @@ const FichaTecnicaCompact = ({ work, category }: FichaTecnicaProps) => (
     </div>
 
     <Button className="w-full" size="sm" asChild>
-      <Link to="/contato">
+      <Link to="/agendar-diagnostico">
         Quero algo assim
       </Link>
     </Button>
