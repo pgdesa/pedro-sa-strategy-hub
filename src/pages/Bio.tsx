@@ -4,10 +4,14 @@ import { BioBlocoTrajetoria } from "@/components/BioBlocoTrajetoria";
 import { BioBlocoFilosofia } from "@/components/BioBlocoFilosofia";
 import { BioBlocoTimeline } from "@/components/BioBlocoTimeline";
 import { Navbar } from "@/components/Navbar";
-import { useEffect, useMemo } from "react";
+import { useMemo } from "react";
 import { Helmet } from "react-helmet-async";
+import { useScrollToTop } from "@/hooks/useScrollToTop";
 
 const Bio = () => {
+  // Centralizado: scroll ao topo
+  useScrollToTop();
+
   // Memoize sections to prevent unnecessary re-renders
   const sections = useMemo(() => [
     <BioBlocoIntro key="intro" />,
@@ -15,11 +19,6 @@ const Bio = () => {
     <BioBlocoFilosofia key="filosofia" />,
     <BioBlocoTimeline key="timeline" />
   ], []);
-
-  // Scroll to top when component mounts
-  useEffect(() => {
-    window.scrollTo(0, 0);
-  }, []);
 
   return (
     <>

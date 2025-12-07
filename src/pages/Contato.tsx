@@ -1,8 +1,8 @@
-import { useEffect } from "react";
 import { Helmet } from "react-helmet-async";
 import { Navbar } from "@/components/Navbar";
 import { Mail, Linkedin, Instagram, Facebook, MessageCircle } from "lucide-react";
 import pedroContato from "@/assets/pedro-contato.png";
+import { useScrollToTop } from "@/hooks/useScrollToTop";
 
 const contactItems = [
   {
@@ -11,6 +11,7 @@ const contactItems = [
     subtitle: "contato@pedro.sa.com",
     href: "mailto:contato@pedro.sa.com",
     external: false,
+    ariaLabel: "Enviar e-mail para Pedro Gabriel de Sá",
   },
   {
     icon: Linkedin,
@@ -18,6 +19,7 @@ const contactItems = [
     subtitle: "Pedro Gabriel de Sá",
     href: "https://www.linkedin.com/in/pedrogabrieldesa",
     external: true,
+    ariaLabel: "Abrir perfil de Pedro Gabriel de Sá no LinkedIn",
   },
   {
     icon: Instagram,
@@ -25,6 +27,7 @@ const contactItems = [
     subtitle: "@pgdesa",
     href: "https://www.instagram.com/pgdesa",
     external: true,
+    ariaLabel: "Abrir perfil de Pedro Gabriel de Sá no Instagram",
   },
   {
     icon: Facebook,
@@ -32,6 +35,7 @@ const contactItems = [
     subtitle: "Pg de Sá",
     href: "https://www.facebook.com/pgdesa",
     external: true,
+    ariaLabel: "Abrir perfil de Pedro Gabriel de Sá no Facebook",
   },
   {
     icon: MessageCircle,
@@ -39,13 +43,13 @@ const contactItems = [
     subtitle: "(92) 98186-3937",
     href: "https://wa.me/5592981863937",
     external: true,
+    ariaLabel: "Abrir WhatsApp de Pedro Gabriel de Sá",
   },
 ];
 
 const Contato = () => {
-  useEffect(() => {
-    window.scrollTo(0, 0);
-  }, []);
+  // Centralizado: scroll ao topo
+  useScrollToTop();
 
   return (
     <>
@@ -73,7 +77,7 @@ const Contato = () => {
                   fetchPriority="high"
                 />
                 {/* Subtle glow effect behind image */}
-                <div className="absolute inset-0 -z-10 bg-primary/10 blur-3xl rounded-full scale-75 will-change-transform" />
+                <div className="absolute inset-0 -z-10 bg-primary/10 blur-3xl rounded-full scale-75 will-change-transform" aria-hidden="true" />
               </div>
             </div>
 
@@ -97,6 +101,7 @@ const Contato = () => {
                     href={item.href}
                     target={item.external ? "_blank" : undefined}
                     rel={item.external ? "noopener noreferrer" : undefined}
+                    aria-label={item.ariaLabel}
                     className="group flex items-center gap-2.5 p-2 lg:p-2.5 rounded-md border border-border/50 bg-card/30 backdrop-blur-sm hover:bg-card/60 hover:border-primary/50 hover:shadow-lg hover:shadow-primary/5 transition-all duration-300"
                   >
                     {/* Icon */}
