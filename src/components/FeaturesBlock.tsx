@@ -2,6 +2,7 @@ import { Card, CardContent } from "@/components/ui/card";
 import { Target, Megaphone, BarChart3 } from "lucide-react";
 import { useEffect, useRef, useState } from "react";
 import featuresImage from "@/assets/FINALSITE3.png";
+import { useParallax } from "@/hooks/useParallax";
 
 const features = [
   {
@@ -27,24 +28,7 @@ const features = [
 export const FeaturesBlock = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
   const scrollRef = useRef<HTMLDivElement>(null);
-  const sectionRef = useRef<HTMLElement>(null);
-  const imageRef = useRef<HTMLImageElement>(null);
-  const [isVisible, setIsVisible] = useState(false);
-
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        setIsVisible(entry.isIntersecting);
-      },
-      { threshold: 0.3 }
-    );
-
-    if (sectionRef.current) {
-      observer.observe(sectionRef.current);
-    }
-
-    return () => observer.disconnect();
-  }, []);
+  const { sectionRef, elementRef: imageRef } = useParallax({ intensity: 45 });
 
   // Mobile carousel scroll detection
   useEffect(() => {
@@ -57,7 +41,7 @@ export const FeaturesBlock = () => {
       
       const firstCard = cards[0] as HTMLElement;
       const cardWidth = firstCard.offsetWidth;
-      const gap = 24; // gap-6 = 1.5rem = 24px
+      const gap = 24;
       const scrollLeft = container.scrollLeft;
       const newIndex = Math.round(scrollLeft / (cardWidth + gap));
       setCurrentIndex(Math.min(newIndex, features.length - 1));
@@ -67,22 +51,6 @@ export const FeaturesBlock = () => {
     return () => container.removeEventListener("scroll", handleScroll);
   }, []);
 
-  // Parallax on image
-  useEffect(() => {
-    if (!isVisible || !imageRef.current) return;
-
-    const handleScroll = () => {
-      if (!imageRef.current || !sectionRef.current) return;
-      const rect = sectionRef.current.getBoundingClientRect();
-      const scrollProgress = 1 - (rect.top + rect.height) / (window.innerHeight + rect.height);
-      const parallaxY = scrollProgress * 45;
-      imageRef.current.style.transform = `translateY(${parallaxY}px)`;
-    };
-
-    window.addEventListener("scroll", handleScroll, { passive: true });
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, [isVisible]);
-
   return (
     <section 
       ref={sectionRef}
@@ -90,10 +58,10 @@ export const FeaturesBlock = () => {
       id="features"
     >
       {/* Background gradient */}
-      <div className="absolute inset-0 bg-gradient-to-br from-background via-surface to-background pointer-events-none" />
+      <div className="absolute inset-0 bg-gradient-to-br from-background via-surface to-background pointer-events-none" aria-hidden="true" />
       
       {/* Subtle background portrait */}
-      <div className="absolute inset-0 flex items-center justify-center pointer-events-none overflow-hidden">
+      <div className="absolute inset-0 flex items-center justify-center pointer-events-none overflow-hidden" aria-hidden="true">
         <img
           ref={imageRef}
           src={featuresImage}
@@ -107,7 +75,6 @@ export const FeaturesBlock = () => {
             WebkitMaskImage: 'radial-gradient(ellipse at center, black 0%, transparent 65%)',
             filter: 'drop-shadow(0 0 20px hsl(var(--primary) / 0.15))'
           }}
-          aria-hidden="true"
           loading="lazy"
           decoding="async"
         />
@@ -138,7 +105,7 @@ export const FeaturesBlock = () => {
                 >
                   <CardContent className="p-6 lg:p-8 space-y-4 lg:space-y-5">
                     <div className="w-14 h-14 rounded-xl bg-surface/50 border border-glass-border/40 flex items-center justify-center group-hover:border-primary/50 group-hover:bg-primary/5 transition-all duration-300">
-                      <feature.icon className="w-7 h-7 text-primary drop-shadow-glow" />
+                      <feature.icon className="w-7 h-7 text-primary drop-shadow-glow" aria-hidden="true" />
                     </div>
                     <h3 className="text-xl font-poppins font-semibold text-foreground group-hover:text-primary transition-colors">
                       {feature.title}
@@ -150,7 +117,7 @@ export const FeaturesBlock = () => {
                       href={feature.link}
                       className="inline-flex items-center text-sm font-inter font-medium text-primary hover:text-accent transition-colors gap-1"
                     >
-                      ver mais <span className="group-hover:translate-x-1 transition-transform">→</span>
+                      ver mais <span className="group-hover:translate-x-1 transition-transform" aria-hidden="true">→</span>
                     </a>
                   </CardContent>
                 </Card>
@@ -163,6 +130,8 @@ export const FeaturesBlock = () => {
                 ref={scrollRef}
                 className="flex overflow-x-auto snap-x snap-mandatory gap-6 pb-8 scrollbar-hide px-4 -mx-4"
                 style={{ WebkitOverflowScrolling: 'touch' }}
+                role="region"
+                aria-label="Carrossel de serviços"
               >
                 {features.map((feature, index) => (
                   <Card 
@@ -171,7 +140,7 @@ export const FeaturesBlock = () => {
                   >
                     <CardContent className="p-6 space-y-4">
                       <div className="w-14 h-14 rounded-xl bg-surface/50 border border-glass-border/40 flex items-center justify-center">
-                        <feature.icon className="w-7 h-7 text-primary drop-shadow-glow" />
+                        <feature.icon className="w-7 h-7 text-primary drop-shadow-glow" aria-hidden="true" />
                       </div>
                       <h3 className="text-xl font-poppins font-semibold text-foreground">
                         {feature.title}
@@ -183,7 +152,7 @@ export const FeaturesBlock = () => {
                         href={feature.link}
                         className="inline-flex items-center text-sm font-inter font-medium text-primary hover:text-accent transition-colors gap-1"
                       >
-                        ver mais <span>→</span>
+                        ver mais <span aria-hidden="true">→</span>
                       </a>
                     </CardContent>
                   </Card>
@@ -191,7 +160,7 @@ export const FeaturesBlock = () => {
               </div>
 
               {/* Carousel Indicators */}
-              <div className="flex justify-center gap-2 mt-4">
+              <div className="flex justify-center gap-2 mt-4" role="tablist">
                 {features.map((_, index) => (
                   <button
                     key={index}
@@ -213,7 +182,9 @@ export const FeaturesBlock = () => {
                         ? 'bg-primary w-8 shadow-glow' 
                         : 'bg-glass-border w-2'
                     }`}
-                    aria-label={`Go to slide ${index + 1}`}
+                    role="tab"
+                    aria-selected={currentIndex === index}
+                    aria-label={`Ir para slide ${index + 1}`}
                   />
                 ))}
               </div>
