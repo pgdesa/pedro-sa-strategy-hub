@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import { Helmet } from 'react-helmet-async';
 import { Navbar } from '@/components/Navbar';
 import { Button } from '@/components/ui/button';
@@ -7,6 +7,7 @@ import { Textarea } from '@/components/ui/textarea';
 import { Label } from '@/components/ui/label';
 import { useToast } from '@/hooks/use-toast';
 import pedroAgendar from '@/assets/pedro-agendar.jpg';
+import { useScrollToTop } from '@/hooks/useScrollToTop';
 
 const AgendarDiagnostico = () => {
   const { toast } = useToast();
@@ -19,9 +20,8 @@ const AgendarDiagnostico = () => {
     projeto: ''
   });
 
-  useEffect(() => {
-    window.scrollTo(0, 0);
-  }, []);
+  // Centralizado: scroll ao topo
+  useScrollToTop();
 
   const formatPhone = (value: string) => {
     const numbers = value.replace(/\D/g, '');
@@ -68,16 +68,6 @@ const AgendarDiagnostico = () => {
     setIsSubmitting(true);
 
     // TODO: Integrar com backend aqui
-    // Exemplo de payload para envio:
-    // const payload = {
-    //   nome: formData.nome,
-    //   telefone: formData.telefone,
-    //   email: formData.email,
-    //   projeto: formData.projeto,
-    //   timestamp: new Date().toISOString()
-    // };
-    // await fetch('/api/diagnostico', { method: 'POST', body: JSON.stringify(payload) });
-
     // Simulação de envio
     await new Promise(resolve => setTimeout(resolve, 1500));
 
@@ -131,7 +121,7 @@ const AgendarDiagnostico = () => {
                     decoding="async"
                     fetchPriority="high"
                   />
-                  <div className="absolute inset-0 -z-10 bg-primary/10 blur-3xl rounded-full scale-75 will-change-transform" />
+                  <div className="absolute inset-0 -z-10 bg-primary/10 blur-3xl rounded-full scale-75 will-change-transform" aria-hidden="true" />
                 </div>
 
                 {/* Título desktop */}
@@ -251,7 +241,7 @@ const AgendarDiagnostico = () => {
                   ) : (
                     <div className="text-center py-8">
                       <div className="w-16 h-16 mx-auto mb-6 rounded-full bg-primary/20 flex items-center justify-center">
-                        <svg className="w-8 h-8 text-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <svg className="w-8 h-8 text-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
                           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
                         </svg>
                       </div>

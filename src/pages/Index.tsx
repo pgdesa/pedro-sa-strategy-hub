@@ -5,12 +5,11 @@ import { FeaturesBlock } from "@/components/FeaturesBlock";
 import { CTABlock } from "@/components/CTABlock";
 import { StackedCrossfade } from "@/components/StackedCrossfade";
 import { useEffect, useMemo } from "react";
+import { useScrollToTop } from "@/hooks/useScrollToTop";
 
 const Index = () => {
-  // Scroll to top when component mounts
-  useEffect(() => {
-    window.scrollTo(0, 0);
-  }, []);
+  // Centralizado: scroll ao topo
+  useScrollToTop();
 
   useEffect(() => {
     // Add JSON-LD structured data for SEO

@@ -124,9 +124,13 @@ const StackedCrossfadeComponent = ({ sections }: StackedCrossfadeProps) => {
           }
 
           // Skip invisible sections
-          if (opacity === 0 && !isActive && !isNext) {
+          const isVisible = opacity > 0 || isActive || isNext;
+          if (!isVisible) {
             return null;
           }
+
+          // Acessibilidade: seções não ativas ficam ocultas para leitores de tela
+          const isHiddenFromA11y = !isActive && !isNext;
 
           return (
             <div
@@ -138,6 +142,7 @@ const StackedCrossfadeComponent = ({ sections }: StackedCrossfadeProps) => {
                 transition: prefersReducedMotion ? "opacity 0.2s ease-out" : "none",
                 pointerEvents: isActive || isNext ? "auto" : "none",
               }}
+              aria-hidden={isHiddenFromA11y}
             >
               {section}
             </div>
