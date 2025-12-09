@@ -67,20 +67,44 @@ const AgendarDiagnostico = () => {
 
     setIsSubmitting(true);
 
-    // TODO: Integrar com backend aqui
-    // Simulação de envio
-    await new Promise(resolve => setTimeout(resolve, 1500));
-
-    // Analytics event
-    if (typeof window !== 'undefined' && (window as any).gtag) {
-      (window as any).gtag('event', 'diagnostico_submit', {
-        event_category: 'form',
-        event_label: 'agendar_diagnostico'
+    try {
+      // Enviar dados para o webhook do n8n
+      await fetch('https://pgdesa.app.n8n.cloud/webhook-test/lead-diagnostico', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          nome: formData.nome.trim(),
+          telefone: formData.telefone.trim(),
+          email: formData.email.trim(),
+          mensagem: formData.projeto.trim()
+        }),
       });
-    }
 
-    setIsSubmitting(false);
-    setIsSubmitted(true);
+      // Analytics event
+      if (typeof window !== 'undefined' && (window as any).gtag) {
+        (window as any).gtag('event', 'diagnostico_submit', {
+          event_category: 'form',
+          event_label: 'agendar_diagnostico'
+        });
+      }
+
+      setIsSubmitted(true);
+      toast({
+        title: "Enviado com sucesso!",
+        description: "Em breve entraremos em contato.",
+      });
+    } catch (error) {
+      console.error('Erro ao enviar para webhook:', error);
+      toast({
+        title: "Erro ao enviar",
+        description: "Tente novamente em alguns instantes.",
+        variant: "destructive"
+      });
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
