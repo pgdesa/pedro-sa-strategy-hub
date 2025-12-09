@@ -121,6 +121,16 @@ import dengueTocantins4 from '@/assets/dengue-tocantins-4.png';
 import dengueTocantinsFolder1 from '@/assets/dengue-tocantins-folder-1.png';
 import dengueTocantinsFolder2 from '@/assets/dengue-tocantins-folder-2.png';
 
+// Just Motors - Desenvolvimento de Site 2021
+// Para trocar as imagens, substitua os arquivos na pasta src/assets mantendo os nomes
+import justmotorsCover from '@/assets/justmotors-cover.jpg';
+import justmotors1 from '@/assets/justmotors-1.jpg';
+import justmotors2 from '@/assets/justmotors-2.jpg';
+import justmotors3 from '@/assets/justmotors-3.jpg';
+import justmotors4 from '@/assets/justmotors-4.jpg';
+import justmotors5 from '@/assets/justmotors-5.jpg';
+import justmotors6 from '@/assets/justmotors-6.jpg';
+
 export type WorkCategory =
   | "atendimento-publicitario" 
   | "comunicacao-estrategica" 
@@ -663,6 +673,63 @@ A campanha foi pensada para atingir o público tocantinense em sua diversidade, 
       dengueTocantinsFolder2
     ],
     youtubeVideo: "https://youtu.be/Zujumz7vLLA"
+  },
+  // ----------------------------------------
+  // MARKETING DIGITAL - DESENVOLVIMENTO DE SITES
+  // ----------------------------------------
+  {
+    id: "justmotors-site-2021",
+    slug: "desenvolvimento-site-just-motors-manaus-2021",
+    title: "Desenvolvimento de Site – Just Motors (Manaus/AM)",
+    client: "Just Motors",
+    agency: "Digital Comunicação",
+    year: "2021",
+    location: "Manaus, AM",
+    summary: "Desenvolvimento do website da Just Motors, loja de carros importados e veículos de luxo em Manaus. Arquitetura de informação focada em navegação premium, vitrine de veículos com alto impacto visual, responsividade total e SEO on-page para conversão de leads qualificados.",
+    description: `Em 2021 liderei o desenvolvimento do website da Just Motors, loja especializada em carros importados e veículos de luxo em Manaus (AM). O principal desafio era traduzir no ambiente digital a mesma sensação de exclusividade, sofisticação e alto padrão presente no showroom físico.
+
+A partir do posicionamento da marca e do perfil de consumidores de alto poder aquisitivo, desenhei uma arquitetura de informação focada em navegação simples, vitrine de veículos com alto impacto visual e experiência premium em todas as etapas do contato.
+
+Coordenei o desenvolvimento back-end e front-end, garantindo um site responsivo, leve e otimizado para dispositivos móveis. Todo o conteúdo foi trabalhado com técnicas de copywriting e SEO on-page, utilizando palavras-chave estratégicas ligadas a carros importados, veículos de luxo e compra segura em Manaus, contribuindo para melhor performance orgânica e qualificação de leads.
+
+**Entregas principais:**
+• Arquitetura de informação e UX premium
+• Design responsivo para todos os dispositivos
+• Desenvolvimento front-end e back-end
+• Copywriting e SEO on-page
+• Vitrine de veículos com galeria de fotos
+• Formulários de contato e captação de leads`,
+    category: "marketing-digital",
+    subcategories: [
+      "Desenvolvimento de Sites",
+      "UX/UI Design",
+      "SEO On-Page",
+      "Copywriting"
+    ],
+    tags: [
+      "desenvolvimento de sites",
+      "marketing digital",
+      "UX/UI design",
+      "SEO",
+      "copywriting",
+      "carros importados",
+      "veículos de luxo",
+      "Just Motors",
+      "Manaus",
+      "site responsivo",
+      "e-commerce automotivo",
+      "captação de leads"
+    ],
+    coverImage: justmotorsCover,
+    gallery: [
+      justmotorsCover,
+      justmotors1,
+      justmotors2,
+      justmotors3,
+      justmotors4,
+      justmotors5,
+      justmotors6
+    ]
   }
 ];
 
