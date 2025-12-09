@@ -111,6 +111,16 @@ import lacqua7 from '@/assets/lacqua-7.jpg';
 import lacqua8 from '@/assets/lacqua-8.jpg';
 import lacqua9 from '@/assets/lacqua-9.jpg';
 
+// Campanha de Prevenção à Dengue 2024 – Governo do Tocantins
+// Para trocar as imagens, substitua os arquivos na pasta src/assets mantendo os nomes
+import dengueTocantinsCover from '@/assets/dengue-tocantins-1.png';
+import dengueTocantins1 from '@/assets/dengue-tocantins-1.png';
+import dengueTocantins2 from '@/assets/dengue-tocantins-2.png';
+import dengueTocantins3 from '@/assets/dengue-tocantins-3.png';
+import dengueTocantins4 from '@/assets/dengue-tocantins-4.png';
+import dengueTocantinsFolder1 from '@/assets/dengue-tocantins-folder-1.png';
+import dengueTocantinsFolder2 from '@/assets/dengue-tocantins-folder-2.png';
+
 export type WorkCategory =
   | "atendimento-publicitario" 
   | "comunicacao-estrategica" 
@@ -134,6 +144,8 @@ export interface Work {
   tags: string[];
   coverImage?: string;
   gallery?: string[];
+  // URL de vídeo do YouTube (opcional)
+  youtubeVideo?: string;
 }
 
 export interface CategoryInfo {
@@ -601,6 +613,56 @@ Também fui responsável pelo SAC digital em horário comercial, otimizando aten
       lacqua8,
       lacqua9
     ]
+  },
+  // ----------------------------------------
+  // ATENDIMENTO PUBLICITÁRIO / COMUNICAÇÃO PÚBLICA
+  // ----------------------------------------
+  {
+    id: "campanha-dengue-tocantins-2024",
+    slug: "campanha-prevencao-dengue-governo-tocantins-2024",
+    title: "Campanha de Prevenção à Dengue 2024 – Governo do Tocantins",
+    client: "Governo do Estado do Tocantins",
+    agency: "Digital Comunicação",
+    year: "2024",
+    location: "Tocantins",
+    summary: "Desenvolvimento da campanha oficial de prevenção à dengue, zika e chikungunya do Governo do Tocantins. Conceito 'Faça a Diferença' com folder informativo, cards para redes sociais, peças digitais e VT protagonizado por influenciadora local.",
+    description: `Em 2024 atuei no desenvolvimento da campanha oficial de prevenção à dengue, zika e chikungunya do Governo do Estado do Tocantins. A partir da análise do período crítico de aumento de casos e do comportamento do mosquito Aedes aegypti, criamos uma estratégia de comunicação pública focada em educação em saúde e responsabilidade individual.
+
+Propus o conceito e slogan "Faça a Diferença", que orientou a criação de um pacote completo de peças: folder informativo frente e verso com dados, sintomas, curiosidades e checklist de medidas preventivas; cards para redes sociais; artes para mídia programática; e um VT de 30 segundos em tom bem-humorado, protagonizado por uma influenciadora local da área da saúde.
+
+A campanha foi pensada para atingir o público tocantinense em sua diversidade, reforçando que a prevenção começa dentro de casa e que, se cada um fizer a sua parte, o mosquito não se prolifera.`,
+    category: "atendimento-publicitario",
+    additionalCategories: ["comunicacao-estrategica"],
+    subcategories: [
+      "Comunicação Pública",
+      "Campanhas de Saúde",
+      "Prevenção"
+    ],
+    tags: [
+      "comunicação pública",
+      "campanha de saúde",
+      "prevenção",
+      "dengue",
+      "zika",
+      "chikungunya",
+      "Aedes aegypti",
+      "Governo do Tocantins",
+      "Tocantins",
+      "folder",
+      "redes sociais",
+      "vídeo institucional",
+      "educação em saúde"
+    ],
+    coverImage: dengueTocantinsCover,
+    gallery: [
+      dengueTocantins1,
+      dengueTocantins2,
+      dengueTocantins3,
+      dengueTocantins4,
+      dengueTocantinsFolder1,
+      dengueTocantinsFolder2
+    ],
+    youtubeVideo: "https://youtu.be/Zujumz7vLLA"
   }
 ];
 
