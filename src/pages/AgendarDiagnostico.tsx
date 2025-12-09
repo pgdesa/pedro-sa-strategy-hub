@@ -69,7 +69,7 @@ const AgendarDiagnostico = () => {
 
     try {
       // Enviar dados para o webhook do n8n
-      await fetch('https://pgdesa.app.n8n.cloud/webhook-test/lead-diagnostico', {
+      await fetch('https://pgdesa.app.n8n.cloud/webhook/lead-diagnostico', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
