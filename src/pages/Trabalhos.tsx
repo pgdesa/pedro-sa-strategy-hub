@@ -13,6 +13,7 @@ import {
   ImageCarousel,
   FichaTecnica,
   FichaTecnicaCompact,
+  YouTubeEmbed,
 } from "@/components/trabalhos";
 import {
   trabalhos,
@@ -190,7 +191,8 @@ const WorkDetail = ({ categorySlug, workSlug }: { categorySlug: WorkCategory; wo
         <div className="max-w-2xl mx-auto">
           <Breadcrumb items={[{ label: "Home", href: "/" }, { label: "Trabalhos", href: "/trabalhos" }, { label: category.name, href: `/trabalhos/${categorySlug}` }, { label: work.title }]} />
           <header className="mb-4"><h1 className="font-poppins text-xl font-bold text-foreground mb-2">{work.title}</h1><div className="flex flex-wrap gap-1.5"><Badge variant="outline" className="text-xs bg-primary/10 text-primary border-primary/30">{category.name}</Badge>{work.subcategories.map((sub) => <Badge key={sub} variant="secondary" className="text-xs">{sub}</Badge>)}</div></header>
-          {work.gallery?.length > 0 && <div className="mb-6"><ImageCarousel images={work.gallery} title={work.title} /></div>}
+          {work.gallery?.length > 0 && <div className="mb-4"><ImageCarousel images={work.gallery} title={work.title} /></div>}
+          {work.youtubeVideo && <div className="mb-6"><YouTubeEmbed url={work.youtubeVideo} title={`Vídeo: ${work.title}`} /></div>}
           <FichaTecnica work={work} category={category} />
         </div>
       </main>
@@ -202,7 +204,10 @@ const WorkDetail = ({ categorySlug, workSlug }: { categorySlug: WorkCategory; wo
             <div className="grid grid-cols-[1fr_280px] gap-6 overflow-hidden">
               <div className="flex flex-col overflow-hidden">
                 <header className="mb-3 flex-shrink-0"><h1 className="font-poppins text-xl font-bold text-foreground mb-1">{work.title}</h1><div className="flex flex-wrap gap-1.5"><Badge variant="outline" className="text-xs bg-primary/10 text-primary border-primary/30">{category.name}</Badge>{work.subcategories.map((sub) => <Badge key={sub} variant="secondary" className="text-xs">{sub}</Badge>)}</div></header>
-                {work.gallery?.length > 0 && <div className="flex-1 min-h-0"><ImageCarousel images={work.gallery} title={work.title} /></div>}
+                <div className="flex-1 min-h-0 space-y-4 overflow-y-auto">
+                  {work.gallery?.length > 0 && <ImageCarousel images={work.gallery} title={work.title} />}
+                  {work.youtubeVideo && <YouTubeEmbed url={work.youtubeVideo} title={`Vídeo: ${work.title}`} />}
+                </div>
               </div>
               <div className="overflow-y-auto pr-2"><FichaTecnicaCompact work={work} category={category} /></div>
             </div>
