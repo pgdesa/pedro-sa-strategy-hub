@@ -131,6 +131,19 @@ import justmotors4 from '@/assets/justmotors-4.jpg';
 import justmotors5 from '@/assets/justmotors-5.jpg';
 import justmotors6 from '@/assets/justmotors-6.jpg';
 
+// Ativação Coca-Cola Anime Jungle 2015
+// Para trocar as imagens, substitua os arquivos na pasta src/assets mantendo os nomes
+import animeJungleCover from '@/assets/anime-jungle-cover.png';
+import animeJungle1 from '@/assets/anime-jungle-1.png';
+import animeJungle2 from '@/assets/anime-jungle-2.png';
+import animeJungle3 from '@/assets/anime-jungle-3.png';
+import animeJungle4 from '@/assets/anime-jungle-4.png';
+import animeJungle5 from '@/assets/anime-jungle-5.png';
+import animeJungle6 from '@/assets/anime-jungle-6.png';
+import animeJungle7 from '@/assets/anime-jungle-7.png';
+import animeJungle8 from '@/assets/anime-jungle-8.png';
+import animeJungle9 from '@/assets/anime-jungle-9.png';
+
 export type WorkCategory =
   | "atendimento-publicitario" 
   | "comunicacao-estrategica" 
@@ -288,6 +301,54 @@ Com padronização visual, organização de pauta e definição clara de priorid
       novaEra6,
       novaEra7,
       novaEra8
+    ]
+  },
+  {
+    id: "coca-cola-anime-jungle-2015",
+    slug: "coca-cola-anime-jungle-2015",
+    title: "Planejamento de Ativação Coca-Cola – Anime Jungle 2015",
+    client: "Grupo Simões (Coca-Cola)",
+    agency: "Invent Live Marketing",
+    year: "2015",
+    location: "Manaus, AM",
+    summary: "Estratégia completa de ativação de marca da Coca-Cola no Anime Jungle Party 2015, em Manaus, unindo reaproveitamento de materiais, novos elementos cenográficos e planejamento orçamentário para maximizar impacto com eficiência de custos.",
+    description: `O Anime Jungle Party já era, em 2015, um dos principais eventos de cultura geek e nerd de Manaus, reunindo um público jovem, engajado e altamente conectado. Para aproveitar todo esse potencial de visibilidade, a Coca-Cola, via Grupo Simões, precisava de uma ativação forte, coerente com o posicionamento global da marca e, ao mesmo tempo, viável dentro do acervo de materiais já existentes.
+
+O desafio foi planejar e orçar toda a ativação da Coca-Cola no evento, garimpando o grande depósito de materiais disponíveis do cliente e combinando essas estruturas com novas produções. O objetivo: transformar cada ponto de contato — entrada, palco, boxes de venda, áreas de convivência e comunicação visual — em uma experiência que fixasse a Coca-Cola como participante número 1 do Anime Jungle.
+
+A partir de um diagnóstico detalhado do estoque de peças e das plantas do evento, desenvolvi o conceito de ambientação, sugerindo a padronização de boxes, portal de entrada, palco principal, áreas de jogos e espaços instagramáveis. Cada proposta foi apresentada com simulações visuais e estimativas de custo, equilibrando impacto de marca e eficiência orçamentária. O planejamento contemplou materiais, prazos, logística de montagem e reaproveitamento inteligente das estruturas existentes.
+
+O resultado foi uma ativação de live marketing marcante, com grande presença visual da Coca-Cola em todos os ambientes estratégicos do evento. A combinação entre cenografia, branding e experiência de público reforçou o vínculo emocional da marca com a comunidade geek, gerou alto recall espontâneo e consolidou o Anime Jungle como um case de sucesso em ativação de marca para o Grupo Simões.`,
+    category: "atendimento-publicitario",
+    additionalCategories: ["gestao-de-projetos"],
+    subcategories: [
+      "Planejamento Estratégico",
+      "Eventos e Ativações de Marca",
+      "Live Marketing"
+    ],
+    tags: [
+      "ativação de marca Coca-Cola",
+      "Anime Jungle Party 2015",
+      "live marketing Manaus",
+      "planejamento de eventos",
+      "cenografia promocional",
+      "Grupo Simões",
+      "eventos geek",
+      "cultura nerd",
+      "brand experience",
+      "ativação de marca"
+    ],
+    coverImage: animeJungleCover,
+    gallery: [
+      animeJungle1,
+      animeJungle2,
+      animeJungle3,
+      animeJungle4,
+      animeJungle5,
+      animeJungle6,
+      animeJungle7,
+      animeJungle8,
+      animeJungle9
     ]
   },
 
