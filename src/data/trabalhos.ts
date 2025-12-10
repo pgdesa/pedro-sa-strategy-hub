@@ -144,6 +144,16 @@ import animeJungle7 from '@/assets/anime-jungle-7.png';
 import animeJungle8 from '@/assets/anime-jungle-8.png';
 import animeJungle9 from '@/assets/anime-jungle-9.png';
 
+// Campanha de Prevenção às Queimadas 2023 – Governo do Tocantins
+// Para trocar as imagens, substitua os arquivos na pasta src/assets mantendo os nomes
+import queimadasCover from '@/assets/queimadas-cover.png';
+import queimadas1 from '@/assets/queimadas-1.png';
+import queimadas2 from '@/assets/queimadas-2.png';
+import queimadas3 from '@/assets/queimadas-3.png';
+import queimadas4 from '@/assets/queimadas-4.jpg';
+import queimadas5 from '@/assets/queimadas-5.jpg';
+import queimadas6 from '@/assets/queimadas-6.jpg';
+
 export type WorkCategory =
   | "atendimento-publicitario" 
   | "comunicacao-estrategica" 
@@ -350,6 +360,57 @@ O resultado foi uma ativação de live marketing marcante, com grande presença 
       animeJungle8,
       animeJungle9
     ]
+  },
+  {
+    id: "campanha-prevencao-queimadas-tocantins-2023",
+    slug: "campanha-prevencao-queimadas-tocantins-2023",
+    title: "Campanha de Prevenção às Queimadas – Governo do Tocantins",
+    client: "Governo do Estado do Tocantins",
+    agency: "Digital Comunicação",
+    year: "2023",
+    location: "Tocantins – Brasil",
+    summary: "Atendimento publicitário da campanha oficial de prevenção às queimadas do Governo do Tocantins. Desenvolvimento do conceito 'Queimada Ilegal, Mata!' com desdobramentos em campanha 360º: redes sociais, TV, rádio e mídia programática.",
+    description: `Em 2023, atuei no atendimento publicitário da campanha oficial de prevenção às queimadas do Governo do Tocantins, em parceria com a Digital Comunicação. O desafio era sensibilizar a população durante o período de estiagem, quando o clima seco e o manejo inadequado do fogo aumentam drasticamente os focos de incêndio, gerando problemas de saúde, perda de biodiversidade e danos ambientais.
+
+A partir desse contexto, desenvolvemos o conceito central "Queimada Ilegal, Mata!", criando um key visual forte, com tipografia de impacto, contraste entre fogo e escuridão e destaque para as informações de denúncia e emergência. Esse conceito foi desdobrado em uma campanha 360º: peças para redes sociais (feed e stories), banners web, materiais impressos de apoio e um filme de 30 segundos para TV, além de spot de rádio.
+
+Na estratégia de mídia, combinamos veiculação em TV aberta, rádio e canais digitais, com foco em mídia programática para alcançar regiões e públicos mais expostos ao risco de queimadas ilegais. O resultado foi uma comunicação integrada, de alta visibilidade, que reforçou o papel de cada cidadão na prevenção e denúncia de queimadas e consolidou o Governo do Tocantins como fonte oficial de informação e orientação ambiental.
+
+**O que fiz neste projeto:**
+• Atendimento e interface com o Governo do Tocantins e autarquias envolvidas
+• Co-criação do conceito "Queimada Ilegal, Mata!"
+• Direcionamento criativo do key visual e textos de campanha
+• Planejamento de desdobramentos para redes sociais, TV, rádio e mídia programática
+• Foco em informação clara sobre canais de denúncia e emergência`,
+    category: "atendimento-publicitario",
+    additionalCategories: ["comunicacao-estrategica"],
+    subcategories: [
+      "Campanha Institucional",
+      "Comunicação Governamental",
+      "Mídia Programática",
+      "Conscientização Ambiental"
+    ],
+    tags: [
+      "campanha de prevenção às queimadas",
+      "queimada ilegal mata",
+      "Governo do Tocantins",
+      "campanha institucional Tocantins",
+      "comunicação governamental ambiental",
+      "mídia programática governo",
+      "prevenção queimadas Tocantins",
+      "atendimento publicitário",
+      "campanha 360"
+    ],
+    coverImage: queimadasCover,
+    gallery: [
+      queimadas1,
+      queimadas2,
+      queimadas3,
+      queimadas4,
+      queimadas5,
+      queimadas6
+    ],
+    youtubeVideo: "https://youtu.be/RcUtcIwdf6I"
   },
 
   // ----------------------------------------
