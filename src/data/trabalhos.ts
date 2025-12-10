@@ -154,6 +154,17 @@ import queimadas4 from '@/assets/queimadas-4.jpg';
 import queimadas5 from '@/assets/queimadas-5.jpg';
 import queimadas6 from '@/assets/queimadas-6.jpg';
 
+// Campanha Verão Seguro 2023 – DETRAN TO
+import veraoSeguroCover from '@/assets/verao-seguro-cover.png';
+import veraoSeguro1 from '@/assets/verao-seguro-1.png';
+import veraoSeguro2 from '@/assets/verao-seguro-2.png';
+import veraoSeguro3 from '@/assets/verao-seguro-3.png';
+import veraoSeguro4 from '@/assets/verao-seguro-4.png';
+import veraoSeguro5 from '@/assets/verao-seguro-5.png';
+import veraoSeguro6 from '@/assets/verao-seguro-6.png';
+import veraoSeguro7 from '@/assets/verao-seguro-7.png';
+import veraoSeguroOutdoor from '@/assets/verao-seguro-outdoor.png';
+
 export type WorkCategory =
   | "atendimento-publicitario" 
   | "comunicacao-estrategica" 
@@ -411,6 +422,57 @@ Na estratégia de mídia, combinamos veiculação em TV aberta, rádio e canais 
       queimadas6
     ],
     youtubeVideo: "https://youtu.be/RcUtcIwdf6I"
+  },
+  {
+    id: "campanha-verao-seguro-detran-to-2023",
+    slug: "campanha-verao-seguro-detran-to",
+    title: "Campanha Verão Seguro – DETRAN TO",
+    client: "DETRAN TO – Governo do Estado do Tocantins",
+    agency: "Digital Comunicação",
+    year: "2023",
+    location: "Tocantins – Brasil",
+    summary: "Atendimento publicitário e gestão estratégica da campanha 'Verão Seguro' do DETRAN Tocantins, focada em educação para o trânsito e prevenção de acidentes nas férias, com desdobramentos em TV, rádio, outdoor e mídias digitais.",
+    description: `Em 2023, o DETRAN Tocantins reforçou sua presença na alta temporada com a campanha "Verão Seguro", focada em educação para o trânsito e prevenção de acidentes nas férias. Atuei no atendimento publicitário e na gestão estratégica da campanha, alinhando a mensagem institucional à responsabilidade do motorista em um período marcado por viagens, lazer e aumento do fluxo nas estradas.
+
+A comunicação nas redes sociais trouxe uma abordagem mais leve e didática, com peças visuais que valorizavam segurança, atenção e consciência ao dirigir. Já o VT de 30 segundos, os outdoors e demais peças off-line adotaram um tom mais impactante, mostrando claramente as consequências da imprudência no trânsito. A campanha foi desdobrada em um plano 360º, com veiculações em TV aberta, spots de rádio em emissoras de todo o estado e mídia digital com impulsionamento e compra programática, garantindo alcance massivo e reforço contínuo da mensagem de segurança viária durante todo o período de férias.
+
+**O que fiz neste projeto:**
+• Foco em prevenção de acidentes no período de férias
+• Estratégia 360º: TV, rádio, outdoors e mídias digitais
+• Conteúdo educativo nas redes sociais com linguagem acessível
+• Peças de impacto evidenciando causa e consequência no trânsito
+• Planejamento e atendimento integrados à comunicação institucional do Governo do Tocantins`,
+    category: "atendimento-publicitario",
+    additionalCategories: ["comunicacao-estrategica"],
+    subcategories: [
+      "Campanhas Governamentais",
+      "Segurança no Trânsito",
+      "Comunicação 360º",
+      "Mídia Programática"
+    ],
+    tags: [
+      "campanha de segurança no trânsito",
+      "DETRAN Tocantins",
+      "Verão Seguro",
+      "prevenção de acidentes",
+      "campanhas governamentais",
+      "comunicação institucional",
+      "mídia programática",
+      "atendimento publicitário",
+      "campanha 360"
+    ],
+    coverImage: veraoSeguroCover,
+    gallery: [
+      veraoSeguro1,
+      veraoSeguro2,
+      veraoSeguro3,
+      veraoSeguro4,
+      veraoSeguro5,
+      veraoSeguro6,
+      veraoSeguro7,
+      veraoSeguroOutdoor
+    ],
+    youtubeVideo: "https://youtu.be/ME2fqqgK2IE"
   },
 
   // ----------------------------------------
