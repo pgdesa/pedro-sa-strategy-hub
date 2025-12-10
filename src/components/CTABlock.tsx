@@ -54,13 +54,13 @@ export const CTABlock = () => {
                 <span className="text-primary text-xs opacity-0 group-hover:opacity-100 transition-opacity" aria-hidden="true">→</span>
               </Link>
 
-              <Link to="/trabalhos" className="flex gap-2.5 items-center group cursor-pointer transition-all duration-500 ease-smooth hover:translate-x-1.5 glass p-2.5 rounded-md border border-glass-border hover:border-primary/40 hover:bg-surface/40">
+              <Link to="/contato" className="flex gap-2.5 items-center group cursor-pointer transition-all duration-500 ease-smooth hover:translate-x-1.5 glass p-2.5 rounded-md border border-glass-border hover:border-primary/40 hover:bg-surface/40">
                 <div className="flex-shrink-0 w-8 h-8 flex items-center justify-center rounded bg-surface/50 border border-glass-border group-hover:border-primary/50 group-hover:bg-primary/10 group-hover:scale-105 transition-all duration-300">
                   <FileText className="w-3.5 h-3.5 text-primary drop-shadow-glow" aria-hidden="true" />
                 </div>
                 <div className="text-left flex-1">
-                  <div className="font-poppins font-semibold text-foreground text-xs group-hover:text-primary transition-colors">Conheça meu trabalho</div>
-                  <div className="text-[10px] text-foreground-secondary font-inter leading-tight">resultados em ação</div>
+                  <div className="font-poppins font-semibold text-foreground text-xs group-hover:text-primary transition-colors">Entre em Contato</div>
+                  <div className="text-[10px] text-foreground-secondary font-inter leading-tight">e me conte sua necessidade</div>
                 </div>
                 <span className="text-primary text-xs opacity-0 group-hover:opacity-100 transition-opacity" aria-hidden="true">→</span>
               </Link>
