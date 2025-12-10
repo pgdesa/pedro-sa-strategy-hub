@@ -1,6 +1,7 @@
 import { Card, CardContent } from "@/components/ui/card";
 import { Target, Megaphone, BarChart3 } from "lucide-react";
 import { useEffect, useRef, useState } from "react";
+import { Link } from "react-router-dom";
 import featuresImage from "@/assets/FINALSITE3.png";
 import { useParallax } from "@/hooks/useParallax";
 
@@ -9,19 +10,19 @@ const features = [
     icon: Target,
     title: "Planejamento Estratégico",
     description: "Para marcas que sabem onde querem chegar, mas ainda não têm o caminho desenhado.",
-    link: "#planejamento"
+    link: "/trabalhos/atendimento-publicitario"
   },
   {
     icon: Megaphone,
     title: "Comunicação Pública e Política",
     description: "Para mandatos, instituições e campanhas que precisam comunicar com consistência e credibilidade.",
-    link: "#comunicacao"
+    link: "/trabalhos/comunicacao-estrategica"
   },
   {
     icon: BarChart3,
     title: "Marketing Digital e Offline",
     description: "Para integrar ponto físico, campanhas e presença digital sem ruído.",
-    link: "#marketing"
+    link: "/trabalhos"
   }
 ];
 
@@ -113,12 +114,12 @@ export const FeaturesBlock = () => {
                     <p className="text-sm font-inter text-foreground-secondary leading-relaxed">
                       {feature.description}
                     </p>
-                    <a 
-                      href={feature.link}
+                    <Link 
+                      to={feature.link}
                       className="inline-flex items-center text-sm font-inter font-medium text-primary hover:text-accent transition-colors gap-1"
                     >
                       ver mais <span className="group-hover:translate-x-1 transition-transform" aria-hidden="true">→</span>
-                    </a>
+                    </Link>
                   </CardContent>
                 </Card>
               ))}
@@ -148,12 +149,12 @@ export const FeaturesBlock = () => {
                       <p className="text-sm font-inter text-foreground-secondary leading-relaxed">
                         {feature.description}
                       </p>
-                      <a 
-                        href={feature.link}
+                      <Link 
+                        to={feature.link}
                         className="inline-flex items-center text-sm font-inter font-medium text-primary hover:text-accent transition-colors gap-1"
                       >
                         ver mais <span aria-hidden="true">→</span>
-                      </a>
+                      </Link>
                     </CardContent>
                   </Card>
                 ))}
