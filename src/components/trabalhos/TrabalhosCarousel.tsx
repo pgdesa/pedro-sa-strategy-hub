@@ -46,14 +46,14 @@ export const TrabalhosCarousel = ({ works }: TrabalhosCarouselProps) => {
       : currentWork.summary;
 
   return (
-    <div className="flex flex-col h-full">
+    <div className="flex flex-col h-full max-h-full">
       {/* Image Container */}
-      <div className="relative flex-1 min-h-0 rounded-xl overflow-hidden bg-card/30 border border-border/30">
+      <div className="relative flex-1 min-h-0 max-h-[calc(100vh-220px)] rounded-xl overflow-hidden bg-card/30 border border-border/30">
         {currentWork.coverImage && (
           <img
             src={currentWork.coverImage}
             alt={`Capa: ${currentWork.title}`}
-            className="w-full h-full object-cover"
+            className="w-full h-full object-cover object-center"
           />
         )}
 
@@ -77,34 +77,34 @@ export const TrabalhosCarousel = ({ works }: TrabalhosCarouselProps) => {
         <div className="absolute inset-x-0 bottom-0 h-2/3 bg-gradient-to-t from-background/95 via-background/60 to-transparent pointer-events-none" />
 
         {/* Content Overlay */}
-        <div className="absolute inset-x-0 bottom-0 p-4 lg:p-6">
+        <div className="absolute inset-x-0 bottom-0 p-3 lg:p-4">
           {/* Tags/Metadata */}
-          <div className="flex flex-wrap gap-1.5 mb-2">
+          <div className="flex flex-wrap gap-1 mb-1.5">
             <Badge
               variant="outline"
-              className="text-xs bg-primary/20 text-primary border-primary/40"
+              className="text-[10px] bg-primary/20 text-primary border-primary/40"
             >
               {category.name}
             </Badge>
             {currentWork.year && (
-              <Badge variant="secondary" className="text-xs">
+              <Badge variant="secondary" className="text-[10px]">
                 {currentWork.year}
               </Badge>
             )}
             {currentWork.client && (
-              <Badge variant="secondary" className="text-xs">
+              <Badge variant="secondary" className="text-[10px]">
                 {currentWork.client}
               </Badge>
             )}
           </div>
 
           {/* Title */}
-          <h3 className="font-poppins text-lg lg:text-xl font-bold text-foreground mb-2 line-clamp-2">
+          <h3 className="font-poppins text-base lg:text-lg font-bold text-foreground mb-1 line-clamp-2">
             {currentWork.title}
           </h3>
 
           {/* Description Preview */}
-          <p className="text-sm text-muted-foreground mb-3 line-clamp-2 lg:line-clamp-3">
+          <p className="text-xs text-muted-foreground mb-2 line-clamp-2">
             {truncatedDescription}
           </p>
 
@@ -112,32 +112,32 @@ export const TrabalhosCarousel = ({ works }: TrabalhosCarouselProps) => {
           <Button
             asChild
             size="sm"
-            className="gap-2"
+            className="gap-1.5 h-7 text-xs"
           >
             <Link to={`/trabalhos/${currentWork.category}/${currentWork.slug}`}>
               Ver detalhes
-              <ArrowRight className="w-4 h-4" />
+              <ArrowRight className="w-3.5 h-3.5" />
             </Link>
           </Button>
         </div>
       </div>
 
       {/* Dots Navigation */}
-      <div className="flex justify-center gap-1.5 mt-3 py-1">
+      <div className="flex justify-center gap-1 mt-2">
         {works.slice(0, 10).map((_, index) => (
           <button
             key={index}
             onClick={() => goToSlide(index)}
-            className={`w-2 h-2 rounded-full transition-all duration-200 ${
+            className={`w-1.5 h-1.5 rounded-full transition-all duration-200 ${
               index === currentIndex
-                ? "bg-primary w-4"
+                ? "bg-primary w-3"
                 : "bg-muted-foreground/30 hover:bg-muted-foreground/50"
             }`}
             aria-label={`Ir para trabalho ${index + 1}`}
           />
         ))}
         {works.length > 10 && (
-          <span className="text-xs text-muted-foreground ml-1">
+          <span className="text-[10px] text-muted-foreground ml-1">
             +{works.length - 10}
           </span>
         )}
