@@ -103,17 +103,17 @@ const TrabalhosLanding = () => {
         </main>
 
         {/* Desktop Layout - 2 Columns: Carousel Left, Categories Right */}
-        <main className="hidden lg:flex flex-col flex-1 pt-20 px-8 pb-6 h-screen overflow-hidden">
+        <main className="hidden lg:flex flex-col flex-1 pt-16 px-6 pb-3 h-screen overflow-hidden">
           <div className="max-w-7xl mx-auto w-full flex-1 flex flex-col overflow-hidden">
             <Breadcrumb items={[{ label: "Home", href: "/" }, { label: "Trabalhos" }]} />
             
-            <header className="mb-4">
-              <h1 className="font-poppins text-3xl font-bold text-foreground mb-1">Trabalhos</h1>
-              <p className="text-sm text-muted-foreground">Projetos organizados por categorias para você encontrar o que mais se aproxima do seu desafio.</p>
+            <header className="mb-2">
+              <h1 className="font-poppins text-2xl font-bold text-foreground mb-0.5">Trabalhos</h1>
+              <p className="text-xs text-muted-foreground">Projetos organizados por categorias para você encontrar o que mais se aproxima do seu desafio.</p>
             </header>
 
             {/* Main Grid: Carousel (Left) + Categories (Right) */}
-            <div className="grid grid-cols-[1fr_320px] gap-8 flex-1 min-h-0">
+            <div className="grid grid-cols-[1fr_280px] gap-5 flex-1 min-h-0">
               {/* Left Column: Carousel */}
               <div className="flex flex-col min-h-0">
                 <TrabalhosCarousel works={trabalhos} />
@@ -122,15 +122,15 @@ const TrabalhosLanding = () => {
               {/* Right Column: Search + Categories */}
               <div className="flex flex-col overflow-hidden">
                 {/* Search */}
-                <div className="mb-4">
-                  <h2 className="text-xs font-medium text-muted-foreground uppercase tracking-wider mb-2">Busca rápida</h2>
+                <div className="mb-3">
+                  <h2 className="text-[10px] font-medium text-muted-foreground uppercase tracking-wider mb-1.5">Busca rápida</h2>
                   <SearchInput value={searchTerm} onChange={setSearchTerm} />
                   {searchTerm && (
-                    <div className="mt-3 space-y-2 max-h-[200px] overflow-y-auto">
+                    <div className="mt-2 space-y-1.5 max-h-[150px] overflow-y-auto">
                       {searchResults.length > 0 ? (
-                        searchResults.slice(0, 5).map((work) => <WorkCard key={work.id} work={work} showCategory />)
+                        searchResults.slice(0, 4).map((work) => <WorkCard key={work.id} work={work} showCategory />)
                       ) : (
-                        <p className="text-muted-foreground text-center py-4 text-sm">Nenhum trabalho encontrado.</p>
+                        <p className="text-muted-foreground text-center py-3 text-xs">Nenhum trabalho encontrado.</p>
                       )}
                     </div>
                   )}
@@ -138,19 +138,19 @@ const TrabalhosLanding = () => {
 
                 {/* Categories */}
                 <div className="flex-1 flex flex-col min-h-0">
-                  <h2 className="text-xs font-medium text-muted-foreground uppercase tracking-wider mb-2">Categorias</h2>
-                  <div className="flex flex-col gap-2 overflow-y-auto flex-1">
+                  <h2 className="text-[10px] font-medium text-muted-foreground uppercase tracking-wider mb-1.5">Categorias</h2>
+                  <div className="flex flex-col gap-1.5 flex-1">
                     {categories.map((cat) => (
                       <Link
                         key={cat.slug}
                         to={`/trabalhos/${cat.slug}`}
-                        className="group flex items-center justify-between p-3 rounded-lg bg-card/30 border border-border/30 hover:border-primary/30 hover:bg-card/50 transition-all duration-200 hover:scale-[1.01]"
+                        className="group flex items-center justify-between p-2.5 rounded-lg bg-card/30 border border-border/30 hover:border-primary/30 hover:bg-card/50 transition-all duration-200 hover:scale-[1.01]"
                       >
                         <div className="flex-1 min-w-0">
-                          <h3 className="text-sm font-semibold text-foreground group-hover:text-primary transition-colors">{cat.name}</h3>
-                          <p className="text-xs text-muted-foreground mt-0.5 line-clamp-2">{cat.description}</p>
+                          <h3 className="text-xs font-semibold text-foreground group-hover:text-primary transition-colors">{cat.name}</h3>
+                          <p className="text-[10px] text-muted-foreground mt-0.5 line-clamp-1">{cat.description}</p>
                         </div>
-                        <ArrowRight className="h-4 w-4 text-muted-foreground group-hover:text-primary group-hover:translate-x-1 transition-all flex-shrink-0 ml-2" />
+                        <ArrowRight className="h-3.5 w-3.5 text-muted-foreground group-hover:text-primary group-hover:translate-x-1 transition-all flex-shrink-0 ml-2" />
                       </Link>
                     ))}
                   </div>
