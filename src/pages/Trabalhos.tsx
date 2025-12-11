@@ -5,6 +5,7 @@ import { Navbar } from "@/components/Navbar";
 import { Badge } from "@/components/ui/badge";
 import { ArrowRight } from "lucide-react";
 import { useScrollToTop } from "@/hooks/useScrollToTop";
+import { getCanonicalUrl } from "@/utils/seo";
 import {
   Breadcrumb,
   SearchInput,
@@ -43,7 +44,7 @@ const TrabalhosLanding = () => {
       <Helmet>
         <title>Trabalhos – Pedro Sá | Portfólio de Comunicação e Marketing</title>
         <meta name="description" content="Conheça os projetos de comunicação, marketing e estratégia de Pedro Sá. Cases de atendimento publicitário, comunicação estratégica, gestão de projetos e marketing digital." />
-        <link rel="canonical" href="/trabalhos" />
+        <link rel="canonical" href={getCanonicalUrl("/trabalhos")} />
       </Helmet>
       <div className="min-h-screen bg-background flex flex-col">
         <Navbar />

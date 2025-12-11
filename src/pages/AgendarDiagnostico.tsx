@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { Helmet } from 'react-helmet-async';
 import { Navbar } from '@/components/Navbar';
 import { Button } from '@/components/ui/button';
@@ -8,6 +8,8 @@ import { Label } from '@/components/ui/label';
 import { useToast } from '@/hooks/use-toast';
 import pedroAgendar from '@/assets/pedro-agendar.jpg';
 import { useScrollToTop } from '@/hooks/useScrollToTop';
+import { N8N_WEBHOOK_DIAGNOSTICO, GA_EVENT_DIAGNOSTICO } from '@/config/env';
+import { getCanonicalUrl } from '@/utils/seo';
 
 const AgendarDiagnostico = () => {
   const { toast } = useToast();
@@ -19,9 +21,21 @@ const AgendarDiagnostico = () => {
     email: '',
     projeto: ''
   });
+  
+  // Ref para AbortController
+  const abortControllerRef = useRef<AbortController | null>(null);
 
   // Centralizado: scroll ao topo
   useScrollToTop();
+  
+  // Cleanup: cancela requisições pendentes ao desmontar
+  useEffect(() => {
+    return () => {
+      if (abortControllerRef.current) {
+        abortControllerRef.current.abort();
+      }
+    };
+  }, []);
 
   const formatPhone = (value: string) => {
     const numbers = value.replace(/\D/g, '');
@@ -65,10 +79,12 @@ const AgendarDiagnostico = () => {
     }
 
     setIsSubmitting(true);
+    
+    // Cria novo AbortController para esta requisição
+    abortControllerRef.current = new AbortController();
 
     try {
-      // Enviar dados para o webhook do n8n
-      await fetch('https://pgdesa.app.n8n.cloud/webhook/lead-diagnostico', {
+      const response = await fetch(N8N_WEBHOOK_DIAGNOSTICO, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -79,11 +95,17 @@ const AgendarDiagnostico = () => {
           email: formData.email.trim(),
           mensagem: formData.projeto.trim()
         }),
+        signal: abortControllerRef.current.signal
       });
+
+      // Valida resposta HTTP
+      if (!response.ok) {
+        throw new Error("Falha no envio do formulário");
+      }
 
       // Analytics event
       if (typeof window !== 'undefined' && (window as any).gtag) {
-        (window as any).gtag('event', 'diagnostico_submit', {
+        (window as any).gtag('event', GA_EVENT_DIAGNOSTICO, {
           event_category: 'form',
           event_label: 'agendar_diagnostico'
         });
@@ -95,6 +117,11 @@ const AgendarDiagnostico = () => {
         description: "Em breve entraremos em contato.",
       });
     } catch (error) {
+      // Ignora erros de abort (usuário saiu da página)
+      if (error instanceof Error && error.name === 'AbortError') {
+        return;
+      }
+      
       console.error('Erro ao enviar para webhook:', error);
       toast({
         title: "Erro ao enviar",
@@ -103,6 +130,7 @@ const AgendarDiagnostico = () => {
       });
     } finally {
       setIsSubmitting(false);
+      abortControllerRef.current = null;
     }
   };
 
@@ -114,7 +142,7 @@ const AgendarDiagnostico = () => {
           name="description" 
           content="Agende um diagnóstico estratégico com Pedro Sá para analisar a comunicação e o marketing do seu negócio ou projeto público. Preencha o formulário e receba retorno em até 24h úteis." 
         />
-        <link rel="canonical" href="/agendar-diagnostico" />
+        <link rel="canonical" href={getCanonicalUrl("/agendar-diagnostico")} />
       </Helmet>
 
       <div className="min-h-screen bg-background text-foreground">
