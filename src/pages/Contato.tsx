@@ -3,6 +3,7 @@ import { Navbar } from "@/components/Navbar";
 import { Mail, Linkedin, Instagram, Facebook, MessageCircle } from "lucide-react";
 import pedroContato from "@/assets/pedro-contato.png";
 import { useScrollToTop } from "@/hooks/useScrollToTop";
+import { getCanonicalUrl } from "@/utils/seo";
 
 const contactItems = [
   {
@@ -56,7 +57,7 @@ const Contato = () => {
       <Helmet>
         <title>Contato – Pedro Sá | Fale Sobre Seu Projeto</title>
         <meta name="description" content="Entre em contato com Pedro Sá para falar sobre seu projeto de comunicação, marketing ou estratégia de negócios. Atendimento por e-mail, LinkedIn, Instagram, Facebook ou WhatsApp." />
-        <link rel="canonical" href="/contato" />
+        <link rel="canonical" href={getCanonicalUrl("/contato")} />
       </Helmet>
       <div className="min-h-screen bg-background">
         <Navbar />

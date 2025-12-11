@@ -7,6 +7,7 @@ import { Navbar } from "@/components/Navbar";
 import { useMemo } from "react";
 import { Helmet } from "react-helmet-async";
 import { useScrollToTop } from "@/hooks/useScrollToTop";
+import { getCanonicalUrl } from "@/utils/seo";
 
 const Bio = () => {
   // Centralizado: scroll ao topo
@@ -25,7 +26,7 @@ const Bio = () => {
       <Helmet>
         <title>Bio – Pedro Sá | Estrategista em Comunicação e Marketing</title>
         <meta name="description" content="Conheça a trajetória de Pedro Sá: estrategista em comunicação, marketing e negócios com experiência em projetos públicos e privados desde 2014." />
-        <link rel="canonical" href="/bio" />
+        <link rel="canonical" href={getCanonicalUrl("/bio")} />
       </Helmet>
       <div className="min-h-screen">
         <Navbar />

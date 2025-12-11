@@ -19,6 +19,7 @@ interface UseParallaxReturn {
 /**
  * Hook reutilizável para efeito de parallax em scroll.
  * Respeita prefers-reduced-motion automaticamente.
+ * Inclui guards para ambientes sem DOM (SSR/testes).
  */
 export const useParallax = (options: UseParallaxOptions = {}): UseParallaxReturn => {
   const { intensity = 50, onlyWhenVisible = true } = options;
@@ -30,6 +31,11 @@ export const useParallax = (options: UseParallaxOptions = {}): UseParallaxReturn
 
   // Detecta preferência de redução de movimento
   useEffect(() => {
+    // Guard para SSR/testes
+    if (typeof window === "undefined" || typeof window.matchMedia !== "function") {
+      return;
+    }
+
     const mediaQuery = window.matchMedia("(prefers-reduced-motion: reduce)");
     setPrefersReducedMotion(mediaQuery.matches);
 
@@ -40,6 +46,11 @@ export const useParallax = (options: UseParallaxOptions = {}): UseParallaxReturn
 
   // Intersection Observer para detectar visibilidade
   useEffect(() => {
+    // Guard para SSR/testes
+    if (typeof window === "undefined" || typeof IntersectionObserver === "undefined") {
+      return;
+    }
+
     if (!onlyWhenVisible) {
       setIsVisible(true);
       return;
@@ -61,6 +72,11 @@ export const useParallax = (options: UseParallaxOptions = {}): UseParallaxReturn
 
   // Efeito de parallax no scroll
   useEffect(() => {
+    // Guard para SSR/testes
+    if (typeof window === "undefined") {
+      return;
+    }
+
     // Não aplica parallax se:
     // - Usuário preferir redução de movimento
     // - Seção não estiver visível (quando onlyWhenVisible = true)
