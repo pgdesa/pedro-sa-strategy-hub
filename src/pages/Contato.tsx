@@ -62,9 +62,9 @@ const Contato = () => {
       <div className="min-h-screen bg-background">
         <Navbar />
       
-      <main className="min-h-screen lg:h-screen pt-20 pb-8 lg:pb-0 px-6 lg:px-12 lg:overflow-hidden">
+      <main className="min-h-screen lg:h-screen pt-28 pb-8 lg:pt-28 lg:pb-0 px-6 lg:px-12 lg:overflow-hidden">
         <div className="container mx-auto h-full">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-12 items-center lg:h-[calc(100vh-5rem)]">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-12 items-center lg:h-[calc(100vh-7rem)]">
             
             {/* Coluna Esquerda - Foto */}
             <div className="lg:col-span-5 flex items-center justify-center">

@@ -33,7 +33,7 @@ export const BioBlocoIntro = ({ className = "" }: BioBlocoIntroProps) => {
         background: 'linear-gradient(135deg, hsl(30, 35%, 92%) 0%, hsl(25, 30%, 88%) 100%)'
       }}
     >
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8 min-h-screen flex items-center py-20">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8 min-h-screen flex items-center pt-24 pb-12 lg:pt-28 lg:pb-16">
         <div className="grid grid-cols-12 gap-8 lg:gap-12 w-full items-center">
           {/* Texto */}
           <div className="col-span-12 lg:col-span-6 space-y-4 sm:space-y-5 lg:space-y-6 z-10 flex flex-col justify-center px-4 sm:px-6 md:px-8 lg:px-0">

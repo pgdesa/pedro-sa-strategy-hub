@@ -150,7 +150,7 @@ const AgendarDiagnostico = () => {
         
         <main 
           id="agendar-diagnostico" 
-          className="min-h-screen pt-20 lg:pt-24 pb-12 lg:pb-0 lg:h-screen lg:overflow-hidden"
+          className="min-h-screen pt-28 lg:pt-32 pb-12 lg:pb-0 lg:h-screen lg:overflow-hidden"
         >
           <div className="container mx-auto px-4 h-full">
             <div className="max-w-[1200px] mx-auto h-full flex flex-col lg:flex-row lg:items-center gap-8 lg:gap-12">
