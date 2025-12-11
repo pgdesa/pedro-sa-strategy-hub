@@ -14,6 +14,7 @@ import {
   FichaTecnica,
   FichaTecnicaCompact,
   YouTubeEmbed,
+  TrabalhosCarousel,
 } from "@/components/trabalhos";
 import {
   trabalhos,
@@ -46,23 +47,29 @@ const TrabalhosLanding = () => {
       </Helmet>
       <div className="min-h-screen bg-background flex flex-col">
         <Navbar />
-      {/* Mobile/Tablet Layout */}
-      <main className="lg:hidden pt-28 pb-20 px-6 flex-1">
-        <div className="max-w-6xl mx-auto">
-          <Breadcrumb items={[{ label: "Home", href: "/" }, { label: "Trabalhos" }]} />
 
-          <header className="mb-8">
-            <h1 className="font-poppins text-4xl font-bold text-foreground mb-4">
-              Trabalhos
-            </h1>
-            <p className="text-lg text-muted-foreground">
-              Projetos organizados por categorias para você encontrar o que mais se aproxima do seu desafio.
-            </p>
-          </header>
+        {/* Mobile/Tablet Layout */}
+        <main className="lg:hidden pt-28 pb-20 px-6 flex-1">
+          <div className="max-w-6xl mx-auto">
+            <Breadcrumb items={[{ label: "Home", href: "/" }, { label: "Trabalhos" }]} />
 
-          <div className="space-y-8">
-            <div>
-              <h2 className="text-sm font-medium text-muted-foreground uppercase tracking-wider mb-4">
+            <header className="mb-6">
+              <h1 className="font-poppins text-3xl font-bold text-foreground mb-2">
+                Trabalhos
+              </h1>
+              <p className="text-base text-muted-foreground">
+                Projetos organizados por categorias para você encontrar o que mais se aproxima do seu desafio.
+              </p>
+            </header>
+
+            {/* Carousel - Mobile */}
+            <div className="mb-8 h-[400px]">
+              <TrabalhosCarousel works={trabalhos} />
+            </div>
+
+            {/* Search - Mobile */}
+            <div className="mb-6">
+              <h2 className="text-sm font-medium text-muted-foreground uppercase tracking-wider mb-3">
                 Busca rápida
               </h2>
               <SearchInput value={searchTerm} onChange={setSearchTerm} className="mb-4" />
@@ -77,59 +84,81 @@ const TrabalhosLanding = () => {
               )}
             </div>
 
+            {/* Categories - Mobile */}
             <div>
-              <h2 className="text-sm font-medium text-muted-foreground uppercase tracking-wider mb-4">Categorias</h2>
+              <h2 className="text-sm font-medium text-muted-foreground uppercase tracking-wider mb-3">Categorias</h2>
               <div className="space-y-3">
                 {categories.map((cat) => (
-                  <Link key={cat.slug} to={`/trabalhos/${cat.slug}`} className="group flex items-center justify-between p-5 rounded-xl bg-card/30 border border-border/30 hover:border-primary/30 hover:bg-card/50 transition-all duration-200">
+                  <Link key={cat.slug} to={`/trabalhos/${cat.slug}`} className="group flex items-center justify-between p-4 rounded-xl bg-card/30 border border-border/30 hover:border-primary/30 hover:bg-card/50 transition-all duration-200">
                     <div>
-                      <h3 className="text-lg font-semibold text-foreground group-hover:text-primary transition-colors">{cat.name}</h3>
+                      <h3 className="text-base font-semibold text-foreground group-hover:text-primary transition-colors">{cat.name}</h3>
                       <p className="text-sm text-muted-foreground mt-1">{cat.description}</p>
                     </div>
-                    <ArrowRight className="h-5 w-5 text-muted-foreground group-hover:text-primary group-hover:translate-x-1 transition-all" />
+                    <ArrowRight className="h-5 w-5 text-muted-foreground group-hover:text-primary group-hover:translate-x-1 transition-all flex-shrink-0" />
                   </Link>
                 ))}
               </div>
             </div>
           </div>
-        </div>
-      </main>
+        </main>
 
-      {/* Desktop Layout */}
-      <main className="hidden lg:flex flex-col flex-1 pt-16 px-8 pb-4 h-[calc(100vh-0px)] overflow-hidden">
-        <div className="max-w-7xl mx-auto w-full flex-1 grid grid-cols-2 grid-rows-[auto_1fr] gap-x-12 gap-y-4">
-          <div className="col-start-1 row-start-1">
+        {/* Desktop Layout - 2 Columns: Carousel Left, Categories Right */}
+        <main className="hidden lg:flex flex-col flex-1 pt-20 px-8 pb-6 h-screen overflow-hidden">
+          <div className="max-w-7xl mx-auto w-full flex-1 flex flex-col overflow-hidden">
             <Breadcrumb items={[{ label: "Home", href: "/" }, { label: "Trabalhos" }]} />
-            <h1 className="font-poppins text-4xl font-bold text-foreground mb-1">Trabalhos</h1>
-            <p className="text-base text-muted-foreground">Projetos organizados por categorias para você encontrar o que mais se aproxima do seu desafio.</p>
-          </div>
+            
+            <header className="mb-4">
+              <h1 className="font-poppins text-3xl font-bold text-foreground mb-1">Trabalhos</h1>
+              <p className="text-sm text-muted-foreground">Projetos organizados por categorias para você encontrar o que mais se aproxima do seu desafio.</p>
+            </header>
 
-          <div className="col-start-2 row-start-1 flex flex-col justify-start overflow-y-auto max-h-full pt-6">
-            <h2 className="text-xs font-medium text-muted-foreground uppercase tracking-wider mb-2">Busca rápida</h2>
-            <SearchInput value={searchTerm} onChange={setSearchTerm} className="mb-2" />
-            {searchTerm && (
-              <div className="space-y-2 overflow-y-auto flex-1">
-                {searchResults.length > 0 ? searchResults.map((work) => <WorkCard key={work.id} work={work} showCategory />) : <p className="text-muted-foreground text-center py-4 text-sm">Nenhum trabalho encontrado.</p>}
+            {/* Main Grid: Carousel (Left) + Categories (Right) */}
+            <div className="grid grid-cols-[1fr_320px] gap-8 flex-1 min-h-0">
+              {/* Left Column: Carousel */}
+              <div className="flex flex-col min-h-0">
+                <TrabalhosCarousel works={trabalhos} />
               </div>
-            )}
-          </div>
 
-          <div className="col-span-2 row-start-2 flex flex-col">
-            <h2 className="text-xs font-medium text-muted-foreground uppercase tracking-wider mb-2">Categorias</h2>
-            <div className="grid grid-cols-2 gap-3 flex-1">
-              {categories.map((cat) => (
-                <Link key={cat.slug} to={`/trabalhos/${cat.slug}`} className="group flex items-center justify-between p-3 rounded-lg bg-card/30 border border-border/30 hover:border-primary/30 hover:bg-card/50 transition-all duration-200 hover:scale-[1.01]">
-                  <div className="flex-1 min-w-0">
-                    <h3 className="text-base font-semibold text-foreground group-hover:text-primary transition-colors">{cat.name}</h3>
-                    <p className="text-xs text-muted-foreground mt-0.5 line-clamp-2">{cat.description}</p>
+              {/* Right Column: Search + Categories */}
+              <div className="flex flex-col overflow-hidden">
+                {/* Search */}
+                <div className="mb-4">
+                  <h2 className="text-xs font-medium text-muted-foreground uppercase tracking-wider mb-2">Busca rápida</h2>
+                  <SearchInput value={searchTerm} onChange={setSearchTerm} />
+                  {searchTerm && (
+                    <div className="mt-3 space-y-2 max-h-[200px] overflow-y-auto">
+                      {searchResults.length > 0 ? (
+                        searchResults.slice(0, 5).map((work) => <WorkCard key={work.id} work={work} showCategory />)
+                      ) : (
+                        <p className="text-muted-foreground text-center py-4 text-sm">Nenhum trabalho encontrado.</p>
+                      )}
+                    </div>
+                  )}
+                </div>
+
+                {/* Categories */}
+                <div className="flex-1 flex flex-col min-h-0">
+                  <h2 className="text-xs font-medium text-muted-foreground uppercase tracking-wider mb-2">Categorias</h2>
+                  <div className="flex flex-col gap-2 overflow-y-auto flex-1">
+                    {categories.map((cat) => (
+                      <Link
+                        key={cat.slug}
+                        to={`/trabalhos/${cat.slug}`}
+                        className="group flex items-center justify-between p-3 rounded-lg bg-card/30 border border-border/30 hover:border-primary/30 hover:bg-card/50 transition-all duration-200 hover:scale-[1.01]"
+                      >
+                        <div className="flex-1 min-w-0">
+                          <h3 className="text-sm font-semibold text-foreground group-hover:text-primary transition-colors">{cat.name}</h3>
+                          <p className="text-xs text-muted-foreground mt-0.5 line-clamp-2">{cat.description}</p>
+                        </div>
+                        <ArrowRight className="h-4 w-4 text-muted-foreground group-hover:text-primary group-hover:translate-x-1 transition-all flex-shrink-0 ml-2" />
+                      </Link>
+                    ))}
                   </div>
-                  <ArrowRight className="h-4 w-4 text-muted-foreground group-hover:text-primary group-hover:translate-x-1 transition-all flex-shrink-0 ml-2" />
-                </Link>
-              ))}
+                </div>
+              </div>
             </div>
           </div>
-        </div>
-      </main>
+        </main>
       </div>
     </>
   );
