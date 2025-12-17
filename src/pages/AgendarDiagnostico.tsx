@@ -21,19 +21,16 @@ const AgendarDiagnostico = () => {
     email: '',
     projeto: ''
   });
-  
-  // Ref para AbortController
-  const abortControllerRef = useRef<AbortController | null>(null);
+
+  const mountedRef = useRef(true);
 
   // Centralizado: scroll ao topo
   useScrollToTop();
-  
-  // Cleanup: cancela requisições pendentes ao desmontar
+
+  // Cleanup: evita setState após unmount (sem cancelar o envio do lead)
   useEffect(() => {
     return () => {
-      if (abortControllerRef.current) {
-        abortControllerRef.current.abort();
-      }
+      mountedRef.current = false;
     };
   }, []);
 
@@ -80,28 +77,49 @@ const AgendarDiagnostico = () => {
 
     setIsSubmitting(true);
     
-    // Cria novo AbortController para esta requisição
-    abortControllerRef.current = new AbortController();
-
     try {
-      const response = await fetch(N8N_WEBHOOK_DIAGNOSTICO, {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({
-          nome: formData.nome.trim(),
-          telefone: formData.telefone.trim(),
-          email: formData.email.trim(),
-          mensagem: formData.projeto.trim()
-        }),
-        signal: abortControllerRef.current.signal
+      const payload = new URLSearchParams({
+        nome: formData.nome.trim(),
+        telefone: formData.telefone.trim(),
+        email: formData.email.trim(),
+        mensagem: formData.projeto.trim(),
       });
 
-      // Valida resposta HTTP
-      if (!response.ok) {
+      let responseOk = false;
+
+      // Envio como x-www-form-urlencoded para evitar preflight/CORS em alguns webhooks
+      try {
+        const response = await fetch(N8N_WEBHOOK_DIAGNOSTICO, {
+          method: 'POST',
+          body: payload,
+          // Mantém o envio mesmo se o usuário navegar logo após clicar em enviar
+          keepalive: true,
+          redirect: 'follow',
+        });
+        responseOk = response.ok;
+      } catch (err) {
+        // Fallback best-effort: tenta sendBeacon (não depende de CORS e é mais resiliente em navegação)
+        if (
+          typeof navigator !== 'undefined' &&
+          typeof navigator.sendBeacon === 'function' &&
+          typeof Blob !== 'undefined'
+        ) {
+          const blob = new Blob([payload.toString()], {
+            type: 'application/x-www-form-urlencoded;charset=UTF-8',
+          });
+          responseOk = navigator.sendBeacon(N8N_WEBHOOK_DIAGNOSTICO, blob);
+        }
+
+        if (!responseOk) {
+          throw err;
+        }
+      }
+
+      // Valida resposta HTTP (quando fetch completou)
+      if (!responseOk) {
         throw new Error("Falha no envio do formulário");
       }
+
 
       // Analytics event
       if (typeof window !== 'undefined' && (window as any).gtag) {
@@ -111,17 +129,17 @@ const AgendarDiagnostico = () => {
         });
       }
 
-      setIsSubmitted(true);
-      toast({
-        title: "Enviado com sucesso!",
-        description: "Em breve entraremos em contato.",
-      });
-    } catch (error) {
-      // Ignora erros de abort (usuário saiu da página)
-      if (error instanceof Error && error.name === 'AbortError') {
-        return;
+      if (mountedRef.current) {
+        setIsSubmitted(true);
+        toast({
+          title: "Enviado com sucesso!",
+          description: "Em breve entraremos em contato.",
+        });
       }
-      
+    } catch (error) {
+      // Se o componente já desmontou, não tenta atualizar UI
+      if (!mountedRef.current) return;
+
       console.error('Erro ao enviar para webhook:', error);
       toast({
         title: "Erro ao enviar",
@@ -129,8 +147,9 @@ const AgendarDiagnostico = () => {
         variant: "destructive"
       });
     } finally {
-      setIsSubmitting(false);
-      abortControllerRef.current = null;
+      if (mountedRef.current) {
+        setIsSubmitting(false);
+      }
     }
   };
 
