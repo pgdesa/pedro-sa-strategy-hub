@@ -1,4 +1,5 @@
 import { Button } from "./ui/button";
+import { Link } from "react-router-dom";
 
 interface BioBlocoTimelineProps {
   className?: string;
@@ -85,19 +86,13 @@ export const BioBlocoTimeline = ({ className = "" }: BioBlocoTimelineProps) => {
             <p className="text-lg lg:text-xl text-stone-700 font-medium">
               "Veja como essa trajetória se traduz em resultados."
             </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <div className="flex justify-center">
               <Button 
                 size="lg"
                 className="bg-stone-800 hover:bg-stone-700 text-stone-50 font-semibold px-8 py-5 text-base lg:text-lg"
+                asChild
               >
-                Ir para Portfólio Visual
-              </Button>
-              <Button 
-                size="lg"
-                variant="outline"
-                className="border-2 border-stone-700 text-stone-800 hover:bg-stone-100 font-semibold px-8 py-5 text-base lg:text-lg"
-              >
-                Estudos de Caso
+                <Link to="/trabalhos">Ir para Portfólio Visual</Link>
               </Button>
             </div>
           </div>

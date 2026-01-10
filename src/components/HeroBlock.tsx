@@ -80,7 +80,7 @@ export const HeroBlock = () => {
                   className="bg-primary text-primary-foreground hover:bg-primary/90 hover:scale-105 transition-all font-poppins font-semibold shadow-gold"
                   asChild
                 >
-                  <Link to="/agendar-diagnostico">Agendar diagnóstico</Link>
+                  <Link to="/contato">Fale Comigo</Link>
                 </Button>
                 <span className="text-xs text-foreground-muted font-inter pl-1">
                   Retorno em até 24h úteis.
@@ -112,7 +112,7 @@ export const HeroBlock = () => {
                 alt="Retrato profissional de Pedro Sá em estúdio, blazer escuro com fundo neutro, braços cruzados e expressão confiante"
                 width={800}
                 height={1067}
-                className="relative max-h-[85vh] w-full h-auto object-contain drop-shadow-premium transition-transform duration-700 ease-smooth hover:scale-[1.02]"
+                className="relative max-h-[88vh] w-full h-auto object-cover object-top drop-shadow-premium transition-transform duration-700 ease-smooth hover:scale-[1.02]"
                 style={{
                   filter: 'drop-shadow(0 25px 50px rgba(0,0,0,0.5)) drop-shadow(0 0 40px hsl(var(--primary) / 0.3))'
                 }}

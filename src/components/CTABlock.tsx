@@ -23,11 +23,14 @@ export const CTABlock = () => {
           {/* TEXTO - coluna compacta */}
           <div data-text className="col-span-12 lg:col-span-6 xl:col-span-6 space-y-2 lg:space-y-3 animate-fade-in order-2 lg:order-1 flex flex-col justify-center px-4 sm:px-6 md:px-8 lg:px-0">
             <h2 className="font-poppins font-bold text-foreground leading-tight text-glow text-xl sm:text-2xl lg:text-2xl xl:text-3xl">
-              Escolha por onde começar — trajetória, projetos ou resultados em ação.
+              Escolha por onde quer começar
             </h2>
+            <p className="text-xs sm:text-sm lg:text-sm text-foreground-muted font-inter">
+              (trajetória, projetos ou resultados em ação)
+            </p>
 
-            <p className="text-xs sm:text-sm lg:text-sm text-foreground-secondary font-inter leading-relaxed">
-              Quer conhecer mais do meu trabalho?
+            <p className="text-sm sm:text-base lg:text-base text-foreground-secondary font-inter leading-relaxed pt-1">
+              Quer conhecer mais sobre o meu trabalho?
             </p>
 
             {/* CTA Links - glass cards - ultra compact */}
@@ -37,8 +40,8 @@ export const CTABlock = () => {
                   <User className="w-3.5 h-3.5 text-primary drop-shadow-glow" aria-hidden="true" />
                 </div>
                 <div className="text-left flex-1">
-                  <div className="font-poppins font-semibold text-foreground text-xs group-hover:text-primary transition-colors">Quem sou eu</div>
-                  <div className="text-[10px] text-foreground-secondary font-inter leading-tight">minha trajetória e visão</div>
+                  <div className="font-poppins font-semibold text-foreground text-xs group-hover:text-primary transition-colors">Quem sou eu?</div>
+                  <div className="text-[10px] text-foreground-secondary font-inter leading-tight">Minha trajetória e visão</div>
                 </div>
                 <span className="text-primary text-xs opacity-0 group-hover:opacity-100 transition-opacity" aria-hidden="true">→</span>
               </Link>
@@ -49,7 +52,7 @@ export const CTABlock = () => {
                 </div>
                 <div className="text-left flex-1">
                   <div className="font-poppins font-semibold text-foreground text-xs group-hover:text-primary transition-colors">Veja meus projetos</div>
-                  <div className="text-[10px] text-foreground-secondary font-inter leading-tight">portfólio visual</div>
+                  <div className="text-[10px] text-foreground-secondary font-inter leading-tight">Portfólio visual</div>
                 </div>
                 <span className="text-primary text-xs opacity-0 group-hover:opacity-100 transition-opacity" aria-hidden="true">→</span>
               </Link>
@@ -59,8 +62,8 @@ export const CTABlock = () => {
                   <FileText className="w-3.5 h-3.5 text-primary drop-shadow-glow" aria-hidden="true" />
                 </div>
                 <div className="text-left flex-1">
-                  <div className="font-poppins font-semibold text-foreground text-xs group-hover:text-primary transition-colors">Entre em Contato</div>
-                  <div className="text-[10px] text-foreground-secondary font-inter leading-tight">e me conte sua necessidade</div>
+                  <div className="font-poppins font-semibold text-foreground text-xs group-hover:text-primary transition-colors">Fale comigo</div>
+                  <div className="text-[10px] text-foreground-secondary font-inter leading-tight">E me conte quais as suas necessidades</div>
                 </div>
                 <span className="text-primary text-xs opacity-0 group-hover:opacity-100 transition-opacity" aria-hidden="true">→</span>
               </Link>

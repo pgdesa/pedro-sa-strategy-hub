@@ -28,16 +28,34 @@ function getYouTubeVideoId(url: string): string | null {
  * Componente de embed do YouTube com lazy loading
  * Mostra uma thumbnail com botão de play e carrega o iframe apenas quando clicado
  */
+// Placeholder local para fallback final
+const PLACEHOLDER_THUMBNAIL = "/placeholder.svg";
+
 export const YouTubeEmbed = ({ url, title }: YouTubeEmbedProps) => {
   const [isLoaded, setIsLoaded] = useState(false);
+  const [thumbnailError, setThumbnailError] = useState(0);
   const videoId = getYouTubeVideoId(url);
 
   if (!videoId) {
     console.warn("URL do YouTube inválida:", url);
-    return null;
+    // Retorna placeholder em vez de null para não quebrar layout
+    return (
+      <div className="relative rounded-xl overflow-hidden bg-muted aspect-video w-full flex items-center justify-center">
+        <span className="text-muted-foreground text-sm">Vídeo indisponível</span>
+      </div>
+    );
   }
 
-  const thumbnailUrl = `https://img.youtube.com/vi/${videoId}/maxresdefault.jpg`;
+  // Array de fallbacks de thumbnail
+  const thumbnailFallbacks = [
+    `https://img.youtube.com/vi/${videoId}/maxresdefault.jpg`,
+    `https://img.youtube.com/vi/${videoId}/hqdefault.jpg`,
+    `https://img.youtube.com/vi/${videoId}/mqdefault.jpg`,
+    `https://img.youtube.com/vi/${videoId}/default.jpg`,
+    PLACEHOLDER_THUMBNAIL
+  ];
+
+  const currentThumbnail = thumbnailFallbacks[Math.min(thumbnailError, thumbnailFallbacks.length - 1)];
   const embedUrl = `https://www.youtube-nocookie.com/embed/${videoId}?autoplay=1&rel=0`;
 
   if (isLoaded) {
@@ -58,20 +76,19 @@ export const YouTubeEmbed = ({ url, title }: YouTubeEmbedProps) => {
   return (
     <button
       onClick={() => setIsLoaded(true)}
-      className="relative rounded-xl overflow-hidden bg-black aspect-video w-full group cursor-pointer focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 focus:ring-offset-background"
+      className="relative rounded-xl overflow-hidden bg-muted aspect-video w-full group cursor-pointer focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 focus:ring-offset-background"
       aria-label={`Reproduzir vídeo: ${title}`}
     >
       <img
-        src={thumbnailUrl}
+        src={currentThumbnail}
         alt={`Thumbnail do vídeo: ${title}`}
         className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
         loading="lazy"
         decoding="async"
-        onError={(e) => {
-          // Fallback para thumbnail de menor qualidade se maxresdefault não existir
-          const target = e.target as HTMLImageElement;
-          if (target.src.includes("maxresdefault")) {
-            target.src = `https://img.youtube.com/vi/${videoId}/hqdefault.jpg`;
+        onError={() => {
+          // Tenta próximo fallback
+          if (thumbnailError < thumbnailFallbacks.length - 1) {
+            setThumbnailError(prev => prev + 1);
           }
         }}
       />

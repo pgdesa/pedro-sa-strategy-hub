@@ -55,7 +55,7 @@ export const SubHeroBlock = () => {
             </h2>
 
             <p className="text-sm sm:text-base lg:text-base xl:text-lg text-foreground-secondary leading-relaxed">
-              Atendo negócios em desenvolvimento, marcas públicas, instituições e profissionais que precisam transformar objetivos soltos em estratégia, clareza e ação.
+              Tenho experiências em atender negócios em desenvolvimento, marcas públicas, instituições e profissionais que precisam transformar objetivos soltos em estratégias, clareza e ação.
             </p>
 
             {/* Três pilares */}
