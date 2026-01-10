@@ -80,15 +80,7 @@ export const Navbar = () => {
               location.pathname.startsWith("/trabalhos") ? "text-primary" : navTextColor
             } ${navHoverColor} transition-colors`}
           >
-            Trabalhos
-          </NavLink>
-          <NavLink
-            to="/contato"
-            className={`text-sm font-inter font-medium ${
-              isContatoPage ? "text-primary" : navTextColor
-            } ${navHoverColor} transition-colors`}
-          >
-            Contato
+            Trabalho
           </NavLink>
           <Button 
             variant="default" 
@@ -96,7 +88,7 @@ export const Navbar = () => {
             className="bg-primary text-primary-foreground hover:bg-primary/90 hover:scale-105 transition-all shadow-gold"
             asChild
           >
-            <Link to="/agendar-diagnostico">Agendar diagnóstico</Link>
+            <Link to="/contato">Fale Comigo</Link>
           </Button>
         </div>
 
@@ -125,13 +117,7 @@ export const Navbar = () => {
                   to="/trabalhos"
                   className="text-lg font-inter font-medium text-foreground hover:text-primary transition-colors"
                 >
-                  Trabalhos
-                </NavLink>
-                <NavLink
-                  to="/contato"
-                  className="text-lg font-inter font-medium text-foreground hover:text-primary transition-colors"
-                >
-                  Contato
+                  Trabalho
                 </NavLink>
               </nav>
             </SheetContent>
@@ -143,7 +129,7 @@ export const Navbar = () => {
             className="bg-primary text-primary-foreground hover:bg-primary/90"
             asChild
           >
-            <Link to="/agendar-diagnostico">Agendar</Link>
+            <Link to="/contato">Fale Comigo</Link>
           </Button>
         </div>
       </div>
