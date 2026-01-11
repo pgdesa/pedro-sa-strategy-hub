@@ -1,4 +1,4 @@
-import { useState, useEffect, useRef } from 'react';
+import { useState } from 'react';
 import { Helmet } from 'react-helmet-async';
 import { Navbar } from '@/components/Navbar';
 import { Button } from '@/components/ui/button';
@@ -8,8 +8,9 @@ import { Label } from '@/components/ui/label';
 import { useToast } from '@/hooks/use-toast';
 import pedroAgendar from '@/assets/pedro-agendar.jpg';
 import { useScrollToTop } from '@/hooks/useScrollToTop';
-import { N8N_WEBHOOK_DIAGNOSTICO, GA_EVENT_DIAGNOSTICO } from '@/config/env';
+import { GA_EVENT_DIAGNOSTICO } from '@/config/env';
 import { getCanonicalUrl } from '@/utils/seo';
+import { buildWhatsAppLeadLink, openWhatsApp } from '@/utils/whatsapp';
 
 const AgendarDiagnostico = () => {
   const { toast } = useToast();
@@ -22,17 +23,8 @@ const AgendarDiagnostico = () => {
     projeto: ''
   });
 
-  const mountedRef = useRef(true);
-
   // Centralizado: scroll ao topo
   useScrollToTop();
-
-  // Cleanup: evita setState após unmount (sem cancelar o envio do lead)
-  useEffect(() => {
-    return () => {
-      mountedRef.current = false;
-    };
-  }, []);
 
   const formatPhone = (value: string) => {
     const numbers = value.replace(/\D/g, '');
@@ -54,9 +46,10 @@ const AgendarDiagnostico = () => {
     return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
   };
 
-  const handleSubmit = async (e: React.FormEvent) => {
+  const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     
+    // Validação de campos obrigatórios
     if (!formData.nome.trim() || !formData.telefone.trim() || !formData.email.trim()) {
       toast({
         title: "Campos obrigatórios",
@@ -78,78 +71,35 @@ const AgendarDiagnostico = () => {
     setIsSubmitting(true);
     
     try {
-      const payload = new URLSearchParams({
-        nome: formData.nome.trim(),
-        telefone: formData.telefone.trim(),
-        email: formData.email.trim(),
-        mensagem: formData.projeto.trim(),
-      });
-
-      let responseOk = false;
-
-      // Envio como x-www-form-urlencoded para evitar preflight/CORS em alguns webhooks
-      try {
-        const response = await fetch(N8N_WEBHOOK_DIAGNOSTICO, {
-          method: 'POST',
-          body: payload,
-          // Mantém o envio mesmo se o usuário navegar logo após clicar em enviar
-          keepalive: true,
-          redirect: 'follow',
-        });
-        responseOk = response.ok;
-      } catch (err) {
-        // Fallback best-effort: tenta sendBeacon (não depende de CORS e é mais resiliente em navegação)
-        if (
-          typeof navigator !== 'undefined' &&
-          typeof navigator.sendBeacon === 'function' &&
-          typeof Blob !== 'undefined'
-        ) {
-          const blob = new Blob([payload.toString()], {
-            type: 'application/x-www-form-urlencoded;charset=UTF-8',
-          });
-          responseOk = navigator.sendBeacon(N8N_WEBHOOK_DIAGNOSTICO, blob);
-        }
-
-        if (!responseOk) {
-          throw err;
-        }
-      }
-
-      // Valida resposta HTTP (quando fetch completou)
-      if (!responseOk) {
-        throw new Error("Falha no envio do formulário");
-      }
-
+      // Constrói URL do WhatsApp com mensagem pré-preenchida
+      const waUrl = buildWhatsAppLeadLink(formData);
+      
+      // Abre WhatsApp (app ou web)
+      openWhatsApp(waUrl);
 
       // Analytics event
       if (typeof window !== 'undefined' && (window as any).gtag) {
         (window as any).gtag('event', GA_EVENT_DIAGNOSTICO, {
           event_category: 'form',
-          event_label: 'agendar_diagnostico'
+          event_label: 'agendar_diagnostico_whatsapp'
         });
       }
 
-      if (mountedRef.current) {
-        setIsSubmitted(true);
-        toast({
-          title: "Enviado com sucesso!",
-          description: "Em breve entraremos em contato.",
-        });
-      }
-    } catch (error) {
-      // Se o componente já desmontou, não tenta atualizar UI
-      if (!mountedRef.current) return;
-
-      console.error('Erro ao enviar para webhook:', error);
+      // Marca como enviado e mostra feedback
+      setIsSubmitted(true);
       toast({
-        title: "Erro ao enviar",
-        description: "Tente novamente em alguns instantes.",
+        title: "WhatsApp aberto!",
+        description: "Complete o envio da mensagem no WhatsApp.",
+      });
+    } catch (error) {
+      console.error('Erro ao abrir WhatsApp:', error);
+      toast({
+        title: "Erro ao abrir WhatsApp",
+        description: "Tente novamente.",
         variant: "destructive"
       });
     } finally {
-      if (mountedRef.current) {
-        setIsSubmitting(false);
-      }
+      setIsSubmitting(false);
     }
   };
 
