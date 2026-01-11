@@ -73,13 +73,15 @@ const Contato = () => {
             {/* Coluna Esquerda - Foto */}
             <div className="lg:col-span-5 flex items-center justify-center">
               <div className="relative w-full h-full flex items-center justify-center">
-                <img
+              <img
                   src={pedroContato}
                   alt="Pedro Gabriel de Sá - Estrategista em Comunicação"
                   className="w-full max-w-2xl lg:max-w-3xl h-auto max-h-[80vh] object-contain"
                   loading="eager"
                   decoding="async"
                   fetchPriority="high"
+                  width={800}
+                  height={1000}
                 />
                 <div className="absolute inset-0 -z-10 bg-primary/10 blur-3xl rounded-full scale-75 will-change-transform" aria-hidden="true" />
               </div>

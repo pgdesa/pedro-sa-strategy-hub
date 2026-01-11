@@ -70,7 +70,7 @@ export const useParallax = (options: UseParallaxOptions = {}): UseParallaxReturn
     return () => observer.disconnect();
   }, [onlyWhenVisible]);
 
-  // Efeito de parallax no scroll
+  // Efeito de parallax no scroll - otimizado com rAF throttle
   useEffect(() => {
     // Guard para SSR/testes
     if (typeof window === "undefined") {
@@ -85,7 +85,10 @@ export const useParallax = (options: UseParallaxOptions = {}): UseParallaxReturn
       return;
     }
 
-    const handleScroll = () => {
+    let rafId: number | null = null;
+    let ticking = false;
+
+    const updateParallax = () => {
       if (!elementRef.current || !sectionRef.current) return;
       
       const rect = sectionRef.current.getBoundingClientRect();
@@ -93,12 +96,25 @@ export const useParallax = (options: UseParallaxOptions = {}): UseParallaxReturn
       const parallaxY = scrollProgress * intensity;
       
       elementRef.current.style.transform = `translateY(${parallaxY}px)`;
+      ticking = false;
+    };
+
+    const handleScroll = () => {
+      if (!ticking) {
+        rafId = requestAnimationFrame(updateParallax);
+        ticking = true;
+      }
     };
 
     window.addEventListener("scroll", handleScroll, { passive: true });
-    handleScroll(); // Aplica estado inicial
+    updateParallax(); // Aplica estado inicial
     
-    return () => window.removeEventListener("scroll", handleScroll);
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+      if (rafId) {
+        cancelAnimationFrame(rafId);
+      }
+    };
   }, [prefersReducedMotion, isVisible, intensity]);
 
   return { sectionRef, elementRef, isVisible };
