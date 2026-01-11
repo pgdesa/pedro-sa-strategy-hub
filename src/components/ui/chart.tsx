@@ -58,12 +58,29 @@ const ChartContainer = React.forwardRef<
 });
 ChartContainer.displayName = "Chart";
 
+/**
+ * SECURITY NOTE: ChartConfig must always come from trusted/static sources within
+ * the codebase. Never pass user-controlled data to this component as it uses
+ * dangerouslySetInnerHTML for CSS injection. If config becomes dynamic/user-controlled
+ * in the future, implement color sanitization.
+ */
 const ChartStyle = ({ id, config }: { id: string; config: ChartConfig }) => {
   const colorConfig = Object.entries(config).filter(([_, config]) => config.theme || config.color);
 
   if (!colorConfig.length) {
     return null;
   }
+
+  // Sanitize color values to only allow valid CSS color formats
+  const sanitizeColor = (color: string | undefined): string | null => {
+    if (!color) return null;
+    // Allow hex colors, hsl/hsla, rgb/rgba, and CSS color names
+    const validColorPattern = /^(#[0-9a-fA-F]{3,8}|hsl\(|hsla\(|rgb\(|rgba\(|[a-zA-Z]+)$/;
+    if (!validColorPattern.test(color.trim().split(/[\s(]/)[0])) {
+      return null;
+    }
+    return color;
+  };
 
   return (
     <style
@@ -74,9 +91,11 @@ const ChartStyle = ({ id, config }: { id: string; config: ChartConfig }) => {
 ${prefix} [data-chart=${id}] {
 ${colorConfig
   .map(([key, itemConfig]) => {
-    const color = itemConfig.theme?.[theme as keyof typeof itemConfig.theme] || itemConfig.color;
+    const rawColor = itemConfig.theme?.[theme as keyof typeof itemConfig.theme] || itemConfig.color;
+    const color = sanitizeColor(rawColor);
     return color ? `  --color-${key}: ${color};` : null;
   })
+  .filter(Boolean)
   .join("\n")}
 }
 `,

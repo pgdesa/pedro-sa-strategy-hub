@@ -46,11 +46,22 @@ const AgendarDiagnostico = () => {
     return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
   };
 
+  // Sanitize input to remove potentially dangerous characters
+  const sanitize = (str: string) => str.replace(/[<>"']/g, '').trim();
+
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     
+    // Sanitize inputs
+    const sanitizedData = {
+      nome: sanitize(formData.nome),
+      telefone: sanitize(formData.telefone),
+      email: sanitize(formData.email),
+      projeto: sanitize(formData.projeto)
+    };
+    
     // Validação de campos obrigatórios
-    if (!formData.nome.trim() || !formData.telefone.trim() || !formData.email.trim()) {
+    if (!sanitizedData.nome || !sanitizedData.telefone || !sanitizedData.email) {
       toast({
         title: "Campos obrigatórios",
         description: "Por favor, preencha todos os campos obrigatórios.",
@@ -59,7 +70,17 @@ const AgendarDiagnostico = () => {
       return;
     }
 
-    if (!validateEmail(formData.email)) {
+    // Input length limits
+    if (sanitizedData.nome.length > 100 || sanitizedData.email.length > 100 || sanitizedData.projeto.length > 1000) {
+      toast({
+        title: "Limite excedido",
+        description: "Por favor, reduza o tamanho do texto.",
+        variant: "destructive"
+      });
+      return;
+    }
+
+    if (!validateEmail(sanitizedData.email)) {
       toast({
         title: "E-mail inválido",
         description: "Por favor, insira um e-mail válido.",
@@ -71,8 +92,8 @@ const AgendarDiagnostico = () => {
     setIsSubmitting(true);
     
     try {
-      // Constrói URL do WhatsApp com mensagem pré-preenchida
-      const waUrl = buildWhatsAppLeadLink(formData);
+      // Constrói URL do WhatsApp com mensagem pré-preenchida (usando dados sanitizados)
+      const waUrl = buildWhatsAppLeadLink(sanitizedData);
       
       // Abre WhatsApp (app ou web)
       openWhatsApp(waUrl);
@@ -91,8 +112,12 @@ const AgendarDiagnostico = () => {
         title: "WhatsApp aberto!",
         description: "Complete o envio da mensagem no WhatsApp.",
       });
-    } catch (error) {
-      console.error('Erro ao abrir WhatsApp:', error);
+    } catch {
+      // Log only in development
+      if (import.meta.env.DEV) {
+        // eslint-disable-next-line no-console
+        console.error('Erro ao abrir WhatsApp');
+      }
       toast({
         title: "Erro ao abrir WhatsApp",
         description: "Tente novamente.",
