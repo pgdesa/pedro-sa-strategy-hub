@@ -47,6 +47,8 @@ export const BioBlocoFilosofia = ({ className = "" }: BioBlocoFilosofiaProps) =>
                 src={pedroBio3}
                 alt="Pedro Gabriel - Filosofia de trabalho em comunicação"
                 className="w-full h-auto max-h-[85vh] object-contain"
+                loading="lazy"
+                decoding="async"
                 style={{
                   filter: 'drop-shadow(0 15px 40px rgba(0, 0, 0, 0.3))'
                 }}

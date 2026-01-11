@@ -4,12 +4,12 @@ import { BioBlocoTrajetoria } from "@/components/BioBlocoTrajetoria";
 import { BioBlocoFilosofia } from "@/components/BioBlocoFilosofia";
 import { BioBlocoTimeline } from "@/components/BioBlocoTimeline";
 import { Navbar } from "@/components/Navbar";
-import { useMemo } from "react";
+import { useMemo, memo } from "react";
 import { Helmet } from "react-helmet-async";
 import { useScrollToTop } from "@/hooks/useScrollToTop";
 import { getCanonicalUrl } from "@/utils/seo";
 
-const Bio = () => {
+const Bio = memo(() => {
   // Centralizado: scroll ao topo
   useScrollToTop();
 
@@ -27,6 +27,9 @@ const Bio = () => {
         <title>Bio – Pedro Sá | Estrategista em Comunicação e Marketing</title>
         <meta name="description" content="Conheça a trajetória de Pedro Sá: estrategista em comunicação, marketing e negócios com experiência em projetos públicos e privados desde 2014." />
         <link rel="canonical" href={getCanonicalUrl("/bio")} />
+        <meta property="og:title" content="Bio – Pedro Sá | Estrategista em Comunicação e Marketing" />
+        <meta property="og:description" content="Conheça a trajetória de Pedro Sá: estrategista em comunicação, marketing e negócios." />
+        <meta property="og:url" content={getCanonicalUrl("/bio")} />
       </Helmet>
       <div className="min-h-screen">
         <Navbar />
@@ -34,6 +37,8 @@ const Bio = () => {
       </div>
     </>
   );
-};
+});
+
+Bio.displayName = "Bio";
 
 export default Bio;

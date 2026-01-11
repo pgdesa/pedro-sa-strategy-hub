@@ -1,3 +1,4 @@
+import { memo } from "react";
 import { Helmet } from "react-helmet-async";
 import { Navbar } from "@/components/Navbar";
 import { Button } from "@/components/ui/button";
@@ -78,7 +79,7 @@ const ferramentas = [
   "Automação: n8n"
 ];
 
-const Curriculo = () => {
+const Curriculo = memo(() => {
   useScrollToTop();
 
   return (
@@ -256,6 +257,8 @@ const Curriculo = () => {
       </div>
     </>
   );
-};
+});
+
+Curriculo.displayName = "Curriculo";
 
 export default Curriculo;

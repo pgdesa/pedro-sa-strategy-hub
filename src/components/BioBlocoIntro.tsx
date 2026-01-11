@@ -69,6 +69,9 @@ export const BioBlocoIntro = ({ className = "" }: BioBlocoIntroProps) => {
                 src={pedroBio1}
                 alt="Pedro Gabriel - Especialista em comunicação e marketing"
                 className="w-full h-auto max-h-[85vh] object-contain"
+                loading="eager"
+                decoding="async"
+                fetchPriority="high"
                 style={{
                   filter: 'drop-shadow(0 15px 40px rgba(0, 0, 0, 0.2))'
                 }}

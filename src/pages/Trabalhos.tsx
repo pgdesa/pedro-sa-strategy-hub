@@ -45,6 +45,10 @@ const TrabalhosLanding = () => {
         <title>Trabalhos – Pedro Sá | Portfólio de Comunicação e Marketing</title>
         <meta name="description" content="Conheça os projetos de comunicação, marketing e estratégia de Pedro Sá. Cases de atendimento publicitário, comunicação estratégica, gestão de projetos e marketing digital." />
         <link rel="canonical" href={getCanonicalUrl("/trabalhos")} />
+        <meta property="og:title" content="Trabalhos – Pedro Sá | Portfólio de Comunicação e Marketing" />
+        <meta property="og:description" content="Conheça os projetos de comunicação, marketing e estratégia de Pedro Sá." />
+        <meta property="og:url" content={getCanonicalUrl("/trabalhos")} />
+        <meta property="og:type" content="website" />
       </Helmet>
       <div className="min-h-screen bg-background flex flex-col">
         <Navbar />

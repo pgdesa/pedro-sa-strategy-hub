@@ -21,6 +21,8 @@ export const BioBlocoTrajetoria = ({ className = "" }: BioBlocoTrajetoriaProps) 
                 src={pedroBio2}
                 alt="Pedro Gabriel - Profissional de comunicação estratégica"
                 className="w-full h-auto max-h-[65vh] object-contain"
+                loading="lazy"
+                decoding="async"
                 style={{
                   filter: 'drop-shadow(0 15px 40px rgba(0, 0, 0, 0.15))'
                 }}
