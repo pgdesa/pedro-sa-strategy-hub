@@ -9,6 +9,7 @@ All colors MUST be HSL.
 @layer base {
   :root {
     /* Hightech Dark Design System */
+    --nav-h: 72px;
     --background: 220 30% 4%;
     --foreground: 0 0% 96%;
     --foreground-secondary: 0 0% 70%;

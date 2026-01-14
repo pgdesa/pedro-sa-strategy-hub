@@ -109,10 +109,10 @@ export const HeroBlock = () => {
               <img
                 ref={imageRef}
                 src={heroImage}
-                alt="Retrato profissional de Pedro Sá em estúdio, blazer escuro com fundo neutro, braços cruzados e expressão confiante"
+                alt="Retrato profissional de Pedro Sá em estúdio, blazer escuro com fundo transparente, braços cruzados e expressão confiante"
                 width={800}
-                height={1067}
-                className="relative max-h-[88vh] w-full h-auto object-cover object-top drop-shadow-premium transition-transform duration-700 ease-smooth hover:scale-[1.02]"
+                height={1200}
+                className="relative w-full h-full max-h-[calc(100vh-var(--nav-h))] object-contain object-bottom drop-shadow-premium transition-transform duration-700 ease-smooth hover:scale-[1.02]"
                 style={{
                   filter: 'drop-shadow(0 25px 50px rgba(0,0,0,0.5)) drop-shadow(0 0 40px hsl(var(--primary) / 0.3))'
                 }}
@@ -120,7 +120,7 @@ export const HeroBlock = () => {
                 fetchPriority="high"
                 decoding="async"
                 srcSet={`${heroImage} 1x, ${heroImage} 2x`}
-                sizes="(max-width: 1024px) 100vw, 66vw"
+                sizes="(max-width: 1024px) 100vw, 50vw"
               />
             </div>
             
