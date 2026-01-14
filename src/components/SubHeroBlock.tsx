@@ -94,7 +94,7 @@ export const SubHeroBlock = () => {
                 alt="Retrato close de Pedro Sá em estúdio, expressão focada e profissional"
                 width={800}
                 height={1067}
-                className="relative w-full h-full min-h-[70vh] max-h-[calc(100vh-var(--nav-h))] object-cover object-top drop-shadow-glow transition-transform duration-700 ease-smooth hover:scale-[1.02]"
+                className="relative w-full h-auto max-h-[85vh] object-contain drop-shadow-glow transition-transform duration-700 ease-smooth hover:scale-[1.02]"
                 style={{
                   filter: 'drop-shadow(0 20px 40px rgba(0,0,0,0.6)) drop-shadow(0 0 30px hsl(var(--primary) / 0.25))'
                 }}
