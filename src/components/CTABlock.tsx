@@ -70,9 +70,9 @@ export const CTABlock = () => {
             </div>
           </div>
 
-          {/* IMAGEM - coluna expandida */}
-          <div data-photo className="col-span-12 lg:col-span-6 xl:col-span-6 animate-fade-in-delay order-1 lg:order-2 flex items-center justify-center">
-            <div className="relative perspective-container w-full">
+          {/* IMAGEM - coluna expandida com respiro da navbar */}
+          <div data-photo className="col-span-12 lg:col-span-6 xl:col-span-6 animate-fade-in-delay order-1 lg:order-2 flex items-center justify-center pt-[var(--nav-h)] lg:pt-0">
+            <div className="relative perspective-container w-full min-h-[60vh] lg:min-h-[75vh] flex items-center justify-center">
               {/* Layered glow effects */}
               <div className="absolute -inset-12 bg-gradient-to-tl from-primary/25 via-accent/15 to-transparent rounded-full blur-3xl opacity-70 pointer-events-none" aria-hidden="true" />
               <div className="absolute -inset-8 bg-gradient-to-br from-accent/20 to-primary/15 rounded-full blur-2xl opacity-60 pointer-events-none" aria-hidden="true" />
@@ -83,11 +83,11 @@ export const CTABlock = () => {
                  alt="Perfil lateral de Pedro Sá em estúdio, destacando rim-light nas bordas, blazer escuro e postura contemplativa profissional"
                  width={800}
                  height={1067}
-                 className="relative max-h-[85vh] w-full h-auto object-contain transition-all duration-700 ease-smooth hover:scale-[1.02] drop-shadow-premium-lg"
+                 className="relative w-full h-full max-h-[calc(100vh-var(--nav-h))] object-cover object-center transition-all duration-700 ease-smooth hover:scale-[1.02] drop-shadow-premium-lg"
                  loading="lazy"
                  decoding="async"
                  srcSet={`${ctaImage} 1x, ${ctaImage} 2x`}
-                 sizes="(max-width: 1024px) 100vw, 66vw"
+                 sizes="(max-width: 1024px) 100vw, 50vw"
                />
               
               {/* Rim light accent simulation */}
