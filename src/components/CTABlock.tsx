@@ -83,7 +83,7 @@ export const CTABlock = () => {
                  alt="Perfil lateral de Pedro Sá em estúdio, destacando rim-light nas bordas, blazer escuro e postura contemplativa profissional"
                  width={800}
                  height={1067}
-                 className="relative w-full h-full max-h-[calc(100vh-var(--nav-h))] object-cover object-center transition-all duration-700 ease-smooth hover:scale-[1.02] drop-shadow-premium-lg"
+                 className="relative w-full h-auto max-h-[85vh] object-contain transition-all duration-700 ease-smooth hover:scale-[1.02] drop-shadow-premium-lg"
                  loading="lazy"
                  decoding="async"
                  srcSet={`${ctaImage} 1x, ${ctaImage} 2x`}
