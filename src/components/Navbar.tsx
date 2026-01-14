@@ -80,7 +80,7 @@ export const Navbar = () => {
               location.pathname.startsWith("/trabalhos") ? "text-primary" : navTextColor
             } ${navHoverColor} transition-colors`}
           >
-            Trabalho
+            Trabalhos
           </NavLink>
           <Button 
             variant="default" 
@@ -106,7 +106,7 @@ export const Navbar = () => {
             <SheetContent side="right" className="w-[280px] bg-background/95 backdrop-blur-xl border-border/50">
               <SheetTitle className="sr-only">Menu de navegação</SheetTitle>
               <SheetDescription className="sr-only">Links para páginas do site</SheetDescription>
-              <nav className="flex flex-col gap-6 mt-8">
+              <nav className="flex flex-col gap-6 mt-14">
                 <NavLink
                   to="/bio"
                   className="text-lg font-inter font-medium text-foreground hover:text-primary transition-colors"
@@ -117,7 +117,7 @@ export const Navbar = () => {
                   to="/trabalhos"
                   className="text-lg font-inter font-medium text-foreground hover:text-primary transition-colors"
                 >
-                  Trabalho
+                  Trabalhos
                 </NavLink>
               </nav>
             </SheetContent>
